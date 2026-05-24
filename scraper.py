@@ -14,6 +14,7 @@ DROPBOX_TOKEN = os.environ['DROPBOX_TOKEN']
 
 URL_LOGIN = 'https://apps1.mahonsistemas.com.ar/WebCorporateTiburon/login.aspx'
 URL_REPORTE = 'https://apps1.mahonsistemas.com.ar/WebCorporateTiburon/InfCompCosto.aspx'
+BASE = 'https://apps1.mahonsistemas.com.ar/WebCorporateTiburon/'
 
 def login(page, empresa):
     print(f'Entrando como: {empresa}')
@@ -66,15 +67,46 @@ def descargar_excel(page, context, empresa_nombre):
     ''')
     page.wait_for_timeout(1500)
 
-    # Escuchar nueva pestaña que abre AMS con el archivo
-    with context.expect_page() as new_page_info:
-        page.click('#vEXPORTAREXCEL')
+    # Capturar URL del archivo via respuestas de red
+    archivo_url = []
 
-    new_page = new_page_info.value
-    new_page.wait_for_load_state('load', timeout=30000)
-    archivo_url = new_page.url
-    print(f'URL del archivo: {archivo_url}')
-    new_page.close()
+    def capturar_respuesta(response):
+        url = response.url
+        if 'PublicTempStorage' in url and ('.xlsx' in url or '.xls' in url):
+            print(f'Archivo encontrado: {url}')
+            archivo_url.append(url)
+
+    page.on('response', capturar_respuesta)
+
+    # Click en Excel
+    page.click('#vEXPORTAREXCEL')
+    
+    # Esperar hasta 15 segundos a que aparezca la URL
+    for i in range(30):
+        if archivo_url:
+            break
+        page.wait_for_timeout(500)
+    
+    page.remove_listener('response', capturar_respuesta)
+
+    if not archivo_url:
+        # Intentar leer la URL desde el DOM o window
+        url_desde_dom = page.evaluate('''
+            () => {
+                // Buscar links o iframes con el archivo
+                var links = document.querySelectorAll("a[href*='PublicTempStorage'], iframe[src*='PublicTempStorage']");
+                if (links.length > 0) return links[0].href || links[0].src;
+                return null;
+            }
+        ''')
+        if url_desde_dom:
+            archivo_url.append(url_desde_dom)
+
+    if not archivo_url:
+        raise Exception('No se encontró la URL del archivo generado')
+
+    url_final = archivo_url[0]
+    print(f'Descargando desde: {url_final}')
 
     # Descargar con cookies de sesión
     cookies = context.cookies()
@@ -82,7 +114,7 @@ def descargar_excel(page, context, empresa_nombre):
     for cookie in cookies:
         session.cookies.set(cookie['name'], cookie['value'])
 
-    response = session.get(archivo_url)
+    response = session.get(url_final)
     filename = f'{empresa_nombre.replace(" ", "_").replace(".", "")}.xlsx'
     with open(filename, 'wb') as f:
         f.write(response.content)
