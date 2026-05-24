@@ -1,0 +1,30 @@
+name: AMS Scraper
+
+on:
+  schedule:
+    - cron: '0 15 * * 1-5'  # 12hs Argentina (UTC-3)
+    - cron: '0 19 * * 1-5'  # 16hs Argentina (UTC-3)
+  workflow_dispatch:          # permite correrlo manualmente
+
+jobs:
+  scrape:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install playwright dropbox && python -m playwright install chromium
+
+      - name: Run scraper
+        env:
+          AMS_USUARIO: ${{ secrets.AMS_USUARIO }}
+          AMS_PASSWORD: ${{ secrets.AMS_PASSWORD }}
+          AMS_EMPRESA_1: ${{ secrets.AMS_EMPRESA_1 }}
+          AMS_EMPRESA_2: ${{ secrets.AMS_EMPRESA_2 }}
+          DROPBOX_TOKEN: ${{ secrets.DROPBOX_TOKEN }}
+        run: python scraper.py
