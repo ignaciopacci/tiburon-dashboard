@@ -14,7 +14,6 @@ DROPBOX_TOKEN = os.environ['DROPBOX_TOKEN']
 
 URL_LOGIN = 'https://apps1.mahonsistemas.com.ar/WebCorporateTiburon/login.aspx'
 URL_REPORTE = 'https://apps1.mahonsistemas.com.ar/WebCorporateTiburon/InfCompCosto.aspx'
-BASE_URL = 'https://apps1.mahonsistemas.com.ar/WebCorporateTiburon/'
 
 def login(page, empresa):
     print(f'Entrando como: {empresa}')
@@ -49,13 +48,12 @@ def login(page, empresa):
     page.wait_for_timeout(2000)
     print(f'Login OK: {empresa}')
 
-def descargar_excel(page, empresa_nombre):
+def descargar_excel(page, context, empresa_nombre):
     print(f'Descargando reporte: {empresa_nombre}')
     page.goto(URL_REPORTE)
     page.wait_for_load_state('networkidle')
     page.wait_for_selector('#vEXPORTAREXCEL', timeout=15000)
 
-    # Setear fechas del mes actual
     hoy = datetime.now()
     primer_dia = hoy.replace(day=1).strftime('%d/%m/%y')
     ultimo = calendar.monthrange(hoy.year, hoy.month)[1]
@@ -68,32 +66,18 @@ def descargar_excel(page, empresa_nombre):
     ''')
     page.wait_for_timeout(1500)
 
-    # Interceptar la URL del archivo generado
-    archivo_url = None
+    # Escuchar nueva pestaña que abre AMS con el archivo
+    with context.expect_page() as new_page_info:
+        page.click('#vEXPORTAREXCEL')
 
-    def on_response(response):
-        nonlocal archivo_url
-        url = response.url
-        if 'PublicTempStorage' in url and '.xlsx' in url:
-            archivo_url = url
-            print(f'URL interceptada: {url}')
+    new_page = new_page_info.value
+    new_page.wait_for_load_state('load', timeout=30000)
+    archivo_url = new_page.url
+    print(f'URL del archivo: {archivo_url}')
+    new_page.close()
 
-    page.on('response', on_response)
-
-    # Click en Excel
-    page.click('#vEXPORTAREXCEL')
-    page.wait_for_timeout(5000)
-
-    if not archivo_url:
-        # Buscar también en nuevas pestañas
-        print('Buscando en requests de red...')
-        page.wait_for_timeout(3000)
-
-    if not archivo_url:
-        raise Exception('No se pudo interceptar la URL del archivo Excel')
-
-    # Descargar el archivo usando las cookies de sesión
-    cookies = page.context.cookies()
+    # Descargar con cookies de sesión
+    cookies = context.cookies()
     session = requests.Session()
     for cookie in cookies:
         session.cookies.set(cookie['name'], cookie['value'])
@@ -121,7 +105,7 @@ def main():
             page = context.new_page()
             try:
                 login(page, empresa)
-                archivo = descargar_excel(page, empresa)
+                archivo = descargar_excel(page, context, empresa)
                 subir_dropbox(archivo, empresa)
                 print(f'✓ {empresa} completado')
             except Exception as e:
