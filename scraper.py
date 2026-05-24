@@ -1,5 +1,6 @@
 import os
 import time
+import requests
 from datetime import datetime
 import calendar
 from playwright.sync_api import sync_playwright
@@ -13,6 +14,7 @@ DROPBOX_TOKEN = os.environ['DROPBOX_TOKEN']
 
 URL_LOGIN = 'https://apps1.mahonsistemas.com.ar/WebCorporateTiburon/login.aspx'
 URL_REPORTE = 'https://apps1.mahonsistemas.com.ar/WebCorporateTiburon/InfCompCosto.aspx'
+BASE_URL = 'https://apps1.mahonsistemas.com.ar/WebCorporateTiburon/'
 
 def login(page, empresa):
     print(f'Entrando como: {empresa}')
@@ -59,7 +61,6 @@ def descargar_excel(page, empresa_nombre):
     ultimo = calendar.monthrange(hoy.year, hoy.month)[1]
     ultimo_dia = hoy.replace(day=ultimo).strftime('%d/%m/%y')
 
-    # Completar fechas — buscar inputs de fecha por ID o posición
     page.evaluate(f'''
         var inputs = document.querySelectorAll("input[type=text]");
         if (inputs[0]) {{ inputs[0].value = "{primer_dia}"; inputs[0].dispatchEvent(new Event('change')); }}
@@ -67,14 +68,41 @@ def descargar_excel(page, empresa_nombre):
     ''')
     page.wait_for_timeout(1500)
 
-    # Click en Excel y esperar descarga
-    with page.expect_download(timeout=45000) as download_info:
-        page.click('#vEXPORTAREXCEL')
+    # Interceptar la URL del archivo generado
+    archivo_url = None
 
-    download = download_info.value
+    def on_response(response):
+        nonlocal archivo_url
+        url = response.url
+        if 'PublicTempStorage' in url and '.xlsx' in url:
+            archivo_url = url
+            print(f'URL interceptada: {url}')
+
+    page.on('response', on_response)
+
+    # Click en Excel
+    page.click('#vEXPORTAREXCEL')
+    page.wait_for_timeout(5000)
+
+    if not archivo_url:
+        # Buscar también en nuevas pestañas
+        print('Buscando en requests de red...')
+        page.wait_for_timeout(3000)
+
+    if not archivo_url:
+        raise Exception('No se pudo interceptar la URL del archivo Excel')
+
+    # Descargar el archivo usando las cookies de sesión
+    cookies = page.context.cookies()
+    session = requests.Session()
+    for cookie in cookies:
+        session.cookies.set(cookie['name'], cookie['value'])
+
+    response = session.get(archivo_url)
     filename = f'{empresa_nombre.replace(" ", "_").replace(".", "")}.xlsx'
-    download.save_as(filename)
-    print(f'Descargado: {filename}')
+    with open(filename, 'wb') as f:
+        f.write(response.content)
+    print(f'Descargado: {filename} ({len(response.content)} bytes)')
     return filename
 
 def subir_dropbox(filepath, empresa_nombre):
