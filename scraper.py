@@ -19,13 +19,9 @@ def login(page, empresa):
     page.goto(URL_LOGIN)
     page.wait_for_load_state('networkidle')
     page.wait_for_selector('#vUSUARIOCOD', timeout=15000)
-
-    # Escribir usuario y esperar que cargue el dropdown de empresa
     page.fill('#vUSUARIOCOD', USUARIO)
     page.press('#vUSUARIOCOD', 'Tab')
     page.wait_for_timeout(2000)
-
-    # Seleccionar empresa por texto
     page.evaluate(f'''
         var sel = document.querySelector('#vPERFILCGO_MPAGE');
         for (var i = 0; i < sel.options.length; i++) {{
@@ -37,18 +33,13 @@ def login(page, empresa):
         }}
     ''')
     page.wait_for_timeout(1000)
-
-    # Escribir contraseña
     page.fill('#vUSUARIOPASS', PASSWORD)
     page.wait_for_timeout(500)
-
-    # Click en Ingresar
     page.evaluate('''
         var btns = document.querySelectorAll("input[type=button], input[type=submit], button");
         for (var i = 0; i < btns.length; i++) {
             if (btns[i].value && btns[i].value.toLowerCase().includes("ingres")) {
-                btns[i].click();
-                break;
+                btns[i].click(); break;
             }
         }
     ''')
@@ -60,33 +51,25 @@ def descargar_excel(page, empresa_nombre):
     print(f'Descargando reporte: {empresa_nombre}')
     page.goto(URL_REPORTE)
     page.wait_for_load_state('networkidle')
-    page.wait_for_timeout(2000)
+    page.wait_for_selector('#vEXPORTAREXCEL', timeout=15000)
 
+    # Setear fechas del mes actual
     hoy = datetime.now()
     primer_dia = hoy.replace(day=1).strftime('%d/%m/%y')
     ultimo = calendar.monthrange(hoy.year, hoy.month)[1]
     ultimo_dia = hoy.replace(day=ultimo).strftime('%d/%m/%y')
 
-    # Completar fechas via JavaScript
+    # Completar fechas — buscar inputs de fecha por ID o posición
     page.evaluate(f'''
         var inputs = document.querySelectorAll("input[type=text]");
         if (inputs[0]) {{ inputs[0].value = "{primer_dia}"; inputs[0].dispatchEvent(new Event('change')); }}
         if (inputs[1]) {{ inputs[1].value = "{ultimo_dia}"; inputs[1].dispatchEvent(new Event('change')); }}
     ''')
-    page.wait_for_timeout(1000)
+    page.wait_for_timeout(1500)
 
-    # Click en ícono Excel
-    with page.expect_download(timeout=30000) as download_info:
-        page.evaluate('''
-            var imgs = document.querySelectorAll("img");
-            for (var i = 0; i < imgs.length; i++) {
-                var src = imgs[i].src.toLowerCase();
-                if (src.includes("xls") || src.includes("excel") || src.includes("xlsx")) {
-                    imgs[i].click();
-                    break;
-                }
-            }
-        ''')
+    # Click en Excel y esperar descarga
+    with page.expect_download(timeout=45000) as download_info:
+        page.click('#vEXPORTAREXCEL')
 
     download = download_info.value
     filename = f'{empresa_nombre.replace(" ", "_").replace(".", "")}.xlsx'
