@@ -1,10 +1,10 @@
 import os
 import time
 from datetime import datetime
+import calendar
 from playwright.sync_api import sync_playwright
 import dropbox
 
-# Config desde secrets
 USUARIO = os.environ['AMS_USUARIO']
 PASSWORD = os.environ['AMS_PASSWORD']
 EMPRESA_1 = os.environ['AMS_EMPRESA_1']
@@ -18,43 +18,76 @@ def login(page, empresa):
     print(f'Entrando como: {empresa}')
     page.goto(URL_LOGIN)
     page.wait_for_load_state('networkidle')
-    page.fill('input[name*="Usuario"], input[id*="Usuario"]', USUARIO)
-    page.fill('input[name*="Password"], input[id*="Password"], input[type="password"]', PASSWORD)
-    # Seleccionar empresa en dropdown
-    page.select_option('select[name*="Empresa"], select[id*="Empresa"]', label=empresa)
-    page.click('input[value="Ingresar"], button:has-text("Ingresar")')
+    page.wait_for_selector('#vUSUARIOCOD', timeout=15000)
+
+    # Escribir usuario y esperar que cargue el dropdown de empresa
+    page.fill('#vUSUARIOCOD', USUARIO)
+    page.press('#vUSUARIOCOD', 'Tab')
+    page.wait_for_timeout(2000)
+
+    # Seleccionar empresa por texto
+    page.evaluate(f'''
+        var sel = document.querySelector('#vPERFILCGO_MPAGE');
+        for (var i = 0; i < sel.options.length; i++) {{
+            if (sel.options[i].text.trim() === "{empresa}") {{
+                sel.selectedIndex = i;
+                sel.dispatchEvent(new Event('change'));
+                break;
+            }}
+        }}
+    ''')
+    page.wait_for_timeout(1000)
+
+    # Escribir contraseña
+    page.fill('#vUSUARIOPASS', PASSWORD)
+    page.wait_for_timeout(500)
+
+    # Click en Ingresar
+    page.evaluate('''
+        var btns = document.querySelectorAll("input[type=button], input[type=submit], button");
+        for (var i = 0; i < btns.length; i++) {
+            if (btns[i].value && btns[i].value.toLowerCase().includes("ingres")) {
+                btns[i].click();
+                break;
+            }
+        }
+    ''')
     page.wait_for_load_state('networkidle')
+    page.wait_for_timeout(2000)
     print(f'Login OK: {empresa}')
 
 def descargar_excel(page, empresa_nombre):
     print(f'Descargando reporte: {empresa_nombre}')
     page.goto(URL_REPORTE)
     page.wait_for_load_state('networkidle')
+    page.wait_for_timeout(2000)
 
-    # Setear fechas del mes actual
     hoy = datetime.now()
     primer_dia = hoy.replace(day=1).strftime('%d/%m/%y')
-    
-    # Calcular último día del mes
-    if hoy.month == 12:
-        ultimo_dia = hoy.replace(day=31).strftime('%d/%m/%y')
-    else:
-        import calendar
-        ultimo = calendar.monthrange(hoy.year, hoy.month)[1]
-        ultimo_dia = hoy.replace(day=ultimo).strftime('%d/%m/%y')
+    ultimo = calendar.monthrange(hoy.year, hoy.month)[1]
+    ultimo_dia = hoy.replace(day=ultimo).strftime('%d/%m/%y')
 
-    # Completar fechas
-    fecha_desde = page.locator('input[id*="FechaDesde"], input[name*="FechaDesde"]').first
-    fecha_hasta = page.locator('input[id*="FechaHasta"], input[name*="FechaHasta"]').first
-    fecha_desde.fill('')
-    fecha_desde.type(primer_dia)
-    fecha_hasta.fill('')
-    fecha_hasta.type(ultimo_dia)
+    # Completar fechas via JavaScript
+    page.evaluate(f'''
+        var inputs = document.querySelectorAll("input[type=text]");
+        if (inputs[0]) {{ inputs[0].value = "{primer_dia}"; inputs[0].dispatchEvent(new Event('change')); }}
+        if (inputs[1]) {{ inputs[1].value = "{ultimo_dia}"; inputs[1].dispatchEvent(new Event('change')); }}
+    ''')
+    page.wait_for_timeout(1000)
 
-    # Click en ícono Excel (imagen verde)
-    with page.expect_download() as download_info:
-        page.click('img[src*="excel"], img[alt*="xls"], img[title*="xcel"], a[href*="excel"]')
-    
+    # Click en ícono Excel
+    with page.expect_download(timeout=30000) as download_info:
+        page.evaluate('''
+            var imgs = document.querySelectorAll("img");
+            for (var i = 0; i < imgs.length; i++) {
+                var src = imgs[i].src.toLowerCase();
+                if (src.includes("xls") || src.includes("excel") || src.includes("xlsx")) {
+                    imgs[i].click();
+                    break;
+                }
+            }
+        ''')
+
     download = download_info.value
     filename = f'{empresa_nombre.replace(" ", "_").replace(".", "")}.xlsx'
     download.save_as(filename)
@@ -71,7 +104,7 @@ def subir_dropbox(filepath, empresa_nombre):
 def main():
     with sync_playwright() as p:
         browser = p.chromium.launch(headless=True)
-        
+
         for empresa in [EMPRESA_1, EMPRESA_2]:
             context = browser.new_context()
             page = context.new_page()
@@ -86,7 +119,7 @@ def main():
             finally:
                 context.close()
             time.sleep(3)
-        
+
         browser.close()
     print('Proceso completo:', datetime.now().strftime('%d/%m/%Y %H:%M'))
 
