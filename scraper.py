@@ -13,8 +13,14 @@ EMPRESA_2 = os.environ['AMS_EMPRESA_2']
 DROPBOX_TOKEN = os.environ['DROPBOX_TOKEN']
 
 URL_LOGIN = 'https://apps1.mahonsistemas.com.ar/WebCorporateTiburon/login.aspx'
-URL_REPORTE = 'https://apps1.mahonsistemas.com.ar/WebCorporateTiburon/InfCompCosto.aspx'
 BASE = 'https://apps1.mahonsistemas.com.ar/WebCorporateTiburon/'
+
+def get_url_reporte():
+    hoy = datetime.now()
+    primer_dia = hoy.replace(day=1).strftime('%Y%m%d')
+    ultimo = calendar.monthrange(hoy.year, hoy.month)[1]
+    ultimo_dia = hoy.replace(day=ultimo).strftime('%Y%m%d')
+    return f'{BASE}alstinfcompcosto.aspx?{primer_dia},{ultimo_dia},PES,,A,SCR'
 
 def login(page, empresa):
     print(f'Entrando como: {empresa}')
@@ -49,73 +55,24 @@ def login(page, empresa):
     page.wait_for_timeout(2000)
     print(f'Login OK: {empresa}')
 
-def descargar_excel(page, context, empresa_nombre):
-    print(f'Descargando reporte: {empresa_nombre}')
-    page.goto(URL_REPORTE)
+def descargar_pdf(page, context, empresa_nombre):
+    url_reporte = get_url_reporte()
+    print(f'Descargando PDF: {url_reporte}')
+
+    # Navegar directo a la URL del reporte
+    page.goto(url_reporte)
     page.wait_for_load_state('networkidle')
-    page.wait_for_selector('#vEXPORTAREXCEL', timeout=15000)
+    page.wait_for_timeout(3000)
 
-    hoy = datetime.now()
-    primer_dia = hoy.replace(day=1).strftime('%d/%m/%y')
-    ultimo = calendar.monthrange(hoy.year, hoy.month)[1]
-    ultimo_dia = hoy.replace(day=ultimo).strftime('%d/%m/%y')
-
-    page.evaluate(f'''
-        var inputs = document.querySelectorAll("input[type=text]");
-        if (inputs[0]) {{ inputs[0].value = "{primer_dia}"; inputs[0].dispatchEvent(new Event('change')); }}
-        if (inputs[1]) {{ inputs[1].value = "{ultimo_dia}"; inputs[1].dispatchEvent(new Event('change')); }}
-    ''')
-    page.wait_for_timeout(1500)
-
-    # Capturar URL del archivo via respuestas de red
-    archivo_url = []
-
-    def capturar_respuesta(response):
-        url = response.url
-        if 'PublicTempStorage' in url and ('.xlsx' in url or '.xls' in url):
-            print(f'Archivo encontrado: {url}')
-            archivo_url.append(url)
-
-    page.on('response', capturar_respuesta)
-
-    # Click en Excel
-    page.click('#vEXPORTAREXCEL')
-    
-    # Esperar hasta 15 segundos a que aparezca la URL
-    for i in range(30):
-        if archivo_url:
-            break
-        page.wait_for_timeout(500)
-    
-    page.remove_listener('response', capturar_respuesta)
-
-    if not archivo_url:
-        # Intentar leer la URL desde el DOM o window
-        url_desde_dom = page.evaluate('''
-            () => {
-                // Buscar links o iframes con el archivo
-                var links = document.querySelectorAll("a[href*='PublicTempStorage'], iframe[src*='PublicTempStorage']");
-                if (links.length > 0) return links[0].href || links[0].src;
-                return null;
-            }
-        ''')
-        if url_desde_dom:
-            archivo_url.append(url_desde_dom)
-
-    if not archivo_url:
-        raise Exception('No se encontró la URL del archivo generado')
-
-    url_final = archivo_url[0]
-    print(f'Descargando desde: {url_final}')
-
-    # Descargar con cookies de sesión
+    # Obtener el contenido PDF
     cookies = context.cookies()
     session = requests.Session()
     for cookie in cookies:
         session.cookies.set(cookie['name'], cookie['value'])
 
-    response = session.get(url_final)
-    filename = f'{empresa_nombre.replace(" ", "_").replace(".", "")}.xlsx'
+    response = session.get(url_reporte)
+    
+    filename = f'{empresa_nombre.replace(" ", "_").replace(".", "")}.pdf'
     with open(filename, 'wb') as f:
         f.write(response.content)
     print(f'Descargado: {filename} ({len(response.content)} bytes)')
@@ -123,7 +80,8 @@ def descargar_excel(page, context, empresa_nombre):
 
 def subir_dropbox(filepath, empresa_nombre):
     dbx = dropbox.Dropbox(DROPBOX_TOKEN)
-    dropbox_path = f'/AMS_Data/{empresa_nombre.replace(" ", "_").replace(".", "")}.xlsx'
+    ext = filepath.split('.')[-1]
+    dropbox_path = f'/AMS_Data/{empresa_nombre.replace(" ", "_").replace(".", "")}.{ext}'
     with open(filepath, 'rb') as f:
         dbx.files_upload(f.read(), dropbox_path, mode=dropbox.files.WriteMode.overwrite)
     print(f'Subido a Dropbox: {dropbox_path}')
@@ -137,7 +95,7 @@ def main():
             page = context.new_page()
             try:
                 login(page, empresa)
-                archivo = descargar_excel(page, context, empresa)
+                archivo = descargar_pdf(page, context, empresa)
                 subir_dropbox(archivo, empresa)
                 print(f'✓ {empresa} completado')
             except Exception as e:
