@@ -33,8 +33,16 @@ def get_dropbox():
         oauth2_refresh_token=REFRESH_TOKEN
     )
 
+def get_hora_arg():
+    try:
+        r = requests.get('https://worldtimeapi.org/api/timezone/America/Argentina/Buenos_Aires', timeout=5)
+        dt_str = r.json()['datetime'][:19]
+        return datetime.fromisoformat(dt_str)
+    except:
+        return datetime.now(ARG).replace(tzinfo=None)
+
 def get_url_reporte():
-    hoy = datetime.now(ARG)
+    hoy = get_hora_arg()
     primer_dia = hoy.replace(day=1).strftime('%Y%m%d')
     ultimo = calendar.monthrange(hoy.year, hoy.month)[1]
     ultimo_dia = hoy.replace(day=ultimo).strftime('%Y%m%d')
@@ -136,7 +144,7 @@ def parsear_pdf(pdf_bytes):
     return datos
 
 def generar_json(datos, empresa_nombre):
-    hoy = datetime.now(ARG)
+    hoy = get_hora_arg()
     rubros = {}
     for d in datos:
         r = d['rubro']
@@ -183,11 +191,13 @@ def subir_github(contenido_str, path):
         raise Exception(f'Error GitHub {r.status_code}: {path}')
 
 def main():
+    hoy = get_hora_arg()
+    mes_key = hoy.strftime('%Y-%m')
+    print(f'Hora Argentina: {hoy.strftime("%d/%m/%Y %H:%M")}')
+
     with sync_playwright() as p:
         browser = p.chromium.launch(headless=True)
         resultados = {}
-        hoy = datetime.now(ARG)
-        mes_key = hoy.strftime('%Y-%m')
 
         for empresa in [EMPRESA_1, EMPRESA_2]:
             context = browser.new_context(accept_downloads=True)
@@ -209,15 +219,13 @@ def main():
 
         browser.close()
 
-    # Subir JSONs actuales
+    # Subir JSONs a GitHub
     for nombre, resultado in resultados.items():
         contenido = json.dumps(resultado, ensure_ascii=False, indent=2)
-        # Archivo del mes actual (siempre actualizado)
         subir_github(contenido, f'data/{nombre}.json')
-        # Archivo histórico del mes (se sobreescribe durante el mes, queda fijo al terminar)
         subir_github(contenido, f'data/historico/{mes_key}_{nombre}.json')
 
-    print('Completo:', datetime.now(ARG).strftime('%d/%m/%Y %H:%M'))
+    print('Completo:', hoy.strftime('%d/%m/%Y %H:%M'))
 
 if __name__ == '__main__':
     main()
