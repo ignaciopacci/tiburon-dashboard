@@ -1,11 +1,11 @@
 import os
 import time
 import json
-import re
 import requests
 from datetime import datetime
 import calendar
-import pdfplumber
+import openpyxl
+from io import BytesIO
 from playwright.sync_api import sync_playwright
 import dropbox
 
@@ -16,14 +16,15 @@ EMPRESA_2 = os.environ['AMS_EMPRESA_2']
 DROPBOX_TOKEN = os.environ['DROPBOX_TOKEN']
 
 URL_LOGIN = 'https://apps1.mahonsistemas.com.ar/WebCorporateTiburon/login.aspx'
+URL_REPORTE = 'https://apps1.mahonsistemas.com.ar/WebCorporateTiburon/InfCompCosto.aspx'
 BASE = 'https://apps1.mahonsistemas.com.ar/WebCorporateTiburon/'
 
-def get_url_reporte():
+def get_fechas():
     hoy = datetime.now()
-    primer_dia = hoy.replace(day=1).strftime('%Y%m%d')
+    primer_dia = hoy.replace(day=1).strftime('%d/%m/%y')
     ultimo = calendar.monthrange(hoy.year, hoy.month)[1]
-    ultimo_dia = hoy.replace(day=ultimo).strftime('%Y%m%d')
-    return f'{BASE}alstinfcompcosto.aspx?{primer_dia},{ultimo_dia},PES,,A,SCR'
+    ultimo_dia = hoy.replace(day=ultimo).strftime('%d/%m/%y')
+    return primer_dia, ultimo_dia
 
 def login(page, empresa):
     print(f'Entrando como: {empresa}')
@@ -58,56 +59,122 @@ def login(page, empresa):
     page.wait_for_timeout(2000)
     print(f'Login OK: {empresa}')
 
-def descargar_pdf(page, context, empresa_nombre):
-    url_reporte = get_url_reporte()
-    print(f'URL del reporte: {url_reporte}')
+def descargar_excel(page, context, empresa_nombre):
+    print(f'Navegando al reporte...')
+    page.goto(URL_REPORTE)
+    page.wait_for_load_state('networkidle')
+    page.wait_for_selector('#vEXPORTAREXCEL', timeout=15000)
+
+    primer_dia, ultimo_dia = get_fechas()
+    page.evaluate(f'''
+        var inputs = document.querySelectorAll("input[type=text]");
+        if (inputs[0]) {{ inputs[0].value = "{primer_dia}"; inputs[0].dispatchEvent(new Event('change')); }}
+        if (inputs[1]) {{ inputs[1].value = "{ultimo_dia}"; inputs[1].dispatchEvent(new Event('change')); }}
+    ''')
+    page.wait_for_timeout(1500)
+
+    # Interceptar URL del Excel via requests de red
+    excel_url = []
+
+    def on_request(request):
+        url = request.url
+        if 'PublicTempStorage' in url and '.xlsx' in url.lower():
+            print(f'Excel URL interceptada (request): {url}')
+            excel_url.append(url)
+
+    def on_response(response):
+        url = response.url
+        if 'PublicTempStorage' in url and '.xlsx' in url.lower():
+            print(f'Excel URL interceptada (response): {url}')
+            excel_url.append(url)
+
+    page.on('request', on_request)
+    page.on('response', on_response)
+
+    # Click en Excel
+    print('Clickeando Excel...')
+    page.click('#vEXPORTAREXCEL')
+    
+    # Esperar hasta 20 segundos
+    for i in range(40):
+        if excel_url:
+            break
+        page.wait_for_timeout(500)
+        if i % 10 == 0:
+            print(f'Esperando URL... {i/2}s')
+
+    page.remove_listener('request', on_request)
+    page.remove_listener('response', on_response)
+
+    if not excel_url:
+        # Buscar en el DOM
+        url_dom = page.evaluate('''
+            () => {
+                var links = document.querySelectorAll("a, iframe");
+                for (var l of links) {
+                    var href = l.href || l.src || '';
+                    if (href.includes('PublicTempStorage')) return href;
+                }
+                return null;
+            }
+        ''')
+        if url_dom:
+            excel_url.append(url_dom)
+
+    if not excel_url:
+        raise Exception('No se pudo interceptar la URL del Excel')
+
+    url_final = excel_url[0]
+    print(f'Descargando Excel desde: {url_final}')
+
     cookies = context.cookies()
     session = requests.Session()
     for cookie in cookies:
         session.cookies.set(cookie['name'], cookie['value'])
-    session.headers.update({
-        'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36',
-        'Referer': BASE + 'InfCompCosto.aspx',
-    })
-    response = session.get(url_reporte, allow_redirects=True)
-    filename = f'{empresa_nombre.replace(" ", "_").replace(".", "")}.pdf'
-    with open(filename, 'wb') as f:
-        f.write(response.content)
-    print(f'PDF descargado: {filename} ({len(response.content)} bytes)')
-    return filename
+    session.headers.update({'Referer': BASE})
 
-def parsear_pdf(filepath):
+    response = session.get(url_final)
+    print(f'Excel descargado: {len(response.content)} bytes')
+    return response.content
+
+def parsear_excel(contenido):
+    wb = openpyxl.load_workbook(BytesIO(contenido))
+    ws = wb.active
     datos = []
     rubro_actual = None
-    with pdfplumber.open(filepath) as pdf:
-        for page in pdf.pages:
-            tables = page.extract_tables()
-            for table in tables:
-                for row in table:
-                    if not row or not any(row):
-                        continue
-                    # Detectar fila de rubro
-                    if row[0] and 'Rubro' in str(row[0]):
-                        rubro_actual = str(row[0]).strip()
-                        continue
-                    # Fila de artículo: tiene cantidad numérica
-                    try:
-                        cantidad = float(str(row[1] or '').replace('.', '').replace(',', '.'))
-                        costo_unit = float(str(row[2] or '').replace('.', '').replace(',', '.'))
-                        total_costo = float(str(row[3] or '').replace('.', '').replace(',', '.'))
-                        total_fac = float(str(row[4] or '').replace('.', '').replace(',', '.'))
-                        articulo = str(row[0] or '').strip()
-                        if articulo and rubro_actual:
-                            datos.append({
-                                'rubro': rubro_actual,
-                                'articulo': articulo,
-                                'cantidad': cantidad,
-                                'ultimoCosto': costo_unit,
-                                'totalCosto': total_costo,
-                                'totalFac': total_fac
-                            })
-                    except:
-                        continue
+    header_row = None
+
+    for i, row in enumerate(ws.iter_rows(values_only=True)):
+        if row[0] == 'Rubro':
+            header_row = i
+            continue
+        if header_row is None:
+            continue
+        if not row[0]:
+            continue
+        # Detectar fila de rubro
+        if isinstance(row[0], str) and ('Pinceles' in row[0] or 'Accesorios' in row[0] or 'Rodillos' in row[0]):
+            rubro_actual = row[0]
+            continue
+        # Fila de artículo
+        try:
+            cantidad = float(row[2] or 0)
+            costo_unit = float(row[3] or 0)
+            total_costo = float(row[4] or 0)
+            total_fac = float(row[5] or 0)
+            articulo = str(row[1] or '').strip()
+            if articulo and rubro_actual:
+                datos.append({
+                    'rubro': rubro_actual,
+                    'articulo': articulo,
+                    'cantidad': cantidad,
+                    'ultimoCosto': costo_unit,
+                    'totalCosto': total_costo,
+                    'totalFac': total_fac
+                })
+        except:
+            continue
+
     print(f'Artículos parseados: {len(datos)}')
     return datos
 
@@ -126,53 +193,6 @@ def generar_json(datos, empresa_nombre):
     total_fac = sum(r['totalFac'] for r in rubros.values())
     total_costo = sum(r['totalCosto'] for r in rubros.values())
 
-    resultado = {
+    return {
         'empresa': empresa_nombre,
-        'fechaActualizacion': hoy.strftime('%d/%m/%Y %H:%M'),
-        'mes': hoy.strftime('%m/%Y'),
-        'totalFac': total_fac,
-        'totalCosto': total_costo,
-        'ganancia': total_fac - total_costo,
-        'margen': round((total_fac - total_costo) / total_fac * 100, 1) if total_fac else 0,
-        'rubros': rubros
-    }
-    filename = f'{empresa_nombre.replace(" ", "_").replace(".", "")}.json'
-    with open(filename, 'w', encoding='utf-8') as f:
-        json.dump(resultado, f, ensure_ascii=False, indent=2)
-    print(f'JSON generado: {filename}')
-    return filename
-
-def subir_dropbox(filepath, dropbox_path):
-    dbx = dropbox.Dropbox(DROPBOX_TOKEN)
-    with open(filepath, 'rb') as f:
-        dbx.files_upload(f.read(), dropbox_path, mode=dropbox.files.WriteMode.overwrite)
-    print(f'Subido a Dropbox: {dropbox_path}')
-
-def main():
-    with sync_playwright() as p:
-        browser = p.chromium.launch(headless=True)
-
-        for empresa in [EMPRESA_1, EMPRESA_2]:
-            context = browser.new_context(accept_downloads=True)
-            page = context.new_page()
-            try:
-                login(page, empresa)
-                pdf = descargar_pdf(page, context, empresa)
-                datos = parsear_pdf(pdf)
-                json_file = generar_json(datos, empresa)
-                nombre = empresa.replace(' ', '_').replace('.', '')
-                subir_dropbox(pdf, f'/AMS_Data/{nombre}.pdf')
-                subir_dropbox(json_file, f'/AMS_Data/{nombre}.json')
-                print(f'✓ {empresa} completado')
-            except Exception as e:
-                print(f'✗ Error en {empresa}: {e}')
-                raise
-            finally:
-                context.close()
-            time.sleep(3)
-
-        browser.close()
-    print('Proceso completo:', datetime.now().strftime('%d/%m/%Y %H:%M'))
-
-if __name__ == '__main__':
-    main()
+        'fechaAc
