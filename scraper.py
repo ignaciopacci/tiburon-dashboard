@@ -59,13 +59,24 @@ def descargar_pdf(page, context, empresa_nombre):
     url_reporte = get_url_reporte()
     print(f'URL del reporte: {url_reporte}')
 
-    # Capturar la descarga directamente
-    with page.expect_download(timeout=30000) as download_info:
-        page.goto(url_reporte, wait_until='commit')
+    # Usar requests directamente con las cookies de sesión
+    cookies = context.cookies()
+    session = requests.Session()
+    for cookie in cookies:
+        session.cookies.set(cookie['name'], cookie['value'])
 
-    download = download_info.value
+    session.headers.update({
+        'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36',
+        'Referer': BASE + 'InfCompCosto.aspx',
+        'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+    })
+
+    response = session.get(url_reporte, allow_redirects=True)
+    print(f'Status: {response.status_code} | Tipo: {response.headers.get("Content-Type")} | Tamaño: {len(response.content)} bytes')
+
     filename = f'{empresa_nombre.replace(" ", "_").replace(".", "")}.pdf'
-    download.save_as(filename)
+    with open(filename, 'wb') as f:
+        f.write(response.content)
     print(f'Descargado: {filename}')
     return filename
 
