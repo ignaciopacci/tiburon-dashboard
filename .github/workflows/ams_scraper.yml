@@ -2,9 +2,9 @@ name: AMS Scraper
 
 on:
   schedule:
-    - cron: '0 15 * * 1-5'  # 12hs Argentina (UTC-3)
-    - cron: '0 19 * * 1-5'  # 16hs Argentina (UTC-3)
-  workflow_dispatch:          # permite correrlo manualmente
+    - cron: '0 15 * * 1-5'
+    - cron: '0 19 * * 1-5'
+  workflow_dispatch:
 
 jobs:
   scrape:
@@ -26,5 +26,7 @@ jobs:
           AMS_PASSWORD: ${{ secrets.AMS_PASSWORD }}
           AMS_EMPRESA_1: ${{ secrets.AMS_EMPRESA_1 }}
           AMS_EMPRESA_2: ${{ secrets.AMS_EMPRESA_2 }}
-          DROPBOX_TOKEN: ${{ secrets.DROPBOX_TOKEN }}
+          DROPBOX_APP_KEY: ${{ secrets.DROPBOX_APP_KEY }}
+          DROPBOX_APP_SECRET: ${{ secrets.DROPBOX_APP_SECRET }}
+          DROPBOX_REFRESH_TOKEN: ${{ secrets.DROPBOX_REFRESH_TOKEN }}
         run: python scraper.py
