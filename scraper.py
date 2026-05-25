@@ -1,8 +1,11 @@
 import os
 import time
+import json
+import re
 import requests
 from datetime import datetime
 import calendar
+import pdfplumber
 from playwright.sync_api import sync_playwright
 import dropbox
 
@@ -58,32 +61,89 @@ def login(page, empresa):
 def descargar_pdf(page, context, empresa_nombre):
     url_reporte = get_url_reporte()
     print(f'URL del reporte: {url_reporte}')
-
-    # Usar requests directamente con las cookies de sesión
     cookies = context.cookies()
     session = requests.Session()
     for cookie in cookies:
         session.cookies.set(cookie['name'], cookie['value'])
-
     session.headers.update({
         'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36',
         'Referer': BASE + 'InfCompCosto.aspx',
-        'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
     })
-
     response = session.get(url_reporte, allow_redirects=True)
-    print(f'Status: {response.status_code} | Tipo: {response.headers.get("Content-Type")} | Tamaño: {len(response.content)} bytes')
-
     filename = f'{empresa_nombre.replace(" ", "_").replace(".", "")}.pdf'
     with open(filename, 'wb') as f:
         f.write(response.content)
-    print(f'Descargado: {filename}')
+    print(f'PDF descargado: {filename} ({len(response.content)} bytes)')
     return filename
 
-def subir_dropbox(filepath, empresa_nombre):
+def parsear_pdf(filepath):
+    datos = []
+    rubro_actual = None
+    with pdfplumber.open(filepath) as pdf:
+        for page in pdf.pages:
+            tables = page.extract_tables()
+            for table in tables:
+                for row in table:
+                    if not row or not any(row):
+                        continue
+                    # Detectar fila de rubro
+                    if row[0] and 'Rubro' in str(row[0]):
+                        rubro_actual = str(row[0]).strip()
+                        continue
+                    # Fila de artículo: tiene cantidad numérica
+                    try:
+                        cantidad = float(str(row[1] or '').replace('.', '').replace(',', '.'))
+                        costo_unit = float(str(row[2] or '').replace('.', '').replace(',', '.'))
+                        total_costo = float(str(row[3] or '').replace('.', '').replace(',', '.'))
+                        total_fac = float(str(row[4] or '').replace('.', '').replace(',', '.'))
+                        articulo = str(row[0] or '').strip()
+                        if articulo and rubro_actual:
+                            datos.append({
+                                'rubro': rubro_actual,
+                                'articulo': articulo,
+                                'cantidad': cantidad,
+                                'ultimoCosto': costo_unit,
+                                'totalCosto': total_costo,
+                                'totalFac': total_fac
+                            })
+                    except:
+                        continue
+    print(f'Artículos parseados: {len(datos)}')
+    return datos
+
+def generar_json(datos, empresa_nombre):
+    hoy = datetime.now()
+    rubros = {}
+    for d in datos:
+        r = 'Pinceles' if 'Pinceles' in d['rubro'] or '001' in d['rubro'] else 'Accesorios'
+        if r not in rubros:
+            rubros[r] = {'unidades': 0, 'totalFac': 0, 'totalCosto': 0, 'articulos': []}
+        rubros[r]['unidades'] += d['cantidad']
+        rubros[r]['totalFac'] += d['totalFac']
+        rubros[r]['totalCosto'] += d['totalCosto']
+        rubros[r]['articulos'].append(d)
+
+    total_fac = sum(r['totalFac'] for r in rubros.values())
+    total_costo = sum(r['totalCosto'] for r in rubros.values())
+
+    resultado = {
+        'empresa': empresa_nombre,
+        'fechaActualizacion': hoy.strftime('%d/%m/%Y %H:%M'),
+        'mes': hoy.strftime('%m/%Y'),
+        'totalFac': total_fac,
+        'totalCosto': total_costo,
+        'ganancia': total_fac - total_costo,
+        'margen': round((total_fac - total_costo) / total_fac * 100, 1) if total_fac else 0,
+        'rubros': rubros
+    }
+    filename = f'{empresa_nombre.replace(" ", "_").replace(".", "")}.json'
+    with open(filename, 'w', encoding='utf-8') as f:
+        json.dump(resultado, f, ensure_ascii=False, indent=2)
+    print(f'JSON generado: {filename}')
+    return filename
+
+def subir_dropbox(filepath, dropbox_path):
     dbx = dropbox.Dropbox(DROPBOX_TOKEN)
-    ext = filepath.split('.')[-1]
-    dropbox_path = f'/AMS_Data/{empresa_nombre.replace(" ", "_").replace(".", "")}.{ext}'
     with open(filepath, 'rb') as f:
         dbx.files_upload(f.read(), dropbox_path, mode=dropbox.files.WriteMode.overwrite)
     print(f'Subido a Dropbox: {dropbox_path}')
@@ -97,8 +157,12 @@ def main():
             page = context.new_page()
             try:
                 login(page, empresa)
-                archivo = descargar_pdf(page, context, empresa)
-                subir_dropbox(archivo, empresa)
+                pdf = descargar_pdf(page, context, empresa)
+                datos = parsear_pdf(pdf)
+                json_file = generar_json(datos, empresa)
+                nombre = empresa.replace(' ', '_').replace('.', '')
+                subir_dropbox(pdf, f'/AMS_Data/{nombre}.pdf')
+                subir_dropbox(json_file, f'/AMS_Data/{nombre}.json')
                 print(f'✓ {empresa} completado')
             except Exception as e:
                 print(f'✗ Error en {empresa}: {e}')
