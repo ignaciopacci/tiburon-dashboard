@@ -10,7 +10,7 @@
   --bg:#09090e;--s1:#111118;--s2:#18181f;--s3:#222230;
   --border:#2a2a3a;--acc:#e8f542;--acc2:#42f5c8;
   --red:#ff4d6d;--orange:#f58542;--text:#eeeef5;--muted:#5a5a75;--muted2:#7a7a95;
-  --redtib:#E31E24;--pin:#e8f542;--rod:#42f5c8;--acc3:#f58542;
+  --redtib:#E31E24;--pin:#e8f542;--rod:#42f5c8;
 }
 *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
 body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;min-height:100vh;overflow-x:hidden}
@@ -100,7 +100,7 @@ main{padding:16px;max-width:800px;margin:0 auto}
 </head>
 <body>
 <div id="loading">
-  <img class="loading-logo" id="loading-logo" src="" alt="Tiburón">
+  <img class="loading-logo" src="https://raw.githubusercontent.com/ignaciopacci/tiburon-dashboard/main/data/logo.jpg" alt="Tiburón" onerror="this.style.display='none'">
   <div class="loading-text">CARGANDO DATOS...</div>
   <div class="loading-bar"><div class="loading-fill"></div></div>
 </div>
@@ -111,7 +111,7 @@ main{padding:16px;max-width:800px;margin:0 auto}
 </div>
 <div id="app" style="display:none">
   <header>
-    <img class="header-logo" id="header-logo" src="" alt="Pinceles Tiburón">
+    <img class="header-logo" src="https://raw.githubusercontent.com/ignaciopacci/tiburon-dashboard/main/data/logo.jpg" alt="Pinceles Tiburón" onerror="this.style.display='none'">
     <div class="header-right">
       <div class="update-time"><span class="update-dot"></span><span id="update-label">—</span></div>
       <button class="refresh-btn" onclick="init()">↻ Actualizar</button>
@@ -214,7 +214,7 @@ main{padding:16px;max-width:800px;margin:0 auto}
       <div class="card">
         <table class="data-table">
           <tr><td>Origen</td><td class="r" style="color:var(--muted2)">AMS Corporate — Mahon</td></tr>
-          <tr><td>Almacenamiento</td><td class="r" style="color:var(--muted2)">Dropbox /AMS_Data</td></tr>
+          <tr><td>Almacenamiento</td><td class="r" style="color:var(--muted2)">GitHub /data</td></tr>
           <tr><td>Automatización</td><td class="r" style="color:var(--muted2)">GitHub Actions</td></tr>
           <tr><td>Actualización</td><td class="r" style="color:var(--muted2)">12hs y 16hs (L-V)</td></tr>
           <tr><td>Empresa 1</td><td class="r" id="sys-e1" style="color:var(--muted2)">—</td></tr>
@@ -226,78 +226,27 @@ main{padding:16px;max-width:800px;margin:0 auto}
   </main>
 </div>
 <script>
-const DBX='https://content.dropboxapi.com/2/files/download';
+const BASE='https://raw.githubusercontent.com/ignaciopacci/tiburon-dashboard/main/data/';
 const cfg={costosFijos:parseFloat(localStorage.getItem('cf')||'22000000'),diaActual:parseInt(localStorage.getItem('dia')||new Date().getDate()),diasMes:parseInt(localStorage.getItem('dm')||'31')};
-const state={e1:null,e2:null,empActiva:{hoy:'ambas',mes:'ambas'},token:null};
+const state={e1:null,e2:null,empActiva:{hoy:'ambas',mes:'ambas'}};
 const COL={Pinceles:'var(--pin)',Rodillos:'var(--rod)',Accesorios:'var(--orange)'};
 
-async function dbxFetch(path, token){
-  const r=await fetch(DBX,{method:'POST',headers:{'Authorization':'Bearer '+token,'Dropbox-API-Arg':JSON.stringify({path}),'Content-Type':'text/plain'}});
-  if(!r.ok)throw new Error('DBX '+r.status+' '+path);
+async function fetchJSON(file){
+  const r=await fetch(BASE+file+'?t='+Date.now());
+  if(!r.ok)throw new Error('Error cargando '+file);
   return r.json();
-}
-
-async function dbxImg(path, token){
-  const r=await fetch(DBX,{method:'POST',headers:{'Authorization':'Bearer '+token,'Dropbox-API-Arg':JSON.stringify({path}),'Content-Type':'text/plain'}});
-  if(!r.ok)return '';
-  const blob=await r.blob();
-  return URL.createObjectURL(blob);
-}
-
-async function getToken(){
-  // Primero intentar con token guardado en localStorage
-  const saved = localStorage.getItem('dbx_token');
-  if(saved) {
-    try {
-      // Verificar que funciona
-      await dbxFetch('/AMS_Data/token.json', saved);
-      return saved;
-    } catch(e) {
-      // Token vencido, buscar uno nuevo
-      localStorage.removeItem('dbx_token');
-    }
-  }
-  // Leer token.json de Dropbox usando App key temporal
-  // El token.json es público dentro de la app — usamos el último token conocido
-  throw new Error('No hay token disponible');
 }
 
 async function init(){
   document.getElementById('loading').style.display='flex';
   document.getElementById('error-state').style.display='none';
   document.getElementById('app').style.display='none';
-
   try{
-    // Paso 1: obtener token fresco desde token.json
-    // Para bootstrapping usamos el token guardado o pedimos uno nuevo
-    let token = localStorage.getItem('dbx_token');
-
-    if(!token) {
-      // Sin token guardado — necesitamos el token inicial
-      // El usuario debe correr el scraper primero para generar token.json
-      throw new Error('Sin token inicial. Corré el scraper desde GitHub Actions.');
-    }
-
-    // Paso 2: leer token.json para ver si hay uno más fresco
-    try {
-      const tokenData = await dbxFetch('/AMS_Data/token.json', token);
-      if(tokenData.access_token) {
-        token = tokenData.access_token;
-        localStorage.setItem('dbx_token', token);
-      }
-    } catch(e) {
-      // Si falla, seguir con el token actual
-    }
-
-    // Paso 3: cargar datos
-    const [d1, d2, logoUrl] = await Promise.all([
-      dbxFetch('/AMS_Data/Irelocs_SA.json', token),
-      dbxFetch('/AMS_Data/XXXXXXX.json', token),
-      dbxImg('/AMS_Data/TiburonLogoFrase_NUEVO.jpg', token)
+    const [d1,d2]=await Promise.all([
+      fetchJSON('Irelocs_SA.json'),
+      fetchJSON('XXXXXXX.json')
     ]);
-
-    state.e1=d1; state.e2=d2; state.token=token;
-    if(logoUrl){document.getElementById('loading-logo').src=logoUrl;document.getElementById('header-logo').src=logoUrl;}
+    state.e1=d1;state.e2=d2;
     document.getElementById('loading').style.display='none';
     document.getElementById('app').style.display='block';
     onDataLoaded();
@@ -446,22 +395,7 @@ function setEmp(tab,emp,btn){btn.closest('.emp-tabs').querySelectorAll('.emp-btn
 function guardarConfig(){cfg.costosFijos=parseFloat(document.getElementById('cfg-costos').value)||22000000;cfg.diaActual=parseInt(document.getElementById('cfg-dia').value)||new Date().getDate();cfg.diasMes=parseInt(document.getElementById('cfg-diasmes').value)||31;localStorage.setItem('cf',cfg.costosFijos);localStorage.setItem('dia',cfg.diaActual);localStorage.setItem('dm',cfg.diasMes);document.getElementById('sys-cf').textContent=fmt(cfg.costosFijos)+'/mes';renderAll();}
 
 document.getElementById('cfg-dia').value=new Date().getDate();
-
-// Arrancar — leer token desde token.json usando el token guardado en localStorage
-// La primera vez hay que cargar el token manualmente una sola vez
-async function bootstrap(){
-  let token = localStorage.getItem('dbx_token');
-  if(!token){
-    // Sin token en localStorage — mostrar pantalla de configuración inicial
-    document.getElementById('loading').style.display='none';
-    document.getElementById('error-state').style.display='flex';
-    document.getElementById('error-state').querySelector('p').textContent='Primera vez: corré el scraper desde GitHub Actions y luego recargá esta página.';
-    return;
-  }
-  await init();
-}
-
-bootstrap();
+init();
 </script>
 </body>
 </html>
