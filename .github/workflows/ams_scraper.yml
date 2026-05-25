@@ -18,7 +18,7 @@ jobs:
           python-version: '3.11'
 
       - name: Install dependencies
-        run: pip install playwright dropbox && python -m playwright install chromium
+        run: pip install playwright pdfplumber dropbox requests && python -m playwright install chromium
 
       - name: Run scraper
         env:
