@@ -1,2 +1,1 @@
-# tiburon-dashboard
-Tablero de comando Tiburón
+## Tiburón Dashboard
