@@ -152,6 +152,8 @@ def generar_json(datos, empresa_nombre):
         'empresa': empresa_nombre,
         'fechaActualizacion': hoy.strftime('%d/%m/%Y %H:%M'),
         'mes': hoy.strftime('%m/%Y'),
+        'anio': hoy.year,
+        'nroMes': hoy.month,
         'totalFac': total_fac,
         'totalCosto': total_costo,
         'ganancia': total_fac - total_costo,
@@ -165,29 +167,27 @@ def subir_github(contenido_str, path):
         'Authorization': f'token {GH_TOKEN}',
         'Accept': 'application/vnd.github.v3+json'
     }
-    # Obtener SHA si el archivo existe
     r = requests.get(url, headers=headers)
     sha = r.json().get('sha') if r.status_code == 200 else None
-
     contenido_b64 = base64.b64encode(contenido_str.encode('utf-8')).decode('utf-8')
     data = {
-        'message': f'Actualización automática {datetime.now(ARG).strftime("%d/%m/%Y %H:%M")}',
+        'message': f'Actualización {datetime.now(ARG).strftime("%d/%m/%Y %H:%M")}',
         'content': contenido_b64
     }
     if sha:
         data['sha'] = sha
-
     r = requests.put(url, headers=headers, json=data)
     if r.status_code in [200, 201]:
         print(f'✓ GitHub: {path}')
     else:
-        print(f'✗ GitHub error {r.status_code}: {r.text}')
-        raise Exception(f'Error subiendo a GitHub: {path}')
+        raise Exception(f'Error GitHub {r.status_code}: {path}')
 
 def main():
     with sync_playwright() as p:
         browser = p.chromium.launch(headless=True)
         resultados = {}
+        hoy = datetime.now(ARG)
+        mes_key = hoy.strftime('%Y-%m')
 
         for empresa in [EMPRESA_1, EMPRESA_2]:
             context = browser.new_context(accept_downloads=True)
@@ -209,9 +209,13 @@ def main():
 
         browser.close()
 
-    # Subir JSONs a GitHub
+    # Subir JSONs actuales
     for nombre, resultado in resultados.items():
-        subir_github(json.dumps(resultado, ensure_ascii=False, indent=2), f'data/{nombre}.json')
+        contenido = json.dumps(resultado, ensure_ascii=False, indent=2)
+        # Archivo del mes actual (siempre actualizado)
+        subir_github(contenido, f'data/{nombre}.json')
+        # Archivo histórico del mes (se sobreescribe durante el mes, queda fijo al terminar)
+        subir_github(contenido, f'data/historico/{mes_key}_{nombre}.json')
 
     print('Completo:', datetime.now(ARG).strftime('%d/%m/%Y %H:%M'))
 
