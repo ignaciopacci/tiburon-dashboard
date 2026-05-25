@@ -9,6 +9,7 @@ import pdfplumber
 from io import BytesIO
 from playwright.sync_api import sync_playwright
 import dropbox
+from dropbox import DropboxOAuth2FlowNoRedirect
 
 ARG = timezone(timedelta(hours=-3))
 
@@ -16,10 +17,19 @@ USUARIO = os.environ['AMS_USUARIO']
 PASSWORD = os.environ['AMS_PASSWORD']
 EMPRESA_1 = os.environ['AMS_EMPRESA_1']
 EMPRESA_2 = os.environ['AMS_EMPRESA_2']
-DROPBOX_TOKEN = os.environ['DROPBOX_TOKEN']
+APP_KEY = os.environ['DROPBOX_APP_KEY']
+APP_SECRET = os.environ['DROPBOX_APP_SECRET']
+REFRESH_TOKEN = os.environ['DROPBOX_REFRESH_TOKEN']
 
 URL_LOGIN = 'https://apps1.mahonsistemas.com.ar/WebCorporateTiburon/login.aspx'
 BASE = 'https://apps1.mahonsistemas.com.ar/WebCorporateTiburon/'
+
+def get_dropbox():
+    return dropbox.Dropbox(
+        app_key=APP_KEY,
+        app_secret=APP_SECRET,
+        oauth2_refresh_token=REFRESH_TOKEN
+    )
 
 def get_url_reporte():
     hoy = datetime.now(ARG)
@@ -150,7 +160,7 @@ def generar_json(datos, empresa_nombre):
     }
 
 def subir_dropbox(data, dropbox_path):
-    dbx = dropbox.Dropbox(DROPBOX_TOKEN)
+    dbx = get_dropbox()
     dbx.files_upload(data, dropbox_path, mode=dropbox.files.WriteMode.overwrite)
     print(f'Subido: {dropbox_path}')
 
