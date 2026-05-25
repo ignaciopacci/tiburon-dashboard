@@ -57,25 +57,16 @@ def login(page, empresa):
 
 def descargar_pdf(page, context, empresa_nombre):
     url_reporte = get_url_reporte()
-    print(f'Descargando PDF: {url_reporte}')
+    print(f'URL del reporte: {url_reporte}')
 
-    # Navegar directo a la URL del reporte
-    page.goto(url_reporte)
-    page.wait_for_load_state('networkidle')
-    page.wait_for_timeout(3000)
+    # Capturar la descarga directamente
+    with page.expect_download(timeout=30000) as download_info:
+        page.goto(url_reporte, wait_until='commit')
 
-    # Obtener el contenido PDF
-    cookies = context.cookies()
-    session = requests.Session()
-    for cookie in cookies:
-        session.cookies.set(cookie['name'], cookie['value'])
-
-    response = session.get(url_reporte)
-    
+    download = download_info.value
     filename = f'{empresa_nombre.replace(" ", "_").replace(".", "")}.pdf'
-    with open(filename, 'wb') as f:
-        f.write(response.content)
-    print(f'Descargado: {filename} ({len(response.content)} bytes)')
+    download.save_as(filename)
+    print(f'Descargado: {filename}')
     return filename
 
 def subir_dropbox(filepath, empresa_nombre):
@@ -91,7 +82,7 @@ def main():
         browser = p.chromium.launch(headless=True)
 
         for empresa in [EMPRESA_1, EMPRESA_2]:
-            context = browser.new_context()
+            context = browser.new_context(accept_downloads=True)
             page = context.new_page()
             try:
                 login(page, empresa)
