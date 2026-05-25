@@ -9,7 +9,6 @@ import pdfplumber
 from io import BytesIO
 from playwright.sync_api import sync_playwright
 import dropbox
-from dropbox import DropboxOAuth2FlowNoRedirect
 
 ARG = timezone(timedelta(hours=-3))
 
@@ -144,10 +143,8 @@ def generar_json(datos, empresa_nombre):
         rubros[r]['totalFac'] += d['totalFac']
         rubros[r]['totalCosto'] += d['totalCosto']
         rubros[r]['articulos'].append(d)
-
     total_fac = sum(r['totalFac'] for r in rubros.values())
     total_costo = sum(r['totalCosto'] for r in rubros.values())
-
     return {
         'empresa': empresa_nombre,
         'fechaActualizacion': hoy.strftime('%d/%m/%Y %H:%M'),
@@ -165,6 +162,17 @@ def subir_dropbox(data, dropbox_path):
     print(f'Subido: {dropbox_path}')
 
 def main():
+    # Generar y subir token fresco para el dashboard
+    print('Generando token fresco...')
+    dbx = get_dropbox()
+    dbx.check_and_refresh_access_token()
+    token_info = {
+        'access_token': dbx._oauth2_access_token,
+        'generado': datetime.now(ARG).strftime('%d/%m/%Y %H:%M')
+    }
+    subir_dropbox(json.dumps(token_info).encode('utf-8'), '/AMS_Data/token.json')
+    print('Token fresco subido')
+
     with sync_playwright() as p:
         browser = p.chromium.launch(headless=True)
         for empresa in [EMPRESA_1, EMPRESA_2]:
