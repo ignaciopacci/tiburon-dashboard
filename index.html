@@ -226,4 +226,185 @@ main{padding:16px;max-width:800px;margin:0 auto}
   </main>
 </div>
 <script>
-const DBX_TOKEN='sl.u.AGiY1BZ3A7QV8aadX1WsEaDPWEwFjMxT2Kmi2cTZdofLc_OnD0zvkgqw2gHrTonjLJ6Yw_OQ0vC5aTxczCn5Q0pEW1rlmIgBCn-57yX3sgZ195-mx7rxQKmA9_Qtr2nBz0GSG7a0IenibHHoofZJIuau7yLTv_VBv7Fn-tiBJ3QnNuF0J8sJeXiWXUCUZOU6JuFuthCO1v-OFNGUjC0U5xWik-4pCOLNGIn1wCYbMXXXz6T7eXRyBQvsIyeb2be-aneEOpWE4hRRO8NHAler2yHSCiEnybvpd2VAGaFbL2N9HVAgDLyf6pf6dqIRh
+const DBX_TOKEN='sl.u.AGiY1BZ3A7QV8aadX1WsEaDPWEwFjMxT2Kmi2cTZdofLc_OnD0zvkgqw2gHrTonjLJ6Yw_OQ0vC5aTxczCn5Q0pEW1rlmIgBCn-57yX3sgZ195-mx7rxQKmA9_Qtr2nBz0GSG7a0IenibHHoofZJIuau7yLTv_VBv7Fn-tiBJ3QnNuF0J8sJeXiWXUCUZOU6JuFuthCO1v-OFNGUjC0U5xWik-4pCOLNGIn1wCYbMXXXz6T7eXRyBQvsIyeb2be-aneEOpWE4hRRO8NHAler2yHSCiEnybvpd2VAGaFbL2N9HVAgDLyf6pf6dqIRhb3j1t9ItorqeV_mdmGRGBJuMw5zNbSy3KY2cwzfW-8TLkcmZlVSeTv1kj5lY-WVEey85e2OIZWwbp9uZA5G4rplDJI6L7tigmk8oc3eBMPfEhKlZr-tzr93RRAzVYCXL2bKO-Qg-L4_q6N5jDHJlqUxrM-DMN5-Bkf5FrUoXx0zBNdoNbPm9VYWRqiebAzpug4OkKNtNgL5tdlu1RvMXtywJjkAiyPBxY3ePYzABDotsQVD6B5tyZVa6tqssbP9PKB811pce2AoakrV-3RUWlJpoZYJpw862A4-mFARKDLW9NyvHlJZSVGYL6BSn9KGvYg3GIlSYwUnrpAfL4wroanuQpcvg5_V5D23p8ZAO-qbEGnFP6G0loOXlg6Y7SUjNjX3XrYSPotzyIJ04n0SE31XXJr4-p1OzcpkPyQ9RsPNyoyRNGOdejv3wOn3XvRXYP2Mw-DZcLTGzzsgkS-0TcxZoAj5Dlk2KgaHUisFPkSajfTjshbqeztSlMTXK29fDxtOs0447byjtz_CawdkQ9WevZrCFfiWVkhmft_CPFiEQi_eU4n3I2OJz4uqFW_5qcIHWrCYFb3CkdH4p0q6cOAakCW9qINahfz-xHqnBXHtYY8lE188MyH8uoy2MEtiNjrnK6J7RBmCsh96MSqjayCkP8U0rQ1OQC3IRGHhuqcR6e0c46KYNYaui1XlzFSFOFMn7QDhZHsa5J9yWj4DXH-D-iN5OU6132KLPpJRk0FuABUCpNk2PRAxM-eNk9ktEZ9UZUpBTgMHeF-0lFgD3kk-D8B4gB9miyoesDOIOMX-oIt189CNPjwz7fUJ3Hlh-eQxvve76NawVlPhUlxp4Gd96sUr3PH2RPnRDspGTdWd-gBWb05wT61HZ9U01l_qQy0AYlVT8wR-MwxsuDJintLNYNnw6Fzg1usBZ71T2XdI9QHjutyMZ2UXokJ5x-BzqJslqbtaQGOWBebDoSG2mYvvyxQtggkYyvbtXur3ffkggf3PguYFYHlazJrNMp7SA03QueNnE7vqGMMmFhdjqYmvc_cLJC1oHk-5vrGIB1k119oHT-L576dL-UjaTh3paZACCKMFJ-BND7D2p16I03zEXm34MW4gd21OLJ7Zr_QiTzP9vA';
+const DBX='https://content.dropboxapi.com/2/files/download';
+const cfg={costosFijos:parseFloat(localStorage.getItem('cf')||'22000000'),diaActual:parseInt(localStorage.getItem('dia')||new Date().getDate()),diasMes:parseInt(localStorage.getItem('dm')||'31')};
+const state={e1:null,e2:null,empActiva:{hoy:'ambas',mes:'ambas'}};
+const COL={Pinceles:'var(--pin)',Rodillos:'var(--rod)',Accesorios:'var(--orange)'};
+
+async function dbxFetch(path){
+  const r=await fetch(DBX,{method:'POST',headers:{'Authorization':'Bearer '+DBX_TOKEN,'Dropbox-API-Arg':JSON.stringify({path}),'Content-Type':'text/plain'}});
+  if(!r.ok)throw new Error('DBX '+r.status);
+  return r.json();
+}
+async function dbxImg(path){
+  const r=await fetch(DBX,{method:'POST',headers:{'Authorization':'Bearer '+DBX_TOKEN,'Dropbox-API-Arg':JSON.stringify({path}),'Content-Type':'text/plain'}});
+  if(!r.ok)return '';
+  const blob=await r.blob();
+  return URL.createObjectURL(blob);
+}
+
+async function init(){
+  document.getElementById('loading').style.display='flex';
+  document.getElementById('error-state').style.display='none';
+  document.getElementById('app').style.display='none';
+  try{
+    const [d1,d2,logoUrl]=await Promise.all([
+      dbxFetch('/AMS_Data/Irelocs_SA.json'),
+      dbxFetch('/AMS_Data/XXXXXXX.json'),
+      dbxImg('/AMS_Data/TiburonLogoFrase_NUEVO.jpg')
+    ]);
+    state.e1=d1;state.e2=d2;
+    if(logoUrl){document.getElementById('loading-logo').src=logoUrl;document.getElementById('header-logo').src=logoUrl;}
+    document.getElementById('loading').style.display='none';
+    document.getElementById('app').style.display='block';
+    onDataLoaded();
+  }catch(e){
+    console.error(e);
+    document.getElementById('loading').style.display='none';
+    document.getElementById('error-state').style.display='flex';
+  }
+}
+
+function clasificar(nombre){
+  const n=(nombre||'').toLowerCase();
+  if(n.includes('rodillo')||n.includes('rod-'))return 'Rodillos';
+  if(n.includes('pincel')||n.includes('remox')||n.includes('pec-')||n.includes('plt-')||n.includes('plb-')||n.includes('ple-')||n.includes('plp-')||n.includes('pin-'))return 'Pinceles';
+  return 'Accesorios';
+}
+function getArts(d){const a=[];Object.values(d.rubros||{}).forEach(r=>(r.articulos||[]).forEach(x=>a.push(x)));return a;}
+function famillas(d){
+  const f={Pinceles:{u:0,f:0,c:0},Rodillos:{u:0,f:0,c:0},Accesorios:{u:0,f:0,c:0}};
+  getArts(d).forEach(a=>{const k=clasificar(a.articulo||'');f[k].u+=a.cantidad||0;f[k].f+=a.totalFac||0;f[k].c+=a.totalCosto||0;});
+  return f;
+}
+function merge(d1,d2){
+  if(!d1&&!d2)return null;if(!d1)return d2;if(!d2)return d1;
+  const r={};
+  [d1,d2].forEach(d=>Object.entries(d.rubros||{}).forEach(([k,v])=>{
+    if(!r[k])r[k]={unidades:0,totalFac:0,totalCosto:0,articulos:[]};
+    r[k].unidades+=v.unidades;r[k].totalFac+=v.totalFac;r[k].totalCosto+=v.totalCosto;
+    r[k].articulos=[...r[k].articulos,...(v.articulos||[])];
+  }));
+  const tf=(d1.totalFac||0)+(d2.totalFac||0),tc=(d1.totalCosto||0)+(d2.totalCosto||0);
+  return{empresa:'Consolidado',totalFac:tf,totalCosto:tc,ganancia:tf-tc,margen:tf?(tf-tc)/tf*100:0,rubros:r};
+}
+function getDatos(emp){if(emp==='ambas')return merge(state.e1,state.e2);if(emp==='e1')return state.e1;return state.e2;}
+
+const fmt=n=>{if(n===null||n===undefined||isNaN(n))return'—';const a=Math.abs(n),s=n<0?'-':'';if(a>=1000000)return s+'$'+(a/1000000).toFixed(1)+'M';if(a>=1000)return s+'$'+Math.round(a/1000)+'K';return s+'$'+Math.round(a).toLocaleString('es-AR');};
+const pct=n=>(!n||isNaN(n))?'—%':n.toFixed(1)+'%';
+const num=n=>(!n||isNaN(n))?'—':Math.round(n).toLocaleString('es-AR');
+
+function onDataLoaded(){
+  document.getElementById('cfg-costos').value=cfg.costosFijos;
+  document.getElementById('cfg-dia').value=cfg.diaActual;
+  document.getElementById('cfg-diasmes').value=cfg.diasMes;
+  const n1=state.e1?.empresa?.split(' ')[0]||'Emp.1';
+  const n2=state.e2?.empresa?.split(' ')[0]||'Emp.2';
+  ['hoy','mes'].forEach(t=>{document.getElementById('btn-'+t+'-e1').textContent=n1;document.getElementById('btn-'+t+'-e2').textContent=n2;});
+  document.getElementById('sys-e1').textContent=state.e1?.empresa||'—';
+  document.getElementById('sys-e2').textContent=state.e2?.empresa||'—';
+  document.getElementById('sys-cf').textContent=fmt(cfg.costosFijos)+'/mes';
+  document.getElementById('update-label').textContent=state.e1?.fechaActualizacion||'—';
+  renderAll();
+}
+
+function renderAll(){renderHoy();renderMes();renderConsolidado();}
+
+function renderHoy(){
+  const d=getDatos(state.empActiva.hoy);if(!d)return;
+  const f=famillas(d);
+  const totF=f.Pinceles.f+f.Rodillos.f+f.Accesorios.f;
+  const totC=f.Pinceles.c+f.Rodillos.c+f.Accesorios.c;
+  const gan=totF-totC,mg=totF?gan/totF*100:0;
+  document.getElementById('h-pin-fac').textContent=fmt(f.Pinceles.f);
+  document.getElementById('h-pin-u').textContent=num(f.Pinceles.u)+' uds';
+  document.getElementById('h-rod-fac').textContent=fmt(f.Rodillos.f);
+  document.getElementById('h-rod-u').textContent=num(f.Rodillos.u)+' uds';
+  document.getElementById('h-acc-fac').textContent=fmt(f.Accesorios.f);
+  document.getElementById('h-acc-u').textContent=num(f.Accesorios.u)+' uds';
+  document.getElementById('h-total-fac').textContent=fmt(totF);
+  document.getElementById('h-total-u').textContent=num(f.Pinceles.u+f.Rodillos.u+f.Accesorios.u)+' uds totales';
+  document.getElementById('h-ganancia').textContent=fmt(gan);
+  document.getElementById('h-margen').textContent='Margen '+pct(mg);
+  const max=Math.max(f.Pinceles.f,f.Rodillos.f,f.Accesorios.f)||1;
+  document.getElementById('h-breakdown').innerHTML=Object.entries(f).map(([n,v])=>`
+    <div class="breakdown-row">
+      <div class="br-label">${n}</div>
+      <div class="br-track"><div class="br-fill" style="width:${v.f/max*100}%;background:${COL[n]}"></div></div>
+      <div class="br-val">${fmt(v.f)}</div>
+      <div class="br-pct">${pct(totF?v.f/totF*100:0)}</div>
+    </div>`).join('');
+  const artMap={};
+  getArts(d).filter(a=>a.totalFac>0).forEach(a=>{const k=a.articulo;if(!artMap[k])artMap[k]={...a};else{artMap[k].totalFac+=a.totalFac;artMap[k].cantidad+=a.cantidad;}});
+  const top10=Object.values(artMap).sort((a,b)=>b.totalFac-a.totalFac).slice(0,10);
+  document.getElementById('h-top10').innerHTML=top10.map((a,i)=>{
+    const fam=clasificar(a.articulo||'');
+    return`<div class="top-item">
+      <div class="top-rank">${i+1}</div>
+      <span class="top-badge" style="background:${COL[fam]}20;color:${COL[fam]}">${fam.slice(0,3).toUpperCase()}</span>
+      <div class="top-name">${a.articulo.split('(')[0].trim()}</div>
+      <div class="top-val">${fmt(a.totalFac)}</div>
+    </div>`;
+  }).join('');
+}
+
+function renderMes(){
+  const d=getDatos(state.empActiva.mes);if(!d)return;
+  const{costosFijos,diaActual,diasMes}=cfg;
+  const totF=d.totalFac||0,totC=d.totalCosto||0,gan=totF-totC,res=gan-costosFijos,mg=totF?gan/totF:0;
+  document.getElementById('m-fac').textContent=fmt(totF);
+  document.getElementById('m-gan').textContent=fmt(gan);
+  document.getElementById('m-costos').textContent=fmt(costosFijos);
+  const rEl=document.getElementById('m-resultado');rEl.textContent=fmt(res);rEl.className='card-value '+(res>=0?'green':'red');
+  const pePct=costosFijos?Math.min(gan/costosFijos*100,150):0;
+  const fill=document.getElementById('pe-fill');
+  setTimeout(()=>fill.style.width=Math.min(pePct,100)+'%',100);
+  fill.style.background=pePct>=100?'linear-gradient(90deg,var(--acc2),var(--acc))':'linear-gradient(90deg,var(--red),var(--orange))';
+  const fEl=document.getElementById('pe-faltan'),faltan=costosFijos-gan;
+  if(faltan<=0){fEl.textContent=fmt(Math.abs(faltan))+' sobre PE ✓';fEl.className='pe-faltan ok';document.getElementById('pe-sub').textContent='GANANCIA SOBRE EL PE';}
+  else{fEl.textContent=fmt(faltan)+' en ganancia';fEl.className='pe-faltan';document.getElementById('pe-sub').textContent='FALTAN PARA CUBRIR COSTOS';}
+  document.getElementById('pe-pct').textContent=pct(Math.min(pePct,100))+' alcanzado';
+  const fpd=diaActual?totF/diaActual:0,pF=fpd*diasMes,pG=pF*mg-costosFijos;
+  document.getElementById('p-dias').textContent=diaActual+' / '+diasMes;
+  document.getElementById('p-fac').textContent=fmt(pF);
+  const pgEl=document.getElementById('p-gan');pgEl.textContent=fmt(pG);pgEl.className='card-value sm '+(pG>=0?'green':'red');
+  const f=famillas(d),totU=f.Pinceles.u+f.Rodillos.u+f.Accesorios.u;
+  const rows=Object.entries(f).map(([n,v])=>{const g=v.f-v.c,m=v.f?g/v.f*100:0;return`<tr><td>${n}</td><td class="r">${num(v.u)}</td><td class="r y">${fmt(v.f)}</td><td class="r">${fmt(v.c)}</td><td class="r g">${fmt(g)}</td><td class="r"><span class="badge ${m>=50?'h':m>=35?'m':'l'}">${pct(m)}</span></td></tr>`;});
+  rows.push(`<tr class="total-row"><td>TOTAL</td><td class="r">${num(totU)}</td><td class="r">${fmt(totF)}</td><td class="r">${fmt(totC)}</td><td class="r">${fmt(gan)}</td><td class="r"><span class="badge ${mg*100>=50?'h':mg*100>=35?'m':'l'}">${pct(mg*100)}</span></td></tr>`);
+  document.getElementById('m-tabla').innerHTML=rows.join('');
+}
+
+function renderConsolidado(){
+  const total=merge(state.e1,state.e2);if(!total)return;
+  const{costosFijos}=cfg,gan=total.ganancia||0,res=gan-costosFijos;
+  document.getElementById('cons-banner').innerHTML=`
+    <div class="cb-item"><div class="cb-label">Facturación</div><div class="cb-val" style="color:var(--acc)">${fmt(total.totalFac)}</div></div>
+    <div class="cb-item"><div class="cb-label">Ganancia bruta</div><div class="cb-val" style="color:var(--acc2)">${fmt(gan)}</div></div>
+    <div class="cb-item"><div class="cb-label">Costos fijos</div><div class="cb-val">${fmt(costosFijos)}</div></div>
+    <div class="cb-item"><div class="cb-label">Resultado neto</div><div class="cb-val" style="color:${res>=0?'var(--acc2)':'var(--red)'}">${fmt(res)}</div></div>
+    <div class="cb-item"><div class="cb-label">Margen prom.</div><div class="cb-val">${pct(total.margen)}</div></div>`;
+  const empCard=d=>{if(!d)return'<div class="card" style="opacity:0.3"><div class="card-label">Sin datos</div></div>';const f=famillas(d);return`<div class="card"><div class="card-label">${d.empresa}</div><div class="card-value acc sm">${fmt(d.totalFac)}</div><div class="card-sub" style="margin-top:8px">Gan: <span style="color:var(--acc2)">${fmt(d.ganancia)}</span> · ${pct(d.margen)}</div><div class="card-sub" style="margin-top:4px">Pin: ${fmt(f.Pinceles.f)} · Rod: ${fmt(f.Rodillos.f)}</div></div>`;};
+  document.getElementById('cons-empresas').innerHTML=empCard(state.e1)+empCard(state.e2);
+  document.getElementById('cons-cf').textContent=fmt(costosFijos);
+  const pePct=costosFijos?Math.min(gan/costosFijos*100,150):0;
+  const fill=document.getElementById('cons-pe-fill');
+  setTimeout(()=>fill.style.width=Math.min(pePct,100)+'%',100);
+  fill.style.background=pePct>=100?'linear-gradient(90deg,var(--acc2),var(--acc))':'linear-gradient(90deg,var(--red),var(--orange))';
+  const rEl=document.getElementById('cons-resultado');rEl.textContent=fmt(res);rEl.className='pe-faltan '+(res>=0?'ok':'');
+  document.getElementById('cons-pct').textContent=pct(Math.min(pePct,100))+' del PE';
+  const f=famillas(total),totF=total.totalFac,totC=total.totalCosto,totU=f.Pinceles.u+f.Rodillos.u+f.Accesorios.u;
+  const rows=Object.entries(f).map(([n,v])=>{const g=v.f-v.c,m=v.f?g/v.f*100:0;return`<tr><td>${n}</td><td class="r">${num(v.u)}</td><td class="r y">${fmt(v.f)}</td><td class="r">${fmt(v.c)}</td><td class="r g">${fmt(g)}</td><td class="r"><span class="badge ${m>=50?'h':m>=35?'m':'l'}">${pct(m)}</span></td></tr>`;});
+  rows.push(`<tr class="total-row"><td>TOTAL</td><td class="r">${num(totU)}</td><td class="r">${fmt(totF)}</td><td class="r">${fmt(totC)}</td><td class="r">${fmt(gan)}</td><td class="r"><span class="badge ${total.margen>=50?'h':total.margen>=35?'m':'l'}">${pct(total.margen)}</span></td></tr>`);
+  document.getElementById('cons-tabla').innerHTML=rows.join('');
+}
+
+function switchTab(id,btn){document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));document.querySelectorAll('.tab-content').forEach(c=>c.classList.remove('active'));btn.classList.add('active');document.getElementById('tab-'+id).classList.add('active');}
+function setEmp(tab,emp,btn){btn.closest('.emp-tabs').querySelectorAll('.emp-btn').forEach(b=>b.classList.remove('active'));btn.classList.add('active');state.empActiva[tab]=emp;if(tab==='hoy')renderHoy();if(tab==='mes')renderMes();}
+function guardarConfig(){cfg.costosFijos=parseFloat(document.getElementById('cfg-costos').value)||22000000;cfg.diaActual=parseInt(document.getElementById('cfg-dia').value)||new Date().getDate();cfg.diasMes=parseInt(document.getElementById('cfg-diasmes').value)||31;localStorage.setItem('cf',cfg.costosFijos);localStorage.setItem('dia',cfg.diaActual);localStorage.setItem('dm',cfg.diasMes);document.getElementById('sys-cf').textContent=fmt(cfg.costosFijos)+'/mes';renderAll();}
+
+document.getElementById('cfg-dia').value=new Date().getDate();
+init();
+</script>
+</body>
+</html>
