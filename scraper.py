@@ -9,6 +9,7 @@ import pdfplumber
 from io import BytesIO
 from playwright.sync_api import sync_playwright
 import dropbox
+import base64
 
 ARG = timezone(timedelta(hours=-3))
 
@@ -19,6 +20,8 @@ EMPRESA_2 = os.environ['AMS_EMPRESA_2']
 APP_KEY = os.environ['DROPBOX_APP_KEY']
 APP_SECRET = os.environ['DROPBOX_APP_SECRET']
 REFRESH_TOKEN = os.environ['DROPBOX_REFRESH_TOKEN']
+GH_TOKEN = os.environ['GH_TOKEN_PUSH']
+GH_REPO = 'ignaciopacci/tiburon-dashboard'
 
 URL_LOGIN = 'https://apps1.mahonsistemas.com.ar/WebCorporateTiburon/login.aspx'
 BASE = 'https://apps1.mahonsistemas.com.ar/WebCorporateTiburon/'
@@ -156,25 +159,36 @@ def generar_json(datos, empresa_nombre):
         'rubros': rubros
     }
 
-def subir_dropbox(data, dropbox_path):
-    dbx = get_dropbox()
-    dbx.files_upload(data, dropbox_path, mode=dropbox.files.WriteMode.overwrite)
-    print(f'Subido: {dropbox_path}')
+def subir_github(contenido_str, path):
+    url = f'https://api.github.com/repos/{GH_REPO}/contents/{path}'
+    headers = {
+        'Authorization': f'token {GH_TOKEN}',
+        'Accept': 'application/vnd.github.v3+json'
+    }
+    # Obtener SHA si el archivo existe
+    r = requests.get(url, headers=headers)
+    sha = r.json().get('sha') if r.status_code == 200 else None
+
+    contenido_b64 = base64.b64encode(contenido_str.encode('utf-8')).decode('utf-8')
+    data = {
+        'message': f'Actualización automática {datetime.now(ARG).strftime("%d/%m/%Y %H:%M")}',
+        'content': contenido_b64
+    }
+    if sha:
+        data['sha'] = sha
+
+    r = requests.put(url, headers=headers, json=data)
+    if r.status_code in [200, 201]:
+        print(f'✓ GitHub: {path}')
+    else:
+        print(f'✗ GitHub error {r.status_code}: {r.text}')
+        raise Exception(f'Error subiendo a GitHub: {path}')
 
 def main():
-    # Generar y subir token fresco para el dashboard
-    print('Generando token fresco...')
-    dbx = get_dropbox()
-    dbx.check_and_refresh_access_token()
-    token_info = {
-        'access_token': dbx._oauth2_access_token,
-        'generado': datetime.now(ARG).strftime('%d/%m/%Y %H:%M')
-    }
-    subir_dropbox(json.dumps(token_info).encode('utf-8'), '/AMS_Data/token.json')
-    print('Token fresco subido')
-
     with sync_playwright() as p:
         browser = p.chromium.launch(headless=True)
+        resultados = {}
+
         for empresa in [EMPRESA_1, EMPRESA_2]:
             context = browser.new_context(accept_downloads=True)
             page = context.new_page()
@@ -184,8 +198,7 @@ def main():
                 datos = parsear_pdf(pdf_bytes)
                 resultado = generar_json(datos, empresa)
                 nombre = empresa.replace(' ', '_').replace('.', '')
-                subir_dropbox(pdf_bytes, f'/AMS_Data/{nombre}.pdf')
-                subir_dropbox(json.dumps(resultado, ensure_ascii=False).encode('utf-8'), f'/AMS_Data/{nombre}.json')
+                resultados[nombre] = resultado
                 print(f'✓ {empresa} — {len(datos)} artículos')
             except Exception as e:
                 print(f'✗ Error: {e}')
@@ -193,7 +206,13 @@ def main():
             finally:
                 context.close()
             time.sleep(3)
+
         browser.close()
+
+    # Subir JSONs a GitHub
+    for nombre, resultado in resultados.items():
+        subir_github(json.dumps(resultado, ensure_ascii=False, indent=2), f'data/{nombre}.json')
+
     print('Completo:', datetime.now(ARG).strftime('%d/%m/%Y %H:%M'))
 
 if __name__ == '__main__':
