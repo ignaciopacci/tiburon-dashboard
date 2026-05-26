@@ -195,11 +195,12 @@ def main():
     mes_key = hoy.strftime('%Y-%m')
     print(f'Hora Argentina: {hoy.strftime("%d/%m/%Y %H:%M")}')
 
-    with sync_playwright() as p:
-        browser = p.chromium.launch(headless=True)
-        resultados = {}
+    resultados = {}
 
-        for empresa in [EMPRESA_1, EMPRESA_2]:
+    for empresa in [EMPRESA_1, EMPRESA_2]:
+        # Browser nuevo para cada empresa — sesión completamente limpia
+        with sync_playwright() as p:
+            browser = p.chromium.launch(headless=True)
             context = browser.new_context(accept_downloads=True)
             page = context.new_page()
             try:
@@ -215,9 +216,8 @@ def main():
                 raise
             finally:
                 context.close()
-            time.sleep(3)
-
-        browser.close()
+                browser.close()
+        time.sleep(3)
 
     # Subir JSONs a GitHub
     for nombre, resultado in resultados.items():
