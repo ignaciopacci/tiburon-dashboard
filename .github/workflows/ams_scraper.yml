@@ -11,6 +11,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.GH_TOKEN_PUSH }}
 
       - name: Setup Python
         uses: actions/setup-python@v4
@@ -31,3 +33,10 @@ jobs:
           DROPBOX_REFRESH_TOKEN: ${{ secrets.DROPBOX_REFRESH_TOKEN }}
           GH_TOKEN_PUSH: ${{ secrets.GH_TOKEN_PUSH }}
         run: python scraper.py
+
+      - name: Keep workflow alive
+        run: |
+          git config user.email "action@github.com"
+          git config user.name "GitHub Action"
+          git commit --allow-empty -m "keep-alive $(date '+%Y-%m-%d %H:%M')"
+          git push
