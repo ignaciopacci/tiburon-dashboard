@@ -26,13 +26,6 @@ GH_REPO = 'ignaciopacci/tiburon-dashboard'
 URL_LOGIN = 'https://apps1.mahonsistemas.com.ar/WebCorporateTiburon/login.aspx'
 BASE = 'https://apps1.mahonsistemas.com.ar/WebCorporateTiburon/'
 
-def get_dropbox():
-    return dropbox.Dropbox(
-        app_key=APP_KEY,
-        app_secret=APP_SECRET,
-        oauth2_refresh_token=REFRESH_TOKEN
-    )
-
 def get_hora_arg():
     try:
         r = requests.get('https://worldtimeapi.org/api/timezone/America/Argentina/Buenos_Aires', timeout=5)
@@ -49,23 +42,35 @@ def get_url_reporte():
     return f'{BASE}alstinfcompcosto.aspx?{primer_dia},{ultimo_dia},PES,,A,SCR'
 
 def login(page, empresa):
-    print(f'Entrando como: {empresa}')
+    print(f'Entrando como: [{empresa}]')
     page.goto(URL_LOGIN)
     page.wait_for_load_state('networkidle')
     page.wait_for_selector('#vUSUARIOCOD', timeout=15000)
+
+    # Debug: mostrar opciones disponibles
+    opciones = page.evaluate("Array.from(document.querySelector('#vPERFILCGO_MPAGE').options).map(o => o.text.trim())")
+    print(f'Opciones en dropdown: {opciones}')
+
     page.fill('#vUSUARIOCOD', USUARIO)
     page.press('#vUSUARIOCOD', 'Tab')
     page.wait_for_timeout(2000)
-    page.evaluate(f'''
+
+    # Seleccionar empresa
+    encontrada = page.evaluate(f'''
         var sel = document.querySelector('#vPERFILCGO_MPAGE');
+        var encontrada = false;
         for (var i = 0; i < sel.options.length; i++) {{
             if (sel.options[i].text.trim() === "{empresa}") {{
                 sel.selectedIndex = i;
                 sel.dispatchEvent(new Event('change'));
+                encontrada = true;
                 break;
             }}
         }}
+        encontrada;
     ''')
+    print(f'Empresa encontrada en dropdown: {encontrada}')
+
     page.wait_for_timeout(1000)
     page.fill('#vUSUARIOPASS', PASSWORD)
     page.wait_for_timeout(500)
@@ -79,7 +84,7 @@ def login(page, empresa):
     ''')
     page.wait_for_load_state('networkidle')
     page.wait_for_timeout(2000)
-    print(f'Login OK: {empresa}')
+    print(f'Login OK: [{empresa}]')
 
 def descargar_pdf(page, context):
     url_reporte = get_url_reporte()
@@ -194,11 +199,12 @@ def main():
     hoy = get_hora_arg()
     mes_key = hoy.strftime('%Y-%m')
     print(f'Hora Argentina: {hoy.strftime("%d/%m/%Y %H:%M")}')
+    print(f'EMPRESA_1: [{EMPRESA_1}]')
+    print(f'EMPRESA_2: [{EMPRESA_2}]')
 
     resultados = {}
 
     for empresa in [EMPRESA_1, EMPRESA_2]:
-        # Browser nuevo para cada empresa — sesión completamente limpia
         with sync_playwright() as p:
             browser = p.chromium.launch(headless=True)
             context = browser.new_context(accept_downloads=True)
@@ -219,7 +225,6 @@ def main():
                 browser.close()
         time.sleep(3)
 
-    # Subir JSONs a GitHub
     for nombre, resultado in resultados.items():
         contenido = json.dumps(resultado, ensure_ascii=False, indent=2)
         subir_github(contenido, f'data/{nombre}.json')
