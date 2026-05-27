@@ -41,36 +41,27 @@ def get_url_reporte():
     ultimo_dia = hoy.replace(day=ultimo).strftime('%Y%m%d')
     return f'{BASE}alstinfcompcosto.aspx?{primer_dia},{ultimo_dia},PES,,A,SCR'
 
-def login(page, empresa):
-    print(f'Entrando como: [{empresa}]')
+def login(page, empresa, valor):
+    print(f'Entrando como: [{empresa}] (value={valor})')
     page.goto(URL_LOGIN)
     page.wait_for_load_state('networkidle')
     page.wait_for_selector('#vUSUARIOCOD', timeout=15000)
 
-    # Llenar usuario y presionar Tab para disparar carga del dropdown
     page.fill('#vUSUARIOCOD', USUARIO)
     page.press('#vUSUARIOCOD', 'Tab')
-    page.wait_for_timeout(4000)
+    page.wait_for_timeout(2000)
 
-    # Debug opciones
-    opciones = page.evaluate("Array.from(document.querySelector('#vPERFILCGO_MPAGE').options).map(o => o.text.trim())")
-    print(f'Opciones disponibles: {opciones}')
-
-    # Seleccionar empresa por texto
-    encontrada = page.evaluate(f'''
-        var sel = document.querySelector('#vPERFILCGO_MPAGE');
-        var encontrada = false;
-        for (var i = 0; i < sel.options.length; i++) {{
-            if (sel.options[i].text.trim() === "{empresa}") {{
-                sel.selectedIndex = i;
-                sel.dispatchEvent(new Event('change'));
-                encontrada = true;
-                break;
-            }}
-        }}
-        encontrada;
+    # Seleccionar empresa por value en el dropdown correcto
+    page.evaluate(f'''
+        var sel = document.querySelector('#vEMPRESACGO');
+        sel.value = '{valor}';
+        sel.dispatchEvent(new Event('change', {{bubbles: true}}));
     ''')
-    print(f'Empresa encontrada: {encontrada}')
+    page.wait_for_timeout(1000)
+
+    # Verificar selección
+    seleccionado = page.evaluate("document.querySelector('#vEMPRESACGO').value")
+    print(f'Empresa seleccionada value: {seleccionado}')
 
     page.fill('#vUSUARIOPASS', PASSWORD)
     page.wait_for_timeout(500)
@@ -199,18 +190,22 @@ def main():
     hoy = get_hora_arg()
     mes_key = hoy.strftime('%Y-%m')
     print(f'Hora Argentina: {hoy.strftime("%d/%m/%Y %H:%M")}')
-    print(f'EMPRESA_1: [{EMPRESA_1}]')
-    print(f'EMPRESA_2: [{EMPRESA_2}]')
+
+    # Empresa 1 = Irelocs S.A. (value=1), Empresa 2 = XXXXXXX (value=2)
+    empresas = [
+        (EMPRESA_1, '1'),
+        (EMPRESA_2, '2'),
+    ]
 
     resultados = {}
 
-    for empresa in [EMPRESA_1, EMPRESA_2]:
+    for empresa, valor in empresas:
         with sync_playwright() as p:
             browser = p.chromium.launch(headless=True)
             context = browser.new_context(accept_downloads=True)
             page = context.new_page()
             try:
-                login(page, empresa)
+                login(page, empresa, valor)
                 pdf_bytes = descargar_pdf(page, context)
                 datos = parsear_pdf(pdf_bytes)
                 resultado = generar_json(datos, empresa)
