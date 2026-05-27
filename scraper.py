@@ -40,27 +40,23 @@ def get_url_reporte():
     ultimo = calendar.monthrange(hoy.year, hoy.month)[1]
     ultimo_dia = hoy.replace(day=ultimo).strftime('%Y%m%d')
     return f'{BASE}alstinfcompcosto.aspx?{primer_dia},{ultimo_dia},PES,,A,SCR'
-    
+
 def login(page, empresa):
     print(f'Entrando como: [{empresa}]')
     page.goto(URL_LOGIN)
     page.wait_for_load_state('networkidle')
     page.wait_for_selector('#vUSUARIOCOD', timeout=15000)
 
-    # Llenar usuario primero para que cargue el dropdown
+    # Llenar usuario y presionar Tab para disparar carga del dropdown
     page.fill('#vUSUARIOCOD', USUARIO)
     page.press('#vUSUARIOCOD', 'Tab')
+    page.wait_for_timeout(4000)
 
-    # Esperar a que el dropdown tenga opciones
-    page.wait_for_timeout(3000)
-    for intento in range(10):
-        opciones = page.evaluate("Array.from(document.querySelector('#vPERFILCGO_MPAGE').options).map(o => o.text.trim())")
-        print(f'Intento {intento+1} - Opciones: {opciones}')
-        if len(opciones) > 1:
-            break
-        page.wait_for_timeout(1000)
+    # Debug opciones
+    opciones = page.evaluate("Array.from(document.querySelector('#vPERFILCGO_MPAGE').options).map(o => o.text.trim())")
+    print(f'Opciones disponibles: {opciones}')
 
-    # Seleccionar empresa
+    # Seleccionar empresa por texto
     encontrada = page.evaluate(f'''
         var sel = document.querySelector('#vPERFILCGO_MPAGE');
         var encontrada = false;
@@ -89,6 +85,7 @@ def login(page, empresa):
     page.wait_for_load_state('networkidle')
     page.wait_for_timeout(2000)
     print(f'Login OK: [{empresa}]')
+
 def descargar_pdf(page, context):
     url_reporte = get_url_reporte()
     print(f'Descargando PDF: {url_reporte}')
