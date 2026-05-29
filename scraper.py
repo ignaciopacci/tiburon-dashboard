@@ -10,6 +10,11 @@ from io import BytesIO
 from playwright.sync_api import sync_playwright
 import dropbox
 import base64
+from google.oauth2 import service_account
+from googleapiclient.discovery import build
+from googleapiclient.http import MediaIoBaseDownload
+import io
+import xlrd
 
 ARG = timezone(timedelta(hours=-3))
 
@@ -22,6 +27,8 @@ APP_SECRET = os.environ['DROPBOX_APP_SECRET']
 REFRESH_TOKEN = os.environ['DROPBOX_REFRESH_TOKEN']
 GH_TOKEN = os.environ['GH_TOKEN_PUSH']
 GH_REPO = 'ignaciopacci/tiburon-dashboard'
+GOOGLE_CREDENTIALS = os.environ['GOOGLE_CREDENTIALS']
+GANANCIAS_FILE_ID = '1b2rxkDVO9ujMurm19gqOd9C1myfDt_b_'
 
 URL_LOGIN = 'https://apps1.mahonsistemas.com.ar/WebCorporateTiburon/login.aspx'
 BASE = 'https://apps1.mahonsistemas.com.ar/WebCorporateTiburon/'
@@ -46,23 +53,17 @@ def login(page, empresa, valor):
     page.goto(URL_LOGIN)
     page.wait_for_load_state('networkidle')
     page.wait_for_selector('#vUSUARIOCOD', timeout=15000)
-
     page.fill('#vUSUARIOCOD', USUARIO)
     page.press('#vUSUARIOCOD', 'Tab')
     page.wait_for_timeout(2000)
-
-    # Seleccionar empresa por value en el dropdown correcto
     page.evaluate(f'''
         var sel = document.querySelector('#vEMPRESACGO');
         sel.value = '{valor}';
         sel.dispatchEvent(new Event('change', {{bubbles: true}}));
     ''')
     page.wait_for_timeout(1000)
-
-    # Verificar selección
     seleccionado = page.evaluate("document.querySelector('#vEMPRESACGO').value")
     print(f'Empresa seleccionada value: {seleccionado}')
-
     page.fill('#vUSUARIOPASS', PASSWORD)
     page.wait_for_timeout(500)
     page.evaluate('''
@@ -186,12 +187,80 @@ def subir_github(contenido_str, path):
     else:
         raise Exception(f'Error GitHub {r.status_code}: {path}')
 
+def leer_ganancias_drive():
+    print('Leyendo Excel de ganancias desde Google Drive...')
+    creds_dict = json.loads(GOOGLE_CREDENTIALS)
+    creds = service_account.Credentials.from_service_account_info(
+        creds_dict,
+        scopes=['https://www.googleapis.com/auth/drive.readonly']
+    )
+    service = build('drive', 'v3', credentials=creds)
+    request = service.files().export_media(
+        fileId=GANANCIAS_FILE_ID,
+        mimeType='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
+    )
+    fh = io.BytesIO()
+    downloader = MediaIoBaseDownload(fh, request)
+    done = False
+    while not done:
+        _, done = downloader.next_chunk()
+    fh.seek(0)
+
+    import openpyxl
+    wb = openpyxl.load_workbook(fh, data_only=True)
+    print(f'Hojas: {wb.sheetnames}')
+
+    # Parsear hoja VENTAS (datos mensuales desde 2021)
+    resultado = {'anios': {}, 'mensual': []}
+
+    # Hoja GANANCIA — resumen anual
+    if 'GANANCIA' in wb.sheetnames:
+        ws = wb['GANANCIA']
+        for row in ws.iter_rows(values_only=True):
+            if row[0] and str(row[0]).strip().isdigit():
+                anio = int(row[0])
+                try:
+                    resultado['anios'][anio] = {
+                        'anio': anio,
+                        'ventas': float(row[1]) if row[1] else 0,
+                        'costo': float(row[2]) if row[2] else 0,
+                        'gananciaBruta': float(row[3]) if row[3] else 0,
+                        'gananciaLimpia': float(row[4]) if row[4] else 0,
+                    }
+                except:
+                    continue
+
+    # Hoja VENTAS — datos mensuales
+    if 'VENTAS' in wb.sheetnames:
+        ws = wb['VENTAS']
+        meses = ['Ene','Feb','Mar','Abr','May','Jun','Jul','Ago','Sep','Oct','Nov','Dic']
+        for row in ws.iter_rows(values_only=True):
+            if row[0] and str(row[0]).strip().isdigit():
+                anio = int(row[0])
+                for i, mes in enumerate(meses):
+                    col_base = 1 + i * 3
+                    try:
+                        ventas = float(row[col_base]) if row[col_base] else None
+                        if ventas:
+                            resultado['mensual'].append({
+                                'anio': anio,
+                                'mes': i + 1,
+                                'mesNombre': mes,
+                                'ventas': ventas,
+                                'costo': float(row[col_base+1]) if row[col_base+1] else 0,
+                                'gananciaBruta': float(row[col_base+2]) if row[col_base+2] else 0,
+                            })
+                    except:
+                        continue
+
+    print(f'✓ Ganancias: {len(resultado["anios"])} años, {len(resultado["mensual"])} registros mensuales')
+    return resultado
+
 def main():
     hoy = get_hora_arg()
     mes_key = hoy.strftime('%Y-%m')
     print(f'Hora Argentina: {hoy.strftime("%d/%m/%Y %H:%M")}')
 
-    # Empresa 1 = Irelocs S.A. (value=1), Empresa 2 = XXXXXXX (value=2)
     empresas = [
         (EMPRESA_1, '1'),
         (EMPRESA_2, '2'),
@@ -220,10 +289,21 @@ def main():
                 browser.close()
         time.sleep(3)
 
+    # Subir JSONs de ventas a GitHub
     for nombre, resultado in resultados.items():
         contenido = json.dumps(resultado, ensure_ascii=False, indent=2)
         subir_github(contenido, f'data/{nombre}.json')
         subir_github(contenido, f'data/historico/{mes_key}_{nombre}.json')
+
+    # Leer y subir ganancias históricas desde Drive
+    try:
+        ganancias = leer_ganancias_drive()
+        subir_github(
+            json.dumps(ganancias, ensure_ascii=False, indent=2),
+            'data/ganancias_historicas.json'
+        )
+    except Exception as e:
+        print(f'✗ Error leyendo ganancias Drive: {e}')
 
     print('Completo:', hoy.strftime('%d/%m/%Y %H:%M'))
 
