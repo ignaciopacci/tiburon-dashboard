@@ -16,7 +16,7 @@ jobs:
         with:
           python-version: '3.11'
       - name: Install dependencies
-        run: pip install playwright pdfplumber dropbox requests google-auth google-auth-httplib2 google-api-python-client openpyxl && python -m playwright install chromium
+        run: pip install playwright pdfplumber dropbox requests google-auth google-auth-httplib2 google-api-python-client openpyxl xlrd && python -m playwright install chromium
       - name: Run scraper
         env:
           AMS_USUARIO: ${{ secrets.AMS_USUARIO }}
