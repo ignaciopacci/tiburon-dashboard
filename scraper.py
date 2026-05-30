@@ -188,11 +188,6 @@ def subir_github(contenido_str, path):
         raise Exception(f'Error GitHub {r.status_code}: {path}')
 
 def get_dolar_mes(anio, mes):
-    """
-    Obtiene el dólar MEP (bolsa) promedio del mes.
-    Para años anteriores a 2019 usa blue como referencia más cercana.
-    Usa el día 15 de cada mes como representativo.
-    """
     tipo = 'bolsa' if anio >= 2019 else 'blue'
     fecha = f'{anio}/{mes:02d}/15'
     try:
@@ -209,10 +204,6 @@ def get_dolar_mes(anio, mes):
     return {'tipo': tipo, 'valor': None}
 
 def get_inflacion_mensual():
-    """
-    Obtiene el IPC mensual desde ArgentinaDatos.
-    Devuelve dict {(anio, mes): ipc_mensual_pct}
-    """
     try:
         url = 'https://api.argentinadatos.com/v1/finanzas/indices/inflacion'
         r = requests.get(url, timeout=15)
@@ -233,21 +224,6 @@ def get_inflacion_mensual():
     except Exception as e:
         print(f'  ✗ Error inflación: {e}')
     return {}
-
-def calcular_ipc_acumulado(inflacion_mensual, anio_base, mes_base):
-    """
-    Calcula el factor de ajuste desde (anio, mes) hasta (anio_base, mes_base).
-    Factor > 1 significa que los pesos de entonces valen más en pesos de hoy.
-    """
-    # Ordenar todos los registros cronológicamente
-    registros = sorted(inflacion_mensual.keys())
-    factor = 1.0
-    for (a, m) in registros:
-        # Acumular desde el mes siguiente al origen hasta el mes base
-        if (a, m) > (0, 0) and (a, m) <= (anio_base, mes_base):
-            pct = inflacion_mensual[(a, m)]
-            factor *= (1 + pct / 100)
-    return factor
 
 def leer_ganancias_drive():
     print('Leyendo Excel de ganancias desde Google Drive...')
@@ -271,7 +247,7 @@ def leer_ganancias_drive():
     resultado = {'anios': {}, 'mensual': [], 'meta': {}}
 
     # Hoja GANANCIA — resumen anual
-    # Columnas: 0=Año, 1=GananciaBruta, 2=Gasto, 3=GananciaLimpia, 4=Pct, 5=Pct, 6=Ventas
+    # Col 0=Año, 1=GananciaBruta, 2=Gastos, 3=GananciaLimpia
     if 'GANANCIA' in wb.sheet_names():
         ws = wb.sheet_by_name('GANANCIA')
         for i in range(ws.nrows):
@@ -281,16 +257,15 @@ def leer_ganancias_drive():
                     anio = int(float(row[0]))
                     resultado['anios'][anio] = {
                         'anio': anio,
-                        'ventas': float(row[6]) if row[6] else 0,
-                        'costo': float(row[2]) if row[2] else 0,
                         'gananciaBruta': float(row[1]) if row[1] else 0,
+                        'gastos': float(row[2]) if row[2] else 0,
                         'gananciaLimpia': float(row[3]) if row[3] else 0,
                     }
                 except:
                     continue
 
     # Hoja VENTAS — datos mensuales (estructura vertical por año)
-    # Columnas: 0=Mes, 1=Ventas, 2=Costo, 3=GananciaBruta, 4=Gastos, 5=GananciaLimpia
+    # Col 0=Mes, 1=GananciaBruta, 2=Gastos, 3=GananciaLimpia, 4=CantPinceles, 5=CantAccesorios, 6=CantTotal
     if 'VENTAS' in wb.sheet_names():
         ws = wb.sheet_by_name('VENTAS')
         meses_map = {
@@ -319,109 +294,112 @@ def leer_ganancias_drive():
             if anio_actual and celda in meses_map:
                 nro_mes = meses_map[celda]
                 try:
-                    ventas = float(row[1]) if row[1] else 0
-                    costo = float(row[2]) if row[2] else 0
-                    ganancia_bruta = float(row[3]) if row[3] else 0
-                    ganancia_limpia = float(row[5]) if len(row) > 5 and row[5] else 0
-                    if ventas:
+                    ganancia_bruta = float(row[1]) if row[1] else 0
+                    gastos = float(row[2]) if row[2] else 0
+                    ganancia_limpia = float(row[3]) if row[3] else 0
+                    cant_pinceles = int(row[4]) if row[4] else 0
+                    cant_accesorios = int(row[5]) if row[5] else 0
+                    cant_total = int(row[6]) if len(row) > 6 and row[6] else 0
+                    if ganancia_bruta:
                         resultado['mensual'].append({
                             'anio': anio_actual,
                             'mes': nro_mes,
                             'mesNombre': meses_nombre[nro_mes],
-                            'ventas': ventas,
-                            'costo': costo,
                             'gananciaBruta': ganancia_bruta,
+                            'gastos': gastos,
                             'gananciaLimpia': ganancia_limpia,
+                            'cantPinceles': cant_pinceles,
+                            'cantAccesorios': cant_accesorios,
+                            'cantTotal': cant_total,
                         })
                 except:
                     continue
 
     print(f'✓ Excel: {len(resultado["anios"])} años, {len(resultado["mensual"])} registros mensuales')
 
-    # Obtener inflación mensual
+    # Inflación
     print('Obteniendo datos de inflación...')
     inflacion = get_inflacion_mensual()
 
-    # Mes base para pesos constantes = mes actual
     hoy = get_hora_arg()
     anio_base = hoy.year
     mes_base = hoy.month
-    resultado['meta']['mesBase'] = f'{meses_nombre.get(mes_base, str(mes_base))} {anio_base}'
+    meses_nombre_base = {1:'Ene',2:'Feb',3:'Mar',4:'Abr',5:'May',6:'Jun',7:'Jul',8:'Ago',9:'Sep',10:'Oct',11:'Nov',12:'Dic'}
+    resultado['meta']['mesBase'] = f'{meses_nombre_base.get(mes_base,str(mes_base))} {anio_base}'
 
-    # Calcular IPC acumulado total (de inicio de serie hasta hoy)
-    # para cada mes calcular el factor de ajuste
-    ipc_acumulado = {}
+    # Construir índice acumulado de inflación
     registros_ordenados = sorted(inflacion.keys())
-    factor_acum = 1.0
-    # Construir índice acumulado desde el primer dato hasta hoy
     indice_por_mes = {}
+    factor_acum = 1.0
     for (a, m) in registros_ordenados:
         factor_acum *= (1 + inflacion[(a, m)] / 100)
         indice_por_mes[(a, m)] = factor_acum
     factor_hoy = factor_acum
 
-    # Enriquecer datos mensuales con dólar e inflación
+    # Enriquecer datos mensuales
     print('Obteniendo tipo de cambio histórico...')
     for item in resultado['mensual']:
         a = item['anio']
         m = item['mes']
+        gb = item['gananciaBruta']
 
-        # Dólar MEP (o blue pre-2019)
+        # Dólar
         dolar_info = get_dolar_mes(a, m)
         item['dolarTipo'] = dolar_info['tipo']
         item['dolarValor'] = dolar_info['valor']
         if dolar_info['valor'] and dolar_info['valor'] > 0:
-            item['ventasUsd'] = round(item['ventas'] / dolar_info['valor'], 0)
-            item['gananciaBrutaUsd'] = round(item['gananciaBruta'] / dolar_info['valor'], 0)
+            item['gananciaBrutaUsd'] = round(gb / dolar_info['valor'], 0)
+            item['gastosUsd'] = round(item['gastos'] / dolar_info['valor'], 0)
             item['gananciaLimpiaUsd'] = round(item['gananciaLimpia'] / dolar_info['valor'], 0)
         else:
-            item['ventasUsd'] = None
             item['gananciaBrutaUsd'] = None
+            item['gastosUsd'] = None
             item['gananciaLimpiaUsd'] = None
 
-        # Inflación — factor de ajuste a pesos de hoy
+        # Inflación
         factor_origen = indice_por_mes.get((a, m))
         if factor_origen and factor_hoy:
             factor_ajuste = factor_hoy / factor_origen
             item['factorInflacion'] = round(factor_ajuste, 4)
-            item['ventasConstantes'] = round(item['ventas'] * factor_ajuste, 0)
-            item['gananciaBrutaConstante'] = round(item['gananciaBruta'] * factor_ajuste, 0)
+            item['gananciaBrutaConstante'] = round(gb * factor_ajuste, 0)
+            item['gastosConstante'] = round(item['gastos'] * factor_ajuste, 0)
             item['gananciaLimpiaConstante'] = round(item['gananciaLimpia'] * factor_ajuste, 0)
         else:
             item['factorInflacion'] = None
-            item['ventasConstantes'] = None
             item['gananciaBrutaConstante'] = None
+            item['gastosConstante'] = None
             item['gananciaLimpiaConstante'] = None
 
-        time.sleep(0.3)  # Evitar rate limiting
+        time.sleep(0.3)
 
-    # Enriquecer resumen anual también
+    # Enriquecer resumen anual
     for anio_key, item in resultado['anios'].items():
         a = int(anio_key) if not isinstance(anio_key, int) else anio_key
-        # Dólar diciembre de ese año como referencia anual
+        gb = item['gananciaBruta']
+
         dolar_info = get_dolar_mes(a, 12)
         item['dolarTipo'] = dolar_info['tipo']
         item['dolarValor'] = dolar_info['valor']
-        if dolar_info['valor'] and dolar_info['valor'] > 0 and item['ventas']:
-            item['ventasUsd'] = round(item['ventas'] / dolar_info['valor'], 0)
-            item['gananciaBrutaUsd'] = round(item['gananciaBruta'] / dolar_info['valor'], 0)
+        if dolar_info['valor'] and dolar_info['valor'] > 0 and gb:
+            item['gananciaBrutaUsd'] = round(gb / dolar_info['valor'], 0)
+            item['gastosUsd'] = round(item['gastos'] / dolar_info['valor'], 0)
             item['gananciaLimpiaUsd'] = round(item['gananciaLimpia'] / dolar_info['valor'], 0)
         else:
-            item['ventasUsd'] = None
             item['gananciaBrutaUsd'] = None
+            item['gastosUsd'] = None
             item['gananciaLimpiaUsd'] = None
 
         factor_origen = indice_por_mes.get((a, 12))
-        if factor_origen and factor_hoy and item['ventas']:
+        if factor_origen and factor_hoy and gb:
             factor_ajuste = factor_hoy / factor_origen
             item['factorInflacion'] = round(factor_ajuste, 4)
-            item['ventasConstantes'] = round(item['ventas'] * factor_ajuste, 0)
-            item['gananciaBrutaConstante'] = round(item['gananciaBruta'] * factor_ajuste, 0)
+            item['gananciaBrutaConstante'] = round(gb * factor_ajuste, 0)
+            item['gastosConstante'] = round(item['gastos'] * factor_ajuste, 0)
             item['gananciaLimpiaConstante'] = round(item['gananciaLimpia'] * factor_ajuste, 0)
         else:
             item['factorInflacion'] = None
-            item['ventasConstantes'] = None
             item['gananciaBrutaConstante'] = None
+            item['gastosConstante'] = None
             item['gananciaLimpiaConstante'] = None
 
         time.sleep(0.3)
@@ -462,13 +440,11 @@ def main():
                 browser.close()
         time.sleep(3)
 
-    # Subir JSONs de ventas a GitHub
     for nombre, resultado in resultados.items():
         contenido = json.dumps(resultado, ensure_ascii=False, indent=2)
         subir_github(contenido, f'data/{nombre}.json')
         subir_github(contenido, f'data/historico/{mes_key}_{nombre}.json')
 
-    # Leer y subir ganancias históricas desde Drive
     try:
         ganancias = leer_ganancias_drive()
         subir_github(
