@@ -208,12 +208,6 @@ def leer_ganancias_drive():
 
     resultado = {'anios': {}, 'mensual': []}
 
-    # DEBUG — ver estructura de hoja VENTAS
-    if 'VENTAS' in wb.sheet_names():
-        ws_debug = wb.sheet_by_name('VENTAS')
-        for i in range(min(5, ws_debug.nrows)):
-            print(f'VENTAS fila {i}: {ws_debug.row_values(i)}')
-
     # Hoja GANANCIA — resumen anual
     if 'GANANCIA' in wb.sheet_names():
         ws = wb.sheet_by_name('GANANCIA')
@@ -232,30 +226,51 @@ def leer_ganancias_drive():
                 except:
                     continue
 
-    # Hoja VENTAS — datos mensuales
+    # Hoja VENTAS — datos mensuales (estructura vertical por año)
     if 'VENTAS' in wb.sheet_names():
         ws = wb.sheet_by_name('VENTAS')
-        meses = ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic']
+        meses_map = {
+            'ENERO': 1, 'FEBRERO': 2, 'MARZO': 3, 'ABRIL': 4,
+            'MAYO': 5, 'JUNIO': 6, 'JULIO': 7, 'AGOSTO': 8,
+            'SEPTIEMBRE': 9, 'OCTUBRE': 10, 'NOVIEMBRE': 11, 'DICIEMBRE': 12
+        }
+        meses_nombre = {
+            1: 'Ene', 2: 'Feb', 3: 'Mar', 4: 'Abr', 5: 'May', 6: 'Jun',
+            7: 'Jul', 8: 'Ago', 9: 'Sep', 10: 'Oct', 11: 'Nov', 12: 'Dic'
+        }
+        anio_actual = None
         for i in range(ws.nrows):
             row = ws.row_values(i)
-            if row[0] and str(row[0]).strip().replace('.0', '').isdigit():
+            if not row[0]:
+                continue
+            celda = str(row[0]).strip().upper()
+            # Detectar fila de año: "AÑO 2021", "AÑO 2022", etc.
+            if 'AÑO' in celda or 'ANO' in celda:
+                partes = celda.split()
+                for p in partes:
+                    p_clean = p.replace('.0', '')
+                    if p_clean.isdigit() and len(p_clean) == 4:
+                        anio_actual = int(p_clean)
+                        break
+                continue
+            # Detectar fila de mes
+            if anio_actual and celda in meses_map:
+                nro_mes = meses_map[celda]
                 try:
-                    anio = int(float(row[0]))
-                    for j, mes in enumerate(meses):
-                        col_base = 1 + j * 3
-                        try:
-                            ventas = float(row[col_base]) if row[col_base] else None
-                            if ventas:
-                                resultado['mensual'].append({
-                                    'anio': anio,
-                                    'mes': j + 1,
-                                    'mesNombre': mes,
-                                    'ventas': ventas,
-                                    'costo': float(row[col_base + 1]) if row[col_base + 1] else 0,
-                                    'gananciaBruta': float(row[col_base + 2]) if row[col_base + 2] else 0,
-                                })
-                        except:
-                            continue
+                    ventas = float(row[1]) if row[1] else 0
+                    costo = float(row[2]) if row[2] else 0
+                    ganancia_bruta = float(row[3]) if row[3] else 0
+                    ganancia_limpia = float(row[5]) if len(row) > 5 and row[5] else 0
+                    if ventas:
+                        resultado['mensual'].append({
+                            'anio': anio_actual,
+                            'mes': nro_mes,
+                            'mesNombre': meses_nombre[nro_mes],
+                            'ventas': ventas,
+                            'costo': costo,
+                            'gananciaBruta': ganancia_bruta,
+                            'gananciaLimpia': ganancia_limpia,
+                        })
                 except:
                     continue
 
