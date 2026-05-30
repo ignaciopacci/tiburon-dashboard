@@ -188,20 +188,26 @@ def subir_github(contenido_str, path):
         raise Exception(f'Error GitHub {r.status_code}: {path}')
 
 def get_dolar_mes(anio, mes):
-    tipo = 'bolsa' if anio >= 2019 else 'blue'
+    """
+    Intenta obtener dólar MEP primero para años >= 2019.
+    Si falla, cae a blue. Para años < 2019 usa blue directamente.
+    """
+    tipos = ['bolsa', 'blue'] if anio >= 2019 else ['blue']
     fecha = f'{anio}/{mes:02d}/15'
-    try:
-        url = f'https://api.argentinadatos.com/v1/cotizaciones/dolares/{tipo}/{fecha}'
-        r = requests.get(url, timeout=10)
-        if r.status_code == 200:
-            data = r.json()
-            venta = data.get('venta') or data.get('compra')
-            if venta:
-                print(f'  Dólar {tipo} {anio}/{mes:02d}: ${venta}')
-                return {'tipo': tipo, 'valor': float(venta)}
-    except Exception as e:
-        print(f'  ✗ Error dólar {anio}/{mes:02d}: {e}')
-    return {'tipo': tipo, 'valor': None}
+    for tipo in tipos:
+        try:
+            url = f'https://api.argentinadatos.com/v1/cotizaciones/dolares/{tipo}/{fecha}'
+            r = requests.get(url, timeout=10)
+            if r.status_code == 200:
+                data = r.json()
+                venta = data.get('venta') or data.get('compra')
+                if venta:
+                    print(f'  Dólar {tipo} {anio}/{mes:02d}: ${venta}')
+                    return {'tipo': tipo, 'valor': float(venta)}
+        except Exception as e:
+            print(f'  ✗ Error dólar {tipo} {anio}/{mes:02d}: {e}')
+    print(f'  ✗ Sin dólar para {anio}/{mes:02d}')
+    return {'tipo': 'n/d', 'valor': None}
 
 def get_inflacion_mensual():
     try:
@@ -250,17 +256,12 @@ def leer_ganancias_drive():
     )
     service = build('drive', 'v3', credentials=creds)
 
-    # Intentar descargar como xlsx primero, si falla como xls
     fh = io.BytesIO()
-    try:
-        request = service.files().get_media(fileId=GANANCIAS_FILE_ID)
-        downloader = MediaIoBaseDownload(fh, request)
-        done = False
-        while not done:
-            _, done = downloader.next_chunk()
-    except Exception as e:
-        print(f'  Error descargando: {e}')
-        raise
+    request = service.files().get_media(fileId=GANANCIAS_FILE_ID)
+    downloader = MediaIoBaseDownload(fh, request)
+    done = False
+    while not done:
+        _, done = downloader.next_chunk()
 
     fh.seek(0)
     wb = openpyxl.load_workbook(fh, data_only=True)
@@ -292,7 +293,7 @@ def leer_ganancias_drive():
             except:
                 continue
 
-    # Hoja VENTAS — datos mensuales (estructura vertical por año)
+    # Hoja VENTAS — datos mensuales
     # Col 0=Mes, 1=GananciaBruta, 2=Gastos, 3=GananciaLimpia, 4=CantPinceles, 5=CantAccesorios, 6=CantTotal
     if 'VENTAS' in wb.sheetnames:
         ws = wb['VENTAS']
@@ -349,8 +350,8 @@ def leer_ganancias_drive():
     inflacion = get_inflacion_mensual()
 
     hoy = get_hora_arg()
-    anio_base = hoy.year
     mes_base = hoy.month
+    anio_base = hoy.year
     meses_nb = {1:'Ene',2:'Feb',3:'Mar',4:'Abr',5:'May',6:'Jun',7:'Jul',8:'Ago',9:'Sep',10:'Oct',11:'Nov',12:'Dic'}
     resultado['meta']['mesBase'] = f'{meses_nb.get(mes_base,str(mes_base))} {anio_base}'
 
