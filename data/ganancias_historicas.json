@@ -2,101 +2,101 @@
   "anios": {
     "2012": {
       "anio": 2012,
-      "ventas": 2051483.56,
+      "ventas": 0,
       "costo": 1025788.4900000001,
-      "gananciaBruta": 1025695.07,
-      "gananciaLimpia": 0.4999772311117131
+      "gananciaBruta": 2051483.56,
+      "gananciaLimpia": 1025695.07
     },
     "2013": {
       "anio": 2013,
-      "ventas": 2932501.3399999994,
+      "ventas": 0,
       "costo": 1314708.8499999999,
-      "gananciaBruta": 1617792.49,
-      "gananciaLimpia": 0.5516766413480992
+      "gananciaBruta": 2932501.3399999994,
+      "gananciaLimpia": 1617792.49
     },
     "2014": {
       "anio": 2014,
-      "ventas": 4072593.71,
+      "ventas": 0,
       "costo": 1870209.8499999999,
-      "gananciaBruta": 2202383.86,
-      "gananciaLimpia": 0.540781628816099
+      "gananciaBruta": 4072593.71,
+      "gananciaLimpia": 2202383.86
     },
     "2015": {
       "anio": 2015,
-      "ventas": 5898536.83,
+      "ventas": 677792.0,
       "costo": 3887482.28,
-      "gananciaBruta": 2011054.55,
-      "gananciaLimpia": 0.3409412550874926
+      "gananciaBruta": 5898536.83,
+      "gananciaLimpia": 2011054.55
     },
     "2016": {
       "anio": 2016,
-      "ventas": 6649944.529999999,
+      "ventas": 586303.0,
       "costo": 4235107.3,
-      "gananciaBruta": 2414837.2299999995,
-      "gananciaLimpia": 0.3631364470945444
+      "gananciaBruta": 6649944.529999999,
+      "gananciaLimpia": 2414837.2299999995
     },
     "2017": {
       "anio": 2017,
-      "ventas": 8943312.34,
+      "ventas": 603702.0,
       "costo": 6284089.599999999,
-      "gananciaBruta": 2659222.740000001,
-      "gananciaLimpia": 0.2973420404995048
+      "gananciaBruta": 8943312.34,
+      "gananciaLimpia": 2659222.740000001
     },
     "2018": {
       "anio": 2018,
-      "ventas": 10412387.100000001,
+      "ventas": 518134.0,
       "costo": 7151946.81,
-      "gananciaBruta": 3260440.290000002,
-      "gananciaLimpia": 0.3131309140437164
+      "gananciaBruta": 10412387.100000001,
+      "gananciaLimpia": 3260440.290000002
     },
     "2019": {
       "anio": 2019,
-      "ventas": 16845554.48,
+      "ventas": 507215.0,
       "costo": 10012001.74,
-      "gananciaBruta": 6833552.74,
-      "gananciaLimpia": 0.40565911606609223
+      "gananciaBruta": 16845554.48,
+      "gananciaLimpia": 6833552.74
     },
     "2020": {
       "anio": 2020,
-      "ventas": 18164871.44,
+      "ventas": 344346.0,
       "costo": 11207585.290000001,
-      "gananciaBruta": 6957286.15,
-      "gananciaLimpia": 0.3830077285699744
+      "gananciaBruta": 18164871.44,
+      "gananciaLimpia": 6957286.15
     },
     "2021": {
       "anio": 2021,
-      "ventas": 23000341.91,
+      "ventas": 268890.0,
       "costo": 16682256.97,
-      "gananciaBruta": 6318084.9399999995,
-      "gananciaLimpia": 0.27469526169317715
+      "gananciaBruta": 23000341.91,
+      "gananciaLimpia": 6318084.9399999995
     },
     "2022": {
       "anio": 2022,
-      "ventas": 39051878.46,
+      "ventas": 339693.0,
       "costo": 28736183.55,
-      "gananciaBruta": 10315694.909999998,
-      "gananciaLimpia": 0.2641536160819035
+      "gananciaBruta": 39051878.46,
+      "gananciaLimpia": 10315694.909999998
     },
     "2023": {
       "anio": 2023,
-      "ventas": 81705293.03,
+      "ventas": 292642.0,
       "costo": 61191291.73,
-      "gananciaBruta": 20514001.3,
-      "gananciaLimpia": 0.2510731011327235
+      "gananciaBruta": 81705293.03,
+      "gananciaLimpia": 20514001.3
     },
     "2024": {
       "anio": 2024,
-      "ventas": 222037851.45,
+      "ventas": 342531.0,
       "costo": 174719059.18485,
-      "gananciaBruta": 47228792.265149996,
-      "gananciaLimpia": 0.2127060406895772
+      "gananciaBruta": 222037851.45,
+      "gananciaLimpia": 47228792.265149996
     },
     "2025": {
       "anio": 2025,
-      "ventas": 285443342.23,
+      "ventas": 403525.0,
       "costo": 238918084.78,
-      "gananciaBruta": 46525257.45000001,
-      "gananciaLimpia": 0.16299296766400537
+      "gananciaBruta": 285443342.23,
+      "gananciaLimpia": 46525257.45000001
     }
   },
   "mensual": [
