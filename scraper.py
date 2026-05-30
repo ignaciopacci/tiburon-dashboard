@@ -208,6 +208,11 @@ def leer_ganancias_drive():
 
     resultado = {'anios': {}, 'mensual': []}
 
+    # DEBUG — borrar después
+ws_debug = wb.sheet_by_name('VENTAS')
+for i in range(min(5, ws_debug.nrows)):
+    print(f'VENTAS fila {i}: {ws_debug.row_values(i)}')
+
     # Hoja GANANCIA — resumen anual
     if 'GANANCIA' in wb.sheet_names():
         ws = wb.sheet_by_name('GANANCIA')
