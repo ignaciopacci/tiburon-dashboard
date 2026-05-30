@@ -14,7 +14,7 @@ from google.oauth2 import service_account
 from googleapiclient.discovery import build
 from googleapiclient.http import MediaIoBaseDownload
 import io
-import xlrd
+import openpyxl
 
 ARG = timezone(timedelta(hours=-3))
 
@@ -225,6 +225,22 @@ def get_inflacion_mensual():
         print(f'  ✗ Error inflación: {e}')
     return {}
 
+def safe_float(val):
+    try:
+        if val is None or val == '':
+            return 0
+        return float(val)
+    except:
+        return 0
+
+def safe_int(val):
+    try:
+        if val is None or val == '':
+            return 0
+        return int(float(val))
+    except:
+        return 0
+
 def leer_ganancias_drive():
     print('Leyendo Excel de ganancias desde Google Drive...')
     creds_dict = json.loads(GOOGLE_CREDENTIALS)
@@ -233,44 +249,53 @@ def leer_ganancias_drive():
         scopes=['https://www.googleapis.com/auth/drive.readonly']
     )
     service = build('drive', 'v3', credentials=creds)
-    request = service.files().get_media(fileId=GANANCIAS_FILE_ID)
-    fh = io.BytesIO()
-    downloader = MediaIoBaseDownload(fh, request)
-    done = False
-    while not done:
-        _, done = downloader.next_chunk()
-    fh.seek(0)
 
-    wb = xlrd.open_workbook(file_contents=fh.read())
-    print(f'Hojas: {wb.sheet_names()}')
+    # Intentar descargar como xlsx primero, si falla como xls
+    fh = io.BytesIO()
+    try:
+        request = service.files().get_media(fileId=GANANCIAS_FILE_ID)
+        downloader = MediaIoBaseDownload(fh, request)
+        done = False
+        while not done:
+            _, done = downloader.next_chunk()
+    except Exception as e:
+        print(f'  Error descargando: {e}')
+        raise
+
+    fh.seek(0)
+    wb = openpyxl.load_workbook(fh, data_only=True)
+    print(f'Hojas: {wb.sheetnames}')
 
     resultado = {'anios': {}, 'mensual': [], 'meta': {}}
 
     # Hoja GANANCIA — resumen anual
     # Col 0=Año, 1=GananciaBruta, 2=Gastos, 3=GananciaLimpia
-    if 'GANANCIA' in wb.sheet_names():
-        ws = wb.sheet_by_name('GANANCIA')
-        for i in range(ws.nrows):
-            row = ws.row_values(i)
-            if row[0] and str(row[0]).strip().replace('.0', '').isdigit():
-                try:
-                    anio = int(float(row[0]))
-                    gb = float(row[1]) if row[1] else 0
-                    gs = float(row[2]) if row[2] else 0
-                    gl = float(row[3]) if row[3] else 0
-                    resultado['anios'][anio] = {
-                        'anio': anio,
-                        'gananciaBruta': gb,
-                        'gastos': gs,
-                        'gananciaLimpia': gl,
-                    }
-                except:
+    if 'GANANCIA' in wb.sheetnames:
+        ws = wb['GANANCIA']
+        for row in ws.iter_rows(values_only=True):
+            if not row[0]:
+                continue
+            try:
+                anio_str = str(row[0]).strip().replace('.0', '')
+                if not anio_str.isdigit() or len(anio_str) != 4:
                     continue
+                anio = int(anio_str)
+                gb = safe_float(row[1])
+                gs = safe_float(row[2])
+                gl = safe_float(row[3])
+                resultado['anios'][anio] = {
+                    'anio': anio,
+                    'gananciaBruta': gb,
+                    'gastos': gs,
+                    'gananciaLimpia': gl,
+                }
+            except:
+                continue
 
-    # Hoja VENTAS — datos mensuales
+    # Hoja VENTAS — datos mensuales (estructura vertical por año)
     # Col 0=Mes, 1=GananciaBruta, 2=Gastos, 3=GananciaLimpia, 4=CantPinceles, 5=CantAccesorios, 6=CantTotal
-    if 'VENTAS' in wb.sheet_names():
-        ws = wb.sheet_by_name('VENTAS')
+    if 'VENTAS' in wb.sheetnames:
+        ws = wb['VENTAS']
         meses_map = {
             'ENERO': 1, 'FEBRERO': 2, 'MARZO': 3, 'ABRIL': 4,
             'MAYO': 5, 'JUNIO': 6, 'JULIO': 7, 'AGOSTO': 8,
@@ -281,8 +306,7 @@ def leer_ganancias_drive():
             7: 'Jul', 8: 'Ago', 9: 'Sep', 10: 'Oct', 11: 'Nov', 12: 'Dic'
         }
         anio_actual = None
-        for i in range(ws.nrows):
-            row = ws.row_values(i)
+        for row in ws.iter_rows(values_only=True):
             if not row[0]:
                 continue
             celda = str(row[0]).strip().upper()
@@ -297,12 +321,12 @@ def leer_ganancias_drive():
             if anio_actual and celda in meses_map:
                 nro_mes = meses_map[celda]
                 try:
-                    gb = float(row[1]) if row[1] else 0
-                    gs = float(row[2]) if row[2] else 0
-                    gl = float(row[3]) if row[3] else 0
-                    cant_pinceles = int(row[4]) if row[4] else 0
-                    cant_accesorios = int(row[5]) if row[5] else 0
-                    cant_total = int(row[6]) if len(row) > 6 and row[6] else 0
+                    gb = safe_float(row[1])
+                    gs = safe_float(row[2])
+                    gl = safe_float(row[3])
+                    cant_pinceles = safe_int(row[4])
+                    cant_accesorios = safe_int(row[5])
+                    cant_total = safe_int(row[6]) if len(row) > 6 else 0
                     if gb:
                         resultado['mensual'].append({
                             'anio': anio_actual,
@@ -330,7 +354,6 @@ def leer_ganancias_drive():
     meses_nb = {1:'Ene',2:'Feb',3:'Mar',4:'Abr',5:'May',6:'Jun',7:'Jul',8:'Ago',9:'Sep',10:'Oct',11:'Nov',12:'Dic'}
     resultado['meta']['mesBase'] = f'{meses_nb.get(mes_base,str(mes_base))} {anio_base}'
 
-    # Construir índice acumulado de inflación
     registros_ordenados = sorted(inflacion.keys())
     indice_por_mes = {}
     factor_acum = 1.0
@@ -375,7 +398,7 @@ def leer_ganancias_drive():
 
         time.sleep(0.3)
 
-    # Enriquecer resumen anual — usar gananciaBruta (no ventas) para validar
+    # Enriquecer resumen anual
     for anio_key, item in resultado['anios'].items():
         a = int(anio_key) if not isinstance(anio_key, int) else anio_key
         gb = item['gananciaBruta']
@@ -385,7 +408,6 @@ def leer_ganancias_drive():
         dolar_info = get_dolar_mes(a, 12)
         item['dolarTipo'] = dolar_info['tipo']
         item['dolarValor'] = dolar_info['valor']
-        # Usar gb para validar, no ventas
         if dolar_info['valor'] and dolar_info['valor'] > 0 and gb:
             item['gananciaBrutaUsd'] = round(gb / dolar_info['valor'], 0)
             item['gastosUsd'] = round(gs / dolar_info['valor'], 0)
