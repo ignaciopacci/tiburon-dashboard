@@ -96,6 +96,19 @@ main{padding:16px;max-width:800px;margin:0 auto}
 .emp-btn.active{background:var(--redtib);color:white;border-color:var(--redtib)}
 .proy-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px}
 @media(max-width:400px){.proy-grid{grid-template-columns:1fr 1fr}}
+/* Histórico */
+.hist-year-card{background:var(--s2);border:1px solid var(--border);border-radius:10px;padding:14px 16px;margin-bottom:8px}
+.hist-year-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}
+.hist-year-label{font-family:'Syne',sans-serif;font-size:18px;font-weight:800;color:var(--acc)}
+.hist-year-meta{font-family:'DM Mono',monospace;font-size:10px;color:var(--muted2)}
+.hist-bar-row{display:flex;align-items:center;gap:8px;margin-bottom:6px}
+.hist-bar-label{font-family:'DM Mono',monospace;font-size:9px;color:var(--muted);width:56px;flex-shrink:0}
+.hist-bar-track{flex:1;height:6px;background:var(--s3);border-radius:3px;overflow:hidden}
+.hist-bar-fill{height:100%;border-radius:3px}
+.hist-bar-val{font-family:'DM Mono',monospace;font-size:9px;width:60px;text-align:right;flex-shrink:0}
+.hist-filter{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:16px}
+.hist-filter-btn{padding:4px 12px;border-radius:16px;border:1px solid var(--border);background:transparent;color:var(--muted);font-family:'DM Mono',monospace;font-size:10px;cursor:pointer;transition:all 0.2s}
+.hist-filter-btn.active{background:var(--s2);color:var(--acc);border-color:var(--acc)}
 </style>
 </head>
 <body>
@@ -121,9 +134,12 @@ main{padding:16px;max-width:800px;margin:0 auto}
     <button class="tab-btn active" onclick="switchTab('hoy',this)">📦 Ventas</button>
     <button class="tab-btn" onclick="switchTab('mes',this)">📊 Financiero</button>
     <button class="tab-btn" onclick="switchTab('consolidado',this)">🔗 Consolidado</button>
+    <button class="tab-btn" onclick="switchTab('historico',this)">📈 Histórico</button>
     <button class="tab-btn" onclick="switchTab('config',this)">⚙️ Config</button>
   </nav>
   <main>
+
+    <!-- TAB VENTAS -->
     <div class="tab-content active" id="tab-hoy">
       <div class="emp-tabs">
         <button class="emp-btn active" onclick="setEmp('hoy','ambas',this)">Ambas</button>
@@ -145,6 +161,8 @@ main{padding:16px;max-width:800px;margin:0 auto}
       <div class="section-title">Top 10 artículos</div>
       <div class="card" id="h-top10"></div>
     </div>
+
+    <!-- TAB FINANCIERO -->
     <div class="tab-content" id="tab-mes">
       <div class="emp-tabs">
         <button class="emp-btn active" onclick="setEmp('mes','ambas',this)">Ambas</button>
@@ -180,6 +198,8 @@ main{padding:16px;max-width:800px;margin:0 auto}
         </table>
       </div>
     </div>
+
+    <!-- TAB CONSOLIDADO -->
     <div class="tab-content" id="tab-consolidado">
       <div class="cons-banner" id="cons-banner"></div>
       <div class="grid-2" id="cons-empresas"></div>
@@ -200,6 +220,44 @@ main{padding:16px;max-width:800px;margin:0 auto}
         </table>
       </div>
     </div>
+
+    <!-- TAB HISTÓRICO -->
+    <div class="tab-content" id="tab-historico">
+      <div class="section-title">Vista</div>
+      <div class="hist-filter" id="hist-filter">
+        <button class="hist-filter-btn active" onclick="setHistVista('anual',this)">Por año</button>
+        <button class="hist-filter-btn" onclick="setHistVista('mensual',this)">Por mes</button>
+      </div>
+
+      <!-- Vista anual -->
+      <div id="hist-vista-anual">
+        <div class="section-title">Resumen por año</div>
+        <div id="hist-chart-container" class="card" style="padding:20px">
+          <div style="font-family:'DM Mono',monospace;font-size:10px;color:var(--muted);margin-bottom:16px">
+            <span style="color:var(--acc)">■</span> Ventas &nbsp;
+            <span style="color:var(--acc2)">■</span> Ganancia bruta &nbsp;
+            <span style="color:var(--orange)">■</span> Ganancia limpia
+          </div>
+          <div id="hist-bars" style="display:flex;gap:6px;align-items:flex-end;height:160px"></div>
+        </div>
+        <div class="section-title">Detalle anual</div>
+        <div class="card" style="padding:0">
+          <table class="data-table">
+            <thead><tr><th>Año</th><th>Ventas</th><th>Costo</th><th>Gan. Bruta</th><th>Gan. Limpia</th></tr></thead>
+            <tbody id="hist-anual-tabla"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Vista mensual -->
+      <div id="hist-vista-mensual" style="display:none">
+        <div id="hist-anio-filter" class="hist-filter"></div>
+        <div class="section-title">Evolución mensual</div>
+        <div id="hist-mensual-cards"></div>
+      </div>
+    </div>
+
+    <!-- TAB CONFIG -->
     <div class="tab-content" id="tab-config">
       <div class="section-title">Parámetros</div>
       <div class="card">
@@ -223,12 +281,13 @@ main{padding:16px;max-width:800px;margin:0 auto}
         </table>
       </div>
     </div>
+
   </main>
 </div>
 <script>
 const BASE='https://raw.githubusercontent.com/ignaciopacci/tiburon-dashboard/main/data/';
 const cfg={costosFijos:parseFloat(localStorage.getItem('cf')||'22000000'),diaActual:parseInt(localStorage.getItem('dia')||new Date().getDate()),diasMes:parseInt(localStorage.getItem('dm')||'31')};
-const state={e1:null,e2:null,empActiva:{hoy:'ambas',mes:'ambas'}};
+const state={e1:null,e2:null,empActiva:{hoy:'ambas',mes:'ambas'},histData:null,histVista:'anual',histAnioFiltro:null};
 const COL={Pinceles:'var(--pin)',Rodillos:'var(--rod)',Accesorios:'var(--orange)'};
 
 async function fetchJSON(file){
@@ -390,7 +449,135 @@ function renderConsolidado(){
   document.getElementById('cons-tabla').innerHTML=rows.join('');
 }
 
-function switchTab(id,btn){document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));document.querySelectorAll('.tab-content').forEach(c=>c.classList.remove('active'));btn.classList.add('active');document.getElementById('tab-'+id).classList.add('active');}
+// ── HISTÓRICO ──────────────────────────────────────────────
+async function loadHistorico(){
+  if(state.histData){renderHistorico();return;}
+  try{
+    state.histData=await fetchJSON('ganancias_historicas.json');
+    renderHistorico();
+  }catch(e){
+    document.getElementById('hist-bars').innerHTML='<div style="font-family:DM Mono,monospace;font-size:11px;color:var(--muted)">Sin datos históricos todavía. El scraper los generará en la próxima corrida.</div>';
+  }
+}
+
+function renderHistorico(){
+  if(!state.histData)return;
+  if(state.histVista==='anual')renderHistAnual();
+  else renderHistMensual();
+}
+
+function renderHistAnual(){
+  const g=state.histData;
+  const anios=Object.values(g.anios||{}).sort((a,b)=>a.anio-b.anio);
+  if(!anios.length){
+    document.getElementById('hist-bars').innerHTML='<div style="font-family:DM Mono,monospace;font-size:11px;color:var(--muted)">Sin datos anuales todavía.</div>';
+    return;
+  }
+  const maxV=Math.max(...anios.map(a=>a.ventas))||1;
+  const bars=anios.map(a=>{
+    const pctV=Math.max(a.ventas/maxV*100,2);
+    const pctG=Math.max((a.gananciaBruta||0)/maxV*100,1);
+    const pctGL=Math.max((a.gananciaLimpia||0)/maxV*100,1);
+    const mg=a.ventas?(a.gananciaBruta/a.ventas*100):0;
+    return`<div style="display:flex;flex-direction:column;align-items:center;gap:4px;flex:1;min-width:36px">
+      <div style="font-family:'DM Mono',monospace;font-size:8px;color:var(--acc2);text-align:center">${fmt(a.gananciaBruta)}</div>
+      <div style="width:100%;height:130px;display:flex;align-items:flex-end;gap:2px;justify-content:center">
+        <div style="width:12px;height:${pctV}%;background:var(--acc);border-radius:3px 3px 0 0;opacity:0.35" title="Ventas ${a.anio}: ${fmt(a.ventas)}"></div>
+        <div style="width:12px;height:${pctG}%;background:var(--acc2);border-radius:3px 3px 0 0" title="Gan.Bruta ${a.anio}: ${fmt(a.gananciaBruta)}"></div>
+        <div style="width:12px;height:${pctGL}%;background:var(--orange);border-radius:3px 3px 0 0" title="Gan.Limpia ${a.anio}: ${fmt(a.gananciaLimpia)}"></div>
+      </div>
+      <div style="font-family:'DM Mono',monospace;font-size:9px;color:var(--muted)">${a.anio}</div>
+      <div style="font-family:'DM Mono',monospace;font-size:8px;color:var(--muted2)">${pct(mg)}</div>
+    </div>`;
+  }).join('');
+  document.getElementById('hist-bars').innerHTML=bars;
+
+  const tablaRows=anios.slice().reverse().map(a=>`
+    <tr>
+      <td><strong>${a.anio}</strong></td>
+      <td class="r y">${fmt(a.ventas)}</td>
+      <td class="r">${fmt(a.costo)}</td>
+      <td class="r g">${fmt(a.gananciaBruta)}</td>
+      <td class="r" style="color:var(--orange)">${fmt(a.gananciaLimpia)}</td>
+    </tr>`).join('');
+  document.getElementById('hist-anual-tabla').innerHTML=tablaRows;
+}
+
+function renderHistMensual(){
+  const g=state.histData;
+  const mensual=g.mensual||[];
+  if(!mensual.length){
+    document.getElementById('hist-mensual-cards').innerHTML='<div style="font-family:DM Mono,monospace;font-size:11px;color:var(--muted);padding:16px">Sin datos mensuales todavía.</div>';
+    return;
+  }
+  // Filtros de año
+  const aniosDisp=[...new Set(mensual.map(m=>m.anio))].sort((a,b)=>b-a);
+  if(!state.histAnioFiltro||!aniosDisp.includes(state.histAnioFiltro))state.histAnioFiltro=aniosDisp[0];
+  document.getElementById('hist-anio-filter').innerHTML=aniosDisp.map(a=>
+    `<button class="hist-filter-btn ${a===state.histAnioFiltro?'active':''}" onclick="setHistAnio(${a},this)">${a}</button>`
+  ).join('');
+
+  const datos=mensual.filter(m=>m.anio===state.histAnioFiltro).sort((a,b)=>b.mes-a.mes);
+  const maxV=Math.max(...datos.map(m=>m.ventas))||1;
+  const cards=datos.map(m=>{
+    const mg=m.ventas?m.gananciaBruta/m.ventas*100:0;
+    const pctV=m.ventas/maxV*100;
+    const pctG=(m.gananciaBruta||0)/maxV*100;
+    return`<div class="hist-year-card">
+      <div class="hist-year-header">
+        <div>
+          <div class="hist-year-label">${m.mesNombre}</div>
+          <div class="hist-year-meta">${m.anio} · Margen ${pct(mg)}</div>
+        </div>
+        <div style="text-align:right">
+          <div style="font-family:'Syne',sans-serif;font-size:16px;font-weight:800;color:var(--acc)">${fmt(m.ventas)}</div>
+          <div style="font-family:'DM Mono',monospace;font-size:10px;color:var(--acc2)">Gan: ${fmt(m.gananciaBruta)}</div>
+        </div>
+      </div>
+      <div class="hist-bar-row">
+        <div class="hist-bar-label">Ventas</div>
+        <div class="hist-bar-track"><div class="hist-bar-fill" style="width:${pctV}%;background:var(--acc);opacity:0.5"></div></div>
+        <div class="hist-bar-val" style="color:var(--acc)">${fmt(m.ventas)}</div>
+      </div>
+      <div class="hist-bar-row">
+        <div class="hist-bar-label">Gan. bruta</div>
+        <div class="hist-bar-track"><div class="hist-bar-fill" style="width:${pctG}%;background:var(--acc2)"></div></div>
+        <div class="hist-bar-val" style="color:var(--acc2)">${fmt(m.gananciaBruta)}</div>
+      </div>
+      <div class="hist-bar-row">
+        <div class="hist-bar-label">Costo</div>
+        <div class="hist-bar-track"><div class="hist-bar-fill" style="width:${m.gananciaBruta?(m.costo/maxV*100):0}%;background:var(--muted)"></div></div>
+        <div class="hist-bar-val" style="color:var(--muted2)">${fmt(m.costo)}</div>
+      </div>
+    </div>`;
+  }).join('');
+  document.getElementById('hist-mensual-cards').innerHTML=cards||'<div style="font-family:DM Mono,monospace;font-size:11px;color:var(--muted);padding:16px">Sin datos para este año.</div>';
+}
+
+function setHistVista(v,btn){
+  state.histVista=v;
+  document.querySelectorAll('#hist-filter .hist-filter-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById('hist-vista-anual').style.display=v==='anual'?'block':'none';
+  document.getElementById('hist-vista-mensual').style.display=v==='mensual'?'block':'none';
+  renderHistorico();
+}
+
+function setHistAnio(anio,btn){
+  state.histAnioFiltro=anio;
+  document.querySelectorAll('#hist-anio-filter .hist-filter-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  renderHistMensual();
+}
+
+// ── NAVEGACIÓN ─────────────────────────────────────────────
+function switchTab(id,btn){
+  document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+  document.querySelectorAll('.tab-content').forEach(c=>c.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById('tab-'+id).classList.add('active');
+  if(id==='historico')loadHistorico();
+}
 function setEmp(tab,emp,btn){btn.closest('.emp-tabs').querySelectorAll('.emp-btn').forEach(b=>b.classList.remove('active'));btn.classList.add('active');state.empActiva[tab]=emp;if(tab==='hoy')renderHoy();if(tab==='mes')renderMes();}
 function guardarConfig(){cfg.costosFijos=parseFloat(document.getElementById('cfg-costos').value)||22000000;cfg.diaActual=parseInt(document.getElementById('cfg-dia').value)||new Date().getDate();cfg.diasMes=parseInt(document.getElementById('cfg-diasmes').value)||31;localStorage.setItem('cf',cfg.costosFijos);localStorage.setItem('dia',cfg.diaActual);localStorage.setItem('dm',cfg.diasMes);document.getElementById('sys-cf').textContent=fmt(cfg.costosFijos)+'/mes';renderAll();}
 
