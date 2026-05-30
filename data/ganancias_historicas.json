@@ -5,98 +5,224 @@
       "ventas": 0,
       "costo": 1025788.4900000001,
       "gananciaBruta": 2051483.56,
-      "gananciaLimpia": 1025695.07
+      "gananciaLimpia": 1025695.07,
+      "dolarTipo": "blue",
+      "dolarValor": 6.0,
+      "ventasUsd": null,
+      "gananciaBrutaUsd": null,
+      "gananciaLimpiaUsd": null,
+      "factorInflacion": null,
+      "ventasConstantes": null,
+      "gananciaBrutaConstante": null,
+      "gananciaLimpiaConstante": null
     },
     "2013": {
       "anio": 2013,
       "ventas": 0,
       "costo": 1314708.8499999999,
       "gananciaBruta": 2932501.3399999994,
-      "gananciaLimpia": 1617792.49
+      "gananciaLimpia": 1617792.49,
+      "dolarTipo": "blue",
+      "dolarValor": 9.0,
+      "ventasUsd": null,
+      "gananciaBrutaUsd": null,
+      "gananciaLimpiaUsd": null,
+      "factorInflacion": null,
+      "ventasConstantes": null,
+      "gananciaBrutaConstante": null,
+      "gananciaLimpiaConstante": null
     },
     "2014": {
       "anio": 2014,
       "ventas": 0,
       "costo": 1870209.8499999999,
       "gananciaBruta": 4072593.71,
-      "gananciaLimpia": 2202383.86
+      "gananciaLimpia": 2202383.86,
+      "dolarTipo": "blue",
+      "dolarValor": 13.0,
+      "ventasUsd": null,
+      "gananciaBrutaUsd": null,
+      "gananciaLimpiaUsd": null,
+      "factorInflacion": null,
+      "ventasConstantes": null,
+      "gananciaBrutaConstante": null,
+      "gananciaLimpiaConstante": null
     },
     "2015": {
       "anio": 2015,
       "ventas": 677792.0,
       "costo": 3887482.28,
       "gananciaBruta": 5898536.83,
-      "gananciaLimpia": 2011054.55
+      "gananciaLimpia": 2011054.55,
+      "dolarTipo": "blue",
+      "dolarValor": 15.0,
+      "ventasUsd": 45186.0,
+      "gananciaBrutaUsd": 393236.0,
+      "gananciaLimpiaUsd": 134070.0,
+      "factorInflacion": 150.7519,
+      "ventasConstantes": 102178460.0,
+      "gananciaBrutaConstante": 889215876.0,
+      "gananciaLimpiaConstante": 303170377.0
     },
     "2016": {
       "anio": 2016,
       "ventas": 586303.0,
       "costo": 4235107.3,
       "gananciaBruta": 6649944.529999999,
-      "gananciaLimpia": 2414837.2299999995
+      "gananciaLimpia": 2414837.2299999995,
+      "dolarTipo": "blue",
+      "dolarValor": 17.0,
+      "ventasUsd": 34488.0,
+      "gananciaBrutaUsd": 391173.0,
+      "gananciaLimpiaUsd": 142049.0,
+      "factorInflacion": 113.2829,
+      "ventasConstantes": 66418105.0,
+      "gananciaBrutaConstante": 753325014.0,
+      "gananciaLimpiaConstante": 273559769.0
     },
     "2017": {
       "anio": 2017,
       "ventas": 603702.0,
       "costo": 6284089.599999999,
       "gananciaBruta": 8943312.34,
-      "gananciaLimpia": 2659222.740000001
+      "gananciaLimpia": 2659222.740000001,
+      "dolarTipo": "blue",
+      "dolarValor": 18.0,
+      "ventasUsd": 33539.0,
+      "gananciaBrutaUsd": 496851.0,
+      "gananciaLimpiaUsd": 147735.0,
+      "factorInflacion": 90.8444,
+      "ventasConstantes": 54842929.0,
+      "gananciaBrutaConstante": 812449589.0,
+      "gananciaLimpiaConstante": 241575419.0
     },
     "2018": {
       "anio": 2018,
       "ventas": 518134.0,
       "costo": 7151946.81,
       "gananciaBruta": 10412387.100000001,
-      "gananciaLimpia": 3260440.290000002
+      "gananciaLimpia": 3260440.290000002,
+      "dolarTipo": "blue",
+      "dolarValor": 38.0,
+      "ventasUsd": 13635.0,
+      "gananciaBrutaUsd": 274010.0,
+      "gananciaLimpiaUsd": 85801.0,
+      "factorInflacion": 61.533,
+      "ventasConstantes": 31882349.0,
+      "gananciaBrutaConstante": 640705616.0,
+      "gananciaLimpiaConstante": 200624735.0
     },
     "2019": {
       "anio": 2019,
       "ventas": 507215.0,
       "costo": 10012001.74,
       "gananciaBruta": 16845554.48,
-      "gananciaLimpia": 6833552.74
+      "gananciaLimpia": 6833552.74,
+      "dolarTipo": "bolsa",
+      "dolarValor": null,
+      "ventasUsd": null,
+      "gananciaBrutaUsd": null,
+      "gananciaLimpiaUsd": null,
+      "factorInflacion": 39.9628,
+      "ventasConstantes": 20269716.0,
+      "gananciaBrutaConstante": 673195023.0,
+      "gananciaLimpiaConstante": 273087698.0
     },
     "2020": {
       "anio": 2020,
       "ventas": 344346.0,
       "costo": 11207585.290000001,
       "gananciaBruta": 18164871.44,
-      "gananciaLimpia": 6957286.15
+      "gananciaLimpia": 6957286.15,
+      "dolarTipo": "bolsa",
+      "dolarValor": 141.82,
+      "ventasUsd": 2428.0,
+      "gananciaBrutaUsd": 128084.0,
+      "gananciaLimpiaUsd": 49057.0,
+      "factorInflacion": 29.3798,
+      "ventasConstantes": 10116805.0,
+      "gananciaBrutaConstante": 533679689.0,
+      "gananciaLimpiaConstante": 204403446.0
     },
     "2021": {
       "anio": 2021,
       "ventas": 268890.0,
       "costo": 16682256.97,
       "gananciaBruta": 23000341.91,
-      "gananciaLimpia": 6318084.9399999995
+      "gananciaLimpia": 6318084.9399999995,
+      "dolarTipo": "bolsa",
+      "dolarValor": 191.69,
+      "ventasUsd": 1403.0,
+      "gananciaBrutaUsd": 119987.0,
+      "gananciaLimpiaUsd": 32960.0,
+      "factorInflacion": 19.485,
+      "ventasConstantes": 5239319.0,
+      "gananciaBrutaConstante": 448161458.0,
+      "gananciaLimpiaConstante": 123107829.0
     },
     "2022": {
       "anio": 2022,
       "ventas": 339693.0,
       "costo": 28736183.55,
       "gananciaBruta": 39051878.46,
-      "gananciaLimpia": 10315694.909999998
+      "gananciaLimpia": 10315694.909999998,
+      "dolarTipo": "bolsa",
+      "dolarValor": 320.1,
+      "ventasUsd": 1061.0,
+      "gananciaBrutaUsd": 121999.0,
+      "gananciaLimpiaUsd": 32226.0,
+      "factorInflacion": 10.0049,
+      "ventasConstantes": 3398593.0,
+      "gananciaBrutaConstante": 390709972.0,
+      "gananciaLimpiaConstante": 103207452.0
     },
     "2023": {
       "anio": 2023,
       "ventas": 292642.0,
       "costo": 61191291.73,
       "gananciaBruta": 81705293.03,
-      "gananciaLimpia": 20514001.3
+      "gananciaLimpia": 20514001.3,
+      "dolarTipo": "bolsa",
+      "dolarValor": 1002.4,
+      "ventasUsd": 292.0,
+      "gananciaBrutaUsd": 81510.0,
+      "gananciaLimpiaUsd": 20465.0,
+      "factorInflacion": 3.215,
+      "ventasConstantes": 940831.0,
+      "gananciaBrutaConstante": 262678969.0,
+      "gananciaLimpiaConstante": 65951623.0
     },
     "2024": {
       "anio": 2024,
       "ventas": 342531.0,
       "costo": 174719059.18485,
       "gananciaBruta": 222037851.45,
-      "gananciaLimpia": 47228792.265149996
+      "gananciaLimpia": 47228792.265149996,
+      "dolarTipo": "bolsa",
+      "dolarValor": 1075.6,
+      "ventasUsd": 318.0,
+      "gananciaBrutaUsd": 206432.0,
+      "gananciaLimpiaUsd": 43909.0,
+      "factorInflacion": 1.4769,
+      "ventasConstantes": 505880.0,
+      "gananciaBrutaConstante": 327925253.0,
+      "gananciaLimpiaConstante": 69751682.0
     },
     "2025": {
       "anio": 2025,
       "ventas": 403525.0,
       "costo": 238918084.78,
       "gananciaBruta": 285443342.23,
-      "gananciaLimpia": 46525257.45000001
+      "gananciaLimpia": 46525257.45000001,
+      "dolarTipo": "bolsa",
+      "dolarValor": 1496.4,
+      "ventasUsd": 270.0,
+      "gananciaBrutaUsd": 190753.0,
+      "gananciaLimpiaUsd": 31091.0,
+      "factorInflacion": 1.1233,
+      "ventasConstantes": 453283.0,
+      "gananciaBrutaConstante": 320640640.0,
+      "gananciaLimpiaConstante": 52262169.0
     }
   },
   "mensual": [
@@ -107,7 +233,16 @@
       "ventas": 1385044.4200000002,
       "costo": 450727.36,
       "gananciaBruta": 934317.0600000002,
-      "gananciaLimpia": -281871.53
+      "gananciaLimpia": -281871.53,
+      "dolarTipo": "bolsa",
+      "dolarValor": 145.39,
+      "ventasUsd": 9526.0,
+      "gananciaBrutaUsd": 6426.0,
+      "gananciaLimpiaUsd": -1939.0,
+      "factorInflacion": 28.2498,
+      "ventasConstantes": 39127194.0,
+      "gananciaBrutaConstante": 26394248.0,
+      "gananciaLimpiaConstante": -7962808.0
     },
     {
       "anio": 2021,
@@ -116,7 +251,16 @@
       "ventas": 2559145.8200000008,
       "costo": 908305.96,
       "gananciaBruta": 1650839.8600000008,
-      "gananciaLimpia": 465445.23999999976
+      "gananciaLimpia": 465445.23999999976,
+      "dolarTipo": "bolsa",
+      "dolarValor": null,
+      "ventasUsd": null,
+      "gananciaBrutaUsd": null,
+      "gananciaLimpiaUsd": null,
+      "factorInflacion": 27.2681,
+      "ventasConstantes": 69783104.0,
+      "gananciaBrutaConstante": 45015305.0,
+      "gananciaLimpiaConstante": 12691818.0
     },
     {
       "anio": 2021,
@@ -125,7 +269,16 @@
       "ventas": 3118736.0900000003,
       "costo": 1131542.35,
       "gananciaBruta": 1987193.7400000002,
-      "gananciaLimpia": 574032.5899999999
+      "gananciaLimpia": 574032.5899999999,
+      "dolarTipo": "bolsa",
+      "dolarValor": 144.59,
+      "ventasUsd": 21570.0,
+      "gananciaBrutaUsd": 13744.0,
+      "gananciaLimpiaUsd": 3970.0,
+      "factorInflacion": 26.0192,
+      "ventasConstantes": 81147024.0,
+      "gananciaBrutaConstante": 51705195.0,
+      "gananciaLimpiaConstante": 14935870.0
     },
     {
       "anio": 2021,
@@ -134,7 +287,16 @@
       "ventas": 3747450.11,
       "costo": 1454627.5099999998,
       "gananciaBruta": 2292822.6,
-      "gananciaLimpia": 1307718.54
+      "gananciaLimpia": 1307718.54,
+      "dolarTipo": "bolsa",
+      "dolarValor": 143.65,
+      "ventasUsd": 26087.0,
+      "gananciaBrutaUsd": 15961.0,
+      "gananciaLimpiaUsd": 9104.0,
+      "factorInflacion": 24.9944,
+      "ventasConstantes": 93665380.0,
+      "gananciaBrutaConstante": 57307794.0,
+      "gananciaLimpiaConstante": 32685680.0
     },
     {
       "anio": 2021,
@@ -143,7 +305,16 @@
       "ventas": 2156821.65,
       "costo": 817862.51,
       "gananciaBruta": 1338959.14,
-      "gananciaLimpia": 80864.64999999967
+      "gananciaLimpia": 80864.64999999967,
+      "dolarTipo": "bolsa",
+      "dolarValor": 154.17,
+      "ventasUsd": 13990.0,
+      "gananciaBrutaUsd": 8685.0,
+      "gananciaLimpiaUsd": 525.0,
+      "factorInflacion": 24.196,
+      "ventasConstantes": 52186378.0,
+      "gananciaBrutaConstante": 32397406.0,
+      "gananciaLimpiaConstante": 1956598.0
     },
     {
       "anio": 2021,
@@ -152,7 +323,16 @@
       "ventas": 2961251.459999999,
       "costo": 1182892.6199999999,
       "gananciaBruta": 1778358.8399999992,
-      "gananciaLimpia": 733988.24
+      "gananciaLimpia": 733988.24,
+      "dolarTipo": "bolsa",
+      "dolarValor": 158.72,
+      "ventasUsd": 18657.0,
+      "gananciaBrutaUsd": 11204.0,
+      "gananciaLimpiaUsd": 4624.0,
+      "factorInflacion": 23.4457,
+      "ventasConstantes": 69428616.0,
+      "gananciaBrutaConstante": 41694869.0,
+      "gananciaLimpiaConstante": 17208869.0
     },
     {
       "anio": 2021,
@@ -161,7 +341,16 @@
       "ventas": 3214651.89,
       "costo": 1223644.8199999998,
       "gananciaBruta": 1991007.07,
-      "gananciaLimpia": 398509.34999999986
+      "gananciaLimpia": 398509.34999999986,
+      "dolarTipo": "bolsa",
+      "dolarValor": 165.26,
+      "ventasUsd": 19452.0,
+      "gananciaBrutaUsd": 12048.0,
+      "gananciaLimpiaUsd": 2411.0,
+      "factorInflacion": 22.7628,
+      "ventasConstantes": 73174531.0,
+      "gananciaBrutaConstante": 45320928.0,
+      "gananciaLimpiaConstante": 9071195.0
     },
     {
       "anio": 2021,
@@ -170,7 +359,16 @@
       "ventas": 3683834.78,
       "costo": 1498480.09,
       "gananciaBruta": 2185354.69,
-      "gananciaLimpia": 860913.6100000001
+      "gananciaLimpia": 860913.6100000001,
+      "dolarTipo": "bolsa",
+      "dolarValor": 169.45,
+      "ventasUsd": 21740.0,
+      "gananciaBrutaUsd": 12897.0,
+      "gananciaLimpiaUsd": 5081.0,
+      "factorInflacion": 22.2076,
+      "ventasConstantes": 81809224.0,
+      "gananciaBrutaConstante": 48531539.0,
+      "gananciaLimpiaConstante": 19118847.0
     },
     {
       "anio": 2021,
@@ -179,7 +377,16 @@
       "ventas": 3442884.2100000004,
       "costo": 1503708.1600000004,
       "gananciaBruta": 1939176.0499999996,
-      "gananciaLimpia": 381065.3099999998
+      "gananciaLimpia": 381065.3099999998,
+      "dolarTipo": "bolsa",
+      "dolarValor": 171.83,
+      "ventasUsd": 20037.0,
+      "gananciaBrutaUsd": 11285.0,
+      "gananciaLimpiaUsd": 2218.0,
+      "factorInflacion": 21.4566,
+      "ventasConstantes": 73872738.0,
+      "gananciaBrutaConstante": 41608209.0,
+      "gananciaLimpiaConstante": 8176382.0
     },
     {
       "anio": 2021,
@@ -188,7 +395,16 @@
       "ventas": 3184296.6899999995,
       "costo": 1320362.08,
       "gananciaBruta": 1863934.6100000003,
-      "gananciaLimpia": 224460.63000000012
+      "gananciaLimpia": 224460.63000000012,
+      "dolarTipo": "bolsa",
+      "dolarValor": 177.68,
+      "ventasUsd": 17922.0,
+      "gananciaBrutaUsd": 10490.0,
+      "gananciaLimpiaUsd": 1263.0,
+      "factorInflacion": 20.7311,
+      "ventasConstantes": 66013834.0,
+      "gananciaBrutaConstante": 38641333.0,
+      "gananciaLimpiaConstante": 4653306.0
     },
     {
       "anio": 2021,
@@ -197,7 +413,16 @@
       "ventas": 4684476.370000001,
       "costo": 1962954.19,
       "gananciaBruta": 2721522.18,
-      "gananciaLimpia": 1121954.5000000002
+      "gananciaLimpia": 1121954.5000000002,
+      "dolarTipo": "bolsa",
+      "dolarValor": 188.78,
+      "ventasUsd": 24814.0,
+      "gananciaBrutaUsd": 14416.0,
+      "gananciaLimpiaUsd": 5943.0,
+      "factorInflacion": 20.2254,
+      "ventasConstantes": 94745506.0,
+      "gananciaBrutaConstante": 55043931.0,
+      "gananciaLimpiaConstante": 22692002.0
     },
     {
       "anio": 2021,
@@ -206,7 +431,16 @@
       "ventas": 3765452.8300000005,
       "costo": 1448596.76,
       "gananciaBruta": 2316856.0699999994,
-      "gananciaLimpia": 451003.81000000006
+      "gananciaLimpia": 451003.81000000006,
+      "dolarTipo": "bolsa",
+      "dolarValor": 191.69,
+      "ventasUsd": 19643.0,
+      "gananciaBrutaUsd": 12086.0,
+      "gananciaLimpiaUsd": 2353.0,
+      "factorInflacion": 19.485,
+      "ventasConstantes": 73369815.0,
+      "gananciaBrutaConstante": 45143920.0,
+      "gananciaLimpiaConstante": 8787805.0
     },
     {
       "anio": 2022,
@@ -215,7 +449,16 @@
       "ventas": 2433810.52,
       "costo": 895397.61,
       "gananciaBruta": 1538412.91,
-      "gananciaLimpia": -285209.25
+      "gananciaLimpia": -285209.25,
+      "dolarTipo": "bolsa",
+      "dolarValor": 202.46,
+      "ventasUsd": 12021.0,
+      "gananciaBrutaUsd": 7599.0,
+      "gananciaLimpiaUsd": -1409.0,
+      "factorInflacion": 18.7536,
+      "ventasConstantes": 45642711.0,
+      "gananciaBrutaConstante": 28850781.0,
+      "gananciaLimpiaConstante": -5348700.0
     },
     {
       "anio": 2022,
@@ -224,7 +467,16 @@
       "ventas": 2916333.37,
       "costo": 1218557.56,
       "gananciaBruta": 1697775.81,
-      "gananciaLimpia": -111698.69999999995
+      "gananciaLimpia": -111698.69999999995,
+      "dolarTipo": "bolsa",
+      "dolarValor": 205.49,
+      "ventasUsd": 14192.0,
+      "gananciaBrutaUsd": 8262.0,
+      "gananciaLimpiaUsd": -544.0,
+      "factorInflacion": 17.9117,
+      "ventasConstantes": 52236630.0,
+      "gananciaBrutaConstante": 30410133.0,
+      "gananciaLimpiaConstante": -2000719.0
     },
     {
       "anio": 2022,
@@ -233,7 +485,16 @@
       "ventas": 5419821.91,
       "costo": 2230174.2,
       "gananciaBruta": 3189647.71,
-      "gananciaLimpia": 1369945.27
+      "gananciaLimpia": 1369945.27,
+      "dolarTipo": "bolsa",
+      "dolarValor": 187.94,
+      "ventasUsd": 28838.0,
+      "gananciaBrutaUsd": 16972.0,
+      "gananciaLimpiaUsd": 7289.0,
+      "factorInflacion": 16.787,
+      "ventasConstantes": 90982649.0,
+      "gananciaBrutaConstante": 53544674.0,
+      "gananciaLimpiaConstante": 22997296.0
     },
     {
       "anio": 2022,
@@ -242,7 +503,16 @@
       "ventas": 5258087.11,
       "costo": 1981841.96,
       "gananciaBruta": 3276245.15,
-      "gananciaLimpia": 1553297.3299999998
+      "gananciaLimpia": 1553297.3299999998,
+      "dolarTipo": "bolsa",
+      "dolarValor": null,
+      "ventasUsd": null,
+      "gananciaBrutaUsd": null,
+      "gananciaLimpiaUsd": null,
+      "factorInflacion": 15.8368,
+      "ventasConstantes": 83271325.0,
+      "gananciaBrutaConstante": 51885271.0,
+      "gananciaLimpiaConstante": 24599274.0
     },
     {
       "anio": 2022,
@@ -251,7 +521,16 @@
       "ventas": 5137837.99,
       "costo": 2196353.92,
       "gananciaBruta": 2941484.0700000008,
-      "gananciaLimpia": 1061074.1900000006
+      "gananciaLimpia": 1061074.1900000006,
+      "dolarTipo": "bolsa",
+      "dolarValor": 210.85,
+      "ventasUsd": 24367.0,
+      "gananciaBrutaUsd": 13951.0,
+      "gananciaLimpiaUsd": 5032.0,
+      "factorInflacion": 15.0683,
+      "ventasConstantes": 77418613.0,
+      "gananciaBrutaConstante": 44323238.0,
+      "gananciaLimpiaConstante": 15988611.0
     },
     {
       "anio": 2022,
@@ -260,7 +539,16 @@
       "ventas": 5129187.47,
       "costo": 2145979.64,
       "gananciaBruta": 2983207.83,
-      "gananciaLimpia": 998923.8900000001
+      "gananciaLimpia": 998923.8900000001,
+      "dolarTipo": "bolsa",
+      "dolarValor": 229.83,
+      "ventasUsd": 22317.0,
+      "gananciaBrutaUsd": 12980.0,
+      "gananciaLimpiaUsd": 4346.0,
+      "factorInflacion": 14.3099,
+      "ventasConstantes": 73398162.0,
+      "gananciaBrutaConstante": 42689407.0,
+      "gananciaLimpiaConstante": 14294501.0
     },
     {
       "anio": 2022,
@@ -269,7 +557,16 @@
       "ventas": 6584974.74,
       "costo": 2652716.78,
       "gananciaBruta": 3932257.96,
-      "gananciaLimpia": 1430024.5499999998
+      "gananciaLimpia": 1430024.5499999998,
+      "dolarTipo": "bolsa",
+      "dolarValor": 292.5,
+      "ventasUsd": 22513.0,
+      "gananciaBrutaUsd": 13444.0,
+      "gananciaLimpiaUsd": 4889.0,
+      "factorInflacion": 13.3239,
+      "ventasConstantes": 87737740.0,
+      "gananciaBrutaConstante": 52393128.0,
+      "gananciaLimpiaConstante": 19053546.0
     },
     {
       "anio": 2022,
@@ -278,7 +575,16 @@
       "ventas": 5642533.869999998,
       "costo": 2251046.16,
       "gananciaBruta": 3391487.71,
-      "gananciaLimpia": 584889.7599999993
+      "gananciaLimpia": 584889.7599999993,
+      "dolarTipo": "bolsa",
+      "dolarValor": null,
+      "ventasUsd": null,
+      "gananciaBrutaUsd": null,
+      "gananciaLimpiaUsd": null,
+      "factorInflacion": 12.4523,
+      "ventasConstantes": 70262359.0,
+      "gananciaBrutaConstante": 42231723.0,
+      "gananciaLimpiaConstante": 7283206.0
     },
     {
       "anio": 2022,
@@ -287,7 +593,16 @@
       "ventas": 6524996.94,
       "costo": 3380678.53,
       "gananciaBruta": 3144318.41,
-      "gananciaLimpia": 115323.6000000001
+      "gananciaLimpia": 115323.6000000001,
+      "dolarTipo": "bolsa",
+      "dolarValor": 289.66,
+      "ventasUsd": 22526.0,
+      "gananciaBrutaUsd": 10855.0,
+      "gananciaLimpiaUsd": 398.0,
+      "factorInflacion": 11.7253,
+      "ventasConstantes": 76507559.0,
+      "gananciaBrutaConstante": 36868083.0,
+      "gananciaLimpiaConstante": 1352204.0
     },
     {
       "anio": 2022,
@@ -296,7 +611,16 @@
       "ventas": 7234355.22,
       "costo": 2865850.83,
       "gananciaBruta": 4368504.39,
-      "gananciaLimpia": 1803286.6199999996
+      "gananciaLimpia": 1803286.6199999996,
+      "dolarTipo": "bolsa",
+      "dolarValor": 299.04,
+      "ventasUsd": 24192.0,
+      "gananciaBrutaUsd": 14608.0,
+      "gananciaLimpiaUsd": 6030.0,
+      "factorInflacion": 11.0304,
+      "ventasConstantes": 79797742.0,
+      "gananciaBrutaConstante": 48186296.0,
+      "gananciaLimpiaConstante": 19890950.0
     },
     {
       "anio": 2022,
@@ -305,7 +629,16 @@
       "ventas": 5755073.670000001,
       "costo": 2241867.1,
       "gananciaBruta": 3513206.57,
-      "gananciaLimpia": 977488.2599999998
+      "gananciaLimpia": 977488.2599999998,
+      "dolarTipo": "bolsa",
+      "dolarValor": 302.06,
+      "ventasUsd": 19053.0,
+      "gananciaBrutaUsd": 11631.0,
+      "gananciaLimpiaUsd": 3236.0,
+      "factorInflacion": 10.5151,
+      "ventasConstantes": 60515436.0,
+      "gananciaBrutaConstante": 36941878.0,
+      "gananciaLimpiaConstante": 10278431.0
     },
     {
       "anio": 2022,
@@ -314,7 +647,16 @@
       "ventas": 8753054.17,
       "costo": 3677724.23,
       "gananciaBruta": 5075329.94,
-      "gananciaLimpia": 818349.39
+      "gananciaLimpia": 818349.39,
+      "dolarTipo": "bolsa",
+      "dolarValor": 320.1,
+      "ventasUsd": 27345.0,
+      "gananciaBrutaUsd": 15855.0,
+      "gananciaLimpiaUsd": 2557.0,
+      "factorInflacion": 10.0049,
+      "ventasConstantes": 87573394.0,
+      "gananciaBrutaConstante": 50778147.0,
+      "gananciaLimpiaConstante": 8187500.0
     },
     {
       "anio": 2023,
@@ -323,7 +665,16 @@
       "ventas": 6180114.76,
       "costo": 2483029.37,
       "gananciaBruta": 3697085.39,
-      "gananciaLimpia": -375455.6599999997
+      "gananciaLimpia": -375455.6599999997,
+      "dolarTipo": "bolsa",
+      "dolarValor": 340.23,
+      "ventasUsd": 18165.0,
+      "gananciaBrutaUsd": 10866.0,
+      "gananciaLimpiaUsd": -1104.0,
+      "factorInflacion": 9.4386,
+      "ventasConstantes": 58331513.0,
+      "gananciaBrutaConstante": 34895239.0,
+      "gananciaLimpiaConstante": -3543769.0
     },
     {
       "anio": 2023,
@@ -332,7 +683,16 @@
       "ventas": 5342631.15,
       "costo": 2223405.34,
       "gananciaBruta": 3119225.81,
-      "gananciaLimpia": -130845.31000000006
+      "gananciaLimpia": -130845.31000000006,
+      "dolarTipo": "bolsa",
+      "dolarValor": 356.23,
+      "ventasUsd": 14998.0,
+      "gananciaBrutaUsd": 8756.0,
+      "gananciaLimpiaUsd": -367.0,
+      "factorInflacion": 8.8542,
+      "ventasConstantes": 47304743.0,
+      "gananciaBrutaConstante": 27618260.0,
+      "gananciaLimpiaConstante": -1158531.0
     },
     {
       "anio": 2023,
@@ -341,7 +701,16 @@
       "ventas": 8337690.07,
       "costo": 3409463.53,
       "gananciaBruta": 4928226.54,
-      "gananciaLimpia": 1037064.8999999999
+      "gananciaLimpia": 1037064.8999999999,
+      "dolarTipo": "bolsa",
+      "dolarValor": 383.31,
+      "ventasUsd": 21752.0,
+      "gananciaBrutaUsd": 12857.0,
+      "gananciaLimpiaUsd": 2706.0,
+      "factorInflacion": 8.2212,
+      "ventasConstantes": 68545593.0,
+      "gananciaBrutaConstante": 40515804.0,
+      "gananciaLimpiaConstante": 8525890.0
     },
     {
       "anio": 2023,
@@ -350,7 +719,16 @@
       "ventas": 9979089.43,
       "costo": 3988442.42,
       "gananciaBruta": 5990647.01,
-      "gananciaLimpia": 2677413.32
+      "gananciaLimpia": 2677413.32,
+      "dolarTipo": "bolsa",
+      "dolarValor": 398.62,
+      "ventasUsd": 25034.0,
+      "gananciaBrutaUsd": 15028.0,
+      "gananciaLimpiaUsd": 6717.0,
+      "factorInflacion": 7.5841,
+      "ventasConstantes": 75682492.0,
+      "gananciaBrutaConstante": 45433714.0,
+      "gananciaLimpiaConstante": 20305792.0
     },
     {
       "anio": 2023,
@@ -359,7 +737,16 @@
       "ventas": 7983020.05,
       "costo": 3309053.37,
       "gananciaBruta": 4673966.68,
-      "gananciaLimpia": 745627.1499999999
+      "gananciaLimpia": 745627.1499999999,
+      "dolarTipo": "bolsa",
+      "dolarValor": 437.66,
+      "ventasUsd": 18240.0,
+      "gananciaBrutaUsd": 10679.0,
+      "gananciaLimpiaUsd": 1704.0,
+      "factorInflacion": 7.0354,
+      "ventasConstantes": 56163346.0,
+      "gananciaBrutaConstante": 32882995.0,
+      "gananciaLimpiaConstante": 5245748.0
     },
     {
       "anio": 2023,
@@ -368,7 +755,16 @@
       "ventas": 10332756.76,
       "costo": 4200131.85,
       "gananciaBruta": 6132624.91,
-      "gananciaLimpia": 1304559.08
+      "gananciaLimpia": 1304559.08,
+      "dolarTipo": "bolsa",
+      "dolarValor": 474.59,
+      "ventasUsd": 21772.0,
+      "gananciaBrutaUsd": 12922.0,
+      "gananciaLimpiaUsd": 2749.0,
+      "factorInflacion": 6.6371,
+      "ventasConstantes": 68579780.0,
+      "gananciaBrutaConstante": 40702988.0,
+      "gananciaLimpiaConstante": 8658519.0
     },
     {
       "anio": 2023,
@@ -377,7 +773,16 @@
       "ventas": 9312938.4,
       "costo": 3662607.71,
       "gananciaBruta": 5650330.69,
-      "gananciaLimpia": 850093.1800000006
+      "gananciaLimpia": 850093.1800000006,
+      "dolarTipo": "bolsa",
+      "dolarValor": 499.71,
+      "ventasUsd": 18637.0,
+      "gananciaBrutaUsd": 11307.0,
+      "gananciaLimpiaUsd": 1701.0,
+      "factorInflacion": 6.2438,
+      "ventasConstantes": 58147808.0,
+      "gananciaBrutaConstante": 35279343.0,
+      "gananciaLimpiaConstante": 5307783.0
     },
     {
       "anio": 2023,
@@ -386,7 +791,16 @@
       "ventas": 10893830.61,
       "costo": 4216481.47,
       "gananciaBruta": 6677349.14,
-      "gananciaLimpia": 2289876.0999999996
+      "gananciaLimpia": 2289876.0999999996,
+      "dolarTipo": "bolsa",
+      "dolarValor": 667.17,
+      "ventasUsd": 16328.0,
+      "gananciaBrutaUsd": 10008.0,
+      "gananciaLimpiaUsd": 3432.0,
+      "factorInflacion": 5.555,
+      "ventasConstantes": 60514706.0,
+      "gananciaBrutaConstante": 37092354.0,
+      "gananciaLimpiaConstante": 12720152.0
     },
     {
       "anio": 2023,
@@ -395,7 +809,16 @@
       "ventas": 18118636.76,
       "costo": 9256693.41,
       "gananciaBruta": 8861943.35,
-      "gananciaLimpia": 3071154.9299999997
+      "gananciaLimpia": 3071154.9299999997,
+      "dolarTipo": "bolsa",
+      "dolarValor": 680.73,
+      "ventasUsd": 26616.0,
+      "gananciaBrutaUsd": 13018.0,
+      "gananciaLimpiaUsd": 4512.0,
+      "factorInflacion": 4.929,
+      "ventasConstantes": 89306262.0,
+      "gananciaBrutaConstante": 43680275.0,
+      "gananciaLimpiaConstante": 15137638.0
     },
     {
       "anio": 2023,
@@ -404,7 +827,16 @@
       "ventas": 16779640.48,
       "costo": 7410173.85,
       "gananciaBruta": 9369466.63,
-      "gananciaLimpia": 2882302.620000001
+      "gananciaLimpia": 2882302.620000001,
+      "dolarTipo": "bolsa",
+      "dolarValor": 871.56,
+      "ventasUsd": 19252.0,
+      "gananciaBrutaUsd": 10750.0,
+      "gananciaLimpiaUsd": 3307.0,
+      "factorInflacion": 4.5512,
+      "ventasConstantes": 76367854.0,
+      "gananciaBrutaConstante": 42642514.0,
+      "gananciaLimpiaConstante": 13117997.0
     },
     {
       "anio": 2023,
@@ -413,7 +845,16 @@
       "ventas": 19693649.19,
       "costo": 7269548.52,
       "gananciaBruta": 12424100.67,
-      "gananciaLimpia": 4098957.4000000004
+      "gananciaLimpia": 4098957.4000000004,
+      "dolarTipo": "bolsa",
+      "dolarValor": 869.65,
+      "ventasUsd": 22645.0,
+      "gananciaBrutaUsd": 14286.0,
+      "gananciaLimpiaUsd": 4713.0,
+      "factorInflacion": 4.0348,
+      "ventasConstantes": 79459355.0,
+      "gananciaBrutaConstante": 50128395.0,
+      "gananciaLimpiaConstante": 16538352.0
     },
     {
       "anio": 2023,
@@ -422,7 +863,16 @@
       "ventas": 16429063.25,
       "costo": 6248737.04,
       "gananciaBruta": 10180326.21,
-      "gananciaLimpia": 2063253.5900000008
+      "gananciaLimpia": 2063253.5900000008,
+      "dolarTipo": "bolsa",
+      "dolarValor": 1002.4,
+      "ventasUsd": 16390.0,
+      "gananciaBrutaUsd": 10156.0,
+      "gananciaLimpiaUsd": 2058.0,
+      "factorInflacion": 3.215,
+      "ventasConstantes": 52818725.0,
+      "gananciaBrutaConstante": 32729307.0,
+      "gananciaLimpiaConstante": 6633271.0
     },
     {
       "anio": 2024,
@@ -431,7 +881,16 @@
       "ventas": 31550480.26,
       "costo": 12967917.84,
       "gananciaBruta": 18582562.42,
-      "gananciaLimpia": 10239662.59
+      "gananciaLimpia": 10239662.59,
+      "dolarTipo": "bolsa",
+      "dolarValor": 1129.6,
+      "ventasUsd": 27931.0,
+      "gananciaBrutaUsd": 16451.0,
+      "gananciaLimpiaUsd": 9065.0,
+      "factorInflacion": 2.6658,
+      "ventasConstantes": 84107317.0,
+      "gananciaBrutaConstante": 49537422.0,
+      "gananciaLimpiaConstante": 27296908.0
     },
     {
       "anio": 2024,
@@ -440,7 +899,16 @@
       "ventas": 24079899.87,
       "costo": 9751001.03,
       "gananciaBruta": 14328898.84,
-      "gananciaLimpia": 3177164.369999999
+      "gananciaLimpia": 3177164.369999999,
+      "dolarTipo": "bolsa",
+      "dolarValor": 1094.5,
+      "ventasUsd": 22001.0,
+      "gananciaBrutaUsd": 13092.0,
+      "gananciaLimpiaUsd": 2903.0,
+      "factorInflacion": 2.3549,
+      "ventasConstantes": 56706919.0,
+      "gananciaBrutaConstante": 33743816.0,
+      "gananciaLimpiaConstante": 7482058.0
     },
     {
       "anio": 2024,
@@ -449,7 +917,16 @@
       "ventas": 19372399.48,
       "costo": 8174991.37,
       "gananciaBruta": 11197408.11,
-      "gananciaLimpia": 1622769.0551499985
+      "gananciaLimpia": 1622769.0551499985,
+      "dolarTipo": "bolsa",
+      "dolarValor": 1031.3,
+      "ventasUsd": 18784.0,
+      "gananciaBrutaUsd": 10858.0,
+      "gananciaLimpiaUsd": 1574.0,
+      "factorInflacion": 2.1216,
+      "ventasConstantes": 41099999.0,
+      "gananciaBrutaConstante": 23756142.0,
+      "gananciaLimpiaConstante": 3442826.0
     },
     {
       "anio": 2024,
@@ -458,7 +935,16 @@
       "ventas": 23671423.19,
       "costo": 9749144.26,
       "gananciaBruta": 13922278.93,
-      "gananciaLimpia": 1988665.2199999988
+      "gananciaLimpia": 1988665.2199999988,
+      "dolarTipo": "bolsa",
+      "dolarValor": 1000.6,
+      "ventasUsd": 23657.0,
+      "gananciaBrutaUsd": 13914.0,
+      "gananciaLimpiaUsd": 1987.0,
+      "factorInflacion": 1.95,
+      "ventasConstantes": 46158732.0,
+      "gananciaBrutaConstante": 27148125.0,
+      "gananciaLimpiaConstante": 3877852.0
     },
     {
       "anio": 2024,
@@ -467,7 +953,16 @@
       "ventas": 18407149.73,
       "costo": 7593659.44,
       "gananciaBruta": 10813490.29,
-      "gananciaLimpia": 169507.7899999991
+      "gananciaLimpia": 169507.7899999991,
+      "dolarTipo": "bolsa",
+      "dolarValor": 1057.0,
+      "ventasUsd": 17415.0,
+      "gananciaBrutaUsd": 10230.0,
+      "gananciaLimpiaUsd": 160.0,
+      "factorInflacion": 1.8714,
+      "ventasConstantes": 34446756.0,
+      "gananciaBrutaConstante": 20236140.0,
+      "gananciaLimpiaConstante": 317213.0
     },
     {
       "anio": 2024,
@@ -476,7 +971,16 @@
       "ventas": 22674991.68,
       "costo": 9439911.89,
       "gananciaBruta": 13235079.79,
-      "gananciaLimpia": 2506028.2399999984
+      "gananciaLimpia": 2506028.2399999984,
+      "dolarTipo": "bolsa",
+      "dolarValor": 1245.5,
+      "ventasUsd": 18206.0,
+      "gananciaBrutaUsd": 10626.0,
+      "gananciaLimpiaUsd": 2012.0,
+      "factorInflacion": 1.7891,
+      "ventasConstantes": 40567406.0,
+      "gananciaBrutaConstante": 23678635.0,
+      "gananciaLimpiaConstante": 4483488.0
     },
     {
       "anio": 2024,
@@ -485,7 +989,16 @@
       "ventas": 49177104.82,
       "costo": 25079037.25,
       "gananciaBruta": 24098067.57,
-      "gananciaLimpia": 11842023.290000001
+      "gananciaLimpia": 11842023.290000001,
+      "dolarTipo": "bolsa",
+      "dolarValor": 1305.3,
+      "ventasUsd": 37675.0,
+      "gananciaBrutaUsd": 18462.0,
+      "gananciaLimpiaUsd": 9072.0,
+      "factorInflacion": 1.7203,
+      "ventasConstantes": 84597926.0,
+      "gananciaBrutaConstante": 41455196.0,
+      "gananciaLimpiaConstante": 20371484.0
     },
     {
       "anio": 2024,
@@ -494,7 +1007,16 @@
       "ventas": 44795384.02,
       "costo": 19902411.17,
       "gananciaBruta": 24892972.85,
-      "gananciaLimpia": 4419292.07
+      "gananciaLimpia": 4419292.07,
+      "dolarTipo": "bolsa",
+      "dolarValor": 1267.0,
+      "ventasUsd": 35355.0,
+      "gananciaBrutaUsd": 19647.0,
+      "gananciaLimpiaUsd": 3488.0,
+      "factorInflacion": 1.6509,
+      "ventasConstantes": 73954108.0,
+      "gananciaBrutaConstante": 41096592.0,
+      "gananciaLimpiaConstante": 7295948.0
     },
     {
       "anio": 2024,
@@ -503,7 +1025,16 @@
       "ventas": 50417065.98,
       "costo": 25185641.24,
       "gananciaBruta": 25231424.74,
-      "gananciaLimpia": 5942710.109999999
+      "gananciaLimpia": 5942710.109999999,
+      "dolarTipo": "bolsa",
+      "dolarValor": 1225.9,
+      "ventasUsd": 41127.0,
+      "gananciaBrutaUsd": 20582.0,
+      "gananciaLimpiaUsd": 4848.0,
+      "factorInflacion": 1.5951,
+      "ventasConstantes": 80420406.0,
+      "gananciaBrutaConstante": 40246717.0,
+      "gananciaLimpiaConstante": 9479234.0
     },
     {
       "anio": 2024,
@@ -512,7 +1043,16 @@
       "ventas": 34279258.91,
       "costo": 17177239.06,
       "gananciaBruta": 17102019.85,
-      "gananciaLimpia": -280287.98999999836
+      "gananciaLimpia": -280287.98999999836,
+      "dolarTipo": "bolsa",
+      "dolarValor": 1140.2,
+      "ventasUsd": 30064.0,
+      "gananciaBrutaUsd": 14999.0,
+      "gananciaLimpiaUsd": -246.0,
+      "factorInflacion": 1.5532,
+      "ventasConstantes": 53241425.0,
+      "gananciaBrutaConstante": 26562299.0,
+      "gananciaLimpiaConstante": -435334.0
     },
     {
       "anio": 2024,
@@ -521,7 +1061,16 @@
       "ventas": 51667633.78,
       "costo": 24433400.35,
       "gananciaBruta": 27234233.43,
-      "gananciaLimpia": 5832920.91
+      "gananciaLimpia": 5832920.91,
+      "dolarTipo": "bolsa",
+      "dolarValor": 1099.3,
+      "ventasUsd": 47000.0,
+      "gananciaBrutaUsd": 24774.0,
+      "gananciaLimpiaUsd": 5306.0,
+      "factorInflacion": 1.5168,
+      "ventasConstantes": 78367657.0,
+      "gananciaBrutaConstante": 41307931.0,
+      "gananciaLimpiaConstante": 8847170.0
     },
     {
       "anio": 2024,
@@ -530,7 +1079,16 @@
       "ventas": 42443224.7,
       "costo": 21133810.07,
       "gananciaBruta": 21309414.63,
-      "gananciaLimpia": -231663.3900000006
+      "gananciaLimpia": -231663.3900000006,
+      "dolarTipo": "bolsa",
+      "dolarValor": 1075.6,
+      "ventasUsd": 39460.0,
+      "gananciaBrutaUsd": 19812.0,
+      "gananciaLimpiaUsd": -215.0,
+      "factorInflacion": 1.4769,
+      "ventasConstantes": 62683930.0,
+      "gananciaBrutaConstante": 31471639.0,
+      "gananciaLimpiaConstante": -342141.0
     },
     {
       "anio": 2025,
@@ -539,7 +1097,16 @@
       "ventas": 29002130.28,
       "costo": 13867151.14,
       "gananciaBruta": 15134979.14,
-      "gananciaLimpia": -4490783.6499999985
+      "gananciaLimpia": -4490783.6499999985,
+      "dolarTipo": "bolsa",
+      "dolarValor": 1162.6,
+      "ventasUsd": 24946.0,
+      "gananciaBrutaUsd": 13018.0,
+      "gananciaLimpiaUsd": -3863.0,
+      "factorInflacion": 1.4451,
+      "ventasConstantes": 41910887.0,
+      "gananciaBrutaConstante": 21871511.0,
+      "gananciaLimpiaConstante": -6489617.0
     },
     {
       "anio": 2025,
@@ -548,7 +1115,16 @@
       "ventas": 41239608.14,
       "costo": 19855849.95,
       "gananciaBruta": 21383758.19,
-      "gananciaLimpia": 3962089.0500000007
+      "gananciaLimpia": 3962089.0500000007,
+      "dolarTipo": "bolsa",
+      "dolarValor": 1185.2,
+      "ventasUsd": 34795.0,
+      "gananciaBrutaUsd": 18042.0,
+      "gananciaLimpiaUsd": 3343.0,
+      "factorInflacion": 1.4112,
+      "ventasConstantes": 58198464.0,
+      "gananciaBrutaConstante": 30177345.0,
+      "gananciaLimpiaConstante": 5591409.0
     },
     {
       "anio": 2025,
@@ -557,7 +1133,16 @@
       "ventas": 45290880.04,
       "costo": 21508674.24,
       "gananciaBruta": 23782205.8,
-      "gananciaLimpia": 4322291.310000002
+      "gananciaLimpia": 4322291.310000002,
+      "dolarTipo": "bolsa",
+      "dolarValor": 1239.6,
+      "ventasUsd": 36537.0,
+      "gananciaBrutaUsd": 19185.0,
+      "gananciaLimpiaUsd": 3487.0,
+      "factorInflacion": 1.3609,
+      "ventasConstantes": 61635227.0,
+      "gananciaBrutaConstante": 32364609.0,
+      "gananciaLimpiaConstante": 5882098.0
     },
     {
       "anio": 2025,
@@ -566,7 +1151,16 @@
       "ventas": 39850317.98,
       "costo": 18714176.14,
       "gananciaBruta": 21136141.84,
-      "gananciaLimpia": 4610952.1
+      "gananciaLimpia": 4610952.1,
+      "dolarTipo": "bolsa",
+      "dolarValor": 1255.3,
+      "ventasUsd": 31746.0,
+      "gananciaBrutaUsd": 16838.0,
+      "gananciaLimpiaUsd": 3673.0,
+      "factorInflacion": 1.3238,
+      "ventasConstantes": 52754185.0,
+      "gananciaBrutaConstante": 27980202.0,
+      "gananciaLimpiaConstante": 6104017.0
     },
     {
       "anio": 2025,
@@ -575,7 +1169,16 @@
       "ventas": 36712719.95,
       "costo": 18133549.5,
       "gananciaBruta": 18579170.45,
-      "gananciaLimpia": -2366885.9700000025
+      "gananciaLimpia": -2366885.9700000025,
+      "dolarTipo": "bolsa",
+      "dolarValor": 1144.9,
+      "ventasUsd": 32066.0,
+      "gananciaBrutaUsd": 16228.0,
+      "gananciaLimpiaUsd": -2067.0,
+      "factorInflacion": 1.3042,
+      "ventasConstantes": 47882370.0,
+      "gananciaBrutaConstante": 24231785.0,
+      "gananciaLimpiaConstante": -3086998.0
     },
     {
       "anio": 2025,
@@ -584,7 +1187,16 @@
       "ventas": 36106369.35,
       "costo": 17227651.48,
       "gananciaBruta": 18878717.87,
-      "gananciaLimpia": 1958101.6600000001
+      "gananciaLimpia": 1958101.6600000001,
+      "dolarTipo": "bolsa",
+      "dolarValor": 1192.9,
+      "ventasUsd": 30268.0,
+      "gananciaBrutaUsd": 15826.0,
+      "gananciaLimpiaUsd": 1641.0,
+      "factorInflacion": 1.2837,
+      "ventasConstantes": 46349942.0,
+      "gananciaBrutaConstante": 24234712.0,
+      "gananciaLimpiaConstante": 2513626.0
     },
     {
       "anio": 2025,
@@ -593,7 +1205,16 @@
       "ventas": 43564136.01,
       "costo": 21307689.46,
       "gananciaBruta": 23553323.26,
-      "gananciaLimpia": 3626320.16
+      "gananciaLimpia": 3626320.16,
+      "dolarTipo": "bolsa",
+      "dolarValor": 1276.7,
+      "ventasUsd": 34122.0,
+      "gananciaBrutaUsd": 18449.0,
+      "gananciaLimpiaUsd": 2840.0,
+      "factorInflacion": 1.2598,
+      "ventasConstantes": 54880782.0,
+      "gananciaBrutaConstante": 29671765.0,
+      "gananciaLimpiaConstante": 4568329.0
     },
     {
       "anio": 2025,
@@ -602,7 +1223,16 @@
       "ventas": 39903866.69,
       "costo": 17745029.0,
       "gananciaBruta": 24335867.9,
-      "gananciaLimpia": 4479268.559999999
+      "gananciaLimpia": 4479268.559999999,
+      "dolarTipo": "bolsa",
+      "dolarValor": 1310.8,
+      "ventasUsd": 30442.0,
+      "gananciaBrutaUsd": 18566.0,
+      "gananciaLimpiaUsd": 3417.0,
+      "factorInflacion": 1.2363,
+      "ventasConstantes": 49332371.0,
+      "gananciaBrutaConstante": 30085958.0,
+      "gananciaLimpiaConstante": 5537632.0
     },
     {
       "anio": 2025,
@@ -611,7 +1241,16 @@
       "ventas": 57507491.71,
       "costo": 26667093.53,
       "gananciaBruta": 34573485.84,
-      "gananciaLimpia": 17236329.350000005
+      "gananciaLimpia": 17236329.350000005,
+      "dolarTipo": "bolsa",
+      "dolarValor": 1491.6,
+      "ventasUsd": 38554.0,
+      "gananciaBrutaUsd": 23179.0,
+      "gananciaLimpiaUsd": 11556.0,
+      "factorInflacion": 1.2109,
+      "ventasConstantes": 69633093.0,
+      "gananciaBrutaConstante": 41863394.0,
+      "gananciaLimpiaConstante": 20870653.0
     },
     {
       "anio": 2025,
@@ -620,7 +1259,16 @@
       "ventas": 55656153.32,
       "costo": 27317482.88,
       "gananciaBruta": 28338670.44,
-      "gananciaLimpia": 5547337.670000002
+      "gananciaLimpia": 5547337.670000002,
+      "dolarTipo": "bolsa",
+      "dolarValor": 1441.0,
+      "ventasUsd": 38623.0,
+      "gananciaBrutaUsd": 19666.0,
+      "gananciaLimpiaUsd": 3850.0,
+      "factorInflacion": 1.1836,
+      "ventasConstantes": 65876242.0,
+      "gananciaBrutaConstante": 33542475.0,
+      "gananciaLimpiaConstante": 6565990.0
     },
     {
       "anio": 2025,
@@ -629,7 +1277,16 @@
       "ventas": 46280502.13,
       "costo": 24704045.6,
       "gananciaBruta": 25258118.77,
-      "gananciaLimpia": 4477124.140000001
+      "gananciaLimpia": 4477124.140000001,
+      "dolarTipo": "bolsa",
+      "dolarValor": 1456.1,
+      "ventasUsd": 31784.0,
+      "gananciaBrutaUsd": 17346.0,
+      "gananciaLimpiaUsd": 3075.0,
+      "factorInflacion": 1.1548,
+      "ventasConstantes": 53442877.0,
+      "gananciaBrutaConstante": 29167067.0,
+      "gananciaLimpiaConstante": 5170004.0
     },
     {
       "anio": 2025,
@@ -638,7 +1295,16 @@
       "ventas": 59683654.25,
       "costo": 30855080.89,
       "gananciaBruta": 30488902.73,
-      "gananciaLimpia": 3163113.0700000003
+      "gananciaLimpia": 3163113.0700000003,
+      "dolarTipo": "bolsa",
+      "dolarValor": 1496.4,
+      "ventasUsd": 39885.0,
+      "gananciaBrutaUsd": 20375.0,
+      "gananciaLimpiaUsd": 2114.0,
+      "factorInflacion": 1.1233,
+      "ventasConstantes": 67043095.0,
+      "gananciaBrutaConstante": 34248412.0,
+      "gananciaLimpiaConstante": 3553149.0
     },
     {
       "anio": 2026,
@@ -647,7 +1313,16 @@
       "ventas": 45697010.03,
       "costo": 22210720.81,
       "gananciaBruta": 25476749.51,
-      "gananciaLimpia": -2532431.1099999994
+      "gananciaLimpia": -2532431.1099999994,
+      "dolarTipo": "bolsa",
+      "dolarValor": 1474.7,
+      "ventasUsd": 30987.0,
+      "gananciaBrutaUsd": 17276.0,
+      "gananciaLimpiaUsd": -1717.0,
+      "factorInflacion": 1.0916,
+      "ventasConstantes": 49885124.0,
+      "gananciaBrutaConstante": 27811684.0,
+      "gananciaLimpiaConstante": -2764527.0
     },
     {
       "anio": 2026,
@@ -656,7 +1331,16 @@
       "ventas": 55421057.29,
       "costo": 25552636.73,
       "gananciaBruta": 29868420.56,
-      "gananciaLimpia": 3040573.8499999978
+      "gananciaLimpia": 3040573.8499999978,
+      "dolarTipo": "bolsa",
+      "dolarValor": 1426.0,
+      "ventasUsd": 38865.0,
+      "gananciaBrutaUsd": 20946.0,
+      "gananciaLimpiaUsd": 2132.0,
+      "factorInflacion": 1.0609,
+      "ventasConstantes": 58795313.0,
+      "gananciaBrutaConstante": 31686929.0,
+      "gananciaLimpiaConstante": 3225696.0
     },
     {
       "anio": 2026,
@@ -665,7 +1349,19 @@
       "ventas": 74249286.2,
       "costo": 33013861.95,
       "gananciaBruta": 41235424.25,
-      "gananciaLimpia": 17213418.33
+      "gananciaLimpia": 17213418.33,
+      "dolarTipo": "bolsa",
+      "dolarValor": 1427.2,
+      "ventasUsd": 52024.0,
+      "gananciaBrutaUsd": 28893.0,
+      "gananciaLimpiaUsd": 12061.0,
+      "factorInflacion": 1.026,
+      "ventasConstantes": 76179768.0,
+      "gananciaBrutaConstante": 42307545.0,
+      "gananciaLimpiaConstante": 17660967.0
     }
-  ]
+  ],
+  "meta": {
+    "mesBase": "May 2026"
+  }
 }
