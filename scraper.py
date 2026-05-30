@@ -205,7 +205,11 @@ def leer_ganancias_drive():
 
     wb = xlrd.open_workbook(file_contents=fh.read())
     print(f'Hojas: {wb.sheet_names()}')
-
+# DEBUG GANANCIA
+    if 'GANANCIA' in wb.sheet_names():
+        ws_g = wb.sheet_by_name('GANANCIA')
+        for i in range(min(5, ws_g.nrows)):
+            print(f'GANANCIA fila {i}: {ws_g.row_values(i)}')
     resultado = {'anios': {}, 'mensual': []}
 
     # Hoja GANANCIA — resumen anual
