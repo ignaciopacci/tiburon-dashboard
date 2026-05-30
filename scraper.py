@@ -205,14 +205,11 @@ def leer_ganancias_drive():
 
     wb = xlrd.open_workbook(file_contents=fh.read())
     print(f'Hojas: {wb.sheet_names()}')
-# DEBUG GANANCIA
-    if 'GANANCIA' in wb.sheet_names():
-        ws_g = wb.sheet_by_name('GANANCIA')
-        for i in range(min(5, ws_g.nrows)):
-            print(f'GANANCIA fila {i}: {ws_g.row_values(i)}')
+
     resultado = {'anios': {}, 'mensual': []}
 
     # Hoja GANANCIA — resumen anual
+    # Columnas: 0=Año, 1=GananciaBruta, 2=Gasto, 3=GananciaLimpia, 4=Pct, 5=Pct, 6=Ventas
     if 'GANANCIA' in wb.sheet_names():
         ws = wb.sheet_by_name('GANANCIA')
         for i in range(ws.nrows):
@@ -222,15 +219,16 @@ def leer_ganancias_drive():
                     anio = int(float(row[0]))
                     resultado['anios'][anio] = {
                         'anio': anio,
-                        'ventas': float(row[1]) if row[1] else 0,
+                        'ventas': float(row[6]) if row[6] else 0,
                         'costo': float(row[2]) if row[2] else 0,
-                        'gananciaBruta': float(row[3]) if row[3] else 0,
-                        'gananciaLimpia': float(row[4]) if row[4] else 0,
+                        'gananciaBruta': float(row[1]) if row[1] else 0,
+                        'gananciaLimpia': float(row[3]) if row[3] else 0,
                     }
                 except:
                     continue
 
     # Hoja VENTAS — datos mensuales (estructura vertical por año)
+    # Columnas: 0=Mes, 1=Ventas, 2=Costo, 3=GananciaBruta, 4=Gastos, 5=GananciaLimpia
     if 'VENTAS' in wb.sheet_names():
         ws = wb.sheet_by_name('VENTAS')
         meses_map = {
