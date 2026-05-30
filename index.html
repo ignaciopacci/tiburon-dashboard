@@ -97,18 +97,23 @@ main{padding:16px;max-width:800px;margin:0 auto}
 .proy-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px}
 @media(max-width:400px){.proy-grid{grid-template-columns:1fr 1fr}}
 /* Histórico */
+.hist-controls{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px;align-items:center}
+.hist-filter{display:flex;gap:6px;flex-wrap:wrap}
+.hist-filter-btn{padding:4px 12px;border-radius:16px;border:1px solid var(--border);background:transparent;color:var(--muted);font-family:'DM Mono',monospace;font-size:10px;cursor:pointer;transition:all 0.2s}
+.hist-filter-btn.active{background:var(--s2);color:var(--acc);border-color:var(--acc)}
+.moneda-toggle{display:flex;gap:4px;background:var(--s2);border-radius:20px;padding:3px;border:1px solid var(--border)}
+.moneda-btn{padding:3px 10px;border-radius:16px;border:none;background:transparent;color:var(--muted);font-family:'DM Mono',monospace;font-size:10px;cursor:pointer;transition:all 0.2s;white-space:nowrap}
+.moneda-btn.active{background:var(--redtib);color:white}
 .hist-year-card{background:var(--s2);border:1px solid var(--border);border-radius:10px;padding:14px 16px;margin-bottom:8px}
 .hist-year-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}
 .hist-year-label{font-family:'Syne',sans-serif;font-size:18px;font-weight:800;color:var(--acc)}
 .hist-year-meta{font-family:'DM Mono',monospace;font-size:10px;color:var(--muted2)}
 .hist-bar-row{display:flex;align-items:center;gap:8px;margin-bottom:6px}
-.hist-bar-label{font-family:'DM Mono',monospace;font-size:9px;color:var(--muted);width:56px;flex-shrink:0}
+.hist-bar-label{font-family:'DM Mono',monospace;font-size:9px;color:var(--muted);width:80px;flex-shrink:0}
 .hist-bar-track{flex:1;height:6px;background:var(--s3);border-radius:3px;overflow:hidden}
 .hist-bar-fill{height:100%;border-radius:3px}
-.hist-bar-val{font-family:'DM Mono',monospace;font-size:9px;width:60px;text-align:right;flex-shrink:0}
-.hist-filter{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:16px}
-.hist-filter-btn{padding:4px 12px;border-radius:16px;border:1px solid var(--border);background:transparent;color:var(--muted);font-family:'DM Mono',monospace;font-size:10px;cursor:pointer;transition:all 0.2s}
-.hist-filter-btn.active{background:var(--s2);color:var(--acc);border-color:var(--acc)}
+.hist-bar-val{font-family:'DM Mono',monospace;font-size:9px;width:70px;text-align:right;flex-shrink:0}
+.moneda-nota{font-family:'DM Mono',monospace;font-size:9px;color:var(--muted);margin-bottom:12px;padding:6px 10px;background:var(--s2);border-radius:6px;border:1px solid var(--border)}
 </style>
 </head>
 <body>
@@ -223,8 +228,20 @@ main{padding:16px;max-width:800px;margin:0 auto}
 
     <!-- TAB HISTÓRICO -->
     <div class="tab-content" id="tab-historico">
+      <!-- Toggle moneda -->
+      <div class="section-title">Moneda</div>
+      <div style="display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-bottom:16px">
+        <div class="moneda-toggle">
+          <button class="moneda-btn active" onclick="setMoneda('ars',this)">$ ARS</button>
+          <button class="moneda-btn" onclick="setMoneda('usd',this)">USD MEP</button>
+          <button class="moneda-btn" onclick="setMoneda('const',this)">$ Constantes</button>
+        </div>
+        <div id="moneda-nota" class="moneda-nota">Pesos corrientes de cada período</div>
+      </div>
+
+      <!-- Toggle vista -->
       <div class="section-title">Vista</div>
-      <div class="hist-filter" id="hist-filter">
+      <div class="hist-filter" id="hist-filter" style="margin-bottom:16px">
         <button class="hist-filter-btn active" onclick="setHistVista('anual',this)">Por año</button>
         <button class="hist-filter-btn" onclick="setHistVista('mensual',this)">Por mes</button>
       </div>
@@ -232,18 +249,18 @@ main{padding:16px;max-width:800px;margin:0 auto}
       <!-- Vista anual -->
       <div id="hist-vista-anual">
         <div class="section-title">Resumen por año</div>
-        <div id="hist-chart-container" class="card" style="padding:20px">
-          <div style="font-family:'DM Mono',monospace;font-size:10px;color:var(--muted);margin-bottom:16px">
+        <div class="card" style="padding:20px">
+          <div style="font-family:'DM Mono',monospace;font-size:9px;color:var(--muted);margin-bottom:16px">
             <span style="color:var(--acc)">■</span> Ventas &nbsp;
-            <span style="color:var(--acc2)">■</span> Ganancia bruta &nbsp;
-            <span style="color:var(--orange)">■</span> Ganancia limpia
+            <span style="color:var(--acc2)">■</span> Gan. bruta &nbsp;
+            <span style="color:var(--orange)">■</span> Gan. limpia
           </div>
           <div id="hist-bars" style="display:flex;gap:6px;align-items:flex-end;height:160px"></div>
         </div>
         <div class="section-title">Detalle anual</div>
         <div class="card" style="padding:0">
           <table class="data-table">
-            <thead><tr><th>Año</th><th>Ventas</th><th>Costo</th><th>Gan. Bruta</th><th>Gan. Limpia</th></tr></thead>
+            <thead><tr><th>Año</th><th id="th-ventas">Ventas</th><th id="th-gb">Gan. Bruta</th><th id="th-gl">Gan. Limpia</th><th>Margen</th></tr></thead>
             <tbody id="hist-anual-tabla"></tbody>
           </table>
         </div>
@@ -251,7 +268,7 @@ main{padding:16px;max-width:800px;margin:0 auto}
 
       <!-- Vista mensual -->
       <div id="hist-vista-mensual" style="display:none">
-        <div id="hist-anio-filter" class="hist-filter"></div>
+        <div id="hist-anio-filter" class="hist-filter" style="margin-bottom:16px"></div>
         <div class="section-title">Evolución mensual</div>
         <div id="hist-mensual-cards"></div>
       </div>
@@ -287,7 +304,7 @@ main{padding:16px;max-width:800px;margin:0 auto}
 <script>
 const BASE='https://raw.githubusercontent.com/ignaciopacci/tiburon-dashboard/main/data/';
 const cfg={costosFijos:parseFloat(localStorage.getItem('cf')||'22000000'),diaActual:parseInt(localStorage.getItem('dia')||new Date().getDate()),diasMes:parseInt(localStorage.getItem('dm')||'31')};
-const state={e1:null,e2:null,empActiva:{hoy:'ambas',mes:'ambas'},histData:null,histVista:'anual',histAnioFiltro:null};
+const state={e1:null,e2:null,empActiva:{hoy:'ambas',mes:'ambas'},histData:null,histVista:'anual',histAnioFiltro:null,moneda:'ars'};
 const COL={Pinceles:'var(--pin)',Rodillos:'var(--rod)',Accesorios:'var(--orange)'};
 
 async function fetchJSON(file){
@@ -301,10 +318,7 @@ async function init(){
   document.getElementById('error-state').style.display='none';
   document.getElementById('app').style.display='none';
   try{
-    const [d1,d2]=await Promise.all([
-      fetchJSON('Irelocs_SA.json'),
-      fetchJSON('XXXXXXX.json')
-    ]);
+    const [d1,d2]=await Promise.all([fetchJSON('Irelocs_SA.json'),fetchJSON('XXXXXXX.json')]);
     state.e1=d1;state.e2=d2;
     document.getElementById('loading').style.display='none';
     document.getElementById('app').style.display='block';
@@ -341,9 +355,24 @@ function merge(d1,d2){
 }
 function getDatos(emp){if(emp==='ambas')return merge(state.e1,state.e2);if(emp==='e1')return state.e1;return state.e2;}
 
-const fmt=n=>{if(n===null||n===undefined||isNaN(n))return'—';const a=Math.abs(n),s=n<0?'-':'';if(a>=1000000)return s+'$'+(a/1000000).toFixed(1)+'M';if(a>=1000)return s+'$'+Math.round(a/1000)+'K';return s+'$'+Math.round(a).toLocaleString('es-AR');};
+const fmtARS=n=>{if(n===null||n===undefined||isNaN(n))return'—';const a=Math.abs(n),s=n<0?'-':'';if(a>=1000000)return s+'$'+(a/1000000).toFixed(1)+'M';if(a>=1000)return s+'$'+Math.round(a/1000)+'K';return s+'$'+Math.round(a).toLocaleString('es-AR');};
+const fmtUSD=n=>{if(n===null||n===undefined||isNaN(n))return'—';const a=Math.abs(n),s=n<0?'-':'';if(a>=1000000)return s+'U$S'+(a/1000000).toFixed(1)+'M';if(a>=1000)return s+'U$S'+Math.round(a/1000)+'K';return s+'U$S'+Math.round(a).toLocaleString('es-AR');};
+const fmt=n=>fmtARS(n);
 const pct=n=>(!n||isNaN(n))?'—%':n.toFixed(1)+'%';
 const num=n=>(!n||isNaN(n))?'—':Math.round(n).toLocaleString('es-AR');
+
+// Formatea según moneda activa del histórico
+function fmtH(item, campo){
+  if(state.moneda==='usd'){
+    const v=item[campo+'Usd']??item[campo+'USD'];
+    return v!=null?fmtUSD(v):'—';
+  }
+  if(state.moneda==='const'){
+    const v=item[campo+'Constante']??item[campo+'Constantes'];
+    return v!=null?fmtARS(v):'—';
+  }
+  return fmtARS(item[campo]);
+}
 
 function onDataLoaded(){
   document.getElementById('cfg-costos').value=cfg.costosFijos;
@@ -354,7 +383,7 @@ function onDataLoaded(){
   ['hoy','mes'].forEach(t=>{document.getElementById('btn-'+t+'-e1').textContent=n1;document.getElementById('btn-'+t+'-e2').textContent=n2;});
   document.getElementById('sys-e1').textContent=state.e1?.empresa||'—';
   document.getElementById('sys-e2').textContent=state.e2?.empresa||'—';
-  document.getElementById('sys-cf').textContent=fmt(cfg.costosFijos)+'/mes';
+  document.getElementById('sys-cf').textContent=fmtARS(cfg.costosFijos)+'/mes';
   document.getElementById('update-label').textContent=state.e1?.fechaActualizacion||'—';
   renderAll();
 }
@@ -456,8 +485,21 @@ async function loadHistorico(){
     state.histData=await fetchJSON('ganancias_historicas.json');
     renderHistorico();
   }catch(e){
-    document.getElementById('hist-bars').innerHTML='<div style="font-family:DM Mono,monospace;font-size:11px;color:var(--muted)">Sin datos históricos todavía. El scraper los generará en la próxima corrida.</div>';
+    document.getElementById('hist-bars').innerHTML='<div style="font-family:DM Mono,monospace;font-size:11px;color:var(--muted)">Sin datos históricos todavía.</div>';
   }
+}
+
+function setMoneda(m, btn){
+  state.moneda=m;
+  document.querySelectorAll('.moneda-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  const notas={
+    ars:'Pesos corrientes de cada período',
+    usd:'Dólar MEP (bolsa) del 15 de cada mes · Pre-2019 usa dólar blue',
+    const:`Pesos ajustados por inflación (IPC INDEC) a ${state.histData?.meta?.mesBase||'hoy'}`
+  };
+  document.getElementById('moneda-nota').textContent=notas[m];
+  renderHistorico();
 }
 
 function renderHistorico(){
@@ -466,88 +508,98 @@ function renderHistorico(){
   else renderHistMensual();
 }
 
+function getV(item, campo){
+  if(state.moneda==='usd') return item[campo+'Usd']??item[campo+'USD']??null;
+  if(state.moneda==='const') return item[campo+'Constante']??item[campo+'Constantes']??null;
+  return item[campo]??null;
+}
+function fmtV(v){
+  if(v===null||v===undefined)return'—';
+  return state.moneda==='usd'?fmtUSD(v):fmtARS(v);
+}
+
 function renderHistAnual(){
   const g=state.histData;
   const anios=Object.values(g.anios||{}).sort((a,b)=>a.anio-b.anio);
-  if(!anios.length){
-    document.getElementById('hist-bars').innerHTML='<div style="font-family:DM Mono,monospace;font-size:11px;color:var(--muted)">Sin datos anuales todavía.</div>';
-    return;
-  }
-  const maxV=Math.max(...anios.map(a=>a.ventas))||1;
-  const bars=anios.map(a=>{
-    const pctV=Math.max(a.ventas/maxV*100,2);
-    const pctG=Math.max((a.gananciaBruta||0)/maxV*100,1);
-    const pctGL=Math.max((a.gananciaLimpia||0)/maxV*100,1);
-    const mg=a.ventas?(a.gananciaBruta/a.ventas*100):0;
-    return`<div style="display:flex;flex-direction:column;align-items:center;gap:4px;flex:1;min-width:36px">
-      <div style="font-family:'DM Mono',monospace;font-size:8px;color:var(--acc2);text-align:center">${fmt(a.gananciaBruta)}</div>
+  if(!anios.length){document.getElementById('hist-bars').innerHTML='<div style="font-family:DM Mono,monospace;font-size:11px;color:var(--muted)">Sin datos anuales todavía.</div>';return;}
+
+  const vals=anios.map(a=>getV(a,'ventas')||0);
+  const gbs=anios.map(a=>getV(a,'gananciaBruta')||0);
+  const maxV=Math.max(...vals,...gbs)||1;
+
+  const bars=anios.map((a,i)=>{
+    const v=vals[i],gb=gbs[i],gl=getV(a,'gananciaLimpia')||0;
+    const pctV=Math.max(v/maxV*100,2),pctG=Math.max(gb/maxV*100,1),pctGL=Math.max(gl/maxV*100,1);
+    const mg=v&&gb?gb/v*100:0;
+    return`<div style="display:flex;flex-direction:column;align-items:center;gap:4px;flex:1;min-width:32px">
+      <div style="font-family:'DM Mono',monospace;font-size:7px;color:var(--acc2);text-align:center">${fmtV(gb)}</div>
       <div style="width:100%;height:130px;display:flex;align-items:flex-end;gap:2px;justify-content:center">
-        <div style="width:12px;height:${pctV}%;background:var(--acc);border-radius:3px 3px 0 0;opacity:0.35" title="Ventas ${a.anio}: ${fmt(a.ventas)}"></div>
-        <div style="width:12px;height:${pctG}%;background:var(--acc2);border-radius:3px 3px 0 0" title="Gan.Bruta ${a.anio}: ${fmt(a.gananciaBruta)}"></div>
-        <div style="width:12px;height:${pctGL}%;background:var(--orange);border-radius:3px 3px 0 0" title="Gan.Limpia ${a.anio}: ${fmt(a.gananciaLimpia)}"></div>
+        <div style="width:11px;height:${pctV}%;background:var(--acc);border-radius:3px 3px 0 0;opacity:0.35"></div>
+        <div style="width:11px;height:${pctG}%;background:var(--acc2);border-radius:3px 3px 0 0"></div>
+        <div style="width:11px;height:${pctGL}%;background:var(--orange);border-radius:3px 3px 0 0"></div>
       </div>
-      <div style="font-family:'DM Mono',monospace;font-size:9px;color:var(--muted)">${a.anio}</div>
+      <div style="font-family:'DM Mono',monospace;font-size:8px;color:var(--muted)">${a.anio}</div>
       <div style="font-family:'DM Mono',monospace;font-size:8px;color:var(--muted2)">${pct(mg)}</div>
     </div>`;
   }).join('');
   document.getElementById('hist-bars').innerHTML=bars;
 
-  const tablaRows=anios.slice().reverse().map(a=>`
-    <tr>
-      <td><strong>${a.anio}</strong></td>
-      <td class="r y">${fmt(a.ventas)}</td>
-      <td class="r">${fmt(a.costo)}</td>
-      <td class="r g">${fmt(a.gananciaBruta)}</td>
-      <td class="r" style="color:var(--orange)">${fmt(a.gananciaLimpia)}</td>
-    </tr>`).join('');
-  document.getElementById('hist-anual-tabla').innerHTML=tablaRows;
+  const rows=anios.slice().reverse().map(a=>{
+    const v=getV(a,'ventas'),gb=getV(a,'gananciaBruta'),gl=getV(a,'gananciaLimpia');
+    const mg=v&&gb?gb/v*100:0;
+    const dolarInfo=a.dolarValor?`<div style="font-size:8px;color:var(--muted)">@ ${a.dolarTipo==='blue'?'blue':'MEP'} $${Math.round(a.dolarValor)}</div>`:'';
+    return`<tr>
+      <td><strong>${a.anio}</strong>${dolarInfo}</td>
+      <td class="r y">${fmtV(v)}</td>
+      <td class="r g">${fmtV(gb)}</td>
+      <td class="r" style="color:var(--orange)">${fmtV(gl)}</td>
+      <td class="r"><span class="badge ${mg>=50?'h':mg>=35?'m':'l'}">${pct(mg)}</span></td>
+    </tr>`;
+  }).join('');
+  document.getElementById('hist-anual-tabla').innerHTML=rows;
 }
 
 function renderHistMensual(){
   const g=state.histData;
   const mensual=g.mensual||[];
-  if(!mensual.length){
-    document.getElementById('hist-mensual-cards').innerHTML='<div style="font-family:DM Mono,monospace;font-size:11px;color:var(--muted);padding:16px">Sin datos mensuales todavía.</div>';
-    return;
-  }
-  // Filtros de año
+  if(!mensual.length){document.getElementById('hist-mensual-cards').innerHTML='<div style="font-family:DM Mono,monospace;font-size:11px;color:var(--muted);padding:16px">Sin datos mensuales todavía.</div>';return;}
   const aniosDisp=[...new Set(mensual.map(m=>m.anio))].sort((a,b)=>b-a);
   if(!state.histAnioFiltro||!aniosDisp.includes(state.histAnioFiltro))state.histAnioFiltro=aniosDisp[0];
   document.getElementById('hist-anio-filter').innerHTML=aniosDisp.map(a=>
     `<button class="hist-filter-btn ${a===state.histAnioFiltro?'active':''}" onclick="setHistAnio(${a},this)">${a}</button>`
   ).join('');
-
   const datos=mensual.filter(m=>m.anio===state.histAnioFiltro).sort((a,b)=>b.mes-a.mes);
-  const maxV=Math.max(...datos.map(m=>m.ventas))||1;
+  const maxV=Math.max(...datos.map(m=>getV(m,'ventas')||0))||1;
   const cards=datos.map(m=>{
-    const mg=m.ventas?m.gananciaBruta/m.ventas*100:0;
-    const pctV=m.ventas/maxV*100;
-    const pctG=(m.gananciaBruta||0)/maxV*100;
+    const v=getV(m,'ventas'),gb=getV(m,'gananciaBruta'),gl=getV(m,'gananciaLimpia');
+    const mg=v&&gb?gb/v*100:0;
+    const pctV=v?(v/maxV*100):0,pctG=gb?(gb/maxV*100):0,pctGL=gl?(gl/maxV*100):0;
+    const dolarTag=m.dolarValor?`<span style="font-family:'DM Mono',monospace;font-size:9px;color:var(--muted)"> · ${m.dolarTipo==='blue'?'blue':'MEP'} $${Math.round(m.dolarValor)}</span>`:'';
     return`<div class="hist-year-card">
       <div class="hist-year-header">
         <div>
           <div class="hist-year-label">${m.mesNombre}</div>
-          <div class="hist-year-meta">${m.anio} · Margen ${pct(mg)}</div>
+          <div class="hist-year-meta">${m.anio} · Margen ${pct(mg)}${dolarTag}</div>
         </div>
         <div style="text-align:right">
-          <div style="font-family:'Syne',sans-serif;font-size:16px;font-weight:800;color:var(--acc)">${fmt(m.ventas)}</div>
-          <div style="font-family:'DM Mono',monospace;font-size:10px;color:var(--acc2)">Gan: ${fmt(m.gananciaBruta)}</div>
+          <div style="font-family:'Syne',sans-serif;font-size:16px;font-weight:800;color:var(--acc)">${fmtV(v)}</div>
+          <div style="font-family:'DM Mono',monospace;font-size:10px;color:var(--acc2)">Gan: ${fmtV(gb)}</div>
         </div>
       </div>
       <div class="hist-bar-row">
         <div class="hist-bar-label">Ventas</div>
         <div class="hist-bar-track"><div class="hist-bar-fill" style="width:${pctV}%;background:var(--acc);opacity:0.5"></div></div>
-        <div class="hist-bar-val" style="color:var(--acc)">${fmt(m.ventas)}</div>
+        <div class="hist-bar-val" style="color:var(--acc)">${fmtV(v)}</div>
       </div>
       <div class="hist-bar-row">
         <div class="hist-bar-label">Gan. bruta</div>
         <div class="hist-bar-track"><div class="hist-bar-fill" style="width:${pctG}%;background:var(--acc2)"></div></div>
-        <div class="hist-bar-val" style="color:var(--acc2)">${fmt(m.gananciaBruta)}</div>
+        <div class="hist-bar-val" style="color:var(--acc2)">${fmtV(gb)}</div>
       </div>
       <div class="hist-bar-row">
-        <div class="hist-bar-label">Costo</div>
-        <div class="hist-bar-track"><div class="hist-bar-fill" style="width:${m.gananciaBruta?(m.costo/maxV*100):0}%;background:var(--muted)"></div></div>
-        <div class="hist-bar-val" style="color:var(--muted2)">${fmt(m.costo)}</div>
+        <div class="hist-bar-label">Gan. limpia</div>
+        <div class="hist-bar-track"><div class="hist-bar-fill" style="width:${pctGL}%;background:var(--orange)"></div></div>
+        <div class="hist-bar-val" style="color:var(--orange)">${fmtV(gl)}</div>
       </div>
     </div>`;
   }).join('');
@@ -570,7 +622,6 @@ function setHistAnio(anio,btn){
   renderHistMensual();
 }
 
-// ── NAVEGACIÓN ─────────────────────────────────────────────
 function switchTab(id,btn){
   document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
   document.querySelectorAll('.tab-content').forEach(c=>c.classList.remove('active'));
@@ -579,7 +630,7 @@ function switchTab(id,btn){
   if(id==='historico')loadHistorico();
 }
 function setEmp(tab,emp,btn){btn.closest('.emp-tabs').querySelectorAll('.emp-btn').forEach(b=>b.classList.remove('active'));btn.classList.add('active');state.empActiva[tab]=emp;if(tab==='hoy')renderHoy();if(tab==='mes')renderMes();}
-function guardarConfig(){cfg.costosFijos=parseFloat(document.getElementById('cfg-costos').value)||22000000;cfg.diaActual=parseInt(document.getElementById('cfg-dia').value)||new Date().getDate();cfg.diasMes=parseInt(document.getElementById('cfg-diasmes').value)||31;localStorage.setItem('cf',cfg.costosFijos);localStorage.setItem('dia',cfg.diaActual);localStorage.setItem('dm',cfg.diasMes);document.getElementById('sys-cf').textContent=fmt(cfg.costosFijos)+'/mes';renderAll();}
+function guardarConfig(){cfg.costosFijos=parseFloat(document.getElementById('cfg-costos').value)||22000000;cfg.diaActual=parseInt(document.getElementById('cfg-dia').value)||new Date().getDate();cfg.diasMes=parseInt(document.getElementById('cfg-diasmes').value)||31;localStorage.setItem('cf',cfg.costosFijos);localStorage.setItem('dia',cfg.diaActual);localStorage.setItem('dm',cfg.diasMes);document.getElementById('sys-cf').textContent=fmtARS(cfg.costosFijos)+'/mes';renderAll();}
 
 document.getElementById('cfg-dia').value=new Date().getDate();
 init();
