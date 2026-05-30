@@ -99,5 +99,573 @@
       "gananciaLimpia": 0.16299296766400537
     }
   },
-  "mensual": []
+  "mensual": [
+    {
+      "anio": 2021,
+      "mes": 1,
+      "mesNombre": "Ene",
+      "ventas": 1385044.4200000002,
+      "costo": 450727.36,
+      "gananciaBruta": 934317.0600000002,
+      "gananciaLimpia": -281871.53
+    },
+    {
+      "anio": 2021,
+      "mes": 2,
+      "mesNombre": "Feb",
+      "ventas": 2559145.8200000008,
+      "costo": 908305.96,
+      "gananciaBruta": 1650839.8600000008,
+      "gananciaLimpia": 465445.23999999976
+    },
+    {
+      "anio": 2021,
+      "mes": 3,
+      "mesNombre": "Mar",
+      "ventas": 3118736.0900000003,
+      "costo": 1131542.35,
+      "gananciaBruta": 1987193.7400000002,
+      "gananciaLimpia": 574032.5899999999
+    },
+    {
+      "anio": 2021,
+      "mes": 4,
+      "mesNombre": "Abr",
+      "ventas": 3747450.11,
+      "costo": 1454627.5099999998,
+      "gananciaBruta": 2292822.6,
+      "gananciaLimpia": 1307718.54
+    },
+    {
+      "anio": 2021,
+      "mes": 5,
+      "mesNombre": "May",
+      "ventas": 2156821.65,
+      "costo": 817862.51,
+      "gananciaBruta": 1338959.14,
+      "gananciaLimpia": 80864.64999999967
+    },
+    {
+      "anio": 2021,
+      "mes": 6,
+      "mesNombre": "Jun",
+      "ventas": 2961251.459999999,
+      "costo": 1182892.6199999999,
+      "gananciaBruta": 1778358.8399999992,
+      "gananciaLimpia": 733988.24
+    },
+    {
+      "anio": 2021,
+      "mes": 7,
+      "mesNombre": "Jul",
+      "ventas": 3214651.89,
+      "costo": 1223644.8199999998,
+      "gananciaBruta": 1991007.07,
+      "gananciaLimpia": 398509.34999999986
+    },
+    {
+      "anio": 2021,
+      "mes": 8,
+      "mesNombre": "Ago",
+      "ventas": 3683834.78,
+      "costo": 1498480.09,
+      "gananciaBruta": 2185354.69,
+      "gananciaLimpia": 860913.6100000001
+    },
+    {
+      "anio": 2021,
+      "mes": 9,
+      "mesNombre": "Sep",
+      "ventas": 3442884.2100000004,
+      "costo": 1503708.1600000004,
+      "gananciaBruta": 1939176.0499999996,
+      "gananciaLimpia": 381065.3099999998
+    },
+    {
+      "anio": 2021,
+      "mes": 10,
+      "mesNombre": "Oct",
+      "ventas": 3184296.6899999995,
+      "costo": 1320362.08,
+      "gananciaBruta": 1863934.6100000003,
+      "gananciaLimpia": 224460.63000000012
+    },
+    {
+      "anio": 2021,
+      "mes": 11,
+      "mesNombre": "Nov",
+      "ventas": 4684476.370000001,
+      "costo": 1962954.19,
+      "gananciaBruta": 2721522.18,
+      "gananciaLimpia": 1121954.5000000002
+    },
+    {
+      "anio": 2021,
+      "mes": 12,
+      "mesNombre": "Dic",
+      "ventas": 3765452.8300000005,
+      "costo": 1448596.76,
+      "gananciaBruta": 2316856.0699999994,
+      "gananciaLimpia": 451003.81000000006
+    },
+    {
+      "anio": 2022,
+      "mes": 1,
+      "mesNombre": "Ene",
+      "ventas": 2433810.52,
+      "costo": 895397.61,
+      "gananciaBruta": 1538412.91,
+      "gananciaLimpia": -285209.25
+    },
+    {
+      "anio": 2022,
+      "mes": 2,
+      "mesNombre": "Feb",
+      "ventas": 2916333.37,
+      "costo": 1218557.56,
+      "gananciaBruta": 1697775.81,
+      "gananciaLimpia": -111698.69999999995
+    },
+    {
+      "anio": 2022,
+      "mes": 3,
+      "mesNombre": "Mar",
+      "ventas": 5419821.91,
+      "costo": 2230174.2,
+      "gananciaBruta": 3189647.71,
+      "gananciaLimpia": 1369945.27
+    },
+    {
+      "anio": 2022,
+      "mes": 4,
+      "mesNombre": "Abr",
+      "ventas": 5258087.11,
+      "costo": 1981841.96,
+      "gananciaBruta": 3276245.15,
+      "gananciaLimpia": 1553297.3299999998
+    },
+    {
+      "anio": 2022,
+      "mes": 5,
+      "mesNombre": "May",
+      "ventas": 5137837.99,
+      "costo": 2196353.92,
+      "gananciaBruta": 2941484.0700000008,
+      "gananciaLimpia": 1061074.1900000006
+    },
+    {
+      "anio": 2022,
+      "mes": 6,
+      "mesNombre": "Jun",
+      "ventas": 5129187.47,
+      "costo": 2145979.64,
+      "gananciaBruta": 2983207.83,
+      "gananciaLimpia": 998923.8900000001
+    },
+    {
+      "anio": 2022,
+      "mes": 7,
+      "mesNombre": "Jul",
+      "ventas": 6584974.74,
+      "costo": 2652716.78,
+      "gananciaBruta": 3932257.96,
+      "gananciaLimpia": 1430024.5499999998
+    },
+    {
+      "anio": 2022,
+      "mes": 8,
+      "mesNombre": "Ago",
+      "ventas": 5642533.869999998,
+      "costo": 2251046.16,
+      "gananciaBruta": 3391487.71,
+      "gananciaLimpia": 584889.7599999993
+    },
+    {
+      "anio": 2022,
+      "mes": 9,
+      "mesNombre": "Sep",
+      "ventas": 6524996.94,
+      "costo": 3380678.53,
+      "gananciaBruta": 3144318.41,
+      "gananciaLimpia": 115323.6000000001
+    },
+    {
+      "anio": 2022,
+      "mes": 10,
+      "mesNombre": "Oct",
+      "ventas": 7234355.22,
+      "costo": 2865850.83,
+      "gananciaBruta": 4368504.39,
+      "gananciaLimpia": 1803286.6199999996
+    },
+    {
+      "anio": 2022,
+      "mes": 11,
+      "mesNombre": "Nov",
+      "ventas": 5755073.670000001,
+      "costo": 2241867.1,
+      "gananciaBruta": 3513206.57,
+      "gananciaLimpia": 977488.2599999998
+    },
+    {
+      "anio": 2022,
+      "mes": 12,
+      "mesNombre": "Dic",
+      "ventas": 8753054.17,
+      "costo": 3677724.23,
+      "gananciaBruta": 5075329.94,
+      "gananciaLimpia": 818349.39
+    },
+    {
+      "anio": 2023,
+      "mes": 1,
+      "mesNombre": "Ene",
+      "ventas": 6180114.76,
+      "costo": 2483029.37,
+      "gananciaBruta": 3697085.39,
+      "gananciaLimpia": -375455.6599999997
+    },
+    {
+      "anio": 2023,
+      "mes": 2,
+      "mesNombre": "Feb",
+      "ventas": 5342631.15,
+      "costo": 2223405.34,
+      "gananciaBruta": 3119225.81,
+      "gananciaLimpia": -130845.31000000006
+    },
+    {
+      "anio": 2023,
+      "mes": 3,
+      "mesNombre": "Mar",
+      "ventas": 8337690.07,
+      "costo": 3409463.53,
+      "gananciaBruta": 4928226.54,
+      "gananciaLimpia": 1037064.8999999999
+    },
+    {
+      "anio": 2023,
+      "mes": 4,
+      "mesNombre": "Abr",
+      "ventas": 9979089.43,
+      "costo": 3988442.42,
+      "gananciaBruta": 5990647.01,
+      "gananciaLimpia": 2677413.32
+    },
+    {
+      "anio": 2023,
+      "mes": 5,
+      "mesNombre": "May",
+      "ventas": 7983020.05,
+      "costo": 3309053.37,
+      "gananciaBruta": 4673966.68,
+      "gananciaLimpia": 745627.1499999999
+    },
+    {
+      "anio": 2023,
+      "mes": 6,
+      "mesNombre": "Jun",
+      "ventas": 10332756.76,
+      "costo": 4200131.85,
+      "gananciaBruta": 6132624.91,
+      "gananciaLimpia": 1304559.08
+    },
+    {
+      "anio": 2023,
+      "mes": 7,
+      "mesNombre": "Jul",
+      "ventas": 9312938.4,
+      "costo": 3662607.71,
+      "gananciaBruta": 5650330.69,
+      "gananciaLimpia": 850093.1800000006
+    },
+    {
+      "anio": 2023,
+      "mes": 8,
+      "mesNombre": "Ago",
+      "ventas": 10893830.61,
+      "costo": 4216481.47,
+      "gananciaBruta": 6677349.14,
+      "gananciaLimpia": 2289876.0999999996
+    },
+    {
+      "anio": 2023,
+      "mes": 9,
+      "mesNombre": "Sep",
+      "ventas": 18118636.76,
+      "costo": 9256693.41,
+      "gananciaBruta": 8861943.35,
+      "gananciaLimpia": 3071154.9299999997
+    },
+    {
+      "anio": 2023,
+      "mes": 10,
+      "mesNombre": "Oct",
+      "ventas": 16779640.48,
+      "costo": 7410173.85,
+      "gananciaBruta": 9369466.63,
+      "gananciaLimpia": 2882302.620000001
+    },
+    {
+      "anio": 2023,
+      "mes": 11,
+      "mesNombre": "Nov",
+      "ventas": 19693649.19,
+      "costo": 7269548.52,
+      "gananciaBruta": 12424100.67,
+      "gananciaLimpia": 4098957.4000000004
+    },
+    {
+      "anio": 2023,
+      "mes": 12,
+      "mesNombre": "Dic",
+      "ventas": 16429063.25,
+      "costo": 6248737.04,
+      "gananciaBruta": 10180326.21,
+      "gananciaLimpia": 2063253.5900000008
+    },
+    {
+      "anio": 2024,
+      "mes": 1,
+      "mesNombre": "Ene",
+      "ventas": 31550480.26,
+      "costo": 12967917.84,
+      "gananciaBruta": 18582562.42,
+      "gananciaLimpia": 10239662.59
+    },
+    {
+      "anio": 2024,
+      "mes": 2,
+      "mesNombre": "Feb",
+      "ventas": 24079899.87,
+      "costo": 9751001.03,
+      "gananciaBruta": 14328898.84,
+      "gananciaLimpia": 3177164.369999999
+    },
+    {
+      "anio": 2024,
+      "mes": 3,
+      "mesNombre": "Mar",
+      "ventas": 19372399.48,
+      "costo": 8174991.37,
+      "gananciaBruta": 11197408.11,
+      "gananciaLimpia": 1622769.0551499985
+    },
+    {
+      "anio": 2024,
+      "mes": 4,
+      "mesNombre": "Abr",
+      "ventas": 23671423.19,
+      "costo": 9749144.26,
+      "gananciaBruta": 13922278.93,
+      "gananciaLimpia": 1988665.2199999988
+    },
+    {
+      "anio": 2024,
+      "mes": 5,
+      "mesNombre": "May",
+      "ventas": 18407149.73,
+      "costo": 7593659.44,
+      "gananciaBruta": 10813490.29,
+      "gananciaLimpia": 169507.7899999991
+    },
+    {
+      "anio": 2024,
+      "mes": 6,
+      "mesNombre": "Jun",
+      "ventas": 22674991.68,
+      "costo": 9439911.89,
+      "gananciaBruta": 13235079.79,
+      "gananciaLimpia": 2506028.2399999984
+    },
+    {
+      "anio": 2024,
+      "mes": 7,
+      "mesNombre": "Jul",
+      "ventas": 49177104.82,
+      "costo": 25079037.25,
+      "gananciaBruta": 24098067.57,
+      "gananciaLimpia": 11842023.290000001
+    },
+    {
+      "anio": 2024,
+      "mes": 8,
+      "mesNombre": "Ago",
+      "ventas": 44795384.02,
+      "costo": 19902411.17,
+      "gananciaBruta": 24892972.85,
+      "gananciaLimpia": 4419292.07
+    },
+    {
+      "anio": 2024,
+      "mes": 9,
+      "mesNombre": "Sep",
+      "ventas": 50417065.98,
+      "costo": 25185641.24,
+      "gananciaBruta": 25231424.74,
+      "gananciaLimpia": 5942710.109999999
+    },
+    {
+      "anio": 2024,
+      "mes": 10,
+      "mesNombre": "Oct",
+      "ventas": 34279258.91,
+      "costo": 17177239.06,
+      "gananciaBruta": 17102019.85,
+      "gananciaLimpia": -280287.98999999836
+    },
+    {
+      "anio": 2024,
+      "mes": 11,
+      "mesNombre": "Nov",
+      "ventas": 51667633.78,
+      "costo": 24433400.35,
+      "gananciaBruta": 27234233.43,
+      "gananciaLimpia": 5832920.91
+    },
+    {
+      "anio": 2024,
+      "mes": 12,
+      "mesNombre": "Dic",
+      "ventas": 42443224.7,
+      "costo": 21133810.07,
+      "gananciaBruta": 21309414.63,
+      "gananciaLimpia": -231663.3900000006
+    },
+    {
+      "anio": 2025,
+      "mes": 1,
+      "mesNombre": "Ene",
+      "ventas": 29002130.28,
+      "costo": 13867151.14,
+      "gananciaBruta": 15134979.14,
+      "gananciaLimpia": -4490783.6499999985
+    },
+    {
+      "anio": 2025,
+      "mes": 2,
+      "mesNombre": "Feb",
+      "ventas": 41239608.14,
+      "costo": 19855849.95,
+      "gananciaBruta": 21383758.19,
+      "gananciaLimpia": 3962089.0500000007
+    },
+    {
+      "anio": 2025,
+      "mes": 3,
+      "mesNombre": "Mar",
+      "ventas": 45290880.04,
+      "costo": 21508674.24,
+      "gananciaBruta": 23782205.8,
+      "gananciaLimpia": 4322291.310000002
+    },
+    {
+      "anio": 2025,
+      "mes": 4,
+      "mesNombre": "Abr",
+      "ventas": 39850317.98,
+      "costo": 18714176.14,
+      "gananciaBruta": 21136141.84,
+      "gananciaLimpia": 4610952.1
+    },
+    {
+      "anio": 2025,
+      "mes": 5,
+      "mesNombre": "May",
+      "ventas": 36712719.95,
+      "costo": 18133549.5,
+      "gananciaBruta": 18579170.45,
+      "gananciaLimpia": -2366885.9700000025
+    },
+    {
+      "anio": 2025,
+      "mes": 6,
+      "mesNombre": "Jun",
+      "ventas": 36106369.35,
+      "costo": 17227651.48,
+      "gananciaBruta": 18878717.87,
+      "gananciaLimpia": 1958101.6600000001
+    },
+    {
+      "anio": 2025,
+      "mes": 7,
+      "mesNombre": "Jul",
+      "ventas": 43564136.01,
+      "costo": 21307689.46,
+      "gananciaBruta": 23553323.26,
+      "gananciaLimpia": 3626320.16
+    },
+    {
+      "anio": 2025,
+      "mes": 8,
+      "mesNombre": "Ago",
+      "ventas": 39903866.69,
+      "costo": 17745029.0,
+      "gananciaBruta": 24335867.9,
+      "gananciaLimpia": 4479268.559999999
+    },
+    {
+      "anio": 2025,
+      "mes": 9,
+      "mesNombre": "Sep",
+      "ventas": 57507491.71,
+      "costo": 26667093.53,
+      "gananciaBruta": 34573485.84,
+      "gananciaLimpia": 17236329.350000005
+    },
+    {
+      "anio": 2025,
+      "mes": 10,
+      "mesNombre": "Oct",
+      "ventas": 55656153.32,
+      "costo": 27317482.88,
+      "gananciaBruta": 28338670.44,
+      "gananciaLimpia": 5547337.670000002
+    },
+    {
+      "anio": 2025,
+      "mes": 11,
+      "mesNombre": "Nov",
+      "ventas": 46280502.13,
+      "costo": 24704045.6,
+      "gananciaBruta": 25258118.77,
+      "gananciaLimpia": 4477124.140000001
+    },
+    {
+      "anio": 2025,
+      "mes": 12,
+      "mesNombre": "Dic",
+      "ventas": 59683654.25,
+      "costo": 30855080.89,
+      "gananciaBruta": 30488902.73,
+      "gananciaLimpia": 3163113.0700000003
+    },
+    {
+      "anio": 2026,
+      "mes": 1,
+      "mesNombre": "Ene",
+      "ventas": 45697010.03,
+      "costo": 22210720.81,
+      "gananciaBruta": 25476749.51,
+      "gananciaLimpia": -2532431.1099999994
+    },
+    {
+      "anio": 2026,
+      "mes": 2,
+      "mesNombre": "Feb",
+      "ventas": 55421057.29,
+      "costo": 25552636.73,
+      "gananciaBruta": 29868420.56,
+      "gananciaLimpia": 3040573.8499999978
+    },
+    {
+      "anio": 2026,
+      "mes": 3,
+      "mesNombre": "Mar",
+      "ventas": 74249286.2,
+      "costo": 33013861.95,
+      "gananciaBruta": 41235424.25,
+      "gananciaLimpia": 17213418.33
+    }
+  ]
 }
