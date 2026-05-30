@@ -195,10 +195,7 @@ def leer_ganancias_drive():
         scopes=['https://www.googleapis.com/auth/drive.readonly']
     )
     service = build('drive', 'v3', credentials=creds)
-    request = service.files().export_media(
-        fileId=GANANCIAS_FILE_ID,
-        mimeType='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
-    )
+    request = service.files().get_media(fileId=GANANCIAS_FILE_ID)
     fh = io.BytesIO()
     downloader = MediaIoBaseDownload(fh, request)
     done = False
@@ -206,20 +203,19 @@ def leer_ganancias_drive():
         _, done = downloader.next_chunk()
     fh.seek(0)
 
-    import openpyxl
-    wb = openpyxl.load_workbook(fh, data_only=True)
-    print(f'Hojas: {wb.sheetnames}')
+    wb = xlrd.open_workbook(file_contents=fh.read())
+    print(f'Hojas: {wb.sheet_names()}')
 
-    # Parsear hoja VENTAS (datos mensuales desde 2021)
     resultado = {'anios': {}, 'mensual': []}
 
     # Hoja GANANCIA — resumen anual
-    if 'GANANCIA' in wb.sheetnames:
-        ws = wb['GANANCIA']
-        for row in ws.iter_rows(values_only=True):
-            if row[0] and str(row[0]).strip().isdigit():
-                anio = int(row[0])
+    if 'GANANCIA' in wb.sheet_names():
+        ws = wb.sheet_by_name('GANANCIA')
+        for i in range(ws.nrows):
+            row = ws.row_values(i)
+            if row[0] and str(row[0]).strip().replace('.0','').isdigit():
                 try:
+                    anio = int(float(row[0]))
                     resultado['anios'][anio] = {
                         'anio': anio,
                         'ventas': float(row[1]) if row[1] else 0,
@@ -231,27 +227,31 @@ def leer_ganancias_drive():
                     continue
 
     # Hoja VENTAS — datos mensuales
-    if 'VENTAS' in wb.sheetnames:
-        ws = wb['VENTAS']
+    if 'VENTAS' in wb.sheet_names():
+        ws = wb.sheet_by_name('VENTAS')
         meses = ['Ene','Feb','Mar','Abr','May','Jun','Jul','Ago','Sep','Oct','Nov','Dic']
-        for row in ws.iter_rows(values_only=True):
-            if row[0] and str(row[0]).strip().isdigit():
-                anio = int(row[0])
-                for i, mes in enumerate(meses):
-                    col_base = 1 + i * 3
-                    try:
-                        ventas = float(row[col_base]) if row[col_base] else None
-                        if ventas:
-                            resultado['mensual'].append({
-                                'anio': anio,
-                                'mes': i + 1,
-                                'mesNombre': mes,
-                                'ventas': ventas,
-                                'costo': float(row[col_base+1]) if row[col_base+1] else 0,
-                                'gananciaBruta': float(row[col_base+2]) if row[col_base+2] else 0,
-                            })
-                    except:
-                        continue
+        for i in range(ws.nrows):
+            row = ws.row_values(i)
+            if row[0] and str(row[0]).strip().replace('.0','').isdigit():
+                try:
+                    anio = int(float(row[0]))
+                    for j, mes in enumerate(meses):
+                        col_base = 1 + j * 3
+                        try:
+                            ventas = float(row[col_base]) if row[col_base] else None
+                            if ventas:
+                                resultado['mensual'].append({
+                                    'anio': anio,
+                                    'mes': j + 1,
+                                    'mesNombre': mes,
+                                    'ventas': ventas,
+                                    'costo': float(row[col_base+1]) if row[col_base+1] else 0,
+                                    'gananciaBruta': float(row[col_base+2]) if row[col_base+2] else 0,
+                                })
+                        except:
+                            continue
+                except:
+                    continue
 
     print(f'✓ Ganancias: {len(resultado["anios"])} años, {len(resultado["mensual"])} registros mensuales')
     return resultado
