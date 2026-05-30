@@ -208,17 +208,18 @@ def leer_ganancias_drive():
 
     resultado = {'anios': {}, 'mensual': []}
 
-    # DEBUG — borrar después
-ws_debug = wb.sheet_by_name('VENTAS')
-for i in range(min(5, ws_debug.nrows)):
-    print(f'VENTAS fila {i}: {ws_debug.row_values(i)}')
+    # DEBUG — ver estructura de hoja VENTAS
+    if 'VENTAS' in wb.sheet_names():
+        ws_debug = wb.sheet_by_name('VENTAS')
+        for i in range(min(5, ws_debug.nrows)):
+            print(f'VENTAS fila {i}: {ws_debug.row_values(i)}')
 
     # Hoja GANANCIA — resumen anual
     if 'GANANCIA' in wb.sheet_names():
         ws = wb.sheet_by_name('GANANCIA')
         for i in range(ws.nrows):
             row = ws.row_values(i)
-            if row[0] and str(row[0]).strip().replace('.0','').isdigit():
+            if row[0] and str(row[0]).strip().replace('.0', '').isdigit():
                 try:
                     anio = int(float(row[0]))
                     resultado['anios'][anio] = {
@@ -234,10 +235,10 @@ for i in range(min(5, ws_debug.nrows)):
     # Hoja VENTAS — datos mensuales
     if 'VENTAS' in wb.sheet_names():
         ws = wb.sheet_by_name('VENTAS')
-        meses = ['Ene','Feb','Mar','Abr','May','Jun','Jul','Ago','Sep','Oct','Nov','Dic']
+        meses = ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic']
         for i in range(ws.nrows):
             row = ws.row_values(i)
-            if row[0] and str(row[0]).strip().replace('.0','').isdigit():
+            if row[0] and str(row[0]).strip().replace('.0', '').isdigit():
                 try:
                     anio = int(float(row[0]))
                     for j, mes in enumerate(meses):
@@ -250,8 +251,8 @@ for i in range(min(5, ws_debug.nrows)):
                                     'mes': j + 1,
                                     'mesNombre': mes,
                                     'ventas': ventas,
-                                    'costo': float(row[col_base+1]) if row[col_base+1] else 0,
-                                    'gananciaBruta': float(row[col_base+2]) if row[col_base+2] else 0,
+                                    'costo': float(row[col_base + 1]) if row[col_base + 1] else 0,
+                                    'gananciaBruta': float(row[col_base + 2]) if row[col_base + 2] else 0,
                                 })
                         except:
                             continue
