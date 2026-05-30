@@ -298,7 +298,6 @@ async function fetchJSON(file){
   if(!r.ok)throw new Error('Error cargando '+file);
   return r.json();
 }
-
 async function init(){
   document.getElementById('loading').style.display='flex';
   document.getElementById('error-state').style.display='none';
@@ -315,7 +314,6 @@ async function init(){
     document.getElementById('error-state').style.display='flex';
   }
 }
-
 function clasificar(n){
   n=(n||'').toLowerCase();
   if(n.includes('rodillo')||n.includes('rod-'))return 'Rodillos';
@@ -347,9 +345,11 @@ const fmt=n=>fmtARS(n);
 const pct=n=>(!n||isNaN(n))?'—%':n.toFixed(1)+'%';
 const num=n=>(!n||isNaN(n))?'—':Math.round(n).toLocaleString('es-AR');
 
-function getV(item,campo){
-  if(state.moneda==='usd')return item[campo+'Usd']??null;
-  if(state.moneda==='const')return item[campo+'Constante']??null;
+// getV: lee el campo correcto según moneda activa
+// sufijos en el JSON: Usd / Constante
+function getV(item, campo){
+  if(state.moneda==='usd') return item[campo+'Usd']??null;
+  if(state.moneda==='const') return item[campo+'Constante']??null;
   return item[campo]??null;
 }
 function fmtV(v){
@@ -370,7 +370,6 @@ function onDataLoaded(){
   document.getElementById('update-label').textContent=state.e1?.fechaActualizacion||'—';
   renderAll();
 }
-
 function renderAll(){renderHoy();renderMes();renderConsolidado();}
 
 function renderHoy(){
@@ -515,14 +514,17 @@ function renderHistAnual(){
   }).join('');
   document.getElementById('hist-bars').innerHTML=bars;
 
+  // Tabla — usa 'gastos' (campo correcto en el JSON)
   const rows=anios.slice().reverse().map(a=>{
-    const gb=getV(a,'gananciaBruta'),gs=getV(a,'gastos'),gl=getV(a,'gananciaLimpia');
+    const gb=getV(a,'gananciaBruta');
+    const gs=getV(a,'gastos');
+    const gl=getV(a,'gananciaLimpia');
     const dolarInfo=a.dolarValor?`<div style="font-size:8px;color:var(--muted)">@ ${a.dolarTipo==='blue'?'blue':'MEP'} $${Math.round(a.dolarValor)}</div>`:'';
     return`<tr>
       <td><strong>${a.anio}</strong>${dolarInfo}</td>
       <td class="r g">${fmtV(gb)}</td>
       <td class="r" style="color:var(--muted2)">${fmtV(gs)}</td>
-      <td class="r" style="color:${gl>=0?'var(--orange)':'var(--red)'}">${fmtV(gl)}</td>
+      <td class="r" style="color:${(gl??0)>=0?'var(--orange)':'var(--red)'}">${fmtV(gl)}</td>
     </tr>`;
   }).join('');
   document.getElementById('hist-anual-tabla').innerHTML=rows;
@@ -540,7 +542,9 @@ function renderHistMensual(){
   const datos=mensual.filter(m=>m.anio===state.histAnioFiltro).sort((a,b)=>b.mes-a.mes);
   const maxV=Math.max(...datos.map(m=>getV(m,'gananciaBruta')||0))||1;
   const cards=datos.map(m=>{
-    const gb=getV(m,'gananciaBruta'),gs=getV(m,'gastos'),gl=getV(m,'gananciaLimpia');
+    const gb=getV(m,'gananciaBruta');
+    const gs=getV(m,'gastos');
+    const gl=getV(m,'gananciaLimpia');
     const pctGB=gb?(Math.abs(gb)/maxV*100):0;
     const pctGS=gs?(Math.abs(gs)/maxV*100):0;
     const pctGL=gl&&gl>0?(gl/maxV*100):0;
@@ -568,8 +572,8 @@ function renderHistMensual(){
       </div>
       <div class="hist-bar-row">
         <div class="hist-bar-label">Gan. limpia</div>
-        <div class="hist-bar-track"><div class="hist-bar-fill" style="width:${pctGL}%;background:${gl>=0?'var(--orange)':'var(--red)'}"></div></div>
-        <div class="hist-bar-val" style="color:${gl>=0?'var(--orange)':'var(--red)'}">${fmtV(gl)}</div>
+        <div class="hist-bar-track"><div class="hist-bar-fill" style="width:${pctGL}%;background:${(gl??0)>=0?'var(--orange)':'var(--red)'}"></div></div>
+        <div class="hist-bar-val" style="color:${(gl??0)>=0?'var(--orange)':'var(--red)'}">${fmtV(gl)}</div>
       </div>
       ${m.cantTotal?`<div style="font-family:'DM Mono',monospace;font-size:9px;color:var(--muted);margin-top:8px">${num(m.cantTotal)} unidades</div>`:''}
     </div>`;
