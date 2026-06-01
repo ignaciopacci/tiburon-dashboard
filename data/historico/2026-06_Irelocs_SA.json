@@ -1,0 +1,60 @@
+{
+  "empresa": "Irelocs S.A.",
+  "fechaActualizacion": "01/06/2026 16:56",
+  "mes": "06/2026",
+  "anio": 2026,
+  "nroMes": 6,
+  "totalFac": 289303.64,
+  "totalCosto": 195662.8,
+  "ganancia": 93640.84000000003,
+  "margen": 32.4,
+  "rubros": {
+    "Accesorios": {
+      "unidades": 340.0,
+      "totalFac": 289303.64,
+      "totalCosto": 195662.8,
+      "articulos": [
+        {
+          "rubro": "Accesorios",
+          "articulo": "Bandeja Con Escurridor(BCE)",
+          "cantidad": 20.0,
+          "ultimoCosto": 921.57,
+          "totalCosto": 18431.4,
+          "totalFac": 28015.68
+        },
+        {
+          "rubro": "Accesorios",
+          "articulo": "Bandeja Plana Grande(BPG)",
+          "cantidad": 20.0,
+          "ultimoCosto": 758.27,
+          "totalCosto": 15165.4,
+          "totalFac": 23051.36
+        },
+        {
+          "rubro": "Accesorios",
+          "articulo": "Rodillo Mini Epoxi Nº 5(ROD-7006)",
+          "cantidad": 100.0,
+          "ultimoCosto": 453.13,
+          "totalCosto": 45313.0,
+          "totalFac": 66609.9
+        },
+        {
+          "rubro": "Accesorios",
+          "articulo": "Rodillos Mini Epoxi Nº 11(ROD-7008)",
+          "cantidad": 100.0,
+          "ultimoCosto": 622.2,
+          "totalCosto": 62220.0,
+          "totalFac": 91463.4
+        },
+        {
+          "rubro": "Accesorios",
+          "articulo": "Rodillos Mini Epoxi Nº 8(ROD-7007)",
+          "cantidad": 100.0,
+          "ultimoCosto": 545.33,
+          "totalCosto": 54533.0,
+          "totalFac": 80163.3
+        }
+      ]
+    }
+  }
+}
