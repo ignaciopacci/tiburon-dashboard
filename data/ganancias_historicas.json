@@ -1471,6 +1471,26 @@
       "gananciaBrutaConstante": 76179768.0,
       "gastosConstante": 33872222.0,
       "gananciaLimpiaConstante": 42307545.0
+    },
+    {
+      "anio": 2026,
+      "mes": 4,
+      "mesNombre": "Abr",
+      "gananciaBruta": 57619744.370000005,
+      "gastos": 31477313.55000001,
+      "gananciaLimpia": 26142430.819999997,
+      "cantPinceles": 26452059,
+      "cantAccesorios": -309628,
+      "cantTotal": 0,
+      "dolarTipo": "bolsa",
+      "dolarValor": 1399.1,
+      "gananciaBrutaUsd": 41183.0,
+      "gastosUsd": 22498.0,
+      "gananciaLimpiaUsd": 18685.0,
+      "factorInflacion": 1.0,
+      "gananciaBrutaConstante": 57619744.0,
+      "gastosConstante": 31477314.0,
+      "gananciaLimpiaConstante": 26142431.0
     }
   ],
   "meta": {
