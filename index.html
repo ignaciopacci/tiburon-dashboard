@@ -112,6 +112,11 @@ main{padding:16px;max-width:800px;margin:0 auto}
 .hist-bar-track{flex:1;height:6px;background:var(--s3);border-radius:3px;overflow:hidden}
 .hist-bar-fill{height:100%;border-radius:3px}
 .hist-bar-val{font-family:'DM Mono',monospace;font-size:9px;width:70px;text-align:right;flex-shrink:0}
+.margen-badge{display:inline-block;padding:2px 8px;border-radius:4px;font-size:10px;font-family:'DM Mono',monospace;font-weight:500}
+.margen-badge.alto{background:rgba(66,245,200,0.12);color:var(--acc2)}
+.margen-badge.medio{background:rgba(232,245,66,0.12);color:var(--acc)}
+.margen-badge.bajo{background:rgba(255,77,109,0.12);color:var(--red)}
+.renta-badge{display:inline-block;padding:2px 8px;border-radius:4px;font-size:10px;font-family:'DM Mono',monospace;background:rgba(245,133,66,0.12);color:var(--orange)}
 </style>
 </head>
 <body>
@@ -241,15 +246,16 @@ main{padding:16px;max-width:800px;margin:0 auto}
         <div class="section-title">Resumen por año</div>
         <div class="card" style="padding:20px">
           <div style="font-family:'DM Mono',monospace;font-size:9px;color:var(--muted);margin-bottom:16px">
+            <span style="color:var(--acc)">■</span> Ventas &nbsp;
             <span style="color:var(--acc2)">■</span> Gan. bruta &nbsp;
             <span style="color:var(--orange)">■</span> Gan. limpia
           </div>
           <div id="hist-bars" style="display:flex;gap:6px;align-items:flex-end;height:160px"></div>
         </div>
         <div class="section-title">Detalle anual</div>
-        <div class="card" style="padding:0">
+        <div class="card" style="padding:0;overflow-x:auto">
           <table class="data-table">
-            <thead><tr><th>Año</th><th>Gan. Bruta</th><th>Gastos</th><th>Gan. Limpia</th></tr></thead>
+            <thead><tr><th>Año</th><th>Ventas</th><th>Costo</th><th>Gan. Bruta</th><th>Gastos</th><th>Gan. Limpia</th><th>Margen GL/GB</th><th>% Renta</th></tr></thead>
             <tbody id="hist-anual-tabla"></tbody>
           </table>
         </div>
@@ -345,16 +351,29 @@ const fmt=n=>fmtARS(n);
 const pct=n=>(!n||isNaN(n))?'—%':n.toFixed(1)+'%';
 const num=n=>(!n||isNaN(n))?'—':Math.round(n).toLocaleString('es-AR');
 
-// getV: lee el campo correcto según moneda activa
-// sufijos en el JSON: Usd / Constante
-function getV(item, campo){
-  if(state.moneda==='usd') return item[campo+'Usd']??null;
-  if(state.moneda==='const') return item[campo+'Constante']??null;
+function getV(item,campo){
+  if(state.moneda==='usd')return item[campo+'Usd']??null;
+  if(state.moneda==='const')return item[campo+'Constante']??null;
   return item[campo]??null;
 }
 function fmtV(v){
   if(v===null||v===undefined)return'—';
   return state.moneda==='usd'?fmtUSD(v):fmtARS(v);
+}
+function calcMargen(item){
+  const gb=item.gananciaBruta||0;
+  const gl=item.gananciaLimpia??0;
+  if(!gb)return null;
+  return gl/gb*100;
+}
+function margenBadge(m){
+  if(m===null)return'<span class="margen-badge medio">—</span>';
+  const cls=m>=30?'alto':m>=15?'medio':'bajo';
+  return`<span class="margen-badge ${cls}">${m.toFixed(1)}%</span>`;
+}
+function rentaBadge(r){
+  if(r===null||r===undefined)return'—';
+  return`<span class="renta-badge">${r.toFixed(1)}%</span>`;
 }
 
 function onDataLoaded(){
@@ -477,8 +496,8 @@ function setMoneda(m,btn){
   btn.classList.add('active');
   const notas={
     ars:'Pesos corrientes de cada período',
-    usd:'Dólar MEP (bolsa) del 15 de cada mes · Pre-2019 usa dólar blue',
-    const:`Pesos ajustados por inflación IPC INDEC a ${state.histData?.meta?.mesBase||'hoy'}`
+    usd:'Dólar MEP (bolsa) o blue según disponibilidad · se indica en cada año',
+    const:`Pesos ajustados por inflación IPC INDEC a ${state.histData?.meta?.mesBase||'hoy'} · Pre-2016 INDEC intervenido`
   };
   document.getElementById('moneda-nota').textContent=notas[m];
   renderHistorico();
@@ -495,36 +514,48 @@ function renderHistAnual(){
   const anios=Object.values(g.anios||{}).sort((a,b)=>a.anio-b.anio);
   if(!anios.length){document.getElementById('hist-bars').innerHTML='<div style="font-family:DM Mono,monospace;font-size:11px;color:var(--muted)">Sin datos.</div>';return;}
 
+  const ventas=anios.map(a=>getV(a,'ventas')||0);
   const gbs=anios.map(a=>getV(a,'gananciaBruta')||0);
   const gls=anios.map(a=>getV(a,'gananciaLimpia')||0);
-  const maxV=Math.max(...gbs,...gls.map(v=>Math.abs(v)))||1;
+  const maxV=Math.max(...ventas,...gbs,...gls.map(v=>Math.abs(v)))||1;
 
   const bars=anios.map((a,i)=>{
-    const gb=gbs[i],gl=gls[i];
-    const pctG=Math.max(Math.abs(gb)/maxV*100,2);
+    const v=ventas[i],gb=gbs[i],gl=gls[i];
+    const pctV=Math.max(v/maxV*100,2);
+    const pctG=Math.max(gb/maxV*100,2);
     const pctGL=gl>0?Math.max(gl/maxV*100,1):0;
+    const m=calcMargen(a);
+    const glColor=m===null?'var(--orange)':m>=30?'var(--acc2)':m>=15?'var(--acc)':'var(--red)';
     return`<div style="display:flex;flex-direction:column;align-items:center;gap:4px;flex:1;min-width:32px">
       <div style="font-family:'DM Mono',monospace;font-size:7px;color:var(--acc2);text-align:center">${fmtV(gb)}</div>
-      <div style="width:100%;height:130px;display:flex;align-items:flex-end;gap:2px;justify-content:center">
-        <div style="width:13px;height:${pctG}%;background:var(--acc2);border-radius:3px 3px 0 0"></div>
-        <div style="width:13px;height:${pctGL}%;background:${gl>=0?'var(--orange)':'var(--red)'};border-radius:3px 3px 0 0"></div>
+      <div style="width:100%;height:130px;display:flex;align-items:flex-end;gap:1px;justify-content:center">
+        <div style="width:9px;height:${pctV}%;background:var(--acc);border-radius:2px 2px 0 0;opacity:0.3"></div>
+        <div style="width:9px;height:${pctG}%;background:var(--acc2);border-radius:2px 2px 0 0"></div>
+        <div style="width:9px;height:${pctGL}%;background:${gl>=0?glColor:'var(--red)'};border-radius:2px 2px 0 0"></div>
       </div>
       <div style="font-family:'DM Mono',monospace;font-size:8px;color:var(--muted)">${a.anio}</div>
+      <div style="font-family:'DM Mono',monospace;font-size:7px;color:${m===null?'var(--muted)':m>=30?'var(--acc2)':m>=15?'var(--acc)':'var(--red)'}">${m!==null?m.toFixed(0)+'%':'—'}</div>
     </div>`;
   }).join('');
   document.getElementById('hist-bars').innerHTML=bars;
 
-  // Tabla — usa 'gastos' (campo correcto en el JSON)
   const rows=anios.slice().reverse().map(a=>{
+    const v=getV(a,'ventas');
+    const c=getV(a,'costo');
     const gb=getV(a,'gananciaBruta');
     const gs=getV(a,'gastos');
     const gl=getV(a,'gananciaLimpia');
-    const dolarInfo=a.dolarValor?`<div style="font-size:8px;color:var(--muted)">@ ${a.dolarTipo==='blue'?'blue':'MEP'} $${Math.round(a.dolarValor)}</div>`:'';
+    const m=calcMargen(a);
+    const dolarInfo=a.dolarValor?`<div style="font-size:8px;color:var(--muted)">@ ${a.dolarTipo==='blue'?'blue':a.dolarTipo==='bolsa'?'MEP':a.dolarTipo} $${Math.round(a.dolarValor)}</div>`:'';
     return`<tr>
       <td><strong>${a.anio}</strong>${dolarInfo}</td>
+      <td class="r y">${fmtV(v)}</td>
+      <td class="r" style="color:var(--muted2)">${fmtV(c)}</td>
       <td class="r g">${fmtV(gb)}</td>
       <td class="r" style="color:var(--muted2)">${fmtV(gs)}</td>
       <td class="r" style="color:${(gl??0)>=0?'var(--orange)':'var(--red)'}">${fmtV(gl)}</td>
+      <td class="r">${margenBadge(m)}</td>
+      <td class="r">${rentaBadge(a.rentaAnual)}</td>
     </tr>`;
   }).join('');
   document.getElementById('hist-anual-tabla').innerHTML=rows;
@@ -540,15 +571,19 @@ function renderHistMensual(){
     `<button class="hist-filter-btn ${a===state.histAnioFiltro?'active':''}" onclick="setHistAnio(${a},this)">${a}</button>`
   ).join('');
   const datos=mensual.filter(m=>m.anio===state.histAnioFiltro).sort((a,b)=>b.mes-a.mes);
-  const maxV=Math.max(...datos.map(m=>getV(m,'gananciaBruta')||0))||1;
+  const maxV=Math.max(...datos.map(m=>getV(m,'ventas')||0))||1;
   const cards=datos.map(m=>{
+    const v=getV(m,'ventas');
+    const c=getV(m,'costo');
     const gb=getV(m,'gananciaBruta');
     const gs=getV(m,'gastos');
     const gl=getV(m,'gananciaLimpia');
+    const pctV=v?(Math.abs(v)/maxV*100):0;
     const pctGB=gb?(Math.abs(gb)/maxV*100):0;
     const pctGS=gs?(Math.abs(gs)/maxV*100):0;
     const pctGL=gl&&gl>0?(gl/maxV*100):0;
-    const dolarTag=m.dolarValor?` · ${m.dolarTipo==='blue'?'blue':'MEP'} $${Math.round(m.dolarValor)}`:'';
+    const margen=calcMargen(m);
+    const dolarTag=m.dolarValor?` · ${m.dolarTipo==='blue'?'blue':m.dolarTipo==='bolsa'?'MEP':m.dolarTipo} $${Math.round(m.dolarValor)}`:'';
     return`<div class="hist-year-card">
       <div class="hist-year-header">
         <div>
@@ -556,9 +591,19 @@ function renderHistMensual(){
           <div class="hist-year-meta">${m.anio}${dolarTag}</div>
         </div>
         <div style="text-align:right">
-          <div style="font-family:'Syne',sans-serif;font-size:16px;font-weight:800;color:var(--acc2)">${fmtV(gb)}</div>
-          <div style="font-family:'DM Mono',monospace;font-size:10px;color:var(--orange)">Lim: ${fmtV(gl)}</div>
+          <div style="font-family:'Syne',sans-serif;font-size:16px;font-weight:800;color:var(--acc)">${fmtV(v)}</div>
+          <div style="margin-top:4px">${margenBadge(margen)}</div>
         </div>
+      </div>
+      <div class="hist-bar-row">
+        <div class="hist-bar-label">Ventas</div>
+        <div class="hist-bar-track"><div class="hist-bar-fill" style="width:${pctV}%;background:var(--acc);opacity:0.4"></div></div>
+        <div class="hist-bar-val" style="color:var(--acc)">${fmtV(v)}</div>
+      </div>
+      <div class="hist-bar-row">
+        <div class="hist-bar-label">Costo</div>
+        <div class="hist-bar-track"><div class="hist-bar-fill" style="width:${c?(Math.abs(c)/maxV*100):0}%;background:var(--muted);opacity:0.5"></div></div>
+        <div class="hist-bar-val" style="color:var(--muted2)">${fmtV(c)}</div>
       </div>
       <div class="hist-bar-row">
         <div class="hist-bar-label">Gan. bruta</div>
@@ -575,7 +620,6 @@ function renderHistMensual(){
         <div class="hist-bar-track"><div class="hist-bar-fill" style="width:${pctGL}%;background:${(gl??0)>=0?'var(--orange)':'var(--red)'}"></div></div>
         <div class="hist-bar-val" style="color:${(gl??0)>=0?'var(--orange)':'var(--red)'}">${fmtV(gl)}</div>
       </div>
-      ${m.cantTotal?`<div style="font-family:'DM Mono',monospace;font-size:9px;color:var(--muted);margin-top:8px">${num(m.cantTotal)} unidades</div>`:''}
     </div>`;
   }).join('');
   document.getElementById('hist-mensual-cards').innerHTML=cards||'<div style="padding:16px;font-family:DM Mono,monospace;font-size:11px;color:var(--muted)">Sin datos.</div>';
