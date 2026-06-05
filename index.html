@@ -104,7 +104,7 @@ main{padding:16px;max-width:800px;margin:0 auto}
 .moneda-btn.active{background:var(--redtib);color:white}
 .moneda-nota{font-family:'DM Mono',monospace;font-size:9px;color:var(--muted);margin-bottom:12px;padding:6px 10px;background:var(--s2);border-radius:6px;border:1px solid var(--border)}
 .hist-year-card{background:var(--s2);border:1px solid var(--border);border-radius:10px;padding:14px 16px;margin-bottom:8px}
-.hist-year-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}
+.hist-year-header{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:10px}
 .hist-year-label{font-family:'Syne',sans-serif;font-size:18px;font-weight:800;color:var(--acc)}
 .hist-year-meta{font-family:'DM Mono',monospace;font-size:10px;color:var(--muted2)}
 .hist-bar-row{display:flex;align-items:center;gap:8px;margin-bottom:6px}
@@ -112,11 +112,14 @@ main{padding:16px;max-width:800px;margin:0 auto}
 .hist-bar-track{flex:1;height:6px;background:var(--s3);border-radius:3px;overflow:hidden}
 .hist-bar-fill{height:100%;border-radius:3px}
 .hist-bar-val{font-family:'DM Mono',monospace;font-size:9px;width:70px;text-align:right;flex-shrink:0}
-.margen-badge{display:inline-block;padding:2px 8px;border-radius:4px;font-size:10px;font-family:'DM Mono',monospace;font-weight:500}
-.margen-badge.alto{background:rgba(66,245,200,0.12);color:var(--acc2)}
-.margen-badge.medio{background:rgba(232,245,66,0.12);color:var(--acc)}
-.margen-badge.bajo{background:rgba(255,77,109,0.12);color:var(--red)}
-.renta-badge{display:inline-block;padding:2px 8px;border-radius:4px;font-size:10px;font-family:'DM Mono',monospace;background:rgba(245,133,66,0.12);color:var(--orange)}
+/* Badges */
+.mbadge{display:inline-block;padding:2px 7px;border-radius:4px;font-size:9px;font-family:'DM Mono',monospace;font-weight:500}
+.mbadge.h{background:rgba(66,245,200,0.12);color:var(--acc2)}
+.mbadge.m{background:rgba(232,245,66,0.12);color:var(--acc)}
+.mbadge.l{background:rgba(255,77,109,0.12);color:var(--red)}
+.mbadge.n{background:rgba(90,90,117,0.2);color:var(--muted2)}
+.renta-badge{display:inline-block;padding:2px 7px;border-radius:4px;font-size:9px;font-family:'DM Mono',monospace;background:rgba(245,133,66,0.12);color:var(--orange)}
+.margin-pills{display:flex;gap:4px;flex-wrap:wrap;margin-top:4px}
 </style>
 </head>
 <body>
@@ -255,15 +258,25 @@ main{padding:16px;max-width:800px;margin:0 auto}
         <div class="section-title">Detalle anual</div>
         <div class="card" style="padding:0;overflow-x:auto">
           <table class="data-table">
-            <thead><tr><th>Año</th><th>Ventas</th><th>Costo</th><th>Gan. Bruta</th><th>Gastos</th><th>Gan. Limpia</th><th>Margen GL/GB</th><th>% Renta</th></tr></thead>
+            <thead><tr><th>Año</th><th>Ventas</th><th>Costo</th><th>Gan. Bruta</th><th>Gastos</th><th>Gan. Limpia</th><th style="white-space:nowrap">M. Bruto GB/V</th><th style="white-space:nowrap">M. Neto GL/V</th><th>% Renta</th></tr></thead>
             <tbody id="hist-anual-tabla"></tbody>
           </table>
+        </div>
+        <!-- Leyenda márgenes -->
+        <div style="font-family:'DM Mono',monospace;font-size:9px;color:var(--muted);margin-top:10px;padding:8px 12px;background:var(--s2);border-radius:8px;border:1px solid var(--border);line-height:1.8">
+          <div>· <span style="color:var(--acc2)">M. Bruto % (GB/Ventas)</span> — eficiencia del negocio: cuánto queda de cada peso vendido después del costo de mercadería</div>
+          <div>· <span style="color:var(--orange)">M. Neto % (GL/Ventas)</span> — rentabilidad real: cuánto queda realmente de cada peso vendido después de todos los gastos</div>
         </div>
       </div>
       <!-- Vista mensual -->
       <div id="hist-vista-mensual" style="display:none">
         <div id="hist-anio-filter" class="hist-filter"></div>
         <div class="section-title">Evolución mensual</div>
+        <!-- Leyenda márgenes -->
+        <div style="font-family:'DM Mono',monospace;font-size:9px;color:var(--muted);margin-bottom:12px;padding:8px 12px;background:var(--s2);border-radius:8px;border:1px solid var(--border);line-height:1.8">
+          <div>· <span style="color:var(--acc2)">M. Bruto % (GB/Ventas)</span> — eficiencia del negocio</div>
+          <div>· <span style="color:var(--orange)">M. Neto % (GL/Ventas)</span> — rentabilidad real</div>
+        </div>
         <div id="hist-mensual-cards"></div>
       </div>
     </div>
@@ -360,20 +373,34 @@ function fmtV(v){
   if(v===null||v===undefined)return'—';
   return state.moneda==='usd'?fmtUSD(v):fmtARS(v);
 }
-function calcMargen(item){
-  const gb=item.gananciaBruta||0;
+
+// Margen bruto = GB / Ventas
+function calcMargenBruto(item){
+  const v=item.ventas||0;
+  const gb=item.gananciaBruta??0;
+  if(!v)return null;
+  return gb/v*100;
+}
+// Margen neto = GL / Ventas
+function calcMargenNeto(item){
+  const v=item.ventas||0;
   const gl=item.gananciaLimpia??0;
-  if(!gb)return null;
-  return gl/gb*100;
+  if(!v)return null;
+  return gl/v*100;
 }
-function margenBadge(m){
-  if(m===null)return'<span class="margen-badge medio">—</span>';
-  const cls=m>=30?'alto':m>=15?'medio':'bajo';
-  return`<span class="margen-badge ${cls}">${m.toFixed(1)}%</span>`;
-}
-function rentaBadge(r){
-  if(r===null||r===undefined)return'—';
-  return`<span class="renta-badge">${r.toFixed(1)}%</span>`;
+
+function mbadge(m, tipo){
+  if(m===null||m===undefined)return`<span class="mbadge n">—</span>`;
+  let cls,color;
+  if(tipo==='bruto'){
+    cls=m>=50?'h':m>=35?'m':'l';
+    color='var(--acc2)';
+  } else {
+    cls=m>=20?'h':m>=10?'m':'l';
+    color='var(--orange)';
+  }
+  const label=tipo==='bruto'?'MB':'MN';
+  return`<span class="mbadge ${cls}" title="${tipo==='bruto'?'Margen Bruto GB/Ventas':'Margen Neto GL/Ventas'}">${label} ${m.toFixed(1)}%</span>`;
 }
 
 function onDataLoaded(){
@@ -524,8 +551,8 @@ function renderHistAnual(){
     const pctV=Math.max(v/maxV*100,2);
     const pctG=Math.max(gb/maxV*100,2);
     const pctGL=gl>0?Math.max(gl/maxV*100,1):0;
-    const m=calcMargen(a);
-    const glColor=m===null?'var(--orange)':m>=30?'var(--acc2)':m>=15?'var(--acc)':'var(--red)';
+    const mn=calcMargenNeto(a);
+    const glColor=mn===null?'var(--orange)':mn>=20?'var(--acc2)':mn>=10?'var(--acc)':'var(--red)';
     return`<div style="display:flex;flex-direction:column;align-items:center;gap:4px;flex:1;min-width:32px">
       <div style="font-family:'DM Mono',monospace;font-size:7px;color:var(--acc2);text-align:center">${fmtV(gb)}</div>
       <div style="width:100%;height:130px;display:flex;align-items:flex-end;gap:1px;justify-content:center">
@@ -534,7 +561,6 @@ function renderHistAnual(){
         <div style="width:9px;height:${pctGL}%;background:${gl>=0?glColor:'var(--red)'};border-radius:2px 2px 0 0"></div>
       </div>
       <div style="font-family:'DM Mono',monospace;font-size:8px;color:var(--muted)">${a.anio}</div>
-      <div style="font-family:'DM Mono',monospace;font-size:7px;color:${m===null?'var(--muted)':m>=30?'var(--acc2)':m>=15?'var(--acc)':'var(--red)'}">${m!==null?m.toFixed(0)+'%':'—'}</div>
     </div>`;
   }).join('');
   document.getElementById('hist-bars').innerHTML=bars;
@@ -545,7 +571,8 @@ function renderHistAnual(){
     const gb=getV(a,'gananciaBruta');
     const gs=getV(a,'gastos');
     const gl=getV(a,'gananciaLimpia');
-    const m=calcMargen(a);
+    const mb=calcMargenBruto(a);
+    const mn=calcMargenNeto(a);
     const dolarInfo=a.dolarValor?`<div style="font-size:8px;color:var(--muted)">@ ${a.dolarTipo==='blue'?'blue':a.dolarTipo==='bolsa'?'MEP':a.dolarTipo} $${Math.round(a.dolarValor)}</div>`:'';
     return`<tr>
       <td><strong>${a.anio}</strong>${dolarInfo}</td>
@@ -554,8 +581,9 @@ function renderHistAnual(){
       <td class="r g">${fmtV(gb)}</td>
       <td class="r" style="color:var(--muted2)">${fmtV(gs)}</td>
       <td class="r" style="color:${(gl??0)>=0?'var(--orange)':'var(--red)'}">${fmtV(gl)}</td>
-      <td class="r">${margenBadge(m)}</td>
-      <td class="r">${rentaBadge(a.rentaAnual)}</td>
+      <td class="r">${mbadge(mb,'bruto')}</td>
+      <td class="r">${mbadge(mn,'neto')}</td>
+      <td class="r">${a.rentaAnual!=null?`<span class="renta-badge">${a.rentaAnual.toFixed(1)}%</span>`:'—'}</td>
     </tr>`;
   }).join('');
   document.getElementById('hist-anual-tabla').innerHTML=rows;
@@ -579,10 +607,12 @@ function renderHistMensual(){
     const gs=getV(m,'gastos');
     const gl=getV(m,'gananciaLimpia');
     const pctV=v?(Math.abs(v)/maxV*100):0;
+    const pctC=c?(Math.abs(c)/maxV*100):0;
     const pctGB=gb?(Math.abs(gb)/maxV*100):0;
     const pctGS=gs?(Math.abs(gs)/maxV*100):0;
     const pctGL=gl&&gl>0?(gl/maxV*100):0;
-    const margen=calcMargen(m);
+    const mb=calcMargenBruto(m);
+    const mn=calcMargenNeto(m);
     const dolarTag=m.dolarValor?` · ${m.dolarTipo==='blue'?'blue':m.dolarTipo==='bolsa'?'MEP':m.dolarTipo} $${Math.round(m.dolarValor)}`:'';
     return`<div class="hist-year-card">
       <div class="hist-year-header">
@@ -592,7 +622,7 @@ function renderHistMensual(){
         </div>
         <div style="text-align:right">
           <div style="font-family:'Syne',sans-serif;font-size:16px;font-weight:800;color:var(--acc)">${fmtV(v)}</div>
-          <div style="margin-top:4px">${margenBadge(margen)}</div>
+          <div class="margin-pills">${mbadge(mb,'bruto')}${mbadge(mn,'neto')}</div>
         </div>
       </div>
       <div class="hist-bar-row">
@@ -602,7 +632,7 @@ function renderHistMensual(){
       </div>
       <div class="hist-bar-row">
         <div class="hist-bar-label">Costo</div>
-        <div class="hist-bar-track"><div class="hist-bar-fill" style="width:${c?(Math.abs(c)/maxV*100):0}%;background:var(--muted);opacity:0.5"></div></div>
+        <div class="hist-bar-track"><div class="hist-bar-fill" style="width:${pctC}%;background:var(--muted);opacity:0.5"></div></div>
         <div class="hist-bar-val" style="color:var(--muted2)">${fmtV(c)}</div>
       </div>
       <div class="hist-bar-row">
