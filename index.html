@@ -1,9 +1,9 @@
-!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-<title>Pinceles Tiburón — Tablero</title>
+<title>Dashboard Pinceles Tiburón</title>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Syne:wght@700;800;900&family=DM+Sans:wght@300;400;500&display=swap');
 :root {
@@ -311,7 +311,7 @@ const BASE='https://raw.githubusercontent.com/ignaciopacci/tiburon-dashboard/mai
 const cfg={costosFijos:parseFloat(localStorage.getItem('cf')||'22000000'),diaActual:parseInt(localStorage.getItem('dia')||new Date().getDate()),diasMes:parseInt(localStorage.getItem('dm')||'31')};
 const state={e1:null,e2:null,empActiva:{hoy:'ambas',mes:'ambas'},histData:null,histVista:'anual',histAnioFiltro:null,moneda:'ars'};
 const COL={Pinceles:'var(--pin)',Rodillos:'var(--rod)',Accesorios:'var(--orange)'};
- 
+
 async function fetchJSON(file){
   const r=await fetch(BASE+file+'?t='+Date.now());
   if(!r.ok)throw new Error('Error cargando '+file);
@@ -357,13 +357,13 @@ function merge(d1,d2){
   return{empresa:'Consolidado',totalFac:tf,totalCosto:tc,ganancia:tf-tc,margen:tf?(tf-tc)/tf*100:0,rubros:r};
 }
 function getDatos(emp){if(emp==='ambas')return merge(state.e1,state.e2);if(emp==='e1')return state.e1;return state.e2;}
- 
+
 const fmtARS=n=>{if(n===null||n===undefined||isNaN(n))return'—';const a=Math.abs(n),s=n<0?'-':'';if(a>=1000000)return s+'$'+(a/1000000).toFixed(1)+'M';if(a>=1000)return s+'$'+Math.round(a/1000)+'K';return s+'$'+Math.round(a).toLocaleString('es-AR');};
 const fmtUSD=n=>{if(n===null||n===undefined||isNaN(n))return'—';const a=Math.abs(n),s=n<0?'-':'';if(a>=1000000)return s+'U$S'+(a/1000000).toFixed(1)+'M';if(a>=1000)return s+'U$S'+Math.round(a/1000)+'K';return s+'U$S'+Math.round(a).toLocaleString('es-AR');};
 const fmt=n=>fmtARS(n);
 const pct=n=>(!n||isNaN(n))?'—%':n.toFixed(1)+'%';
 const num=n=>(!n||isNaN(n))?'—':Math.round(n).toLocaleString('es-AR');
- 
+
 function getV(item,campo){
   if(state.moneda==='usd')return item[campo+'Usd']??null;
   if(state.moneda==='const')return item[campo+'Constante']??null;
@@ -373,7 +373,7 @@ function fmtV(v){
   if(v===null||v===undefined)return'—';
   return state.moneda==='usd'?fmtUSD(v):fmtARS(v);
 }
- 
+
 // Margen bruto = GB / Ventas
 function calcMargenBruto(item){
   const v=item.ventas||0;
@@ -388,7 +388,7 @@ function calcMargenNeto(item){
   if(!v)return null;
   return gl/v*100;
 }
- 
+
 function mbadge(m, tipo){
   if(m===null||m===undefined)return`<span class="mbadge n">—</span>`;
   let cls,color;
@@ -402,7 +402,7 @@ function mbadge(m, tipo){
   const label=tipo==='bruto'?'MB':'MN';
   return`<span class="mbadge ${cls}" title="${tipo==='bruto'?'Margen Bruto GB/Ventas':'Margen Neto GL/Ventas'}">${label} ${m.toFixed(1)}%</span>`;
 }
- 
+
 function onDataLoaded(){
   document.getElementById('cfg-costos').value=cfg.costosFijos;
   document.getElementById('cfg-dia').value=cfg.diaActual;
@@ -417,7 +417,7 @@ function onDataLoaded(){
   renderAll();
 }
 function renderAll(){renderHoy();renderMes();renderConsolidado();}
- 
+
 function renderHoy(){
   const d=getDatos(state.empActiva.hoy);if(!d)return;
   const f=fams(d);
@@ -455,7 +455,7 @@ function renderHoy(){
     </div>`;
   }).join('');
 }
- 
+
 function renderMes(){
   const d=getDatos(state.empActiva.mes);if(!d)return;
   const{costosFijos,diaActual,diasMes}=cfg;
@@ -481,7 +481,7 @@ function renderMes(){
   rows.push(`<tr class="total-row"><td>TOTAL</td><td class="r">${num(totU)}</td><td class="r">${fmt(totF)}</td><td class="r">${fmt(totC)}</td><td class="r">${fmt(gan)}</td><td class="r"><span class="badge ${mg*100>=50?'h':mg*100>=35?'m':'l'}">${pct(mg*100)}</span></td></tr>`);
   document.getElementById('m-tabla').innerHTML=rows.join('');
 }
- 
+
 function renderConsolidado(){
   const total=merge(state.e1,state.e2);if(!total)return;
   const{costosFijos}=cfg,gan=total.ganancia||0,res=gan-costosFijos;
@@ -505,7 +505,7 @@ function renderConsolidado(){
   rows.push(`<tr class="total-row"><td>TOTAL</td><td class="r">${num(totU)}</td><td class="r">${fmt(totF)}</td><td class="r">${fmt(totC)}</td><td class="r">${fmt(total.ganancia)}</td><td class="r"><span class="badge ${total.margen>=50?'h':total.margen>=35?'m':'l'}">${pct(total.margen)}</span></td></tr>`);
   document.getElementById('cons-tabla').innerHTML=rows.join('');
 }
- 
+
 // ── HISTÓRICO ──────────────────────────────────────────────
 async function loadHistorico(){
   if(state.histData){renderHistorico();return;}
@@ -516,7 +516,7 @@ async function loadHistorico(){
     document.getElementById('hist-bars').innerHTML='<div style="font-family:DM Mono,monospace;font-size:11px;color:var(--muted)">Sin datos históricos todavía.</div>';
   }
 }
- 
+
 function setMoneda(m,btn){
   state.moneda=m;
   document.querySelectorAll('.moneda-btn').forEach(b=>b.classList.remove('active'));
@@ -529,23 +529,23 @@ function setMoneda(m,btn){
   document.getElementById('moneda-nota').textContent=notas[m];
   renderHistorico();
 }
- 
+
 function renderHistorico(){
   if(!state.histData)return;
   if(state.histVista==='anual')renderHistAnual();
   else renderHistMensual();
 }
- 
+
 function renderHistAnual(){
   const g=state.histData;
   const anios=Object.values(g.anios||{}).sort((a,b)=>a.anio-b.anio);
   if(!anios.length){document.getElementById('hist-bars').innerHTML='<div style="font-family:DM Mono,monospace;font-size:11px;color:var(--muted)">Sin datos.</div>';return;}
- 
+
   const ventas=anios.map(a=>getV(a,'ventas')||0);
   const gbs=anios.map(a=>getV(a,'gananciaBruta')||0);
   const gls=anios.map(a=>getV(a,'gananciaLimpia')||0);
   const maxV=Math.max(...ventas,...gbs,...gls.map(v=>Math.abs(v)))||1;
- 
+
   const bars=anios.map((a,i)=>{
     const v=ventas[i],gb=gbs[i],gl=gls[i];
     const pctV=Math.max(v/maxV*100,2);
@@ -564,7 +564,7 @@ function renderHistAnual(){
     </div>`;
   }).join('');
   document.getElementById('hist-bars').innerHTML=bars;
- 
+
   const rows=anios.slice().reverse().map(a=>{
     const v=getV(a,'ventas');
     const c=getV(a,'costo');
@@ -587,7 +587,7 @@ function renderHistAnual(){
   }).join('');
   document.getElementById('hist-anual-tabla').innerHTML=rows;
 }
- 
+
 function renderHistMensual(){
   const g=state.histData;
   const mensual=g.mensual||[];
@@ -653,7 +653,7 @@ function renderHistMensual(){
   }).join('');
   document.getElementById('hist-mensual-cards').innerHTML=cards||'<div style="padding:16px;font-family:DM Mono,monospace;font-size:11px;color:var(--muted)">Sin datos.</div>';
 }
- 
+
 function setHistVista(v,btn){
   state.histVista=v;
   document.querySelectorAll('#hist-filter .hist-filter-btn').forEach(b=>b.classList.remove('active'));
@@ -677,20 +677,9 @@ function switchTab(id,btn){
 }
 function setEmp(tab,emp,btn){btn.closest('.emp-tabs').querySelectorAll('.emp-btn').forEach(b=>b.classList.remove('active'));btn.classList.add('active');state.empActiva[tab]=emp;if(tab==='hoy')renderHoy();if(tab==='mes')renderMes();}
 function guardarConfig(){cfg.costosFijos=parseFloat(document.getElementById('cfg-costos').value)||22000000;cfg.diaActual=parseInt(document.getElementById('cfg-dia').value)||new Date().getDate();cfg.diasMes=parseInt(document.getElementById('cfg-diasmes').value)||31;localStorage.setItem('cf',cfg.costosFijos);localStorage.setItem('dia',cfg.diaActual);localStorage.setItem('dm',cfg.diasMes);document.getElementById('sys-cf').textContent=fmtARS(cfg.costosFijos)+'/mes';renderAll();}
- 
+
 document.getElementById('cfg-dia').value=new Date().getDate();
 init();
 </script>
 </body>
 </html>
- 
-
-
-
-
-
-
-
-
-
-
