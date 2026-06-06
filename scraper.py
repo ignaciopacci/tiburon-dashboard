@@ -231,7 +231,7 @@ def safe_float(val):
     try:
         if val is None or val == '':
             return 0
-        return float(str(val).replace('$','').replace(' ','').strip())
+        return float(str(val).replace('$', '').replace(' ', '').strip())
     except:
         return 0
 
@@ -279,7 +279,6 @@ def leer_ganancias_drive():
             7: 'Jul', 8: 'Ago', 9: 'Sep', 10: 'Oct', 11: 'Nov', 12: 'Dic'
         }
         anio_actual = None
-        renta_anual = None
 
         for row in ws.iter_rows(values_only=True):
             if not row[0]:
@@ -293,26 +292,11 @@ def leer_ganancias_drive():
                     p_clean = p.replace('.0', '')
                     if p_clean.isdigit() and len(p_clean) == 4:
                         anio_actual = int(p_clean)
-                        renta_anual = None
                         break
                 continue
 
-            # Detectar fila TOTAL (contiene % renta anual)
+            # Detectar fila TOTAL — calcular resumen anual automáticamente
             if celda in ('TOTAL', 'TOAL') and anio_actual:
-                # Buscar % renta en las columnas siguientes al total
-                for col_idx in range(6, min(len(row), 15)):
-                    v = row[col_idx]
-                    if v is not None:
-                        try:
-                            rv = float(str(v).replace('%','').strip())
-                            if 0 < rv < 1:
-                                rv = rv * 100
-                            if 0 < rv <= 100:
-                                renta_anual = round(rv, 1)
-                                break
-                        except:
-                            continue
-                # Guardar resumen anual calculado desde mensuales
                 meses_anio = [m for m in resultado['mensual'] if m['anio'] == anio_actual]
                 if meses_anio:
                     tot_ventas = sum(m['ventas'] for m in meses_anio)
@@ -320,6 +304,8 @@ def leer_ganancias_drive():
                     tot_gb = sum(m['gananciaBruta'] for m in meses_anio)
                     tot_gastos = sum(m['gastos'] for m in meses_anio)
                     tot_gl = sum(m['gananciaLimpia'] for m in meses_anio)
+                    # % Renta = GL / Ventas (calculado automáticamente)
+                    renta_anual = round(tot_gl / tot_ventas * 100, 1) if tot_ventas else None
                     resultado['anios'][anio_actual] = {
                         'anio': anio_actual,
                         'ventas': tot_ventas,
@@ -329,6 +315,7 @@ def leer_ganancias_drive():
                         'gananciaLimpia': tot_gl,
                         'rentaAnual': renta_anual,
                     }
+                    print(f'  ✓ {anio_actual}: ventas=${tot_ventas:,.0f} gl=${tot_gl:,.0f} renta={renta_anual}%')
                 continue
 
             # Detectar fila de mes
