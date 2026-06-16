@@ -1,18 +1,18 @@
 {
   "empresa": "Irelocs S.A.",
-  "fechaActualizacion": "15/06/2026 18:41",
+  "fechaActualizacion": "16/06/2026 15:55",
   "mes": "06/2026",
   "anio": 2026,
   "nroMes": 6,
-  "totalFac": 11927586.100000001,
-  "totalCosto": 5601789.14,
-  "ganancia": 6325796.960000002,
-  "margen": 53.0,
+  "totalFac": 13074372.700000001,
+  "totalCosto": 6279094.9399999995,
+  "ganancia": 6795277.760000002,
+  "margen": 52.0,
   "rubros": {
     "Pinceles": {
-      "unidades": 6030.0,
-      "totalFac": 9863993.740000002,
-      "totalCosto": 4096642.1999999997,
+      "unidades": 6498.0,
+      "totalFac": 11010780.340000002,
+      "totalCosto": 4773948.0,
       "articulos": [
         {
           "rubro": "Pinceles",
@@ -73,10 +73,10 @@
         {
           "rubro": "Pinceles",
           "articulo": "Pincel Clasico 10/1(PEC-1001)",
-          "cantidad": 468.0,
+          "cantidad": 504.0,
           "ultimoCosto": 363.19,
-          "totalCosto": 169972.92,
-          "totalFac": 528475.55
+          "totalCosto": 183047.76,
+          "totalFac": 555859.31
         },
         {
           "rubro": "Pinceles",
@@ -89,10 +89,10 @@
         {
           "rubro": "Pinceles",
           "articulo": "Pincel Clasico 15/1(PEC-1002)",
-          "cantidad": 468.0,
+          "cantidad": 504.0,
           "ultimoCosto": 498.68,
-          "totalCosto": 233382.24,
-          "totalFac": 725625.74
+          "totalCosto": 251334.72,
+          "totalFac": 762602.42
         },
         {
           "rubro": "Pinceles",
@@ -105,10 +105,10 @@
         {
           "rubro": "Pinceles",
           "articulo": "Pincel Clasico 20/1(PEC-1003)",
-          "cantidad": 516.0,
+          "cantidad": 552.0,
           "ultimoCosto": 576.47,
-          "totalCosto": 297458.52,
-          "totalFac": 912422.47
+          "totalCosto": 318211.44,
+          "totalFac": 955307.11
         },
         {
           "rubro": "Pinceles",
@@ -121,10 +121,10 @@
         {
           "rubro": "Pinceles",
           "articulo": "Pincel Clasico 25/1(PEC-1004)",
-          "cantidad": 228.0,
+          "cantidad": 264.0,
           "ultimoCosto": 771.64,
-          "totalCosto": 175933.92,
-          "totalFac": 489447.83
+          "totalCosto": 203712.96,
+          "totalFac": 544445.75
         },
         {
           "rubro": "Pinceles",
@@ -137,10 +137,10 @@
         {
           "rubro": "Pinceles",
           "articulo": "Pincel Clasico 30/1(PEC-1005)",
-          "cantidad": 168.0,
+          "cantidad": 204.0,
           "ultimoCosto": 1008.32,
-          "totalCosto": 169397.76,
-          "totalFac": 486691.74
+          "totalCosto": 205697.28,
+          "totalFac": 550155.78
         },
         {
           "rubro": "Pinceles",
@@ -256,6 +256,70 @@
         },
         {
           "rubro": "Pinceles",
+          "articulo": "Pincel Extra Profesional 10/2(PLE-3000)",
+          "cantidad": 36.0,
+          "ultimoCosto": 632.64,
+          "totalCosto": 22775.04,
+          "totalFac": 42535.44
+        },
+        {
+          "rubro": "Pinceles",
+          "articulo": "Pincel Extra Profesional 15/2(PLE-3001)",
+          "cantidad": 36.0,
+          "ultimoCosto": 1051.1,
+          "totalCosto": 37839.6,
+          "totalFac": 67359.24
+        },
+        {
+          "rubro": "Pinceles",
+          "articulo": "Pincel Extra Profesional 20/2(PLE-3002)",
+          "cantidad": 36.0,
+          "ultimoCosto": 1330.89,
+          "totalCosto": 47912.04,
+          "totalFac": 85487.76
+        },
+        {
+          "rubro": "Pinceles",
+          "articulo": "Pincel Extra Profesional 20/4(PLE-3007)",
+          "cantidad": 24.0,
+          "ultimoCosto": 1935.64,
+          "totalCosto": 46455.36,
+          "totalFac": 77572.56
+        },
+        {
+          "rubro": "Pinceles",
+          "articulo": "Pincel Extra Profesional 25/2(PLE-3003)",
+          "cantidad": 36.0,
+          "ultimoCosto": 1678.79,
+          "totalCosto": 60436.44,
+          "totalFac": 104411.16
+        },
+        {
+          "rubro": "Pinceles",
+          "articulo": "Pincel Extra Profesional 25/4(PLE-3008)",
+          "cantidad": 24.0,
+          "ultimoCosto": 2366.49,
+          "totalCosto": 56795.76,
+          "totalFac": 93913.92
+        },
+        {
+          "rubro": "Pinceles",
+          "articulo": "Pincel Extra Profesional 30/2(PLE-3004)",
+          "cantidad": 36.0,
+          "ultimoCosto": 2017.31,
+          "totalCosto": 72623.16,
+          "totalFac": 124134.12
+        },
+        {
+          "rubro": "Pinceles",
+          "articulo": "Pincel Extra Profesional 30/4(PLE-3009)",
+          "cantidad": 24.0,
+          "ultimoCosto": 3465.38,
+          "totalCosto": 83169.12,
+          "totalFac": 130599.36
+        },
+        {
+          "rubro": "Pinceles",
           "articulo": "Pincel Profesiional 30/1(PLT-2005)",
           "cantidad": 36.0,
           "ultimoCosto": 1440.34,
@@ -353,10 +417,10 @@
         {
           "rubro": "Pinceles",
           "articulo": "Pinceleta Latex 40/2(PLP-6000)",
-          "cantidad": 48.0,
+          "cantidad": 84.0,
           "ultimoCosto": 3706.68,
-          "totalCosto": 177920.64,
-          "totalFac": 373633.34
+          "totalCosto": 311361.12,
+          "totalFac": 568699.34
         },
         {
           "rubro": "Pinceles",
