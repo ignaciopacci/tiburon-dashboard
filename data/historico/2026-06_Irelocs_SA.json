@@ -1,18 +1,18 @@
 {
   "empresa": "Irelocs S.A.",
-  "fechaActualizacion": "17/06/2026 18:02",
+  "fechaActualizacion": "18/06/2026 15:06",
   "mes": "06/2026",
   "anio": 2026,
   "nroMes": 6,
-  "totalFac": 13074372.700000001,
-  "totalCosto": 6279094.9399999995,
-  "ganancia": 6795277.760000002,
-  "margen": 52.0,
+  "totalFac": 17215914.28,
+  "totalCosto": 8149896.97,
+  "ganancia": 9066017.310000002,
+  "margen": 52.7,
   "rubros": {
     "Pinceles": {
-      "unidades": 6498.0,
-      "totalFac": 11010780.340000002,
-      "totalCosto": 4773948.0,
+      "unidades": 8154.0,
+      "totalFac": 13763106.34,
+      "totalCosto": 5769947.399999999,
       "articulos": [
         {
           "rubro": "Pinceles",
@@ -29,6 +29,46 @@
           "ultimoCosto": 1027.3,
           "totalCosto": 24655.2,
           "totalFac": 32383.2
+        },
+        {
+          "rubro": "Pinceles",
+          "articulo": "Linea Remox 10/1(REMOX10)",
+          "cantidad": 12.0,
+          "ultimoCosto": 269.47,
+          "totalCosto": 3233.64,
+          "totalFac": 7922.42
+        },
+        {
+          "rubro": "Pinceles",
+          "articulo": "Linea Remox 15/1(REMOX15)",
+          "cantidad": 12.0,
+          "ultimoCosto": 324.26,
+          "totalCosto": 3891.12,
+          "totalFac": 9533.24
+        },
+        {
+          "rubro": "Pinceles",
+          "articulo": "Linea Remox 20/1(REMOX20)",
+          "cantidad": 12.0,
+          "ultimoCosto": 421.21,
+          "totalCosto": 5054.52,
+          "totalFac": 12383.57
+        },
+        {
+          "rubro": "Pinceles",
+          "articulo": "Linea Remox 25/1(REMOX25)",
+          "cantidad": 12.0,
+          "ultimoCosto": 595.15,
+          "totalCosto": 7141.8,
+          "totalFac": 17497.41
+        },
+        {
+          "rubro": "Pinceles",
+          "articulo": "Linea Remox 30/1(REMOX30)",
+          "cantidad": 12.0,
+          "ultimoCosto": 676.13,
+          "totalCosto": 8113.56,
+          "totalFac": 19878.22
         },
         {
           "rubro": "Pinceles",
@@ -72,11 +112,67 @@
         },
         {
           "rubro": "Pinceles",
+          "articulo": "Pincel 2400 15/2(PIN-2402)",
+          "cantidad": 6.0,
+          "ultimoCosto": 913.76,
+          "totalCosto": 5482.56,
+          "totalFac": 15351.17
+        },
+        {
+          "rubro": "Pinceles",
+          "articulo": "Pincel 2400 20/2(PIN-2403)",
+          "cantidad": 6.0,
+          "ultimoCosto": 1258.64,
+          "totalCosto": 7551.84,
+          "totalFac": 21145.15
+        },
+        {
+          "rubro": "Pinceles",
+          "articulo": "Pincel Bacota 10/2(PLB-4000)",
+          "cantidad": 12.0,
+          "ultimoCosto": 640.91,
+          "totalCosto": 7690.92,
+          "totalFac": 18842.75
+        },
+        {
+          "rubro": "Pinceles",
+          "articulo": "Pincel Bacota 15/2(PLB-4001)",
+          "cantidad": 12.0,
+          "ultimoCosto": 934.51,
+          "totalCosto": 11214.12,
+          "totalFac": 27474.59
+        },
+        {
+          "rubro": "Pinceles",
+          "articulo": "Pincel Bacota 20/2(PLB-4002)",
+          "cantidad": 12.0,
+          "ultimoCosto": 1367.14,
+          "totalCosto": 16405.68,
+          "totalFac": 40193.92
+        },
+        {
+          "rubro": "Pinceles",
+          "articulo": "Pincel Bacota 25/2(PLB-4003)",
+          "cantidad": 12.0,
+          "ultimoCosto": 1778.14,
+          "totalCosto": 21337.68,
+          "totalFac": 52277.32
+        },
+        {
+          "rubro": "Pinceles",
+          "articulo": "Pincel Bacota 30/2(PLB-4004)",
+          "cantidad": 12.0,
+          "ultimoCosto": 2263.45,
+          "totalCosto": 27161.4,
+          "totalFac": 66545.43
+        },
+        {
+          "rubro": "Pinceles",
           "articulo": "Pincel Clasico 10/1(PEC-1001)",
-          "cantidad": 504.0,
+          "cantidad": 672.0,
           "ultimoCosto": 363.19,
-          "totalCosto": 183047.76,
-          "totalFac": 555859.31
+          "totalCosto": 244063.68,
+          "totalFac": 748800.08
         },
         {
           "rubro": "Pinceles",
@@ -84,15 +180,15 @@
           "cantidad": 84.0,
           "ultimoCosto": 456.53,
           "totalCosto": 38348.52,
-          "totalFac": 120534.6
+          "totalFac": 114289.28
         },
         {
           "rubro": "Pinceles",
           "articulo": "Pincel Clasico 15/1(PEC-1002)",
-          "cantidad": 504.0,
+          "cantidad": 564.0,
           "ultimoCosto": 498.68,
-          "totalCosto": 251334.72,
-          "totalFac": 762602.42
+          "totalCosto": 281255.52,
+          "totalFac": 853561.46
         },
         {
           "rubro": "Pinceles",
@@ -100,47 +196,47 @@
           "cantidad": 60.0,
           "ultimoCosto": 734.97,
           "totalCosto": 44098.2,
-          "totalFac": 125009.53
+          "totalFac": 114955.14
         },
         {
           "rubro": "Pinceles",
           "articulo": "Pincel Clasico 20/1(PEC-1003)",
-          "cantidad": 552.0,
+          "cantidad": 636.0,
           "ultimoCosto": 576.47,
-          "totalCosto": 318211.44,
-          "totalFac": 955307.11
+          "totalCosto": 366634.92,
+          "totalFac": 1105143.12
         },
         {
           "rubro": "Pinceles",
           "articulo": "Pincel Clasico 20/2(PEC-1009)",
-          "cantidad": 96.0,
+          "cantidad": 108.0,
           "ultimoCosto": 850.47,
-          "totalCosto": 81645.12,
-          "totalFac": 251691.42
+          "totalCosto": 91850.76,
+          "totalFac": 267203.99
         },
         {
           "rubro": "Pinceles",
           "articulo": "Pincel Clasico 25/1(PEC-1004)",
-          "cantidad": 264.0,
+          "cantidad": 348.0,
           "ultimoCosto": 771.64,
-          "totalCosto": 203712.96,
-          "totalFac": 544445.75
+          "totalCosto": 268530.72,
+          "totalFac": 745010.29
         },
         {
           "rubro": "Pinceles",
           "articulo": "Pincel Clasico 25/2(PEC-1010)",
-          "cantidad": 90.0,
+          "cantidad": 102.0,
           "ultimoCosto": 1027.18,
-          "totalCosto": 92446.2,
-          "totalFac": 288413.35
+          "totalCosto": 104772.36,
+          "totalFac": 307149.09
         },
         {
           "rubro": "Pinceles",
           "articulo": "Pincel Clasico 30/1(PEC-1005)",
-          "cantidad": 204.0,
+          "cantidad": 252.0,
           "ultimoCosto": 1008.32,
-          "totalCosto": 205697.28,
-          "totalFac": 550155.78
+          "totalCosto": 254096.64,
+          "totalFac": 694990.83
         },
         {
           "rubro": "Pinceles",
@@ -148,31 +244,23 @@
           "cantidad": 90.0,
           "ultimoCosto": 1184.3,
           "totalCosto": 106587.0,
-          "totalFac": 332530.12
+          "totalFac": 316328.9
         },
         {
           "rubro": "Pinceles",
           "articulo": "Pincel Clasico 7/1(PEC-1000)",
-          "cantidad": 96.0,
+          "cantidad": 588.0,
           "ultimoCosto": 339.14,
-          "totalCosto": 32557.44,
-          "totalFac": 91242.08
-        },
-        {
-          "rubro": "Pinceles",
-          "articulo": "Pincel Clasico 7/2(PEC-1006)",
-          "cantidad": 12.0,
-          "ultimoCosto": 420.04,
-          "totalCosto": 5040.48,
-          "totalFac": 19153.8
+          "totalCosto": 199414.32,
+          "totalFac": 627869.25
         },
         {
           "rubro": "Pinceles",
           "articulo": "Pincel Ecology 10/1(PEC-8000)",
-          "cantidad": 252.0,
+          "cantidad": 318.0,
           "ultimoCosto": 308.52,
-          "totalCosto": 77747.04,
-          "totalFac": 183148.29
+          "totalCosto": 98109.36,
+          "totalFac": 245049.68
         },
         {
           "rubro": "Pinceles",
@@ -185,10 +273,10 @@
         {
           "rubro": "Pinceles",
           "articulo": "Pincel Ecology 15/1(PEC-8001)",
-          "cantidad": 264.0,
+          "cantidad": 360.0,
           "ultimoCosto": 416.92,
-          "totalCosto": 110066.88,
-          "totalFac": 258512.02
+          "totalCosto": 150091.2,
+          "totalFac": 377334.15
         },
         {
           "rubro": "Pinceles",
@@ -201,10 +289,10 @@
         {
           "rubro": "Pinceles",
           "articulo": "Pincel Ecology 20/1(PEC-8002)",
-          "cantidad": 264.0,
+          "cantidad": 384.0,
           "ultimoCosto": 486.58,
-          "totalCosto": 128457.12,
-          "totalFac": 302652.48
+          "totalCosto": 186846.72,
+          "totalFac": 479047.08
         },
         {
           "rubro": "Pinceles",
@@ -217,10 +305,10 @@
         {
           "rubro": "Pinceles",
           "articulo": "Pincel Ecology 25/1(PEC-8003)",
-          "cantidad": 216.0,
+          "cantidad": 294.0,
           "ultimoCosto": 672.54,
-          "totalCosto": 145268.64,
-          "totalFac": 367023.84
+          "totalCosto": 197726.76,
+          "totalFac": 523429.62
         },
         {
           "rubro": "Pinceles",
@@ -233,10 +321,10 @@
         {
           "rubro": "Pinceles",
           "articulo": "Pincel Ecology 30/1(PEC-8004)",
-          "cantidad": 204.0,
+          "cantidad": 234.0,
           "ultimoCosto": 791.11,
-          "totalCosto": 161386.44,
-          "totalFac": 417309.31
+          "totalCosto": 185119.74,
+          "totalFac": 482243.56
         },
         {
           "rubro": "Pinceles",
@@ -249,10 +337,10 @@
         {
           "rubro": "Pinceles",
           "articulo": "Pincel Ecology 7/1(PEC-8005)",
-          "cantidad": 240.0,
+          "cantidad": 282.0,
           "ultimoCosto": 275.43,
-          "totalCosto": 66103.2,
-          "totalFac": 155680.2
+          "totalCosto": 77671.26,
+          "totalFac": 192730.9
         },
         {
           "rubro": "Pinceles",
@@ -321,18 +409,18 @@
         {
           "rubro": "Pinceles",
           "articulo": "Pincel Profesiional 30/1(PLT-2005)",
-          "cantidad": 36.0,
+          "cantidad": 48.0,
           "ultimoCosto": 1440.34,
-          "totalCosto": 51852.24,
-          "totalFac": 68929.2
+          "totalCosto": 69136.32,
+          "totalFac": 114904.84
         },
         {
           "rubro": "Pinceles",
           "articulo": "Pincel Profesional 10/1(PLT-2001)",
-          "cantidad": 96.0,
+          "cantidad": 108.0,
           "ultimoCosto": 405.7,
-          "totalCosto": 38947.2,
-          "totalFac": 67727.04
+          "totalCosto": 43815.6,
+          "totalFac": 80676.98
         },
         {
           "rubro": "Pinceles",
@@ -345,10 +433,10 @@
         {
           "rubro": "Pinceles",
           "articulo": "Pincel Profesional 15/1(PLT-2002)",
-          "cantidad": 96.0,
+          "cantidad": 120.0,
           "ultimoCosto": 717.29,
-          "totalCosto": 68859.84,
-          "totalFac": 100960.32
+          "totalCosto": 86074.8,
+          "totalFac": 146752.08
         },
         {
           "rubro": "Pinceles",
@@ -361,10 +449,10 @@
         {
           "rubro": "Pinceles",
           "articulo": "Pincel Profesional 20/1(PLT-2003)",
-          "cantidad": 96.0,
+          "cantidad": 120.0,
           "ultimoCosto": 857.64,
-          "totalCosto": 82333.44,
-          "totalFac": 118894.08
+          "totalCosto": 102916.8,
+          "totalFac": 173645.78
         },
         {
           "rubro": "Pinceles",
@@ -377,10 +465,10 @@
         {
           "rubro": "Pinceles",
           "articulo": "Pincel Profesional 25/1(PLT-2004)",
-          "cantidad": 48.0,
+          "cantidad": 60.0,
           "ultimoCosto": 1225.21,
-          "totalCosto": 58810.08,
-          "totalFac": 78898.56
+          "totalCosto": 73512.6,
+          "totalFac": 118007.24
         },
         {
           "rubro": "Pinceles",
@@ -401,10 +489,10 @@
         {
           "rubro": "Pinceles",
           "articulo": "Pincel Profesional 7/1(PLT-2000)",
-          "cantidad": 96.0,
+          "cantidad": 108.0,
           "ultimoCosto": 354.92,
-          "totalCosto": 34072.32,
-          "totalFac": 61165.44
+          "totalCosto": 38331.36,
+          "totalFac": 72494.48
         },
         {
           "rubro": "Pinceles",
@@ -417,65 +505,89 @@
         {
           "rubro": "Pinceles",
           "articulo": "Pinceleta Latex 40/2(PLP-6000)",
-          "cantidad": 84.0,
+          "cantidad": 96.0,
           "ultimoCosto": 3706.68,
-          "totalCosto": 311361.12,
-          "totalFac": 568699.34
+          "totalCosto": 355841.28,
+          "totalFac": 662107.68
         },
         {
           "rubro": "Pinceles",
           "articulo": "Pinceleta Nacional 40/4(PLP-5002)",
-          "cantidad": 6.0,
+          "cantidad": 18.0,
           "ultimoCosto": 2333.5,
-          "totalCosto": 14001.0,
-          "totalFac": 44103.15
+          "totalCosto": 42003.0,
+          "totalFac": 105847.56
+        },
+        {
+          "rubro": "Pinceles",
+          "articulo": "Pinceleta Nacional Gris 40/4(PLP-5000)",
+          "cantidad": 12.0,
+          "ultimoCosto": 2333.5,
+          "totalCosto": 28002.0,
+          "totalFac": 61744.41
         },
         {
           "rubro": "Pinceles",
           "articulo": "Pinceleta Sintetica 40/4(PLP-7000)",
-          "cantidad": 12.0,
+          "cantidad": 24.0,
           "ultimoCosto": 4071.9,
-          "totalCosto": 48862.8,
-          "totalFac": 102611.88
+          "totalCosto": 97725.6,
+          "totalFac": 205223.76
         }
       ]
     },
     "Accesorios": {
-      "unidades": 1372.0,
-      "totalFac": 2063592.36,
-      "totalCosto": 1505146.94,
+      "unidades": 1799.0,
+      "totalFac": 3452807.9400000004,
+      "totalCosto": 2379949.5700000003,
       "articulos": [
         {
           "rubro": "Accesorios",
+          "articulo": "Balde 15 Lt Con Rejilla(BCR)",
+          "cantidad": 1.0,
+          "ultimoCosto": 1816.46,
+          "totalCosto": 1816.46,
+          "totalFac": 3106.14
+        },
+        {
+          "rubro": "Accesorios",
           "articulo": "Bandeja Con Escurridor(BCE)",
-          "cantidad": 30.0,
+          "cantidad": 40.0,
           "ultimoCosto": 921.57,
-          "totalCosto": 27647.1,
-          "totalFac": 42023.52
+          "totalCosto": 36862.8,
+          "totalFac": 56206.46
         },
         {
           "rubro": "Accesorios",
           "articulo": "Bandeja De Mano(BDM)",
-          "cantidad": 10.0,
+          "cantidad": 15.0,
           "ultimoCosto": 250.52,
-          "totalCosto": 2505.2,
-          "totalFac": 3807.84
+          "totalCosto": 3757.8,
+          "totalFac": 5949.75
         },
         {
           "rubro": "Accesorios",
           "articulo": "Bandeja Plana Grande(BPG)",
-          "cantidad": 30.0,
+          "cantidad": 37.0,
           "ultimoCosto": 758.27,
-          "totalCosto": 22748.1,
-          "totalFac": 34577.04
+          "totalCosto": 28055.99,
+          "totalFac": 42356.88
+        },
+        {
+          "rubro": "Accesorios",
+          "articulo": "Clip-pin Sostenedor De Pincel(CLIP-PIN)",
+          "cantidad": 5.0,
+          "ultimoCosto": 2619.0,
+          "totalCosto": 13095.0,
+          "totalFac": 23571.0
         },
         {
           "rubro": "Accesorios",
           "articulo": "Cobertor Multiuso Eco Blanco 3x3(COB-3ECO)",
-          "cantidad": 6.0,
+          "cantidad": 12.0,
           "ultimoCosto": 1623.78,
-          "totalCosto": 9742.68,
-          "totalFac": 11925.02
+          "totalCosto": 19485.36,
+          "totalFac": 26831.29
         },
         {
           "rubro": "Accesorios",
@@ -487,6 +599,94 @@
         },
         {
           "rubro": "Accesorios",
+          "articulo": "Espatula Plast Con Mango Chica(ESPCM02)",
+          "cantidad": 15.0,
+          "ultimoCosto": 189.44,
+          "totalCosto": 2841.6,
+          "totalFac": 3989.59
+        },
+        {
+          "rubro": "Accesorios",
+          "articulo": "Espatula Plast Con Mango Grande(ESPCM04)",
+          "cantidad": 5.0,
+          "ultimoCosto": 284.16,
+          "totalCosto": 1420.8,
+          "totalFac": 2301.66
+        },
+        {
+          "rubro": "Accesorios",
+          "articulo": "Espatula Plast Con Mango Mediana(ESPCM03)",
+          "cantidad": 5.0,
+          "ultimoCosto": 236.8,
+          "totalCosto": 1184.0,
+          "totalFac": 1918.08
+        },
+        {
+          "rubro": "Accesorios",
+          "articulo": "Espatula Plast Sin Mango Grande(ESPSM02)",
+          "cantidad": 11.0,
+          "ultimoCosto": 167.44,
+          "totalCosto": 1841.84,
+          "totalFac": 2658.26
+        },
+        {
+          "rubro": "Accesorios",
+          "articulo": "Extensor Mult. Chapa 2 X 1(EXTCH-1)",
+          "cantidad": 1.0,
+          "ultimoCosto": 8398.82,
+          "totalCosto": 8398.82,
+          "totalFac": 10204.55
+        },
+        {
+          "rubro": "Accesorios",
+          "articulo": "Extensor Mult. Chapa 2 X 1.5(EXTCH-2)",
+          "cantidad": 2.0,
+          "ultimoCosto": 8614.61,
+          "totalCosto": 17229.23,
+          "totalFac": 21863.88
+        },
+        {
+          "rubro": "Accesorios",
+          "articulo": "Llana Plastica Revest Eco(LLANAECO)",
+          "cantidad": 1.0,
+          "ultimoCosto": 1134.22,
+          "totalCosto": 1134.22,
+          "totalFac": 1837.43
+        },
+        {
+          "rubro": "Accesorios",
+          "articulo": "Llana Plastica Revest Pro(LLANAPRO)",
+          "cantidad": 1.0,
+          "ultimoCosto": 1365.87,
+          "totalCosto": 1365.87,
+          "totalFac": 2212.7
+        },
+        {
+          "rubro": "Accesorios",
+          "articulo": "Manija Destapa Balde(DEST1)",
+          "cantidad": 20.0,
+          "ultimoCosto": 150.0,
+          "totalCosto": 3000.0,
+          "totalFac": 13419.0
+        },
+        {
+          "rubro": "Accesorios",
+          "articulo": "Removedor Para Pintura 320 Mm(REM-320)",
+          "cantidad": 5.0,
+          "ultimoCosto": 275.0,
+          "totalCosto": 1375.0,
+          "totalFac": 2475.0
+        },
+        {
+          "rubro": "Accesorios",
+          "articulo": "Removedor Para Pintura 270 Mm(REM-270)",
+          "cantidad": 5.0,
+          "ultimoCosto": 167.85,
+          "totalCosto": 839.25,
+          "totalFac": 1359.59
+        },
+        {
+          "rubro": "Accesorios",
           "articulo": "Rodillo C/f Nº 5(ROD-7003)",
           "cantidad": 110.0,
           "ultimoCosto": 477.6,
@@ -495,11 +695,43 @@
         },
         {
           "rubro": "Accesorios",
+          "articulo": "Rodillo Mini Antigota Nº 11(ROD-7035)",
+          "cantidad": 10.0,
+          "ultimoCosto": 714.21,
+          "totalCosto": 7142.1,
+          "totalFac": 10498.88
+        },
+        {
+          "rubro": "Accesorios",
+          "articulo": "Rodillo Mini Antigota Nº 5(ROD-7033)",
+          "cantidad": 10.0,
+          "ultimoCosto": 514.37,
+          "totalCosto": 5143.7,
+          "totalFac": 7561.19
+        },
+        {
+          "rubro": "Accesorios",
+          "articulo": "Rodillo Mini Antigota Nº 8(ROD-7034)",
+          "cantidad": 10.0,
+          "ultimoCosto": 621.13,
+          "totalCosto": 6211.3,
+          "totalFac": 9130.59
+        },
+        {
+          "rubro": "Accesorios",
           "articulo": "Rodillo Mini Epoxi Nº 5(ROD-7006)",
-          "cantidad": 150.0,
+          "cantidad": 160.0,
           "ultimoCosto": 453.13,
-          "totalCosto": 67969.5,
-          "totalFac": 96584.35
+          "totalCosto": 72500.8,
+          "totalFac": 103245.34
+        },
+        {
+          "rubro": "Accesorios",
+          "articulo": "Rodillos Antigota Nº 17(ROD-7031)",
+          "cantidad": 10.0,
+          "ultimoCosto": 2308.9,
+          "totalCosto": 23089.0,
+          "totalFac": 33940.83
         },
         {
           "rubro": "Accesorios",
@@ -527,43 +759,59 @@
         },
         {
           "rubro": "Accesorios",
+          "articulo": "Rodillos Epoxi Nº 17(ROD-7027)",
+          "cantidad": 10.0,
+          "ultimoCosto": 1956.6,
+          "totalCosto": 19566.0,
+          "totalFac": 28762.02
+        },
+        {
+          "rubro": "Accesorios",
           "articulo": "Rodillos Laba Blanca Nº 22(ROD-7018)",
-          "cantidad": 56.0,
+          "cantidad": 78.0,
           "ultimoCosto": 4195.13,
-          "totalCosto": 234927.28,
-          "totalFac": 319354.11
+          "totalCosto": 327220.14,
+          "totalFac": 458842.12
         },
         {
           "rubro": "Accesorios",
           "articulo": "Rodillos Lana Blanca Nº 17(ROD-7017)",
-          "cantidad": 6.0,
+          "cantidad": 16.0,
           "ultimoCosto": 4054.83,
-          "totalCosto": 24328.98,
-          "totalFac": 42575.69
+          "totalCosto": 64877.28,
+          "totalFac": 113535.18
         },
         {
           "rubro": "Accesorios",
           "articulo": "Rodillos Lana Dorada Nº 17(ROD-7021)",
-          "cantidad": 6.0,
+          "cantidad": 35.0,
           "ultimoCosto": 4435.78,
-          "totalCosto": 26614.68,
-          "totalFac": 46575.69
+          "totalCosto": 155252.3,
+          "totalFac": 271691.53
         },
         {
           "rubro": "Accesorios",
           "articulo": "Rodillos Lana Dorada Nº 22(ROD-7022)",
-          "cantidad": 6.0,
+          "cantidad": 30.0,
           "ultimoCosto": 4650.18,
-          "totalCosto": 27901.08,
-          "totalFac": 48826.89
+          "totalCosto": 139505.4,
+          "totalFac": 244134.45
+        },
+        {
+          "rubro": "Accesorios",
+          "articulo": "Rodillos Lana Economica Nº 17(ROD-7015)",
+          "cantidad": 10.0,
+          "ultimoCosto": 3208.78,
+          "totalCosto": 32087.8,
+          "totalFac": 56153.65
         },
         {
           "rubro": "Accesorios",
           "articulo": "Rodillos Lana Satinada Nº 17(ROD-7019)",
-          "cantidad": 50.0,
+          "cantidad": 60.0,
           "ultimoCosto": 3831.58,
-          "totalCosto": 191579.0,
-          "totalFac": 251447.44
+          "totalCosto": 229894.8,
+          "totalFac": 318500.09
         },
         {
           "rubro": "Accesorios",
@@ -576,42 +824,42 @@
         {
           "rubro": "Accesorios",
           "articulo": "Rodillos Mini Epoxi Nº 11(ROD-7008)",
-          "cantidad": 150.0,
+          "cantidad": 160.0,
           "ultimoCosto": 622.2,
-          "totalCosto": 93330.0,
-          "totalFac": 132621.93
+          "totalCosto": 99552.0,
+          "totalFac": 141768.27
         },
         {
           "rubro": "Accesorios",
           "articulo": "Rodillos Mini Epoxi Nº 8(ROD-7007)",
-          "cantidad": 150.0,
+          "cantidad": 178.0,
           "ultimoCosto": 545.33,
-          "totalCosto": 81799.5,
-          "totalFac": 116236.78
+          "totalCosto": 97068.74,
+          "totalFac": 137239.56
         },
         {
           "rubro": "Accesorios",
           "articulo": "Rodillos Mini Thinner Nº 11(ROD-7025)",
-          "cantidad": 100.0,
+          "cantidad": 110.0,
           "ultimoCosto": 651.46,
-          "totalCosto": 65146.0,
-          "totalFac": 86187.78
+          "totalCosto": 71660.6,
+          "totalFac": 95764.2
         },
         {
           "rubro": "Accesorios",
           "articulo": "Rodillos Mini Thinner Nº 5(ROD-7023)",
-          "cantidad": 100.0,
+          "cantidad": 110.0,
           "ultimoCosto": 528.86,
-          "totalCosto": 52886.0,
-          "totalFac": 69967.8
+          "totalCosto": 58174.6,
+          "totalFac": 77742.0
         },
         {
           "rubro": "Accesorios",
           "articulo": "Rodillos Mini Thinner Nº 8(ROD-7024)",
-          "cantidad": 100.0,
-          "ultimoCosto": 587.31,
-          "totalCosto": 58731.0,
-          "totalFac": 77701.05
+          "cantidad": 122.0,
+          "ultimoCosto": 589.72,
+          "totalCosto": 71945.48,
+          "totalFac": 96047.13
         },
         {
           "rubro": "Accesorios",
@@ -620,6 +868,30 @@
           "ultimoCosto": 2325.94,
           "totalCosto": 13955.64,
           "totalFac": 19946.22
+        },
+        {
+          "rubro": "Accesorios",
+          "articulo": "Venda Sintetica Premium 1 Mt X 25 Mts(VPR1)",
+          "cantidad": 12.0,
+          "ultimoCosto": 9674.95,
+          "totalCosto": 116099.4,
+          "totalFac": 167183.14
+        },
+        {
+          "rubro": "Accesorios",
+          "articulo": "Venda Sintetica Premium 10 Cms X 25 Mts(VPR10)",
+          "cantidad": 10.0,
+          "ultimoCosto": 1007.4,
+          "totalCosto": 10074.0,
+          "totalFac": 14506.56
+        },
+        {
+          "rubro": "Accesorios",
+          "articulo": "Venda Sintetica Premium 20 Cms X 25 Mts(VPR20)",
+          "cantidad": 55.0,
+          "ultimoCosto": 2034.35,
+          "totalCosto": 111889.25,
+          "totalFac": 161120.52
         }
       ]
     }
