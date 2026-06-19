@@ -433,6 +433,16 @@ def leer_precios_reales_cerda():
             return None, None
         ws = wb['PRECIO CERDA GRAMOS REAL']
 
+        # DEBUG temporal — imprimir toda la hoja cruda
+        print('  --- DEBUG: contenido crudo de PRECIO CERDA GRAMOS REAL ---')
+        for i, row in enumerate(ws.iter_rows(values_only=True)):
+            if any(v is not None for v in row):
+                print(f'    Fila {i}: {row[:8]}')
+            if i > 60:
+                print('    ...')
+                break
+        print('  --- FIN DEBUG ---')
+
         # Mapeo de nombres de línea como aparecen en el Excel -> nombres internos usados en GRAMOS_CERDA
         nombre_linea_map = {
             'CLASICA': 'Clasica', 'ECOLOGY': 'Ecology', '1200': 'Linea1200',
