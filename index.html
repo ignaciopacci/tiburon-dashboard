@@ -184,6 +184,29 @@ main{padding:16px;max-width:800px;margin:0 auto}
         <div class="card"><div class="card-label">Costos fijos</div><div class="card-value" id="m-costos">—</div></div>
         <div class="card"><div class="card-label">Resultado neto est.</div><div class="card-value" id="m-resultado">—</div></div>
       </div>
+      <div class="section-title" id="ajuste-cerda-title" style="display:none">Margen real ajustado (cerda)</div>
+      <div class="card" id="ajuste-cerda-card" style="display:none">
+        <div class="card-label">AJUSTE POR COSTO REAL DE CERDA</div>
+        <div style="display:flex;align-items:baseline;gap:10px;margin:6px 0">
+          <div class="card-value green" id="ac-ahorro" style="font-size:20px">—</div>
+          <div class="card-sub" id="ac-mes">—</div>
+        </div>
+        <div class="card-sub" style="margin-top:8px;line-height:1.6">
+          El costo de cerda en el sistema incluye un colchón de seguridad por la volatilidad del dólar.
+          Este es el resultado neto del mes usando el costo real de la última importación.
+        </div>
+        <div class="grid-2" style="margin-top:14px">
+          <div>
+            <div class="card-label" style="margin-bottom:4px">Resultado oficial</div>
+            <div class="card-value sm" id="ac-oficial">—</div>
+          </div>
+          <div>
+            <div class="card-label" style="margin-bottom:4px">Resultado real estimado</div>
+            <div class="card-value sm green" id="ac-real">—</div>
+          </div>
+        </div>
+        <div id="ac-detalle" style="margin-top:14px"></div>
+      </div>
       <div class="section-title">Punto de equilibrio</div>
       <div class="pe-card">
         <div class="card-label">AVANCE AL PE</div>
@@ -332,6 +355,13 @@ async function init(){
     document.getElementById('loading').style.display='none';
     document.getElementById('error-state').style.display='flex';
   }
+  // Ajuste de cerda — opcional, no bloquea la carga principal si falla
+  try{
+    state.ajusteCerda=await fetchJSON('ajuste_cerda_mes_actual.json');
+  }catch(e){
+    state.ajusteCerda=null;
+  }
+  renderAjusteCerda();
 }
 function clasificar(n){
   n=(n||'').toLowerCase();
@@ -464,6 +494,8 @@ function renderMes(){
   document.getElementById('m-gan').textContent=fmt(gan);
   document.getElementById('m-costos').textContent=fmt(costosFijos);
   const rEl=document.getElementById('m-resultado');rEl.textContent=fmt(res);rEl.className='card-value '+(res>=0?'green':'red');
+  state.resultadoOficialMes=res;
+  renderAjusteCerda();
   const pePct=costosFijos?Math.min(gan/costosFijos*100,150):0;
   const fill=document.getElementById('pe-fill');
   setTimeout(()=>fill.style.width=Math.min(pePct,100)+'%',100);
@@ -480,6 +512,45 @@ function renderMes(){
   const rows=Object.entries(f).map(([n,v])=>{const g=v.f-v.c,m=v.f?g/v.f*100:0;return`<tr><td>${n}</td><td class="r">${num(v.u)}</td><td class="r y">${fmt(v.f)}</td><td class="r">${fmt(v.c)}</td><td class="r g">${fmt(g)}</td><td class="r"><span class="badge ${m>=50?'h':m>=35?'m':'l'}">${pct(m)}</span></td></tr>`;});
   rows.push(`<tr class="total-row"><td>TOTAL</td><td class="r">${num(totU)}</td><td class="r">${fmt(totF)}</td><td class="r">${fmt(totC)}</td><td class="r">${fmt(gan)}</td><td class="r"><span class="badge ${mg*100>=50?'h':mg*100>=35?'m':'l'}">${pct(mg*100)}</span></td></tr>`);
   document.getElementById('m-tabla').innerHTML=rows.join('');
+}
+
+function renderAjusteCerda(){
+  const ac=state.ajusteCerda;
+  const titleEl=document.getElementById('ajuste-cerda-title');
+  const cardEl=document.getElementById('ajuste-cerda-card');
+  if(!ac||!ac.ahorroTotal||state.resultadoOficialMes===undefined){
+    titleEl.style.display='none';
+    cardEl.style.display='none';
+    return;
+  }
+  titleEl.style.display='block';
+  cardEl.style.display='block';
+
+  const ahorro=ac.ahorroTotal;
+  const resultadoOficial=state.resultadoOficialMes;
+  const resultadoReal=resultadoOficial+ahorro;
+
+  document.getElementById('ac-ahorro').textContent='+'+fmtARS(ahorro);
+  document.getElementById('ac-mes').textContent=ac.mes?`Acumulado de ${ac.mes}`:'';
+
+  const ofEl=document.getElementById('ac-oficial');
+  ofEl.textContent=fmtARS(resultadoOficial);
+  ofEl.className='card-value sm '+(resultadoOficial>=0?'green':'red');
+
+  const reEl=document.getElementById('ac-real');
+  reEl.textContent=fmtARS(resultadoReal);
+  reEl.className='card-value sm '+(resultadoReal>=0?'green':'red');
+
+  const detalle=ac.detallePorLinea||{};
+  const filas=Object.entries(detalle).map(([linea,info])=>`
+    <div class="hist-bar-row">
+      <div class="hist-bar-label">${linea}</div>
+      <div class="hist-bar-track"><div class="hist-bar-fill" style="width:60%;background:var(--acc2)"></div></div>
+      <div class="hist-bar-val" style="color:var(--acc2)">+${fmtARS(info.ahorro)}</div>
+    </div>`).join('');
+  document.getElementById('ac-detalle').innerHTML=filas
+    ? `<div class="card-label" style="margin-bottom:8px">Detalle por línea</div>${filas}`
+    : '';
 }
 
 function renderConsolidado(){
