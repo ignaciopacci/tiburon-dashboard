@@ -435,13 +435,15 @@ def leer_precios_reales_cerda():
     # Mapeo de texto de sección -> nombres internos (puede haber varias líneas por sección)
     SECCIONES = {
         'LINEA PROFESIONAL': ['Profesional'],
-        'LINEA EXTRA PROFESIONAL': ['Extra Profesional'],
-        'LINEA BACOTA': ['Bacota'],
+        'EXTRA PROFESIONAL': ['Extra Profesional'],
+        'BACOTA': ['Bacota'],
         'LINEA CLASICO': ['Clasica', 'Ecology'],
         'LINEA CLASICA': ['Clasica', 'Ecology'],
         'LINEA ECOLOGY': ['Ecology'],
         'LINEA 1200': ['Linea1200'],
+        '1200': ['Linea1200'],
         'LINEA 2400': ['Linea2400'],
+        '2400': ['Linea2400'],
         'LINEA REMOX': ['Remox'],
     }
 
@@ -463,12 +465,22 @@ def leer_precios_reales_cerda():
             primera_raw = row[0]
             primera = str(primera_raw).strip().upper() if primera_raw else ''
 
-            # ¿Es un header de sección?
+            # ¿Es un header de sección? Coincidencia flexible pero exigiendo que sea
+            # básicamente el contenido completo de la celda (no un número suelto en una tabla)
             seccion_detectada = None
-            for clave, _nombres in SECCIONES.items():
-                if clave in primera:
-                    seccion_detectada = clave
-                    break
+            if primera and len(primera) < 40:
+                for clave, _nombres in SECCIONES.items():
+                    if clave in primera:
+                        # Para claves puramente numéricas (1200, 2400) exigir que la celda
+                        # sea exactamente ese número o "LINEA 1200" / "LINEA 2400" para evitar
+                        # falsos positivos con celdas de tabla (gramos, años, etc.)
+                        if clave in ('1200', '2400'):
+                            if primera in (clave, f'LINEA {clave}', f'LÍNEA {clave}'):
+                                seccion_detectada = clave
+                                break
+                        else:
+                            seccion_detectada = clave
+                            break
             if seccion_detectada:
                 seccion_actual = seccion_detectada
                 primer_precio_de_seccion = None
