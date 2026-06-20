@@ -440,10 +440,9 @@ def leer_precios_reales_cerda():
         'LINEA CLASICO': ['Clasica', 'Ecology'],
         'LINEA CLASICA': ['Clasica', 'Ecology'],
         'LINEA ECOLOGY': ['Ecology'],
+        'LINEA 1200 Y 2400': ['Linea1200', 'Linea2400'],
         'LINEA 1200': ['Linea1200'],
-        '1200': ['Linea1200'],
         'LINEA 2400': ['Linea2400'],
-        '2400': ['Linea2400'],
         'LINEA REMOX': ['Remox'],
     }
 
@@ -465,22 +464,14 @@ def leer_precios_reales_cerda():
             primera_raw = row[0]
             primera = str(primera_raw).strip().upper() if primera_raw else ''
 
-            # ¿Es un header de sección? Coincidencia flexible pero exigiendo que sea
-            # básicamente el contenido completo de la celda (no un número suelto en una tabla)
+            # ¿Es un header de sección? Coincidencia por substring, evaluando claves
+            # más largas primero para que "LINEA 1200 Y 2400" no sea capturado por "LINEA 1200"
             seccion_detectada = None
             if primera and len(primera) < 40:
-                for clave, _nombres in SECCIONES.items():
+                for clave, _nombres in sorted(SECCIONES.items(), key=lambda x: -len(x[0])):
                     if clave in primera:
-                        # Para claves puramente numéricas (1200, 2400) exigir que la celda
-                        # sea exactamente ese número o "LINEA 1200" / "LINEA 2400" para evitar
-                        # falsos positivos con celdas de tabla (gramos, años, etc.)
-                        if clave in ('1200', '2400'):
-                            if primera in (clave, f'LINEA {clave}', f'LÍNEA {clave}'):
-                                seccion_detectada = clave
-                                break
-                        else:
-                            seccion_detectada = clave
-                            break
+                        seccion_detectada = clave
+                        break
             if seccion_detectada:
                 seccion_actual = seccion_detectada
                 primer_precio_de_seccion = None
