@@ -270,6 +270,8 @@ def calcular_ajuste_cerda(ventas_pinceles, precios_reales_cerda, dolar_real):
     ventas_pinceles: lista de {'articulo':, 'cantidad':}
     precios_reales_cerda: dict {linea: precio_usd_kg_real}
     dolar_real: dólar billete actual a usar para valorizar el ahorro
+    Nota: Remox usa cerda nacional (cerda vaca) sin colchón aplicado — su costo
+    registrado ya es el real, por lo que no participa de este ajuste.
     """
     kg_por_linea = {}
     for item in ventas_pinceles:
@@ -285,8 +287,10 @@ def calcular_ajuste_cerda(ventas_pinceles, precios_reales_cerda, dolar_real):
     ahorro_total = 0
     detalle = {}
     for linea, kg in kg_por_linea.items():
+        if linea == 'Remox':
+            continue  # sin colchón, no aplica ajuste
         precio_colchon = PRECIO_CERDA_COLCHON.get(linea)
-        precio_real = precios_reales_cerda.get(linea)
+        precio_real = precios_reales_cerda.get(linea) if precios_reales_cerda else None
         if precio_colchon and precio_real and kg > 0:
             diff = precio_colchon - precio_real
             ahorro = kg * diff * FACTOR_GASTOS_IMPORT * DOLAR_COLCHON_EXCEL
@@ -297,6 +301,7 @@ def calcular_ajuste_cerda(ventas_pinceles, precios_reales_cerda, dolar_real):
                 'precioReal': precio_real,
                 'ahorro': round(ahorro, 0)
             }
+
     return round(ahorro_total, 0), detalle
 
 def generar_json(datos, empresa_nombre):
@@ -420,70 +425,91 @@ def descargar_excel_drive(file_id, scopes=None):
 
 def leer_precios_reales_cerda():
     """
-    Lee la hoja 'PRECIO CERDA GRAMOS REAL' del Excel de costos de pinceles en Drive
-    (COSTO DE PINCELES NUEVO - ANALISIS 2021.xlsx).
-    Estructura esperada: filas con Línea + Precio/kilo (USD), repetido por cada medida
-    pero el precio es el mismo para toda la línea.
-    Devuelve: (precios_reales: dict, dolar_billete: float|None)
+    Lee la hoja 'PRECIO CERDA GRAMOS REAL' del Excel de costos de pinceles en Drive.
+    La hoja tiene múltiples secciones, una por línea (LINEA PROFESIONAL, LINEA CLASICO,
+    LINEA EXTRA PROFESIONAL, LINEA BACOTA, LINEA 1200, LINEA 2400, LINEA REMOX, etc.)
+    Cada sección tiene una tabla: Cerda(medida mm) | Descripcion | Precio/kilo | precio/gramo
+    EXCEPTO Remox, cuyo precio puede estar directo en PESOS (no USD) por ser cerda nacional.
+    Devuelve: (precios_reales: dict de USD/kg, dolar_billete: float, remox_precio_pesos: float|None)
     """
+    # Mapeo de texto de sección -> nombres internos (puede haber varias líneas por sección)
+    SECCIONES = {
+        'LINEA PROFESIONAL': ['Profesional'],
+        'LINEA EXTRA PROFESIONAL': ['Extra Profesional'],
+        'LINEA BACOTA': ['Bacota'],
+        'LINEA CLASICO': ['Clasica', 'Ecology'],
+        'LINEA CLASICA': ['Clasica', 'Ecology'],
+        'LINEA ECOLOGY': ['Ecology'],
+        'LINEA 1200': ['Linea1200'],
+        'LINEA 2400': ['Linea2400'],
+        'LINEA REMOX': ['Remox'],
+    }
+
     try:
         wb = descargar_excel_drive(COSTOS_CERDA_FILE_ID)
         if 'PRECIO CERDA GRAMOS REAL' not in wb.sheetnames:
             print('  ⚠ Hoja PRECIO CERDA GRAMOS REAL no encontrada')
-            return None, None
+            return None, None, None
         ws = wb['PRECIO CERDA GRAMOS REAL']
 
-        # DEBUG temporal — imprimir toda la hoja cruda
-        print('  --- DEBUG: contenido crudo de PRECIO CERDA GRAMOS REAL ---')
-        for i, row in enumerate(ws.iter_rows(values_only=True)):
-            if any(v is not None for v in row):
-                print(f'    Fila {i}: {row[:8]}')
-            if i > 60:
-                print('    ...')
-                break
-        print('  --- FIN DEBUG ---')
-
-        # Mapeo de nombres de línea como aparecen en el Excel -> nombres internos usados en GRAMOS_CERDA
-        nombre_linea_map = {
-            'CLASICA': 'Clasica', 'ECOLOGY': 'Ecology', '1200': 'Linea1200',
-            'PROFESIONAL': 'Profesional', 'EXTRA PROFESIONAL': 'Extra Profesional',
-            'BACOTA': 'Bacota', '2400': 'Linea2400', 'REMOX': 'Remox',
-        }
-
         precios_reales = {}
-        linea_actual = None
+        remox_precio_pesos = None
+        seccion_actual = None
+        primer_precio_de_seccion = None  # reset por cada nueva sección
+
         for row in ws.iter_rows(values_only=True):
             if not any(v is not None for v in row):
                 continue
-            primera = str(row[0]).strip().upper() if row[0] else ''
-            # Detectar encabezado de línea
-            for nombre_excel, nombre_interno in nombre_linea_map.items():
-                if nombre_excel in primera:
-                    linea_actual = nombre_interno
+            primera_raw = row[0]
+            primera = str(primera_raw).strip().upper() if primera_raw else ''
+
+            # ¿Es un header de sección?
+            seccion_detectada = None
+            for clave, _nombres in SECCIONES.items():
+                if clave in primera:
+                    seccion_detectada = clave
                     break
-            # Buscar el precio por kilo en la fila (columna B suele tener el precio/kilo)
-            if linea_actual:
-                for col_idx in range(1, min(len(row), 6)):
-                    v = row[col_idx]
-                    if isinstance(v, (int, float)) and 0.5 < v < 50:
-                        # Parece un precio USD/kg razonable
-                        if linea_actual not in precios_reales:
-                            precios_reales[linea_actual] = round(float(v), 2)
-                        break
+            if seccion_detectada:
+                seccion_actual = seccion_detectada
+                primer_precio_de_seccion = None
+                continue
+
+            if not seccion_actual:
+                continue
+
+            nombres_linea = SECCIONES[seccion_actual]
+
+            # Caso Remox: filas con código numérico (52, 53...) y precio en PESOS (>1000) en columna C
+            if seccion_actual == 'LINEA REMOX':
+                if isinstance(primera_raw, (int, float)) and remox_precio_pesos is None:
+                    precio_col = row[2] if len(row) > 2 else None
+                    if isinstance(precio_col, (int, float)) and precio_col > 1000:
+                        remox_precio_pesos = round(float(precio_col), 0)
+                continue
+
+            # Caso general: fila con medida en mm (ej '51mm') y precio/kilo en USD en columna C
+            if primera_raw and 'MM' in primera and primer_precio_de_seccion is None:
+                precio_kilo = row[2] if len(row) > 2 else None
+                if isinstance(precio_kilo, (int, float)) and 0.5 < precio_kilo < 50:
+                    primer_precio_de_seccion = round(float(precio_kilo), 2)
+                    for nombre in nombres_linea:
+                        if nombre not in precios_reales:
+                            precios_reales[nombre] = primer_precio_de_seccion
 
         if precios_reales:
-            print(f'  ✓ Precios reales cerda leídos: {precios_reales}')
+            print(f'  ✓ Precios reales cerda (USD/kg): {precios_reales}')
         else:
             print('  ⚠ No se pudieron extraer precios reales de la hoja')
+        if remox_precio_pesos:
+            print(f'  ✓ Precio real Remox (ARS/kg, cerda nacional): ${remox_precio_pesos:,.0f}')
 
-        # Dólar billete: no está en este Excel, se usa el de la API (bolsa/MEP del mes actual)
         dolar_info = get_dolar_mes(get_hora_arg().year, get_hora_arg().month)
         dolar_billete = dolar_info['valor']
 
-        return precios_reales if precios_reales else None, dolar_billete
+        return (precios_reales if precios_reales else None), dolar_billete, remox_precio_pesos
     except Exception as e:
         print(f'  ✗ Error leyendo PRECIO CERDA GRAMOS REAL: {e}')
-        return None, None
+        return None, None, None
 
 def leer_ganancias_drive():
     print('Leyendo Excel de ganancias desde Google Drive...')
@@ -725,7 +751,7 @@ def main():
     # Ajuste real de cerda
     try:
         print('Calculando ajuste real de cerda...')
-        precios_reales, dolar_billete = leer_precios_reales_cerda()
+        precios_reales, dolar_billete, remox_precio_real_pesos = leer_precios_reales_cerda()
         if precios_reales and ventas_pinceles_todas:
             ahorro_total, detalle = calcular_ajuste_cerda(ventas_pinceles_todas, precios_reales, dolar_billete)
             ajuste_cerda = {
