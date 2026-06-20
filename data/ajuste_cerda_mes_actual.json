@@ -1,7 +1,7 @@
 {
   "mes": "06/2026",
-  "fechaCalculo": "19/06/2026 21:08",
-  "ahorroTotal": 1743104.0,
+  "fechaCalculo": "19/06/2026 22:34",
+  "ahorroTotal": 1972492.0,
   "detallePorLinea": {
     "Clasica": {
       "kg": 64.58,
@@ -20,6 +20,18 @@
       "precioColchon": 6.64,
       "precioReal": 4.52,
       "ahorro": 171522.0
+    },
+    "Bacota": {
+      "kg": 14.93,
+      "precioColchon": 8.65,
+      "precioReal": 4.52,
+      "ahorro": 157227.0
+    },
+    "Extra Profesional": {
+      "kg": 6.85,
+      "precioColchon": 8.65,
+      "precioReal": 4.52,
+      "ahorro": 72162.0
     },
     "Profesional": {
       "kg": 37.77,
