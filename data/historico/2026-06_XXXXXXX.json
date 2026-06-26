@@ -1,18 +1,18 @@
 {
   "empresa": "XXXXXXX",
-  "fechaActualizacion": "26/06/2026 14:02",
+  "fechaActualizacion": "26/06/2026 15:07",
   "mes": "06/2026",
   "anio": 2026,
   "nroMes": 6,
-  "totalFac": 26627206.880000006,
-  "totalCosto": 12700464.930000002,
-  "ganancia": 13926741.950000005,
-  "margen": 52.3,
+  "totalFac": 28034829.970000006,
+  "totalCosto": 13428642.69,
+  "ganancia": 14606187.280000007,
+  "margen": 52.1,
   "rubros": {
     "Pinceles": {
-      "unidades": 14592.0,
-      "totalFac": 23845645.060000006,
-      "totalCosto": 10803418.200000001,
+      "unidades": 14832.0,
+      "totalFac": 24438131.05000001,
+      "totalCosto": 10983017.16,
       "articulos": [
         {
           "rubro": "Pinceles",
@@ -233,10 +233,10 @@
         {
           "rubro": "Pinceles",
           "articulo": "Pincel Ecology 10/2(PEC-8006)",
-          "cantidad": 72.0,
+          "cantidad": 120.0,
           "ultimoCosto": 397.64,
-          "totalCosto": 28630.08,
-          "totalFac": 100090.63
+          "totalCosto": 47716.8,
+          "totalFac": 166817.71
         },
         {
           "rubro": "Pinceles",
@@ -249,10 +249,10 @@
         {
           "rubro": "Pinceles",
           "articulo": "Pincel Ecology 15/2(PEC-8007)",
-          "cantidad": 240.0,
+          "cantidad": 312.0,
           "ultimoCosto": 650.23,
-          "totalCosto": 156055.2,
-          "totalFac": 315690.27
+          "totalCosto": 202871.76,
+          "totalFac": 479360.7
         },
         {
           "rubro": "Pinceles",
@@ -265,10 +265,10 @@
         {
           "rubro": "Pinceles",
           "articulo": "Pincel Ecology 20/2(PEC-8008)",
-          "cantidad": 240.0,
+          "cantidad": 312.0,
           "ultimoCosto": 757.12,
-          "totalCosto": 181708.8,
-          "totalFac": 366672.04
+          "totalCosto": 236221.44,
+          "totalFac": 557248.16
         },
         {
           "rubro": "Pinceles",
@@ -376,6 +376,14 @@
         },
         {
           "rubro": "Pinceles",
+          "articulo": "Pinceleta Nacional Gris 40/2 Membranera(PLP-5004)",
+          "cantidad": 48.0,
+          "ultimoCosto": 1232.98,
+          "totalCosto": 59183.04,
+          "totalFac": 171512.36
+        },
+        {
+          "rubro": "Pinceles",
           "articulo": "Pinceleta Sintetica 40/4(PLP-7000)",
           "cantidad": 96.0,
           "ultimoCosto": 4071.9,
@@ -385,9 +393,9 @@
       ]
     },
     "Accesorios": {
-      "unidades": 788.0,
-      "totalFac": 2781561.82,
-      "totalCosto": 1897046.7299999997,
+      "unidades": 998.0,
+      "totalFac": 3596698.92,
+      "totalCosto": 2445625.5299999993,
       "articulos": [
         {
           "rubro": "Accesorios",
@@ -456,10 +464,10 @@
         {
           "rubro": "Accesorios",
           "articulo": "Rodillo Mini Epoxi Nº 5(ROD-7006)",
-          "cantidad": 50.0,
+          "cantidad": 100.0,
           "ultimoCosto": 453.13,
-          "totalCosto": 22656.5,
-          "totalFac": 33304.95
+          "totalCosto": 45313.0,
+          "totalFac": 66609.9
         },
         {
           "rubro": "Accesorios",
@@ -495,6 +503,22 @@
         },
         {
           "rubro": "Accesorios",
+          "articulo": "Rodillos Lana Dorada Nº 17(ROD-7021)",
+          "cantidad": 60.0,
+          "ultimoCosto": 4435.78,
+          "totalCosto": 266146.8,
+          "totalFac": 395893.36
+        },
+        {
+          "rubro": "Accesorios",
+          "articulo": "Rodillos Lana Dorada Nº 22(ROD-7022)",
+          "cantidad": 50.0,
+          "ultimoCosto": 4650.18,
+          "totalCosto": 232509.0,
+          "totalFac": 345857.14
+        },
+        {
+          "rubro": "Accesorios",
           "articulo": "Rodillos Lana Economica Nº 17(ROD-7015)",
           "cantidad": 150.0,
           "ultimoCosto": 3208.78,
@@ -512,10 +536,10 @@
         {
           "rubro": "Accesorios",
           "articulo": "Rodillos Mini Epoxi Nº 8(ROD-7007)",
-          "cantidad": 118.0,
+          "cantidad": 168.0,
           "ultimoCosto": 545.33,
-          "totalCosto": 64348.94,
-          "totalFac": 93149.75
+          "totalCosto": 91615.44,
+          "totalFac": 133231.4
         },
         {
           "rubro": "Accesorios",
