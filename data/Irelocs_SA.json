@@ -1,18 +1,18 @@
 {
   "empresa": "Irelocs S.A.",
-  "fechaActualizacion": "26/06/2026 14:02",
+  "fechaActualizacion": "26/06/2026 15:06",
   "mes": "06/2026",
   "anio": 2026,
   "nroMes": 6,
-  "totalFac": 20767711.219999995,
-  "totalCosto": 9497320.67,
-  "ganancia": 11270390.549999995,
-  "margen": 54.3,
+  "totalFac": 21160373.65,
+  "totalCosto": 9653934.35,
+  "ganancia": 11506439.299999999,
+  "margen": 54.4,
   "rubros": {
     "Pinceles": {
-      "unidades": 9642.0,
-      "totalFac": 16803957.999999996,
-      "totalCosto": 6839472.839999999,
+      "unidades": 9786.0,
+      "totalFac": 17086720.15,
+      "totalCosto": 6940459.319999999,
       "articulos": [
         {
           "rubro": "Pinceles",
@@ -73,34 +73,34 @@
         {
           "rubro": "Pinceles",
           "articulo": "Pincel 1200 10/1(PIN-1201)",
-          "cantidad": 120.0,
+          "cantidad": 156.0,
           "ultimoCosto": 376.36,
-          "totalCosto": 45163.2,
-          "totalFac": 114294.09
+          "totalCosto": 58712.16,
+          "totalFac": 152231.18
         },
         {
           "rubro": "Pinceles",
           "articulo": "Pincel 1200 15/1(PIN-1202)",
-          "cantidad": 84.0,
+          "cantidad": 120.0,
           "ultimoCosto": 626.0,
-          "totalCosto": 52584.0,
-          "totalFac": 114592.2
+          "totalCosto": 75120.0,
+          "totalFac": 177693.0
         },
         {
           "rubro": "Pinceles",
           "articulo": "Pincel 1200 20/1(PIN-1203)",
-          "cantidad": 120.0,
+          "cantidad": 156.0,
           "ultimoCosto": 730.01,
-          "totalCosto": 87601.2,
-          "totalFac": 217521.8
+          "totalCosto": 113881.56,
+          "totalFac": 291106.81
         },
         {
           "rubro": "Pinceles",
           "articulo": "Pincel 1200 25/1(PIN-1204)",
-          "cantidad": 72.0,
+          "cantidad": 108.0,
           "ultimoCosto": 1072.81,
-          "totalCosto": 77242.32,
-          "totalFac": 181078.5
+          "totalCosto": 115863.48,
+          "totalFac": 289217.75
         },
         {
           "rubro": "Pinceles",
@@ -537,9 +537,9 @@
       ]
     },
     "Accesorios": {
-      "unidades": 1864.0,
-      "totalFac": 3963753.22,
-      "totalCosto": 2657847.8300000005,
+      "unidades": 1934.0,
+      "totalFac": 4073653.5000000005,
+      "totalCosto": 2713475.0300000003,
       "articulos": [
         {
           "rubro": "Accesorios",
@@ -644,6 +644,14 @@
           "ultimoCosto": 8614.61,
           "totalCosto": 17229.23,
           "totalFac": 21863.88
+        },
+        {
+          "rubro": "Accesorios",
+          "articulo": "Lijas Para Fr-750m 180 Gr X Diam 180(LIJAFR-750M-180)",
+          "cantidad": 50.0,
+          "ultimoCosto": 516.12,
+          "totalCosto": 25806.0,
+          "totalFac": 66063.2
         },
         {
           "rubro": "Accesorios",
@@ -772,6 +780,14 @@
           "ultimoCosto": 541.16,
           "totalCosto": 54116.0,
           "totalFac": 71595.09
+        },
+        {
+          "rubro": "Accesorios",
+          "articulo": "Rodillos Epoxi Nº 10(ROD-7026)",
+          "cantidad": 20.0,
+          "ultimoCosto": 1491.06,
+          "totalCosto": 29821.2,
+          "totalFac": 43837.08
         },
         {
           "rubro": "Accesorios",
