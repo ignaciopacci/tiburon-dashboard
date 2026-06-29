@@ -1,18 +1,18 @@
 {
   "empresa": "Irelocs S.A.",
-  "fechaActualizacion": "26/06/2026 17:43",
+  "fechaActualizacion": "29/06/2026 14:34",
   "mes": "06/2026",
   "anio": 2026,
   "nroMes": 6,
-  "totalFac": 21160373.65,
-  "totalCosto": 9653934.35,
-  "ganancia": 11506439.299999999,
-  "margen": 54.4,
+  "totalFac": 26139600.08,
+  "totalCosto": 12434838.59,
+  "ganancia": 13704761.489999998,
+  "margen": 52.4,
   "rubros": {
     "Pinceles": {
-      "unidades": 9786.0,
-      "totalFac": 17086720.15,
-      "totalCosto": 6940459.319999999,
+      "unidades": 12174.0,
+      "totalFac": 22034069.589999996,
+      "totalCosto": 9699678.36,
       "articulos": [
         {
           "rubro": "Pinceles",
@@ -257,10 +257,10 @@
         {
           "rubro": "Pinceles",
           "articulo": "Pincel Ecology 10/1(PEC-8000)",
-          "cantidad": 414.0,
+          "cantidad": 438.0,
           "ultimoCosto": 308.52,
-          "totalCosto": 127727.28,
-          "totalFac": 323129.86
+          "totalCosto": 135131.76,
+          "totalFac": 351266.86
         },
         {
           "rubro": "Pinceles",
@@ -273,10 +273,10 @@
         {
           "rubro": "Pinceles",
           "articulo": "Pincel Ecology 15/1(PEC-8001)",
-          "cantidad": 456.0,
+          "cantidad": 480.0,
           "ultimoCosto": 416.92,
-          "totalCosto": 190115.52,
-          "totalFac": 482848.2
+          "totalCosto": 200121.6,
+          "totalFac": 520871.28
         },
         {
           "rubro": "Pinceles",
@@ -289,10 +289,10 @@
         {
           "rubro": "Pinceles",
           "articulo": "Pincel Ecology 20/1(PEC-8002)",
-          "cantidad": 540.0,
+          "cantidad": 552.0,
           "ultimoCosto": 486.58,
-          "totalCosto": 262753.2,
-          "totalFac": 672082.68
+          "totalCosto": 268592.16,
+          "totalFac": 694270.68
         },
         {
           "rubro": "Pinceles",
@@ -337,34 +337,34 @@
         {
           "rubro": "Pinceles",
           "articulo": "Pincel Ecology 7/1(PEC-8005)",
-          "cantidad": 282.0,
+          "cantidad": 306.0,
           "ultimoCosto": 275.43,
-          "totalCosto": 77671.26,
-          "totalFac": 192730.9
+          "totalCosto": 84281.58,
+          "totalFac": 217850.02
         },
         {
           "rubro": "Pinceles",
           "articulo": "Pincel Extra Profesional 10/2(PLE-3000)",
-          "cantidad": 36.0,
+          "cantidad": 732.0,
           "ultimoCosto": 632.64,
-          "totalCosto": 22775.04,
-          "totalFac": 42535.44
+          "totalCosto": 463092.48,
+          "totalFac": 864887.28
         },
         {
           "rubro": "Pinceles",
           "articulo": "Pincel Extra Profesional 15/2(PLE-3001)",
-          "cantidad": 36.0,
+          "cantidad": 540.0,
           "ultimoCosto": 1051.1,
-          "totalCosto": 37839.6,
-          "totalFac": 67359.24
+          "totalCosto": 567594.0,
+          "totalFac": 1010388.6
         },
         {
           "rubro": "Pinceles",
           "articulo": "Pincel Extra Profesional 20/2(PLE-3002)",
-          "cantidad": 36.0,
+          "cantidad": 540.0,
           "ultimoCosto": 1330.89,
-          "totalCosto": 47912.04,
-          "totalFac": 85487.76
+          "totalCosto": 718680.6,
+          "totalFac": 1282316.4
         },
         {
           "rubro": "Pinceles",
@@ -377,10 +377,10 @@
         {
           "rubro": "Pinceles",
           "articulo": "Pincel Extra Profesional 25/2(PLE-3003)",
-          "cantidad": 36.0,
+          "cantidad": 396.0,
           "ultimoCosto": 1678.79,
-          "totalCosto": 60436.44,
-          "totalFac": 104411.16
+          "totalCosto": 664800.84,
+          "totalFac": 1148522.76
         },
         {
           "rubro": "Pinceles",
@@ -393,10 +393,10 @@
         {
           "rubro": "Pinceles",
           "articulo": "Pincel Extra Profesional 30/2(PLE-3004)",
-          "cantidad": 36.0,
+          "cantidad": 276.0,
           "ultimoCosto": 2017.31,
-          "totalCosto": 72623.16,
-          "totalFac": 124134.12
+          "totalCosto": 556777.56,
+          "totalFac": 951694.92
         },
         {
           "rubro": "Pinceles",
@@ -537,9 +537,9 @@
       ]
     },
     "Accesorios": {
-      "unidades": 1934.0,
-      "totalFac": 4073653.5000000005,
-      "totalCosto": 2713475.0300000003,
+      "unidades": 1982.0,
+      "totalFac": 4105530.4900000007,
+      "totalCosto": 2735160.2300000004,
       "articulos": [
         {
           "rubro": "Accesorios",
@@ -748,6 +748,22 @@
           "ultimoCosto": 453.13,
           "totalCosto": 72500.8,
           "totalFac": 103245.34
+        },
+        {
+          "rubro": "Accesorios",
+          "articulo": "Rodillo S/f Nº 5(ROD-7000)",
+          "cantidad": 24.0,
+          "ultimoCosto": 423.79,
+          "totalCosto": 10170.96,
+          "totalFac": 14951.16
+        },
+        {
+          "rubro": "Accesorios",
+          "articulo": "Rodillo S/f Nº 8(ROD-7001)",
+          "cantidad": 24.0,
+          "ultimoCosto": 479.76,
+          "totalCosto": 11514.24,
+          "totalFac": 16925.83
         },
         {
           "rubro": "Accesorios",
