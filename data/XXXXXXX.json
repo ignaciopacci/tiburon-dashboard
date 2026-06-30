@@ -1,18 +1,18 @@
 {
   "empresa": "XXXXXXX",
-  "fechaActualizacion": "30/06/2026 14:08",
+  "fechaActualizacion": "30/06/2026 15:19",
   "mes": "06/2026",
   "anio": 2026,
   "nroMes": 6,
-  "totalFac": 30326414.970000003,
-  "totalCosto": 14482259.07,
-  "ganancia": 15844155.900000002,
-  "margen": 52.2,
+  "totalFac": 31026281.400000006,
+  "totalCosto": 14770033.349999998,
+  "ganancia": 16256248.050000008,
+  "margen": 52.4,
   "rubros": {
     "Pinceles": {
-      "unidades": 15246.0,
-      "totalFac": 26521275.78,
-      "totalCosto": 11896503.84,
+      "unidades": 15660.0,
+      "totalFac": 27221142.210000005,
+      "totalCosto": 12184278.12,
       "articulos": [
         {
           "rubro": "Pinceles",
@@ -145,10 +145,10 @@
         {
           "rubro": "Pinceles",
           "articulo": "Pincel Clasico 15/1(PEC-1002)",
-          "cantidad": 300.0,
+          "cantidad": 420.0,
           "ultimoCosto": 498.68,
-          "totalCosto": 149604.0,
-          "totalFac": 415000.61
+          "totalCosto": 209445.6,
+          "totalFac": 560535.07
         },
         {
           "rubro": "Pinceles",
@@ -161,10 +161,10 @@
         {
           "rubro": "Pinceles",
           "articulo": "Pincel Clasico 20/1(PEC-1003)",
-          "cantidad": 300.0,
+          "cantidad": 360.0,
           "ultimoCosto": 576.47,
-          "totalCosto": 172941.0,
-          "totalFac": 479738.11
+          "totalCosto": 207529.2,
+          "totalFac": 563856.57
         },
         {
           "rubro": "Pinceles",
@@ -177,10 +177,10 @@
         {
           "rubro": "Pinceles",
           "articulo": "Pincel Clasico 25/1(PEC-1004)",
-          "cantidad": 288.0,
+          "cantidad": 468.0,
           "ultimoCosto": 771.64,
-          "totalCosto": 222232.32,
-          "totalFac": 614008.96
+          "totalCosto": 361127.52,
+          "totalFac": 951801.86
         },
         {
           "rubro": "Pinceles",
@@ -193,10 +193,10 @@
         {
           "rubro": "Pinceles",
           "articulo": "Pincel Clasico 30/1(PEC-1005)",
-          "cantidad": 144.0,
+          "cantidad": 198.0,
           "ultimoCosto": 1008.32,
-          "totalCosto": 145198.08,
-          "totalFac": 398871.12
+          "totalCosto": 199647.36,
+          "totalFac": 531291.73
         },
         {
           "rubro": "Pinceles",
