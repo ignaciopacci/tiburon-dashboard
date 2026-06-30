@@ -1,18 +1,18 @@
 {
   "empresa": "Irelocs S.A.",
-  "fechaActualizacion": "29/06/2026 19:09",
+  "fechaActualizacion": "30/06/2026 14:07",
   "mes": "06/2026",
   "anio": 2026,
   "nroMes": 6,
-  "totalFac": 26385915.08,
-  "totalCosto": 12585470.59,
-  "ganancia": 13800444.489999998,
-  "margen": 52.3,
+  "totalFac": 27318775.76,
+  "totalCosto": 13075105.370000001,
+  "ganancia": 14243670.39,
+  "margen": 52.1,
   "rubros": {
     "Pinceles": {
-      "unidades": 12174.0,
-      "totalFac": 22034069.589999996,
-      "totalCosto": 9699678.36,
+      "unidades": 12360.0,
+      "totalFac": 22540502.540000003,
+      "totalCosto": 9902342.16,
       "articulos": [
         {
           "rubro": "Pinceles",
@@ -257,10 +257,10 @@
         {
           "rubro": "Pinceles",
           "articulo": "Pincel Ecology 10/1(PEC-8000)",
-          "cantidad": 438.0,
+          "cantidad": 450.0,
           "ultimoCosto": 308.52,
-          "totalCosto": 135131.76,
-          "totalFac": 351266.86
+          "totalCosto": 138834.0,
+          "totalFac": 362521.66
         },
         {
           "rubro": "Pinceles",
@@ -273,10 +273,10 @@
         {
           "rubro": "Pinceles",
           "articulo": "Pincel Ecology 15/1(PEC-8001)",
-          "cantidad": 480.0,
+          "cantidad": 504.0,
           "ultimoCosto": 416.92,
-          "totalCosto": 200121.6,
-          "totalFac": 520871.28
+          "totalCosto": 210127.68,
+          "totalFac": 551289.74
         },
         {
           "rubro": "Pinceles",
@@ -289,10 +289,10 @@
         {
           "rubro": "Pinceles",
           "articulo": "Pincel Ecology 20/1(PEC-8002)",
-          "cantidad": 552.0,
+          "cantidad": 576.0,
           "ultimoCosto": 486.58,
-          "totalCosto": 268592.16,
-          "totalFac": 694270.68
+          "totalCosto": 280270.08,
+          "totalFac": 729771.48
         },
         {
           "rubro": "Pinceles",
@@ -305,10 +305,10 @@
         {
           "rubro": "Pinceles",
           "articulo": "Pincel Ecology 25/1(PEC-8003)",
-          "cantidad": 354.0,
+          "cantidad": 402.0,
           "ultimoCosto": 672.54,
-          "totalCosto": 238079.16,
-          "totalFac": 620033.19
+          "totalCosto": 270361.08,
+          "totalFac": 718170.15
         },
         {
           "rubro": "Pinceles",
@@ -321,10 +321,10 @@
         {
           "rubro": "Pinceles",
           "articulo": "Pincel Ecology 30/1(PEC-8004)",
-          "cantidad": 294.0,
+          "cantidad": 318.0,
           "ultimoCosto": 791.11,
-          "totalCosto": 232586.34,
-          "totalFac": 595878.49
+          "totalCosto": 251572.98,
+          "totalFac": 653597.82
         },
         {
           "rubro": "Pinceles",
@@ -513,18 +513,18 @@
         {
           "rubro": "Pinceles",
           "articulo": "Pinceleta Nacional 40/4(PLP-5002)",
-          "cantidad": 18.0,
+          "cantidad": 42.0,
           "ultimoCosto": 2333.5,
-          "totalCosto": 42003.0,
-          "totalFac": 105847.56
+          "totalCosto": 98007.0,
+          "totalFac": 202837.56
         },
         {
           "rubro": "Pinceles",
           "articulo": "Pinceleta Nacional Gris 40/4(PLP-5000)",
-          "cantidad": 12.0,
+          "cantidad": 42.0,
           "ultimoCosto": 2333.5,
-          "totalCosto": 28002.0,
-          "totalFac": 61744.41
+          "totalCosto": 98007.0,
+          "totalFac": 238157.01
         },
         {
           "rubro": "Pinceles",
@@ -537,9 +537,9 @@
       ]
     },
     "Accesorios": {
-      "unidades": 1983.0,
-      "totalFac": 4351845.49,
-      "totalCosto": 2885792.2300000004,
+      "unidades": 2157.0,
+      "totalFac": 4778273.219999999,
+      "totalCosto": 3172763.2100000004,
       "articulos": [
         {
           "rubro": "Accesorios",
@@ -568,10 +568,10 @@
         {
           "rubro": "Accesorios",
           "articulo": "Bandeja Plana Grande(BPG)",
-          "cantidad": 37.0,
+          "cantidad": 61.0,
           "ultimoCosto": 758.27,
-          "totalCosto": 28055.99,
-          "totalFac": 42356.88
+          "totalCosto": 46254.47,
+          "totalFac": 70018.51
         },
         {
           "rubro": "Accesorios",
@@ -824,10 +824,10 @@
         {
           "rubro": "Accesorios",
           "articulo": "Rodillos Laba Blanca Nº 22(ROD-7018)",
-          "cantidad": 108.0,
+          "cantidad": 158.0,
           "ultimoCosto": 4195.13,
-          "totalCosto": 453074.04,
-          "totalFac": 679086.34
+          "totalCosto": 662830.54,
+          "totalFac": 991099.34
         },
         {
           "rubro": "Accesorios",
@@ -896,18 +896,18 @@
         {
           "rubro": "Accesorios",
           "articulo": "Rodillos Mini Thinner Nº 11(ROD-7025)",
-          "cantidad": 110.0,
+          "cantidad": 160.0,
           "ultimoCosto": 651.46,
-          "totalCosto": 71660.6,
-          "totalFac": 95764.2
+          "totalCosto": 104233.6,
+          "totalFac": 143646.3
         },
         {
           "rubro": "Accesorios",
           "articulo": "Rodillos Mini Thinner Nº 5(ROD-7023)",
-          "cantidad": 110.0,
+          "cantidad": 160.0,
           "ultimoCosto": 528.86,
-          "totalCosto": 58174.6,
-          "totalFac": 77742.0
+          "totalCosto": 84617.6,
+          "totalFac": 116613.0
         },
         {
           "rubro": "Accesorios",
