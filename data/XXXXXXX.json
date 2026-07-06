@@ -1,13 +1,13 @@
 {
   "empresa": "XXXXXXX",
-  "fechaActualizacion": "03/07/2026 17:12",
+  "fechaActualizacion": "06/07/2026 14:46",
   "mes": "07/2026",
   "anio": 2026,
   "nroMes": 7,
-  "totalFac": 75217.20999999999,
-  "totalCosto": 28277.16,
-  "ganancia": 46940.04999999999,
-  "margen": 62.4,
+  "totalFac": 219763.6,
+  "totalCosto": 136870.96,
+  "ganancia": 82892.64000000001,
+  "margen": 37.7,
   "rubros": {
     "Pinceles": {
       "unidades": 36.0,
@@ -37,6 +37,29 @@
           "ultimoCosto": 1008.32,
           "totalCosto": 12099.84,
           "totalFac": 32185.57
+        }
+      ]
+    },
+    "Accesorios": {
+      "unidades": 50.0,
+      "totalFac": 144546.39,
+      "totalCosto": 108593.8,
+      "articulos": [
+        {
+          "rubro": "Accesorios",
+          "articulo": "Cobertor Multiuso Eco Banco 3 X 3(COB-3ECO)",
+          "cantidad": 10.0,
+          "ultimoCosto": 1623.78,
+          "totalCosto": 16237.8,
+          "totalFac": 22359.4
+        },
+        {
+          "rubro": "Accesorios",
+          "articulo": "Rodillos Antigota Nº 17(ROD-7031)",
+          "cantidad": 40.0,
+          "ultimoCosto": 2308.9,
+          "totalCosto": 92356.0,
+          "totalFac": 122186.99
         }
       ]
     }
