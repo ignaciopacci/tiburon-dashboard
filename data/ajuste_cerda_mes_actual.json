@@ -1,7 +1,7 @@
 {
   "mes": "07/2026",
-  "fechaCalculo": "08/07/2026 13:41",
-  "ahorroTotal": 8342.0,
+  "fechaCalculo": "08/07/2026 17:17",
+  "ahorroTotal": 146347.0,
   "detallePorLinea": {
     "Clasica": {
       "kg": 0.52,
@@ -14,6 +14,12 @@
       "precioColchon": 6.64,
       "precioReal": 3.47,
       "ahorro": 4171.0
+    },
+    "Profesional": {
+      "kg": 13.1,
+      "precioColchon": 8.65,
+      "precioReal": 4.52,
+      "ahorro": 138005.0
     }
   },
   "dolarBilleteUsado": null
