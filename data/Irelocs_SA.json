@@ -1,12 +1,51 @@
 {
   "empresa": "Irelocs S.A.",
-  "fechaActualizacion": "07/07/2026 17:47",
+  "fechaActualizacion": "08/07/2026 13:41",
   "mes": "07/2026",
   "anio": 2026,
   "nroMes": 7,
-  "totalFac": 0,
-  "totalCosto": 0,
-  "ganancia": 0,
-  "margen": 0,
-  "rubros": {}
+  "totalFac": 441393.38,
+  "totalCosto": 257136.85,
+  "ganancia": 184256.53,
+  "margen": 41.7,
+  "rubros": {
+    "Pinceles": {
+      "unidades": 24.0,
+      "totalFac": 205223.76,
+      "totalCosto": 97725.6,
+      "articulos": [
+        {
+          "rubro": "Pinceles",
+          "articulo": "Pinceleta Sintetica 40/4(PLP-7000)",
+          "cantidad": 24.0,
+          "ultimoCosto": 4071.9,
+          "totalCosto": 97725.6,
+          "totalFac": 205223.76
+        }
+      ]
+    },
+    "Accesorios": {
+      "unidades": 125.0,
+      "totalFac": 236169.62,
+      "totalCosto": 159411.25,
+      "articulos": [
+        {
+          "rubro": "Accesorios",
+          "articulo": "Rodillos Laba Blanca Nº 22(ROD-7018)",
+          "cantidad": 25.0,
+          "ultimoCosto": 4195.13,
+          "totalCosto": 104878.25,
+          "totalFac": 156006.32
+        },
+        {
+          "rubro": "Accesorios",
+          "articulo": "Rodillos Mini Epoxi Nº 8(ROD-7007)",
+          "cantidad": 100.0,
+          "ultimoCosto": 545.33,
+          "totalCosto": 54533.0,
+          "totalFac": 80163.3
+        }
+      ]
+    }
+  }
 }
