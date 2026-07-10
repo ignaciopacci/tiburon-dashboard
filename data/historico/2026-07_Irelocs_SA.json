@@ -1,13 +1,13 @@
 {
   "empresa": "Irelocs S.A.",
-  "fechaActualizacion": "09/07/2026 14:23",
+  "fechaActualizacion": "10/07/2026 13:57",
   "mes": "07/2026",
   "anio": 2026,
   "nroMes": 7,
-  "totalFac": 441393.38,
-  "totalCosto": 257136.85,
-  "ganancia": 184256.53,
-  "margen": 41.7,
+  "totalFac": 440557.34,
+  "totalCosto": 256519.79,
+  "ganancia": 184037.55000000002,
+  "margen": 41.8,
   "rubros": {
     "Pinceles": {
       "unidades": 24.0,
@@ -26,9 +26,17 @@
     },
     "Accesorios": {
       "unidades": 125.0,
-      "totalFac": 236169.62,
-      "totalCosto": 159411.25,
+      "totalFac": 235333.58000000002,
+      "totalCosto": 158794.19,
       "articulos": [
+        {
+          "rubro": "Accesorios",
+          "articulo": "Espatula Plast Con Mango Mediana(ESPCM03)",
+          "cantidad": 2.0,
+          "ultimoCosto": 236.8,
+          "totalCosto": 473.6,
+          "totalFac": 767.23
+        },
         {
           "rubro": "Accesorios",
           "articulo": "Rodillos Laba Blanca Nº 22(ROD-7018)",
@@ -40,10 +48,10 @@
         {
           "rubro": "Accesorios",
           "articulo": "Rodillos Mini Epoxi Nº 8(ROD-7007)",
-          "cantidad": 100.0,
+          "cantidad": 98.0,
           "ultimoCosto": 545.33,
-          "totalCosto": 54533.0,
-          "totalFac": 80163.3
+          "totalCosto": 53442.34,
+          "totalFac": 78560.03
         }
       ]
     }
