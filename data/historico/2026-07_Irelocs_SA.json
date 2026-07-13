@@ -1,19 +1,35 @@
 {
   "empresa": "Irelocs S.A.",
-  "fechaActualizacion": "10/07/2026 17:19",
+  "fechaActualizacion": "13/07/2026 14:13",
   "mes": "07/2026",
   "anio": 2026,
   "nroMes": 7,
-  "totalFac": 440557.34,
-  "totalCosto": 256519.79,
-  "ganancia": 184037.55000000002,
-  "margen": 41.8,
+  "totalFac": 721589.8400000001,
+  "totalCosto": 372075.95,
+  "ganancia": 349513.8900000001,
+  "margen": 48.4,
   "rubros": {
     "Pinceles": {
-      "unidades": 24.0,
-      "totalFac": 205223.76,
-      "totalCosto": 97725.6,
+      "unidades": 102.0,
+      "totalFac": 486256.26,
+      "totalCosto": 213281.76,
       "articulos": [
+        {
+          "rubro": "Pinceles",
+          "articulo": "Pincel Clasico 30/1(PEC-1005)",
+          "cantidad": 18.0,
+          "ultimoCosto": 1008.32,
+          "totalCosto": 18149.76,
+          "totalFac": 44140.21
+        },
+        {
+          "rubro": "Pinceles",
+          "articulo": "Pincel Profesional 30/2(PLT-2011)",
+          "cantidad": 60.0,
+          "ultimoCosto": 1623.44,
+          "totalCosto": 97406.4,
+          "totalFac": 236892.29
+        },
         {
           "rubro": "Pinceles",
           "articulo": "Pinceleta Sintetica 40/4(PLP-7000)",
