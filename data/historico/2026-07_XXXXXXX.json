@@ -1,18 +1,18 @@
 {
   "empresa": "XXXXXXX",
-  "fechaActualizacion": "10/07/2026 17:19",
+  "fechaActualizacion": "13/07/2026 14:14",
   "mes": "07/2026",
   "anio": 2026,
   "nroMes": 7,
-  "totalFac": 1537778.29,
-  "totalCosto": 1022063.3200000001,
-  "ganancia": 515714.97,
-  "margen": 33.5,
+  "totalFac": 1818810.79,
+  "totalCosto": 1137619.48,
+  "ganancia": 681191.31,
+  "margen": 37.5,
   "rubros": {
     "Pinceles": {
-      "unidades": 942.0,
-      "totalFac": 1393231.9,
-      "totalCosto": 913469.52,
+      "unidades": 1020.0,
+      "totalFac": 1674264.4,
+      "totalCosto": 1029025.68,
       "articulos": [
         {
           "rubro": "Pinceles",
@@ -33,10 +33,10 @@
         {
           "rubro": "Pinceles",
           "articulo": "Pincel Clasico 30/1(PEC-1005)",
-          "cantidad": 12.0,
+          "cantidad": 30.0,
           "ultimoCosto": 1008.32,
-          "totalCosto": 12099.84,
-          "totalFac": 32185.57
+          "totalCosto": 30249.6,
+          "totalFac": 76325.78
         },
         {
           "rubro": "Pinceles",
@@ -101,6 +101,14 @@
           "ultimoCosto": 1225.21,
           "totalCosto": 294050.4,
           "totalFac": 394507.2
+        },
+        {
+          "rubro": "Pinceles",
+          "articulo": "Pincel Profesional 30/2(PLT-2011)",
+          "cantidad": 60.0,
+          "ultimoCosto": 1623.44,
+          "totalCosto": 97406.4,
+          "totalFac": 236892.29
         },
         {
           "rubro": "Pinceles",
