@@ -15,12 +15,12 @@
       "gananciaBrutaUsd": 119987.0,
       "gastosUsd": 87027.0,
       "gananciaLimpiaUsd": 32960.0,
-      "factorInflacion": 19.8942,
-      "ventasConstante": 754069766.0,
-      "costoConstante": 296496917.0,
-      "gananciaBrutaConstante": 457572848.0,
-      "gastosConstante": 331879755.0,
-      "gananciaLimpiaConstante": 125693093.0
+      "factorInflacion": 20.2722,
+      "ventasConstante": 768397091.0,
+      "costoConstante": 302130359.0,
+      "gananciaBrutaConstante": 466266732.0,
+      "gastosConstante": 338185470.0,
+      "gananciaLimpiaConstante": 128081262.0
     },
     "2022": {
       "anio": 2022,
@@ -37,12 +37,12 @@
       "gananciaBrutaUsd": 121999.0,
       "gastosUsd": 89773.0,
       "gananciaLimpiaUsd": 32226.0,
-      "factorInflacion": 10.215,
-      "ventasConstante": 682260436.0,
-      "costoConstante": 283345555.0,
-      "gananciaBrutaConstante": 398914881.0,
-      "gastosConstante": 293540073.0,
-      "gananciaLimpiaConstante": 105374808.0
+      "factorInflacion": 10.4091,
+      "ventasConstante": 695223384.0,
+      "costoConstante": 288729120.0,
+      "gananciaBrutaConstante": 406494264.0,
+      "gastosConstante": 299117334.0,
+      "gananciaLimpiaConstante": 107376930.0
     },
     "2023": {
       "anio": 2023,
@@ -59,12 +59,12 @@
       "gananciaBrutaUsd": 81510.0,
       "gastosUsd": 61045.0,
       "gananciaLimpiaUsd": 20465.0,
-      "factorInflacion": 3.2825,
-      "ventasConstante": 457520808.0,
-      "costoConstante": 189325581.0,
-      "gananciaBrutaConstante": 268195227.0,
-      "gastosConstante": 200858620.0,
-      "gananciaLimpiaConstante": 67336607.0
+      "factorInflacion": 3.3448,
+      "ventasConstante": 466213703.0,
+      "costoConstante": 192922767.0,
+      "gananciaBrutaConstante": 273290936.0,
+      "gastosConstante": 204674934.0,
+      "gananciaLimpiaConstante": 68616003.0
     },
     "2024": {
       "anio": 2024,
@@ -81,12 +81,12 @@
       "gananciaBrutaUsd": 206348.0,
       "gastosUsd": 162439.0,
       "gananciaLimpiaUsd": 43909.0,
-      "factorInflacion": 1.5079,
-      "ventasConstante": 622064560.0,
-      "costoConstante": 287388587.0,
-      "gananciaBrutaConstante": 334675972.0,
-      "gastosConstante": 263459505.0,
-      "gananciaLimpiaConstante": 71216468.0
+      "factorInflacion": 1.5366,
+      "ventasConstante": 633883786.0,
+      "costoConstante": 292848970.0,
+      "gananciaBrutaConstante": 341034816.0,
+      "gastosConstante": 268465235.0,
+      "gananciaLimpiaConstante": 72569581.0
     },
     "2025": {
       "anio": 2025,
@@ -103,12 +103,12 @@
       "gananciaBrutaUsd": 190753.0,
       "gastosUsd": 159662.0,
       "gananciaLimpiaUsd": 31091.0,
-      "factorInflacion": 1.1469,
-      "ventasConstante": 608770403.0,
-      "costoConstante": 295788703.0,
-      "gananciaBrutaConstante": 327374094.0,
-      "gastosConstante": 274014419.0,
-      "gananciaLimpiaConstante": 53359675.0
+      "factorInflacion": 1.1687,
+      "ventasConstante": 620337040.0,
+      "costoConstante": 301408688.0,
+      "gananciaBrutaConstante": 333594201.0,
+      "gastosConstante": 279220692.0,
+      "gananciaLimpiaConstante": 54373509.0
     },
     "2026": {
       "anio": 2026,
@@ -150,12 +150,12 @@
       "gananciaBrutaUsd": 6426.0,
       "gastosUsd": 8365.0,
       "gananciaLimpiaUsd": -1939.0,
-      "factorInflacion": 28.843,
-      "ventasConstante": 39948866.0,
-      "costoConstante": 13000339.0,
-      "gananciaBrutaConstante": 26948527.0,
-      "gastosConstante": 35078553.0,
-      "gananciaLimpiaConstante": -8130027.0
+      "factorInflacion": 29.391,
+      "ventasConstante": 40707894.0,
+      "costoConstante": 13247345.0,
+      "gananciaBrutaConstante": 27460549.0,
+      "gastosConstante": 35745046.0,
+      "gananciaLimpiaConstante": -8284497.0
     },
     {
       "anio": 2021,
@@ -173,12 +173,12 @@
       "gananciaBrutaUsd": 11181.0,
       "gastosUsd": 8028.0,
       "gananciaLimpiaUsd": 3152.0,
-      "factorInflacion": 27.8408,
-      "ventasConstante": 71248549.0,
-      "costoConstante": 25287923.0,
-      "gananciaBrutaConstante": 45960627.0,
-      "gastosConstante": 33002280.0,
-      "gananciaLimpiaConstante": 12958346.0
+      "factorInflacion": 28.3697,
+      "ventasConstante": 72602272.0,
+      "costoConstante": 25768393.0,
+      "gananciaBrutaConstante": 46833878.0,
+      "gastosConstante": 33629323.0,
+      "gananciaLimpiaConstante": 13204555.0
     },
     {
       "anio": 2021,
@@ -196,12 +196,12 @@
       "gananciaBrutaUsd": 13744.0,
       "gastosUsd": 9774.0,
       "gananciaLimpiaUsd": 3970.0,
-      "factorInflacion": 26.5656,
-      "ventasConstante": 82851111.0,
-      "costoConstante": 30060107.0,
-      "gananciaBrutaConstante": 52791004.0,
-      "gastosConstante": 37541481.0,
-      "gananciaLimpiaConstante": 15249523.0
+      "factorInflacion": 27.0704,
+      "ventasConstante": 84425282.0,
+      "costoConstante": 30631249.0,
+      "gananciaBrutaConstante": 53794033.0,
+      "gastosConstante": 38254769.0,
+      "gananciaLimpiaConstante": 15539264.0
     },
     {
       "anio": 2021,
@@ -219,12 +219,12 @@
       "gananciaBrutaUsd": 15961.0,
       "gastosUsd": 6858.0,
       "gananciaLimpiaUsd": 9104.0,
-      "factorInflacion": 25.5193,
-      "ventasConstante": 95632353.0,
-      "costoConstante": 37121095.0,
-      "gananciaBrutaConstante": 58511258.0,
-      "gastosConstante": 25139179.0,
-      "gananciaLimpiaConstante": 33372079.0
+      "factorInflacion": 26.0042,
+      "ventasConstante": 97449368.0,
+      "costoConstante": 37826396.0,
+      "gananciaBrutaConstante": 59622972.0,
+      "gastosConstante": 25616823.0,
+      "gananciaLimpiaConstante": 34006148.0
     },
     {
       "anio": 2021,
@@ -242,12 +242,12 @@
       "gananciaBrutaUsd": 8685.0,
       "gastosUsd": 8160.0,
       "gananciaLimpiaUsd": 525.0,
-      "factorInflacion": 24.7041,
-      "ventasConstante": 53282292.0,
-      "costoConstante": 20204540.0,
-      "gananciaBrutaConstante": 33077752.0,
-      "gastosConstante": 31080065.0,
-      "gananciaLimpiaConstante": 1997687.0
+      "factorInflacion": 25.1735,
+      "ventasConstante": 54294655.0,
+      "costoConstante": 20588426.0,
+      "gananciaBrutaConstante": 33706229.0,
+      "gastosConstante": 31670586.0,
+      "gananciaLimpiaConstante": 2035643.0
     },
     {
       "anio": 2021,
@@ -265,12 +265,12 @@
       "gananciaBrutaUsd": 11204.0,
       "gastosUsd": 6580.0,
       "gananciaLimpiaUsd": 4624.0,
-      "factorInflacion": 23.9381,
-      "ventasConstante": 70886617.0,
-      "costoConstante": 28316155.0,
-      "gananciaBrutaConstante": 42570462.0,
-      "gastosConstante": 25000207.0,
-      "gananciaLimpiaConstante": 17570255.0
+      "factorInflacion": 24.3929,
+      "ventasConstante": 72233463.0,
+      "costoConstante": 28854162.0,
+      "gananciaBrutaConstante": 43379301.0,
+      "gastosConstante": 25475211.0,
+      "gananciaLimpiaConstante": 17904090.0
     },
     {
       "anio": 2021,
@@ -288,12 +288,12 @@
       "gananciaBrutaUsd": 12048.0,
       "gastosUsd": 9636.0,
       "gananciaLimpiaUsd": 2411.0,
-      "factorInflacion": 23.2408,
-      "ventasConstante": 74711196.0,
-      "costoConstante": 28438528.0,
-      "gananciaBrutaConstante": 46272668.0,
-      "gastosConstante": 37010978.0,
-      "gananciaLimpiaConstante": 9261690.0
+      "factorInflacion": 23.6824,
+      "ventasConstante": 76130709.0,
+      "costoConstante": 28978860.0,
+      "gananciaBrutaConstante": 47151849.0,
+      "gastosConstante": 37714186.0,
+      "gananciaLimpiaConstante": 9437662.0
     },
     {
       "anio": 2021,
@@ -311,12 +311,12 @@
       "gananciaBrutaUsd": 12897.0,
       "gastosUsd": 7816.0,
       "gananciaLimpiaUsd": 5081.0,
-      "factorInflacion": 22.674,
-      "ventasConstante": 83527218.0,
-      "costoConstante": 33976516.0,
-      "gananciaBrutaConstante": 49550701.0,
-      "gastosConstante": 30030358.0,
-      "gananciaLimpiaConstante": 19520343.0
+      "factorInflacion": 23.1048,
+      "ventasConstante": 85114235.0,
+      "costoConstante": 34622070.0,
+      "gananciaBrutaConstante": 50492165.0,
+      "gastosConstante": 30600935.0,
+      "gananciaLimpiaConstante": 19891230.0
     },
     {
       "anio": 2021,
@@ -334,12 +334,12 @@
       "gananciaBrutaUsd": 11285.0,
       "gastosUsd": 9068.0,
       "gananciaLimpiaUsd": 2218.0,
-      "factorInflacion": 21.9072,
-      "ventasConstante": 75424066.0,
-      "costoConstante": 32942085.0,
-      "gananciaBrutaConstante": 42481981.0,
-      "gastosConstante": 34133895.0,
-      "gananciaLimpiaConstante": 8348086.0
+      "factorInflacion": 22.3235,
+      "ventasConstante": 76857123.0,
+      "costoConstante": 33567984.0,
+      "gananciaBrutaConstante": 43289139.0,
+      "gastosConstante": 34782439.0,
+      "gananciaLimpiaConstante": 8506700.0
     },
     {
       "anio": 2021,
@@ -357,12 +357,12 @@
       "gananciaBrutaUsd": 10490.0,
       "gastosUsd": 9227.0,
       "gananciaLimpiaUsd": 1263.0,
-      "factorInflacion": 21.1664,
-      "ventasConstante": 67400124.0,
-      "costoConstante": 27947323.0,
-      "gananciaBrutaConstante": 39452801.0,
-      "gastosConstante": 34701776.0,
-      "gananciaLimpiaConstante": 4751025.0
+      "factorInflacion": 21.5686,
+      "ventasConstante": 68680727.0,
+      "costoConstante": 28478322.0,
+      "gananciaBrutaConstante": 40202405.0,
+      "gastosConstante": 35361110.0,
+      "gananciaLimpiaConstante": 4841295.0
     },
     {
       "anio": 2021,
@@ -380,12 +380,12 @@
       "gananciaBrutaUsd": 14416.0,
       "gastosUsd": 8473.0,
       "gananciaLimpiaUsd": 5943.0,
-      "factorInflacion": 20.6502,
-      "ventasConstante": 96735161.0,
-      "costoConstante": 40535308.0,
-      "gananciaBrutaConstante": 56199854.0,
-      "gastosConstante": 33031320.0,
-      "gananciaLimpiaConstante": 23168534.0
+      "factorInflacion": 21.0425,
+      "ventasConstante": 98573129.0,
+      "costoConstante": 41305478.0,
+      "gananciaBrutaConstante": 57267651.0,
+      "gastosConstante": 33658915.0,
+      "gananciaLimpiaConstante": 23608736.0
     },
     {
       "anio": 2021,
@@ -403,12 +403,12 @@
       "gananciaBrutaUsd": 12086.0,
       "gastosUsd": 9734.0,
       "gananciaLimpiaUsd": 2353.0,
-      "factorInflacion": 19.8942,
-      "ventasConstante": 74910581.0,
-      "costoConstante": 28818639.0,
-      "gananciaBrutaConstante": 46091942.0,
-      "gastosConstante": 37119593.0,
-      "gananciaLimpiaConstante": 8972349.0
+      "factorInflacion": 20.2722,
+      "ventasConstante": 76333882.0,
+      "costoConstante": 29366193.0,
+      "gananciaBrutaConstante": 46967689.0,
+      "gastosConstante": 37824865.0,
+      "gananciaLimpiaConstante": 9142824.0
     },
     {
       "anio": 2022,
@@ -426,12 +426,12 @@
       "gananciaBrutaUsd": 7599.0,
       "gastosUsd": 9007.0,
       "gananciaLimpiaUsd": -1409.0,
-      "factorInflacion": 19.1474,
-      "ventasConstante": 46601208.0,
-      "costoConstante": 17144560.0,
-      "gananciaBrutaConstante": 29456648.0,
-      "gastosConstante": 34917671.0,
-      "gananciaLimpiaConstante": -5461023.0
+      "factorInflacion": 19.5112,
+      "ventasConstante": 47486630.0,
+      "costoConstante": 17470306.0,
+      "gananciaBrutaConstante": 30016324.0,
+      "gastosConstante": 35581107.0,
+      "gananciaLimpiaConstante": -5564783.0
     },
     {
       "anio": 2022,
@@ -449,12 +449,12 @@
       "gananciaBrutaUsd": 8262.0,
       "gastosUsd": 8806.0,
       "gananciaLimpiaUsd": -544.0,
-      "factorInflacion": 18.2879,
-      "ventasConstante": 53333599.0,
-      "costoConstante": 22284853.0,
-      "gananciaBrutaConstante": 31048746.0,
-      "gastosConstante": 33091480.0,
-      "gananciaLimpiaConstante": -2042734.0
+      "factorInflacion": 18.6354,
+      "ventasConstante": 54346937.0,
+      "costoConstante": 22708265.0,
+      "gananciaBrutaConstante": 31638672.0,
+      "gastosConstante": 33720218.0,
+      "gananciaLimpiaConstante": -2081546.0
     },
     {
       "anio": 2022,
@@ -472,12 +472,12 @@
       "gananciaBrutaUsd": 16972.0,
       "gastosUsd": 9682.0,
       "gananciaLimpiaUsd": 7289.0,
-      "factorInflacion": 17.1395,
-      "ventasConstante": 92893285.0,
-      "costoConstante": 38224173.0,
-      "gananciaBrutaConstante": 54669113.0,
-      "gastosConstante": 31188873.0,
-      "gananciaLimpiaConstante": 23480240.0
+      "factorInflacion": 17.4652,
+      "ventasConstante": 94658258.0,
+      "costoConstante": 38950432.0,
+      "gananciaBrutaConstante": 55707826.0,
+      "gastosConstante": 31781462.0,
+      "gananciaLimpiaConstante": 23926364.0
     },
     {
       "anio": 2022,
@@ -495,12 +495,12 @@
       "gananciaBrutaUsd": 17124.0,
       "gastosUsd": 9005.0,
       "gananciaLimpiaUsd": 8118.0,
-      "factorInflacion": 16.1694,
-      "ventasConstante": 85020023.0,
-      "costoConstante": 32045161.0,
-      "gananciaBrutaConstante": 52974862.0,
-      "gastosConstante": 27859003.0,
-      "gananciaLimpiaConstante": 25115859.0
+      "factorInflacion": 16.4766,
+      "ventasConstante": 86635403.0,
+      "costoConstante": 32654019.0,
+      "gananciaBrutaConstante": 53981384.0,
+      "gastosConstante": 28388324.0,
+      "gananciaLimpiaConstante": 25593060.0
     },
     {
       "anio": 2022,
@@ -518,12 +518,12 @@
       "gananciaBrutaUsd": 13951.0,
       "gastosUsd": 8918.0,
       "gananciaLimpiaUsd": 5032.0,
-      "factorInflacion": 15.3848,
-      "ventasConstante": 79044404.0,
-      "costoConstante": 33790378.0,
-      "gananciaBrutaConstante": 45254026.0,
-      "gastosConstante": 28929655.0,
-      "gananciaLimpiaConstante": 16324372.0
+      "factorInflacion": 15.6771,
+      "ventasConstante": 80546248.0,
+      "costoConstante": 34432395.0,
+      "gananciaBrutaConstante": 46113853.0,
+      "gastosConstante": 29479318.0,
+      "gananciaLimpiaConstante": 16634535.0
     },
     {
       "anio": 2022,
@@ -541,12 +541,12 @@
       "gananciaBrutaUsd": 12980.0,
       "gastosUsd": 8634.0,
       "gananciaLimpiaUsd": 4346.0,
-      "factorInflacion": 14.6104,
-      "ventasConstante": 74939523.0,
-      "costoConstante": 31353639.0,
-      "gananciaBrutaConstante": 43585884.0,
-      "gastosConstante": 28991199.0,
-      "gananciaLimpiaConstante": 14594686.0
+      "factorInflacion": 14.888,
+      "ventasConstante": 76363374.0,
+      "costoConstante": 31949358.0,
+      "gananciaBrutaConstante": 44414016.0,
+      "gastosConstante": 29542031.0,
+      "gananciaLimpiaConstante": 14871985.0
     },
     {
       "anio": 2022,
@@ -564,12 +564,12 @@
       "gananciaBrutaUsd": 13444.0,
       "gastosUsd": 8555.0,
       "gananciaLimpiaUsd": 4889.0,
-      "factorInflacion": 13.6037,
-      "ventasConstante": 89580232.0,
-      "costoConstante": 36086848.0,
-      "gananciaBrutaConstante": 53493384.0,
-      "gastosConstante": 34039713.0,
-      "gananciaLimpiaConstante": 19453671.0
+      "factorInflacion": 13.8622,
+      "ventasConstante": 91282257.0,
+      "costoConstante": 36772499.0,
+      "gananciaBrutaConstante": 54509758.0,
+      "gastosConstante": 34686468.0,
+      "gananciaLimpiaConstante": 19823291.0
     },
     {
       "anio": 2022,
@@ -587,12 +587,12 @@
       "gananciaBrutaUsd": 12151.0,
       "gastosUsd": 10055.0,
       "gananciaLimpiaUsd": 2095.0,
-      "factorInflacion": 12.7138,
-      "ventasConstante": 71737868.0,
-      "costoConstante": 28619279.0,
-      "gananciaBrutaConstante": 43118589.0,
-      "gastosConstante": 35682436.0,
-      "gananciaLimpiaConstante": 7436153.0
+      "factorInflacion": 12.9553,
+      "ventasConstante": 73100888.0,
+      "costoConstante": 29163046.0,
+      "gananciaBrutaConstante": 43937842.0,
+      "gastosConstante": 36360402.0,
+      "gananciaLimpiaConstante": 7577440.0
     },
     {
       "anio": 2022,
@@ -610,12 +610,12 @@
       "gananciaBrutaUsd": 10855.0,
       "gastosUsd": 10457.0,
       "gananciaLimpiaUsd": 398.0,
-      "factorInflacion": 11.9715,
-      "ventasConstante": 78114218.0,
-      "costoConstante": 40471906.0,
-      "gananciaBrutaConstante": 37642312.0,
-      "gastosConstante": 36261712.0,
-      "gananciaLimpiaConstante": 1380600.0
+      "factorInflacion": 12.199,
+      "ventasConstante": 79598388.0,
+      "costoConstante": 41240872.0,
+      "gananciaBrutaConstante": 38357516.0,
+      "gastosConstante": 36950685.0,
+      "gananciaLimpiaConstante": 1406832.0
     },
     {
       "anio": 2022,
@@ -633,12 +633,12 @@
       "gananciaBrutaUsd": 14608.0,
       "gastosUsd": 8578.0,
       "gananciaLimpiaUsd": 6030.0,
-      "factorInflacion": 11.262,
-      "ventasConstante": 81473494.0,
-      "costoConstante": 32275286.0,
-      "gananciaBrutaConstante": 49198209.0,
-      "gastosConstante": 28889548.0,
-      "gananciaLimpiaConstante": 20308660.0
+      "factorInflacion": 11.476,
+      "ventasConstante": 83021491.0,
+      "costoConstante": 32888516.0,
+      "gananciaBrutaConstante": 50132975.0,
+      "gastosConstante": 29438450.0,
+      "gananciaLimpiaConstante": 20694525.0
     },
     {
       "anio": 2022,
@@ -656,12 +656,12 @@
       "gananciaBrutaUsd": 11631.0,
       "gastosUsd": 8395.0,
       "gananciaLimpiaUsd": 3236.0,
-      "factorInflacion": 10.736,
-      "ventasConstante": 61786261.0,
-      "costoConstante": 24068603.0,
-      "gananciaBrutaConstante": 37717657.0,
-      "gastosConstante": 27223379.0,
-      "gananciaLimpiaConstante": 10494278.0
+      "factorInflacion": 10.9399,
+      "ventasConstante": 62960200.0,
+      "costoConstante": 24525907.0,
+      "gananciaBrutaConstante": 38434293.0,
+      "gastosConstante": 27740623.0,
+      "gananciaLimpiaConstante": 10693670.0
     },
     {
       "anio": 2022,
@@ -679,12 +679,12 @@
       "gananciaBrutaUsd": 15855.0,
       "gastosUsd": 13299.0,
       "gananciaLimpiaUsd": 2557.0,
-      "factorInflacion": 10.215,
-      "ventasConstante": 89412435.0,
-      "costoConstante": 37567948.0,
-      "gananciaBrutaConstante": 51844488.0,
-      "gastosConstante": 43485050.0,
-      "gananciaLimpiaConstante": 8359438.0
+      "factorInflacion": 10.4091,
+      "ventasConstante": 91111272.0,
+      "costoConstante": 38281739.0,
+      "gananciaBrutaConstante": 52829533.0,
+      "gastosConstante": 44311266.0,
+      "gananciaLimpiaConstante": 8518267.0
     },
     {
       "anio": 2023,
@@ -702,12 +702,12 @@
       "gananciaBrutaUsd": 10866.0,
       "gastosUsd": 11970.0,
       "gananciaLimpiaUsd": -1104.0,
-      "factorInflacion": 9.6368,
-      "ventasConstante": 59556475.0,
-      "costoConstante": 23928435.0,
-      "gananciaBrutaConstante": 35628039.0,
-      "gastosConstante": 39246227.0,
-      "gananciaLimpiaConstante": -3618188.0
+      "factorInflacion": 9.8199,
+      "ventasConstante": 60688048.0,
+      "costoConstante": 24383076.0,
+      "gananciaBrutaConstante": 36304972.0,
+      "gastosConstante": 39991906.0,
+      "gananciaLimpiaConstante": -3686933.0
     },
     {
       "anio": 2023,
@@ -725,12 +725,12 @@
       "gananciaBrutaUsd": 8756.0,
       "gastosUsd": 9124.0,
       "gananciaLimpiaUsd": -367.0,
-      "factorInflacion": 9.0401,
-      "ventasConstante": 48298143.0,
-      "costoConstante": 20099899.0,
-      "gananciaBrutaConstante": 28198243.0,
-      "gastosConstante": 29381103.0,
-      "gananciaLimpiaConstante": -1182860.0
+      "factorInflacion": 9.2119,
+      "ventasConstante": 49215807.0,
+      "costoConstante": 20481797.0,
+      "gananciaBrutaConstante": 28734010.0,
+      "gastosConstante": 29939344.0,
+      "gananciaLimpiaConstante": -1205334.0
     },
     {
       "anio": 2023,
@@ -748,12 +748,12 @@
       "gananciaBrutaUsd": 12857.0,
       "gastosUsd": 10151.0,
       "gananciaLimpiaUsd": 2706.0,
-      "factorInflacion": 8.3938,
-      "ventasConstante": 69985051.0,
-      "costoConstante": 28618415.0,
-      "gananciaBrutaConstante": 41366635.0,
-      "gastosConstante": 32661702.0,
-      "gananciaLimpiaConstante": 8704934.0
+      "factorInflacion": 8.5533,
+      "ventasConstante": 71314767.0,
+      "costoConstante": 29162165.0,
+      "gananciaBrutaConstante": 42152601.0,
+      "gastosConstante": 33282274.0,
+      "gananciaLimpiaConstante": 8870328.0
     },
     {
       "anio": 2023,
@@ -771,12 +771,12 @@
       "gananciaBrutaUsd": 15028.0,
       "gastosUsd": 8312.0,
       "gananciaLimpiaUsd": 6717.0,
-      "factorInflacion": 7.7434,
-      "ventasConstante": 77271825.0,
-      "costoConstante": 30884003.0,
-      "gananciaBrutaConstante": 46387822.0,
-      "gastosConstante": 25655609.0,
-      "gananciaLimpiaConstante": 20732213.0
+      "factorInflacion": 7.8905,
+      "ventasConstante": 78739989.0,
+      "costoConstante": 31470799.0,
+      "gananciaBrutaConstante": 47269191.0,
+      "gastosConstante": 26143065.0,
+      "gananciaLimpiaConstante": 21126126.0
     },
     {
       "anio": 2023,
@@ -794,12 +794,12 @@
       "gananciaBrutaUsd": 10679.0,
       "gastosUsd": 8976.0,
       "gananciaLimpiaUsd": 1704.0,
-      "factorInflacion": 7.1831,
-      "ventasConstante": 57342776.0,
-      "costoConstante": 23769238.0,
-      "gananciaBrutaConstante": 33573538.0,
-      "gastosConstante": 28217628.0,
-      "gananciaLimpiaConstante": 5355909.0
+      "factorInflacion": 7.3196,
+      "ventasConstante": 58432289.0,
+      "costoConstante": 24220854.0,
+      "gananciaBrutaConstante": 34211435.0,
+      "gastosConstante": 28753763.0,
+      "gananciaLimpiaConstante": 5457671.0
     },
     {
       "anio": 2023,
@@ -817,12 +817,12 @@
       "gananciaBrutaUsd": 12922.0,
       "gastosUsd": 10173.0,
       "gananciaLimpiaUsd": 2749.0,
-      "factorInflacion": 6.7765,
-      "ventasConstante": 70019956.0,
-      "costoConstante": 28462206.0,
-      "gananciaBrutaConstante": 41557750.0,
-      "gastosConstante": 32717402.0,
-      "gananciaLimpiaConstante": 8840348.0
+      "factorInflacion": 6.9053,
+      "ventasConstante": 71350335.0,
+      "costoConstante": 29002987.0,
+      "gananciaBrutaConstante": 42347348.0,
+      "gastosConstante": 33339033.0,
+      "gananciaLimpiaConstante": 9008315.0
     },
     {
       "anio": 2023,
@@ -840,12 +840,12 @@
       "gananciaBrutaUsd": 11307.0,
       "gastosUsd": 9606.0,
       "gananciaLimpiaUsd": 1701.0,
-      "factorInflacion": 6.3749,
-      "ventasConstante": 59368912.0,
-      "costoConstante": 23348703.0,
-      "gananciaBrutaConstante": 36020209.0,
-      "gastosConstante": 30600963.0,
-      "gananciaLimpiaConstante": 5419246.0
+      "factorInflacion": 6.496,
+      "ventasConstante": 60496922.0,
+      "costoConstante": 23792329.0,
+      "gananciaBrutaConstante": 36704593.0,
+      "gastosConstante": 31182381.0,
+      "gananciaLimpiaConstante": 5522212.0
     },
     {
       "anio": 2023,
@@ -863,12 +863,12 @@
       "gananciaBrutaUsd": 10008.0,
       "gastosUsd": 6576.0,
       "gananciaLimpiaUsd": 3432.0,
-      "factorInflacion": 5.6716,
-      "ventasConstante": 61785515.0,
-      "costoConstante": 23914221.0,
-      "gananciaBrutaConstante": 37871293.0,
-      "gastosConstante": 24884018.0,
-      "gananciaLimpiaConstante": 12987275.0
+      "factorInflacion": 5.7794,
+      "ventasConstante": 62959440.0,
+      "costoConstante": 24368592.0,
+      "gananciaBrutaConstante": 38590848.0,
+      "gastosConstante": 25356815.0,
+      "gananciaLimpiaConstante": 13234033.0
     },
     {
       "anio": 2023,
@@ -886,12 +886,12 @@
       "gananciaBrutaUsd": 13018.0,
       "gastosUsd": 8507.0,
       "gananciaLimpiaUsd": 4512.0,
-      "factorInflacion": 5.0325,
-      "ventasConstante": 91181693.0,
-      "costoConstante": 46584133.0,
-      "gananciaBrutaConstante": 44597561.0,
-      "gastosConstante": 29142032.0,
-      "gananciaLimpiaConstante": 15455529.0
+      "factorInflacion": 5.1281,
+      "ventasConstante": 92914146.0,
+      "costoConstante": 47469231.0,
+      "gananciaBrutaConstante": 45444914.0,
+      "gastosConstante": 29695731.0,
+      "gananciaLimpiaConstante": 15749184.0
     },
     {
       "anio": 2023,
@@ -909,12 +909,12 @@
       "gananciaBrutaUsd": 10750.0,
       "gastosUsd": 7443.0,
       "gananciaLimpiaUsd": 3307.0,
-      "factorInflacion": 4.6468,
-      "ventasConstante": 77971579.0,
-      "costoConstante": 34433572.0,
-      "gananciaBrutaConstante": 43538007.0,
-      "gastosConstante": 30144533.0,
-      "gananciaLimpiaConstante": 13393474.0
+      "factorInflacion": 4.7351,
+      "ventasConstante": 79453039.0,
+      "costoConstante": 35087810.0,
+      "gananciaBrutaConstante": 44365229.0,
+      "gastosConstante": 30717279.0,
+      "gananciaLimpiaConstante": 13647951.0
     },
     {
       "anio": 2023,
@@ -932,12 +932,12 @@
       "gananciaBrutaUsd": 14286.0,
       "gastosUsd": 9573.0,
       "gananciaLimpiaUsd": 4713.0,
-      "factorInflacion": 4.1195,
-      "ventasConstante": 81128001.0,
-      "costoConstante": 29946910.0,
-      "gananciaBrutaConstante": 51181091.0,
-      "gastosConstante": 34295433.0,
-      "gananciaLimpiaConstante": 16885658.0
+      "factorInflacion": 4.1978,
+      "ventasConstante": 82669433.0,
+      "costoConstante": 30515901.0,
+      "gananciaBrutaConstante": 52153532.0,
+      "gastosConstante": 34947047.0,
+      "gananciaLimpiaConstante": 17206485.0
     },
     {
       "anio": 2023,
@@ -955,12 +955,12 @@
       "gananciaBrutaUsd": 10156.0,
       "gastosUsd": 8098.0,
       "gananciaLimpiaUsd": 2058.0,
-      "factorInflacion": 3.2825,
-      "ventasConstante": 53927918.0,
-      "costoConstante": 20511296.0,
-      "gananciaBrutaConstante": 33416622.0,
-      "gastosConstante": 26644053.0,
-      "gananciaLimpiaConstante": 6772569.0
+      "factorInflacion": 3.3448,
+      "ventasConstante": 54952549.0,
+      "costoConstante": 20901011.0,
+      "gananciaBrutaConstante": 34051538.0,
+      "gastosConstante": 27150290.0,
+      "gananciaLimpiaConstante": 6901248.0
     },
     {
       "anio": 2024,
@@ -978,12 +978,12 @@
       "gananciaBrutaUsd": 16451.0,
       "gastosUsd": 7386.0,
       "gananciaLimpiaUsd": 9065.0,
-      "factorInflacion": 2.7218,
-      "ventasConstante": 85873570.0,
-      "costoConstante": 35295862.0,
-      "gananciaBrutaConstante": 50577708.0,
-      "gastosConstante": 22707565.0,
-      "gananciaLimpiaConstante": 27870143.0
+      "factorInflacion": 2.7735,
+      "ventasConstante": 87505168.0,
+      "costoConstante": 35966484.0,
+      "gananciaBrutaConstante": 51538685.0,
+      "gastosConstante": 23139009.0,
+      "gananciaLimpiaConstante": 28399675.0
     },
     {
       "anio": 2024,
@@ -1001,12 +1001,12 @@
       "gananciaBrutaUsd": 13092.0,
       "gastosUsd": 10189.0,
       "gananciaLimpiaUsd": 2903.0,
-      "factorInflacion": 2.4044,
-      "ventasConstante": 57897764.0,
-      "costoConstante": 23445328.0,
-      "gananciaBrutaConstante": 34452436.0,
-      "gastosConstante": 26813255.0,
-      "gananciaLimpiaConstante": 7639181.0
+      "factorInflacion": 2.4501,
+      "ventasConstante": 58997822.0,
+      "costoConstante": 23890790.0,
+      "gananciaBrutaConstante": 35107032.0,
+      "gastosConstante": 27322707.0,
+      "gananciaLimpiaConstante": 7784325.0
     },
     {
       "anio": 2024,
@@ -1024,12 +1024,12 @@
       "gananciaBrutaUsd": 10858.0,
       "gastosUsd": 9284.0,
       "gananciaLimpiaUsd": 1574.0,
-      "factorInflacion": 2.1661,
-      "ventasConstante": 41963099.0,
-      "costoConstante": 17708079.0,
-      "gananciaBrutaConstante": 24255021.0,
-      "gastosConstante": 20739895.0,
-      "gananciaLimpiaConstante": 3515126.0
+      "factorInflacion": 2.2073,
+      "ventasConstante": 42760398.0,
+      "costoConstante": 18044532.0,
+      "gananciaBrutaConstante": 24715866.0,
+      "gastosConstante": 21133953.0,
+      "gananciaLimpiaConstante": 3581913.0
     },
     {
       "anio": 2024,
@@ -1047,12 +1047,12 @@
       "gananciaBrutaUsd": 13914.0,
       "gastosUsd": 11926.0,
       "gananciaLimpiaUsd": 1987.0,
-      "factorInflacion": 1.9909,
-      "ventasConstante": 47128066.0,
-      "costoConstante": 19409830.0,
-      "gananciaBrutaConstante": 27718235.0,
-      "gastosConstante": 23758949.0,
-      "gananciaLimpiaConstante": 3959286.0
+      "factorInflacion": 2.0288,
+      "ventasConstante": 48023499.0,
+      "costoConstante": 19778617.0,
+      "gananciaBrutaConstante": 28244882.0,
+      "gastosConstante": 24210369.0,
+      "gananciaLimpiaConstante": 4034513.0
     },
     {
       "anio": 2024,
@@ -1070,12 +1070,12 @@
       "gananciaBrutaUsd": 10230.0,
       "gastosUsd": 10070.0,
       "gananciaLimpiaUsd": 160.0,
-      "factorInflacion": 1.9107,
-      "ventasConstante": 35170138.0,
-      "costoConstante": 14509039.0,
-      "gananciaBrutaConstante": 20661099.0,
-      "gastosConstante": 20337224.0,
-      "gananciaLimpiaConstante": 323875.0
+      "factorInflacion": 1.947,
+      "ventasConstante": 35838370.0,
+      "costoConstante": 14784711.0,
+      "gananciaBrutaConstante": 21053660.0,
+      "gastosConstante": 20723631.0,
+      "gananciaLimpiaConstante": 330028.0
     },
     {
       "anio": 2024,
@@ -1093,12 +1093,12 @@
       "gananciaBrutaUsd": 10626.0,
       "gastosUsd": 8614.0,
       "gananciaLimpiaUsd": 2012.0,
-      "factorInflacion": 1.8267,
-      "ventasConstante": 41419321.0,
-      "costoConstante": 17243435.0,
-      "gananciaBrutaConstante": 24175886.0,
-      "gastosConstante": 19598245.0,
-      "gananciaLimpiaConstante": 4577642.0
+      "factorInflacion": 1.8614,
+      "ventasConstante": 42206288.0,
+      "costoConstante": 17571060.0,
+      "gananciaBrutaConstante": 24635228.0,
+      "gastosConstante": 19970611.0,
+      "gananciaLimpiaConstante": 4664617.0
     },
     {
       "anio": 2024,
@@ -1116,12 +1116,12 @@
       "gananciaBrutaUsd": 18462.0,
       "gastosUsd": 9389.0,
       "gananciaLimpiaUsd": 9072.0,
-      "factorInflacion": 1.7564,
-      "ventasConstante": 86374483.0,
-      "costoConstante": 44048727.0,
-      "gananciaBrutaConstante": 42325756.0,
-      "gastosConstante": 21526470.0,
-      "gananciaLimpiaConstante": 20799285.0
+      "factorInflacion": 1.7898,
+      "ventasConstante": 88015598.0,
+      "costoConstante": 44885653.0,
+      "gananciaBrutaConstante": 43129945.0,
+      "gastosConstante": 21935473.0,
+      "gananciaLimpiaConstante": 21194472.0
     },
     {
       "anio": 2024,
@@ -1139,12 +1139,12 @@
       "gananciaBrutaUsd": 19647.0,
       "gastosUsd": 16159.0,
       "gananciaLimpiaUsd": 3488.0,
-      "factorInflacion": 1.6856,
-      "ventasConstante": 75507144.0,
-      "costoConstante": 33547524.0,
-      "gananciaBrutaConstante": 41959620.0,
-      "gastosConstante": 34510457.0,
-      "gananciaLimpiaConstante": 7449163.0
+      "factorInflacion": 1.7176,
+      "ventasConstante": 76941780.0,
+      "costoConstante": 34184927.0,
+      "gananciaBrutaConstante": 42756853.0,
+      "gastosConstante": 35166156.0,
+      "gananciaLimpiaConstante": 7590697.0
     },
     {
       "anio": 2024,
@@ -1162,12 +1162,12 @@
       "gananciaBrutaUsd": 20582.0,
       "gastosUsd": 15734.0,
       "gananciaLimpiaUsd": 4848.0,
-      "factorInflacion": 1.6286,
-      "ventasConstante": 82109234.0,
-      "costoConstante": 41017336.0,
-      "gananciaBrutaConstante": 41091899.0,
-      "gastosConstante": 31413601.0,
-      "gananciaLimpiaConstante": 9678298.0
+      "factorInflacion": 1.6595,
+      "ventasConstante": 83669309.0,
+      "costoConstante": 41796665.0,
+      "gananciaBrutaConstante": 41872645.0,
+      "gastosConstante": 32010459.0,
+      "gananciaLimpiaConstante": 9862185.0
     },
     {
       "anio": 2024,
@@ -1185,12 +1185,12 @@
       "gananciaBrutaUsd": 14999.0,
       "gastosUsd": 15245.0,
       "gananciaLimpiaUsd": -246.0,
-      "factorInflacion": 1.5858,
-      "ventasConstante": 54359495.0,
-      "costoConstante": 27239388.0,
-      "gananciaBrutaConstante": 27120107.0,
-      "gastosConstante": 27564583.0,
-      "gananciaLimpiaConstante": -444476.0
+      "factorInflacion": 1.6159,
+      "ventasConstante": 55392325.0,
+      "costoConstante": 27756937.0,
+      "gananciaBrutaConstante": 27635389.0,
+      "gastosConstante": 28088310.0,
+      "gananciaLimpiaConstante": -452921.0
     },
     {
       "anio": 2024,
@@ -1208,12 +1208,12 @@
       "gananciaBrutaUsd": 24774.0,
       "gastosUsd": 19468.0,
       "gananciaLimpiaUsd": 5306.0,
-      "factorInflacion": 1.5486,
-      "ventasConstante": 80013378.0,
-      "costoConstante": 37837980.0,
-      "gananciaBrutaConstante": 42175398.0,
-      "gastosConstante": 33142437.0,
-      "gananciaLimpiaConstante": 9032961.0
+      "factorInflacion": 1.578,
+      "ventasConstante": 81533632.0,
+      "costoConstante": 38556902.0,
+      "gananciaBrutaConstante": 42976730.0,
+      "gastosConstante": 33772143.0,
+      "gananciaLimpiaConstante": 9204587.0
     },
     {
       "anio": 2024,
@@ -1231,12 +1231,12 @@
       "gananciaBrutaUsd": 19812.0,
       "gastosUsd": 20027.0,
       "gananciaLimpiaUsd": -215.0,
-      "factorInflacion": 1.5079,
-      "ventasConstante": 64000293.0,
-      "costoConstante": 31867749.0,
-      "gananciaBrutaConstante": 32132544.0,
-      "gastosConstante": 32481870.0,
-      "gananciaLimpiaConstante": -349326.0
+      "factorInflacion": 1.5366,
+      "ventasConstante": 65216298.0,
+      "costoConstante": 32473236.0,
+      "gananciaBrutaConstante": 32743062.0,
+      "gastosConstante": 33099025.0,
+      "gananciaLimpiaConstante": -355963.0
     },
     {
       "anio": 2025,
@@ -1254,12 +1254,12 @@
       "gananciaBrutaUsd": 13018.0,
       "gastosUsd": 16881.0,
       "gananciaLimpiaUsd": -3863.0,
-      "factorInflacion": 1.4754,
-      "ventasConstante": 42791015.0,
-      "costoConstante": 20460203.0,
-      "gananciaBrutaConstante": 22330812.0,
-      "gastosConstante": 28956711.0,
-      "gananciaLimpiaConstante": -6625899.0
+      "factorInflacion": 1.5035,
+      "ventasConstante": 43604045.0,
+      "costoConstante": 20848947.0,
+      "gananciaBrutaConstante": 22755098.0,
+      "gastosConstante": 29506889.0,
+      "gananciaLimpiaConstante": -6751791.0
     },
     {
       "anio": 2025,
@@ -1277,12 +1277,12 @@
       "gananciaBrutaUsd": 18042.0,
       "gastosUsd": 14699.0,
       "gananciaLimpiaUsd": 3343.0,
-      "factorInflacion": 1.4409,
-      "ventasConstante": 59420632.0,
-      "costoConstante": 28609563.0,
-      "gananciaBrutaConstante": 30811069.0,
-      "gastosConstante": 25102241.0,
-      "gananciaLimpiaConstante": 5708828.0
+      "factorInflacion": 1.4682,
+      "ventasConstante": 60549624.0,
+      "costoConstante": 29153144.0,
+      "gananciaBrutaConstante": 31396480.0,
+      "gastosConstante": 25579184.0,
+      "gananciaLimpiaConstante": 5817296.0
     },
     {
       "anio": 2025,
@@ -1300,12 +1300,12 @@
       "gananciaBrutaUsd": 19185.0,
       "gastosUsd": 15699.0,
       "gananciaLimpiaUsd": 3487.0,
-      "factorInflacion": 1.3895,
-      "ventasConstante": 62929566.0,
-      "costoConstante": 29885300.0,
-      "gananciaBrutaConstante": 33044266.0,
-      "gastosConstante": 27038644.0,
-      "gananciaLimpiaConstante": 6005622.0
+      "factorInflacion": 1.4159,
+      "ventasConstante": 64125228.0,
+      "costoConstante": 30453121.0,
+      "gananciaBrutaConstante": 33672107.0,
+      "gastosConstante": 27552378.0,
+      "gananciaLimpiaConstante": 6119729.0
     },
     {
       "anio": 2025,
@@ -1323,12 +1323,12 @@
       "gananciaBrutaUsd": 16838.0,
       "gastosUsd": 13164.0,
       "gananciaLimpiaUsd": 3673.0,
-      "factorInflacion": 1.3516,
-      "ventasConstante": 53862022.0,
-      "costoConstante": 25294237.0,
-      "gananciaBrutaConstante": 28567786.0,
-      "gastosConstante": 22335584.0,
-      "gananciaLimpiaConstante": 6232201.0
+      "factorInflacion": 1.3773,
+      "ventasConstante": 54885401.0,
+      "costoConstante": 25774827.0,
+      "gananciaBrutaConstante": 29110574.0,
+      "gastosConstante": 22759960.0,
+      "gananciaLimpiaConstante": 6350613.0
     },
     {
       "anio": 2025,
@@ -1346,12 +1346,12 @@
       "gananciaBrutaUsd": 16228.0,
       "gastosUsd": 18295.0,
       "gananciaLimpiaUsd": -2067.0,
-      "factorInflacion": 1.3316,
-      "ventasConstante": 48887900.0,
-      "costoConstante": 24147248.0,
-      "gananciaBrutaConstante": 24740652.0,
-      "gastosConstante": 27892478.0,
-      "gananciaLimpiaConstante": -3151825.0
+      "factorInflacion": 1.3569,
+      "ventasConstante": 49816770.0,
+      "costoConstante": 24606046.0,
+      "gananciaBrutaConstante": 25210724.0,
+      "gastosConstante": 28422435.0,
+      "gananciaLimpiaConstante": -3211710.0
     },
     {
       "anio": 2025,
@@ -1369,12 +1369,12 @@
       "gananciaBrutaUsd": 15826.0,
       "gastosUsd": 14184.0,
       "gananciaLimpiaUsd": 1641.0,
-      "factorInflacion": 1.3107,
-      "ventasConstante": 47323291.0,
-      "costoConstante": 22579649.0,
-      "gananciaBrutaConstante": 24743641.0,
-      "gastosConstante": 22177229.0,
-      "gananciaLimpiaConstante": 2566412.0
+      "factorInflacion": 1.3356,
+      "ventasConstante": 48222433.0,
+      "costoConstante": 23008663.0,
+      "gananciaBrutaConstante": 25213770.0,
+      "gastosConstante": 22598597.0,
+      "gananciaLimpiaConstante": 2615174.0
     },
     {
       "anio": 2025,
@@ -1392,12 +1392,12 @@
       "gananciaBrutaUsd": 18449.0,
       "gastosUsd": 15608.0,
       "gananciaLimpiaUsd": 2840.0,
-      "factorInflacion": 1.2862,
-      "ventasConstante": 56033279.0,
-      "costoConstante": 27406482.0,
-      "gananciaBrutaConstante": 30294872.0,
-      "gastosConstante": 25630609.0,
-      "gananciaLimpiaConstante": 4664263.0
+      "factorInflacion": 1.3107,
+      "ventasConstante": 57097911.0,
+      "costoConstante": 27927205.0,
+      "gananciaBrutaConstante": 30870475.0,
+      "gastosConstante": 26117590.0,
+      "gananciaLimpiaConstante": 4752884.0
     },
     {
       "anio": 2025,
@@ -1415,12 +1415,12 @@
       "gananciaBrutaUsd": 18566.0,
       "gastosUsd": 15148.0,
       "gananciaLimpiaUsd": 3417.0,
-      "factorInflacion": 1.2622,
-      "ventasConstante": 50368350.0,
-      "costoConstante": 22398527.0,
-      "gananciaBrutaConstante": 30717763.0,
-      "gastosConstante": 25063841.0,
-      "gananciaLimpiaConstante": 5653922.0
+      "factorInflacion": 1.2862,
+      "ventasConstante": 51325349.0,
+      "costoConstante": 22824099.0,
+      "gananciaBrutaConstante": 31301401.0,
+      "gastosConstante": 25540054.0,
+      "gananciaLimpiaConstante": 5761347.0
     },
     {
       "anio": 2025,
@@ -1438,12 +1438,12 @@
       "gananciaBrutaUsd": 23179.0,
       "gastosUsd": 11623.0,
       "gananciaLimpiaUsd": 11556.0,
-      "factorInflacion": 1.2363,
-      "ventasConstante": 71095388.0,
-      "costoConstante": 32968007.0,
-      "gananciaBrutaConstante": 42742525.0,
-      "gastosConstante": 21433588.0,
-      "gananciaLimpiaConstante": 21308937.0
+      "factorInflacion": 1.2598,
+      "ventasConstante": 72446201.0,
+      "costoConstante": 33594399.0,
+      "gananciaBrutaConstante": 43554633.0,
+      "gastosConstante": 21840826.0,
+      "gananciaLimpiaConstante": 21713807.0
     },
     {
       "anio": 2025,
@@ -1461,12 +1461,12 @@
       "gananciaBrutaUsd": 19666.0,
       "gastosUsd": 15816.0,
       "gananciaLimpiaUsd": 3850.0,
-      "factorInflacion": 1.2085,
-      "ventasConstante": 67259643.0,
-      "costoConstante": 33012776.0,
-      "gananciaBrutaConstante": 34246867.0,
-      "gastosConstante": 27542991.0,
-      "gananciaLimpiaConstante": 6703876.0
+      "factorInflacion": 1.2314,
+      "ventasConstante": 68537576.0,
+      "costoConstante": 33640019.0,
+      "gananciaBrutaConstante": 34897557.0,
+      "gastosConstante": 28066307.0,
+      "gananciaLimpiaConstante": 6831250.0
     },
     {
       "anio": 2025,
@@ -1484,12 +1484,12 @@
       "gananciaBrutaUsd": 17346.0,
       "gastosUsd": 14272.0,
       "gananciaLimpiaUsd": 3075.0,
-      "factorInflacion": 1.179,
-      "ventasConstante": 54565177.0,
-      "costoConstante": 29126318.0,
-      "gananciaBrutaConstante": 29779576.0,
-      "gastosConstante": 24501001.0,
-      "gananciaLimpiaConstante": 5278574.0
+      "factorInflacion": 1.2014,
+      "ventasConstante": 55601915.0,
+      "costoConstante": 29679718.0,
+      "gananciaBrutaConstante": 30345388.0,
+      "gastosConstante": 24966520.0,
+      "gananciaLimpiaConstante": 5378867.0
     },
     {
       "anio": 2025,
@@ -1507,12 +1507,12 @@
       "gananciaBrutaUsd": 20375.0,
       "gastosUsd": 18261.0,
       "gananciaLimpiaUsd": 2114.0,
-      "factorInflacion": 1.1469,
-      "ventasConstante": 68451000.0,
-      "costoConstante": 35387598.0,
-      "gananciaBrutaConstante": 34967629.0,
-      "gastosConstante": 31339864.0,
-      "gananciaLimpiaConstante": 3627765.0
+      "factorInflacion": 1.1687,
+      "ventasConstante": 69751569.0,
+      "costoConstante": 36059962.0,
+      "gananciaBrutaConstante": 35632014.0,
+      "gastosConstante": 31935322.0,
+      "gananciaLimpiaConstante": 3696692.0
     },
     {
       "anio": 2026,
@@ -1530,12 +1530,12 @@
       "gananciaBrutaUsd": 17276.0,
       "gastosUsd": 18993.0,
       "gananciaLimpiaUsd": -1717.0,
-      "factorInflacion": 1.1146,
-      "ventasConstante": 50932712.0,
-      "costoConstante": 24755498.0,
-      "gananciaBrutaConstante": 28395730.0,
-      "gastosConstante": 31218312.0,
-      "gananciaLimpiaConstante": -2822583.0
+      "factorInflacion": 1.1358,
+      "ventasConstante": 51900434.0,
+      "costoConstante": 25225853.0,
+      "gananciaBrutaConstante": 28935249.0,
+      "gastosConstante": 31811460.0,
+      "gananciaLimpiaConstante": -2876212.0
     },
     {
       "anio": 2026,
@@ -1553,12 +1553,12 @@
       "gananciaBrutaUsd": 20946.0,
       "gastosUsd": 18813.0,
       "gananciaLimpiaUsd": 2132.0,
-      "factorInflacion": 1.0832,
-      "ventasConstante": 60030015.0,
-      "costoConstante": 27677660.0,
-      "gananciaBrutaConstante": 32352355.0,
-      "gastosConstante": 29058919.0,
-      "gananciaLimpiaConstante": 3293436.0
+      "factorInflacion": 1.1037,
+      "ventasConstante": 61170585.0,
+      "costoConstante": 28203535.0,
+      "gananciaBrutaConstante": 32967050.0,
+      "gastosConstante": 29611039.0,
+      "gananciaLimpiaConstante": 3356011.0
     },
     {
       "anio": 2026,
@@ -1576,12 +1576,12 @@
       "gananciaBrutaUsd": 28893.0,
       "gastosUsd": 16832.0,
       "gananciaLimpiaUsd": 12061.0,
-      "factorInflacion": 1.0475,
-      "ventasConstante": 77779543.0,
-      "costoConstante": 34583539.0,
-      "gananciaBrutaConstante": 43196004.0,
-      "gastosConstante": 25164156.0,
-      "gananciaLimpiaConstante": 18031848.0
+      "factorInflacion": 1.0674,
+      "ventasConstante": 79257354.0,
+      "costoConstante": 35240626.0,
+      "gananciaBrutaConstante": 44016728.0,
+      "gastosConstante": 25642275.0,
+      "gananciaLimpiaConstante": 18374453.0
     },
     {
       "anio": 2026,
@@ -1599,12 +1599,12 @@
       "gananciaBrutaUsd": 18685.0,
       "gastosUsd": 18906.0,
       "gananciaLimpiaUsd": -221.0,
-      "factorInflacion": 1.021,
-      "ventasConstante": 58829759.0,
-      "costoConstante": 32138337.0,
-      "gananciaBrutaConstante": 26691422.0,
-      "gastosConstante": 27007553.0,
-      "gananciaLimpiaConstante": -316131.0
+      "factorInflacion": 1.0404,
+      "ventasConstante": 59947524.0,
+      "costoConstante": 32748966.0,
+      "gananciaBrutaConstante": 27198559.0,
+      "gastosConstante": 27520696.0,
+      "gananciaLimpiaConstante": -322137.0
     },
     {
       "anio": 2026,
@@ -1622,12 +1622,12 @@
       "gananciaBrutaUsd": 20780.0,
       "gastosUsd": 15211.0,
       "gananciaLimpiaUsd": 5569.0,
-      "factorInflacion": 1.0,
-      "ventasConstante": 55300995.0,
-      "costoConstante": 26675999.0,
-      "gananciaBrutaConstante": 29707256.0,
-      "gastosConstante": 21745534.0,
-      "gananciaLimpiaConstante": 7961723.0
+      "factorInflacion": 1.019,
+      "ventasConstante": 56351714.0,
+      "costoConstante": 27182843.0,
+      "gananciaBrutaConstante": 30271694.0,
+      "gastosConstante": 22158699.0,
+      "gananciaLimpiaConstante": 8112996.0
     }
   ],
   "meta": {
