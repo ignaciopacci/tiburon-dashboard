@@ -1,25 +1,31 @@
 {
   "mes": "07/2026",
-  "fechaCalculo": "14/07/2026 17:07",
-  "ahorroTotal": 189498.0,
+  "fechaCalculo": "15/07/2026 13:24",
+  "ahorroTotal": 618786.0,
   "detallePorLinea": {
     "Clasica": {
-      "kg": 1.16,
+      "kg": 18.71,
       "precioColchon": 6.64,
       "precioReal": 3.47,
-      "ahorro": 9409.0
+      "ahorro": 151226.0
+    },
+    "Ecology": {
+      "kg": 24.23,
+      "precioColchon": 6.64,
+      "precioReal": 3.47,
+      "ahorro": 195847.0
+    },
+    "Linea2400": {
+      "kg": 9.1,
+      "precioColchon": 8.65,
+      "precioReal": 4.52,
+      "ahorro": 95795.0
     },
     "Profesional": {
       "kg": 16.7,
       "precioColchon": 8.65,
       "precioReal": 4.52,
       "ahorro": 175918.0
-    },
-    "Ecology": {
-      "kg": 0.52,
-      "precioColchon": 6.64,
-      "precioReal": 3.47,
-      "ahorro": 4171.0
     }
   },
   "dolarBilleteUsado": null
