@@ -1,18 +1,18 @@
 {
   "empresa": "Irelocs S.A.",
-  "fechaActualizacion": "15/07/2026 17:04",
+  "fechaActualizacion": "16/07/2026 13:18",
   "mes": "07/2026",
   "anio": 2026,
   "nroMes": 7,
-  "totalFac": 2642541.15,
-  "totalCosto": 1287010.8199999998,
-  "ganancia": 1355530.33,
+  "totalFac": 3646415.32,
+  "totalCosto": 1776726.8599999999,
+  "ganancia": 1869688.46,
   "margen": 51.3,
   "rubros": {
     "Pinceles": {
-      "unidades": 1080.0,
-      "totalFac": 2232545.92,
-      "totalCosto": 1017086.82,
+      "unidades": 1200.0,
+      "totalFac": 2701880.8,
+      "totalCosto": 1184706.42,
       "articulos": [
         {
           "rubro": "Pinceles",
@@ -45,6 +45,46 @@
           "ultimoCosto": 1433.1,
           "totalCosto": 68788.8,
           "totalFac": 144456.48
+        },
+        {
+          "rubro": "Pinceles",
+          "articulo": "Pincel Bacota 10/2(PLB-4000)",
+          "cantidad": 24.0,
+          "ultimoCosto": 640.91,
+          "totalCosto": 15381.84,
+          "totalFac": 43069.15
+        },
+        {
+          "rubro": "Pinceles",
+          "articulo": "Pincel Bacota 15/2(PLB-4001)",
+          "cantidad": 24.0,
+          "ultimoCosto": 934.51,
+          "totalCosto": 22428.24,
+          "totalFac": 62799.07
+        },
+        {
+          "rubro": "Pinceles",
+          "articulo": "Pincel Bacota 20/2(PLB-4002)",
+          "cantidad": 24.0,
+          "ultimoCosto": 1367.14,
+          "totalCosto": 32811.36,
+          "totalFac": 91871.81
+        },
+        {
+          "rubro": "Pinceles",
+          "articulo": "Pincel Bacota 25/2(PLB-4003)",
+          "cantidad": 24.0,
+          "ultimoCosto": 1778.14,
+          "totalCosto": 42675.36,
+          "totalFac": 119491.01
+        },
+        {
+          "rubro": "Pinceles",
+          "articulo": "Pincel Bacota 30/2(PLB-4004)",
+          "cantidad": 24.0,
+          "ultimoCosto": 2263.45,
+          "totalCosto": 54322.8,
+          "totalFac": 152103.84
         },
         {
           "rubro": "Pinceles",
@@ -129,9 +169,9 @@
       ]
     },
     "Accesorios": {
-      "unidades": 170.0,
-      "totalFac": 409995.2300000001,
-      "totalCosto": 269924.0,
+      "unidades": 332.0,
+      "totalFac": 944534.52,
+      "totalCosto": 592020.44,
       "articulos": [
         {
           "rubro": "Accesorios",
@@ -152,10 +192,18 @@
         {
           "rubro": "Accesorios",
           "articulo": "Rodillo Mini Epoxi Nº 5(ROD-7006)",
-          "cantidad": 9.0,
+          "cantidad": 39.0,
           "ultimoCosto": 453.13,
-          "totalCosto": 4078.17,
-          "totalFac": 5994.89
+          "totalCosto": 17672.07,
+          "totalFac": 25977.86
+        },
+        {
+          "rubro": "Accesorios",
+          "articulo": "Rodillos Antigota Nº 17(ROD-7031)",
+          "cantidad": 24.0,
+          "ultimoCosto": 2308.9,
+          "totalCosto": 55413.6,
+          "totalFac": 81457.99
         },
         {
           "rubro": "Accesorios",
@@ -168,34 +216,34 @@
         {
           "rubro": "Accesorios",
           "articulo": "Rodillos Lana Dorada Nº 17(ROD-7021)",
-          "cantidad": 5.0,
+          "cantidad": 29.0,
           "ultimoCosto": 4435.78,
-          "totalCosto": 22178.9,
-          "totalFac": 32991.12
+          "totalCosto": 128637.62,
+          "totalFac": 219293.88
         },
         {
           "rubro": "Accesorios",
           "articulo": "Rodillos Lana Dorada Nº 22(ROD-7022)",
-          "cantidad": 5.0,
+          "cantidad": 29.0,
           "ultimoCosto": 4650.18,
-          "totalCosto": 23250.9,
-          "totalFac": 34585.72
+          "totalCosto": 134855.22,
+          "totalFac": 229893.28
         },
         {
           "rubro": "Accesorios",
           "articulo": "Rodillos Mini Epoxi Nº 11(ROD-7008)",
-          "cantidad": 15.0,
+          "cantidad": 45.0,
           "ultimoCosto": 622.2,
-          "totalCosto": 9333.0,
-          "totalFac": 13719.51
+          "totalCosto": 27999.0,
+          "totalFac": 41158.53
         },
         {
           "rubro": "Accesorios",
           "articulo": "Rodillos Mini Epoxi Nº 8(ROD-7007)",
-          "cantidad": 98.0,
+          "cantidad": 128.0,
           "ultimoCosto": 545.33,
-          "totalCosto": 53442.34,
-          "totalFac": 78560.03
+          "totalCosto": 69802.24,
+          "totalFac": 102609.02
         }
       ]
     }
