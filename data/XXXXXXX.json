@@ -1,18 +1,18 @@
 {
   "empresa": "XXXXXXX",
-  "fechaActualizacion": "15/07/2026 17:04",
+  "fechaActualizacion": "16/07/2026 13:19",
   "mes": "07/2026",
   "anio": 2026,
   "nroMes": 7,
-  "totalFac": 6754214.5600000005,
-  "totalCosto": 3593487.6199999996,
-  "ganancia": 3160726.940000001,
-  "margen": 46.8,
+  "totalFac": 10853597.74,
+  "totalCosto": 6323524.82,
+  "ganancia": 4530072.92,
+  "margen": 41.7,
   "rubros": {
     "Pinceles": {
-      "unidades": 4446.0,
-      "totalFac": 6392024.800000001,
-      "totalCosto": 3337171.4999999995,
+      "unidades": 7206.0,
+      "totalFac": 10491407.98,
+      "totalCosto": 6067208.7,
       "articulos": [
         {
           "rubro": "Pinceles",
@@ -161,42 +161,90 @@
         {
           "rubro": "Pinceles",
           "articulo": "Pincel Profesiional 30/1(PLT-2005)",
-          "cantidad": 120.0,
+          "cantidad": 360.0,
           "ultimoCosto": 1440.34,
-          "totalCosto": 172840.8,
-          "totalFac": 229764.0
+          "totalCosto": 518522.4,
+          "totalFac": 705950.4
+        },
+        {
+          "rubro": "Pinceles",
+          "articulo": "Pincel Profesional 10/1(PLT-2001)",
+          "cantidad": 180.0,
+          "ultimoCosto": 405.7,
+          "totalCosto": 73026.0,
+          "totalFac": 130841.91
+        },
+        {
+          "rubro": "Pinceles",
+          "articulo": "Pincel Profesional 10/2(PLT-2007)",
+          "cantidad": 60.0,
+          "ultimoCosto": 562.92,
+          "totalCosto": 33775.2,
+          "totalFac": 57678.87
         },
         {
           "rubro": "Pinceles",
           "articulo": "Pincel Profesional 15/1(PLT-2002)",
-          "cantidad": 240.0,
+          "cantidad": 720.0,
           "ultimoCosto": 717.29,
-          "totalCosto": 172149.6,
-          "totalFac": 252400.8
+          "totalCosto": 516448.8,
+          "totalFac": 779391.12
+        },
+        {
+          "rubro": "Pinceles",
+          "articulo": "Pincel Profesional 15/2(PLT-2008)",
+          "cantidad": 120.0,
+          "ultimoCosto": 888.97,
+          "totalCosto": 106676.4,
+          "totalFac": 175932.78
         },
         {
           "rubro": "Pinceles",
           "articulo": "Pincel Profesional 20/1(PLT-2003)",
-          "cantidad": 240.0,
+          "cantidad": 720.0,
           "ultimoCosto": 857.64,
-          "totalCosto": 205833.6,
-          "totalFac": 297235.2
+          "totalCosto": 617500.8,
+          "totalFac": 916575.12
+        },
+        {
+          "rubro": "Pinceles",
+          "articulo": "Pincel Profesional 20/2(PLT-2009)",
+          "cantidad": 120.0,
+          "ultimoCosto": 1134.55,
+          "totalCosto": 136146.0,
+          "totalFac": 218339.64
         },
         {
           "rubro": "Pinceles",
           "articulo": "Pincel Profesional 25/1(PLT-2004)",
-          "cantidad": 240.0,
+          "cantidad": 960.0,
           "ultimoCosto": 1225.21,
-          "totalCosto": 294050.4,
-          "totalFac": 394507.2
+          "totalCosto": 1176201.6,
+          "totalFac": 1651949.4
+        },
+        {
+          "rubro": "Pinceles",
+          "articulo": "Pincel Profesional 25/2(PLT-2010)",
+          "cantidad": 120.0,
+          "ultimoCosto": 1326.76,
+          "totalCosto": 159211.2,
+          "totalFac": 254343.12
         },
         {
           "rubro": "Pinceles",
           "articulo": "Pincel Profesional 30/2(PLT-2011)",
-          "cantidad": 60.0,
+          "cantidad": 180.0,
           "ultimoCosto": 1623.44,
-          "totalCosto": 97406.4,
-          "totalFac": 236892.29
+          "totalCosto": 292219.2,
+          "totalFac": 542723.51
+        },
+        {
+          "rubro": "Pinceles",
+          "articulo": "Pincel Profesional 7/1(PLT-2000)",
+          "cantidad": 120.0,
+          "ultimoCosto": 354.92,
+          "totalCosto": 42590.4,
+          "totalFac": 76456.8
         },
         {
           "rubro": "Pinceles",
