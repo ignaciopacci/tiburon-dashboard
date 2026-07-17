@@ -1,19 +1,19 @@
 {
   "mes": "07/2026",
-  "fechaCalculo": "17/07/2026 13:16",
-  "ahorroTotal": 9225654.0,
+  "fechaCalculo": "17/07/2026 17:01",
+  "ahorroTotal": 9310644.0,
   "detallePorLinea": {
     "Clasica": {
-      "kg": 1023.0,
+      "kg": 1028.01,
       "precioColchon": 6.64,
       "precioReal": 3.47,
-      "ahorro": 8269453.0
+      "ahorro": 8309903.0
     },
     "Ecology": {
-      "kg": 24.78,
+      "kg": 29.35,
       "precioColchon": 6.64,
       "precioReal": 3.47,
-      "ahorro": 200309.0
+      "ahorro": 237267.0
     },
     "Linea2400": {
       "kg": 9.18,
@@ -22,10 +22,10 @@
       "ahorro": 96679.0
     },
     "Bacota": {
-      "kg": 2.71,
+      "kg": 3.43,
       "precioColchon": 8.65,
       "precioReal": 4.52,
-      "ahorro": 28587.0
+      "ahorro": 36169.0
     },
     "Profesional": {
       "kg": 59.88,
