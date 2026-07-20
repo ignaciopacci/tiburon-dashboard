@@ -1,18 +1,18 @@
 {
   "empresa": "XXXXXXX",
-  "fechaActualizacion": "20/07/2026 13:25",
+  "fechaActualizacion": "20/07/2026 17:18",
   "mes": "07/2026",
   "anio": 2026,
   "nroMes": 7,
-  "totalFac": 14490841.39,
-  "totalCosto": 8118949.65,
-  "ganancia": 6371891.74,
-  "margen": 44.0,
+  "totalFac": 15083563.75,
+  "totalCosto": 8583977.489999998,
+  "ganancia": 6499586.260000002,
+  "margen": 43.1,
   "rubros": {
     "Pinceles": {
-      "unidades": 8794.0,
-      "totalFac": 13459427.190000001,
-      "totalCosto": 7498605.86,
+      "unidades": 8902.0,
+      "totalFac": 14052149.55,
+      "totalCosto": 7963633.699999999,
       "articulos": [
         {
           "rubro": "Pinceles",
@@ -281,10 +281,18 @@
         {
           "rubro": "Pinceles",
           "articulo": "Pinceleta Latex 40/2(PLP-6000)",
-          "cantidad": 8.0,
+          "cantidad": 44.0,
           "ultimoCosto": 3706.68,
-          "totalCosto": 29653.44,
-          "totalFac": 71168.26
+          "totalCosto": 163093.92,
+          "totalFac": 236115.94
+        },
+        {
+          "rubro": "Pinceles",
+          "articulo": "Pinceleta Latex 40/4 C 95(PLP-6002)",
+          "cantidad": 36.0,
+          "ultimoCosto": 5138.86,
+          "totalCosto": 184998.96,
+          "totalFac": 233176.68
         },
         {
           "rubro": "Pinceles",
@@ -297,10 +305,10 @@
         {
           "rubro": "Pinceles",
           "articulo": "Pinceleta Sintetica 40/4(PLP-7000)",
-          "cantidad": 156.0,
+          "cantidad": 192.0,
           "ultimoCosto": 4071.9,
-          "totalCosto": 635216.4,
-          "totalFac": 1011459.96
+          "totalCosto": 781804.8,
+          "totalFac": 1206057.96
         }
       ]
     },
