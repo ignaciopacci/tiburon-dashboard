@@ -1,18 +1,18 @@
 {
   "empresa": "Irelocs S.A.",
-  "fechaActualizacion": "20/07/2026 17:17",
+  "fechaActualizacion": "21/07/2026 13:24",
   "mes": "07/2026",
   "anio": 2026,
   "nroMes": 7,
-  "totalFac": 4472316.74,
-  "totalCosto": 2069329.08,
-  "ganancia": 2402987.66,
-  "margen": 53.7,
+  "totalFac": 4576891.94,
+  "totalCosto": 2131566.7199999997,
+  "ganancia": 2445325.2200000007,
+  "margen": 53.4,
   "rubros": {
     "Pinceles": {
-      "unidades": 1619.0,
-      "totalFac": 3521341.1,
-      "totalCosto": 1475508.6400000001,
+      "unidades": 1703.0,
+      "totalFac": 3625916.3000000003,
+      "totalCosto": 1537746.28,
       "articulos": [
         {
           "rubro": "Pinceles",
@@ -233,10 +233,10 @@
         {
           "rubro": "Pinceles",
           "articulo": "Pincel Profesional 10/1(PLT-2001)",
-          "cantidad": 4.0,
+          "cantidad": 28.0,
           "ultimoCosto": 405.7,
-          "totalCosto": 1622.8,
-          "totalFac": 4933.31
+          "totalCosto": 11359.6,
+          "totalFac": 24378.83
         },
         {
           "rubro": "Pinceles",
@@ -249,10 +249,10 @@
         {
           "rubro": "Pinceles",
           "articulo": "Pincel Profesional 15/1(PLT-2002)",
-          "cantidad": 12.0,
+          "cantidad": 36.0,
           "ultimoCosto": 717.29,
-          "totalCosto": 8607.48,
-          "totalFac": 26166.72
+          "totalCosto": 25822.44,
+          "totalFac": 55070.88
         },
         {
           "rubro": "Pinceles",
@@ -265,10 +265,10 @@
         {
           "rubro": "Pinceles",
           "articulo": "Pincel Profesional 20/1(PLT-2003)",
-          "cantidad": 12.0,
+          "cantidad": 36.0,
           "ultimoCosto": 857.64,
-          "totalCosto": 10291.68,
-          "totalFac": 31286.69
+          "totalCosto": 30875.04,
+          "totalFac": 65192.45
         },
         {
           "rubro": "Pinceles",
@@ -281,10 +281,10 @@
         {
           "rubro": "Pinceles",
           "articulo": "Pincel Profesional 25/1(PLT-2004)",
-          "cantidad": 12.0,
+          "cantidad": 24.0,
           "ultimoCosto": 1225.21,
-          "totalCosto": 14702.52,
-          "totalFac": 44695.63
+          "totalCosto": 29405.04,
+          "totalFac": 67015.39
         },
         {
           "rubro": "Pinceles",
