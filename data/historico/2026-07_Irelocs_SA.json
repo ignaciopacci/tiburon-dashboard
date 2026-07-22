@@ -1,18 +1,18 @@
 {
   "empresa": "Irelocs S.A.",
-  "fechaActualizacion": "22/07/2026 13:21",
+  "fechaActualizacion": "22/07/2026 17:14",
   "mes": "07/2026",
   "anio": 2026,
   "nroMes": 7,
-  "totalFac": 4576891.94,
-  "totalCosto": 2131566.7199999997,
-  "ganancia": 2445325.2200000007,
-  "margen": 53.4,
+  "totalFac": 6278372.75,
+  "totalCosto": 3116995.82,
+  "ganancia": 3161376.93,
+  "margen": 50.4,
   "rubros": {
     "Pinceles": {
-      "unidades": 1703.0,
-      "totalFac": 3625916.3000000003,
-      "totalCosto": 1537746.28,
+      "unidades": 1919.0,
+      "totalFac": 4018608.65,
+      "totalCosto": 1685375.0799999998,
       "articulos": [
         {
           "rubro": "Pinceles",
@@ -105,42 +105,42 @@
         {
           "rubro": "Pinceles",
           "articulo": "Pincel Clasico 10/1(PEC-1001)",
-          "cantidad": 24.0,
+          "cantidad": 48.0,
           "ultimoCosto": 363.19,
-          "totalCosto": 8716.56,
-          "totalFac": 18255.84
+          "totalCosto": 17433.12,
+          "totalFac": 41441.86
         },
         {
           "rubro": "Pinceles",
           "articulo": "Pincel Clasico 15/1(PEC-1002)",
-          "cantidad": 24.0,
+          "cantidad": 48.0,
           "ultimoCosto": 498.68,
-          "totalCosto": 11968.32,
-          "totalFac": 24651.12
+          "totalCosto": 23936.64,
+          "totalFac": 56486.78
         },
         {
           "rubro": "Pinceles",
           "articulo": "Pincel Clasico 20/1(PEC-1003)",
-          "cantidad": 24.0,
+          "cantidad": 96.0,
           "ultimoCosto": 576.47,
-          "totalCosto": 13835.28,
-          "totalFac": 28589.76
+          "totalCosto": 55341.12,
+          "totalFac": 138995.24
         },
         {
           "rubro": "Pinceles",
           "articulo": "Pincel Clasico 25/1(PEC-1004)",
-          "cantidad": 24.0,
+          "cantidad": 72.0,
           "ultimoCosto": 771.64,
-          "totalCosto": 18519.36,
-          "totalFac": 36665.28
+          "totalCosto": 55558.08,
+          "totalFac": 135188.21
         },
         {
           "rubro": "Pinceles",
           "articulo": "Pincel Clasico 30/1(PEC-1005)",
-          "cantidad": 42.0,
+          "cantidad": 90.0,
           "ultimoCosto": 1008.32,
-          "totalCosto": 42349.44,
-          "totalFac": 86449.57
+          "totalCosto": 90748.8,
+          "totalFac": 215191.83
         },
         {
           "rubro": "Pinceles",
@@ -329,9 +329,9 @@
       ]
     },
     "Accesorios": {
-      "unidades": 344.0,
-      "totalFac": 950975.6400000001,
-      "totalCosto": 593820.44,
+      "unidades": 1084.0,
+      "totalFac": 2259764.0999999996,
+      "totalCosto": 1431620.74,
       "articulos": [
         {
           "rubro": "Accesorios",
@@ -360,18 +360,26 @@
         {
           "rubro": "Accesorios",
           "articulo": "Rodillo Mini Epoxi Nº 5(ROD-7006)",
-          "cantidad": 39.0,
-          "ultimoCosto": 453.13,
-          "totalCosto": 17672.07,
-          "totalFac": 25977.86
+          "cantidad": 339.0,
+          "ultimoCosto": 477.19,
+          "totalCosto": 161768.07,
+          "totalFac": 237798.56
         },
         {
           "rubro": "Accesorios",
           "articulo": "Rodillos Antigota Nº 17(ROD-7031)",
-          "cantidad": 24.0,
-          "ultimoCosto": 2308.9,
-          "totalCosto": 55413.6,
-          "totalFac": 81457.99
+          "cantidad": 104.0,
+          "ultimoCosto": 2415.47,
+          "totalCosto": 251208.8,
+          "totalFac": 369276.71
+        },
+        {
+          "rubro": "Accesorios",
+          "articulo": "Rodillos Antigota Nº 22(ROD-7032)",
+          "cantidad": 30.0,
+          "ultimoCosto": 2586.69,
+          "totalCosto": 77600.7,
+          "totalFac": 114072.84
         },
         {
           "rubro": "Accesorios",
@@ -399,6 +407,14 @@
         },
         {
           "rubro": "Accesorios",
+          "articulo": "Rodillos Lana Economica Nº 17(ROD-7015)",
+          "cantidad": 80.0,
+          "ultimoCosto": 3447.48,
+          "totalCosto": 275798.4,
+          "totalFac": 482647.2
+        },
+        {
+          "rubro": "Accesorios",
           "articulo": "Rodillos Mini Epoxi Nº 11(ROD-7008)",
           "cantidad": 45.0,
           "ultimoCosto": 622.2,
@@ -408,10 +424,10 @@
         {
           "rubro": "Accesorios",
           "articulo": "Rodillos Mini Epoxi Nº 8(ROD-7007)",
-          "cantidad": 128.0,
-          "ultimoCosto": 545.33,
-          "totalCosto": 69802.24,
-          "totalFac": 102609.02
+          "cantidad": 378.0,
+          "ultimoCosto": 566.96,
+          "totalCosto": 214312.24,
+          "totalFac": 315038.02
         }
       ]
     }
