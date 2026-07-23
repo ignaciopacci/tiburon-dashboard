@@ -1,18 +1,18 @@
 {
   "empresa": "Irelocs S.A.",
-  "fechaActualizacion": "22/07/2026 17:14",
+  "fechaActualizacion": "23/07/2026 13:37",
   "mes": "07/2026",
   "anio": 2026,
   "nroMes": 7,
-  "totalFac": 6278372.75,
-  "totalCosto": 3116995.82,
-  "ganancia": 3161376.93,
-  "margen": 50.4,
+  "totalFac": 7158770.75,
+  "totalCosto": 3770196.9799999995,
+  "ganancia": 3388573.7700000005,
+  "margen": 47.3,
   "rubros": {
     "Pinceles": {
-      "unidades": 1919.0,
-      "totalFac": 4018608.65,
-      "totalCosto": 1685375.0799999998,
+      "unidades": 2585.0,
+      "totalFac": 4899006.65,
+      "totalCosto": 2338576.2399999998,
       "articulos": [
         {
           "rubro": "Pinceles",
@@ -113,10 +113,10 @@
         {
           "rubro": "Pinceles",
           "articulo": "Pincel Clasico 15/1(PEC-1002)",
-          "cantidad": 48.0,
+          "cantidad": 396.0,
           "ultimoCosto": 498.68,
-          "totalCosto": 23936.64,
-          "totalFac": 56486.78
+          "totalCosto": 197477.28,
+          "totalFac": 362838.14
         },
         {
           "rubro": "Pinceles",
@@ -129,10 +129,10 @@
         {
           "rubro": "Pinceles",
           "articulo": "Pincel Clasico 25/1(PEC-1004)",
-          "cantidad": 72.0,
+          "cantidad": 240.0,
           "ultimoCosto": 771.64,
-          "totalCosto": 55558.08,
-          "totalFac": 135188.21
+          "totalCosto": 185193.6,
+          "totalFac": 357364.85
         },
         {
           "rubro": "Pinceles",
@@ -309,6 +309,14 @@
           "ultimoCosto": 3706.68,
           "totalCosto": 14826.72,
           "totalFac": 35584.13
+        },
+        {
+          "rubro": "Pinceles",
+          "articulo": "Pinceleta Nacional 40/4(PLP-5002)",
+          "cantidad": 150.0,
+          "ultimoCosto": 2333.5,
+          "totalCosto": 350025.0,
+          "totalFac": 351870.0
         },
         {
           "rubro": "Pinceles",
