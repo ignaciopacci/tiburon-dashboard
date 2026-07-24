@@ -1,13 +1,13 @@
 {
   "empresa": "Irelocs S.A.",
-  "fechaActualizacion": "24/07/2026 13:44",
+  "fechaActualizacion": "24/07/2026 17:16",
   "mes": "07/2026",
   "anio": 2026,
   "nroMes": 7,
-  "totalFac": 9288505.41,
-  "totalCosto": 4525577.779999999,
-  "ganancia": 4762927.630000001,
-  "margen": 51.3,
+  "totalFac": 9565668.29,
+  "totalCosto": 4676209.779999999,
+  "ganancia": 4889458.51,
+  "margen": 51.1,
   "rubros": {
     "Pinceles": {
       "unidades": 3419.0,
@@ -353,9 +353,9 @@
       ]
     },
     "Accesorios": {
-      "unidades": 1084.0,
-      "totalFac": 2259764.0999999996,
-      "totalCosto": 1431620.74,
+      "unidades": 1085.0,
+      "totalFac": 2536926.9799999995,
+      "totalCosto": 1582252.74,
       "articulos": [
         {
           "rubro": "Accesorios",
@@ -372,6 +372,14 @@
           "ultimoCosto": 10337.54,
           "totalCosto": 10337.54,
           "totalFac": 13955.67
+        },
+        {
+          "rubro": "Accesorios",
+          "articulo": "Lijadoras Extensibles(FR-1750E)",
+          "cantidad": 1.0,
+          "ultimoCosto": 150632.0,
+          "totalCosto": 150632.0,
+          "totalFac": 277162.88
         },
         {
           "rubro": "Accesorios",
