@@ -1,18 +1,18 @@
 {
   "empresa": "XXXXXXX",
-  "fechaActualizacion": "28/07/2026 17:13",
+  "fechaActualizacion": "29/07/2026 13:23",
   "mes": "07/2026",
   "anio": 2026,
   "nroMes": 7,
-  "totalFac": 20077051.419999998,
-  "totalCosto": 10722526.569999998,
-  "ganancia": 9354524.85,
-  "margen": 46.6,
+  "totalFac": 24488600.459999993,
+  "totalCosto": 13419628.270000001,
+  "ganancia": 11068972.189999992,
+  "margen": 45.2,
   "rubros": {
     "Pinceles": {
-      "unidades": 10768.0,
-      "totalFac": 18468398.95,
-      "totalCosto": 9702713.059999999,
+      "unidades": 14149.0,
+      "totalFac": 22818666.609999996,
+      "totalCosto": 12399814.760000002,
       "articulos": [
         {
           "rubro": "Pinceles",
@@ -21,6 +21,14 @@
           "ultimoCosto": 376.36,
           "totalCosto": 22581.6,
           "totalFac": 55324.92
+        },
+        {
+          "rubro": "Pinceles",
+          "articulo": "Pincel 1200 15/1(PIN-1202)",
+          "cantidad": 1044.0,
+          "ultimoCosto": 626.0,
+          "totalCosto": 653544.0,
+          "totalFac": 1024999.2
         },
         {
           "rubro": "Pinceles",
@@ -97,26 +105,26 @@
         {
           "rubro": "Pinceles",
           "articulo": "Pincel Clasico 10/1(PEC-1001)",
-          "cantidad": 180.0,
+          "cantidad": 240.0,
           "ultimoCosto": 363.19,
-          "totalCosto": 65374.2,
-          "totalFac": 211986.43
+          "totalCosto": 87165.6,
+          "totalFac": 267053.22
         },
         {
           "rubro": "Pinceles",
           "articulo": "Pincel Clasico 15/1(PEC-1002)",
-          "cantidad": 288.0,
+          "cantidad": 348.0,
           "ultimoCosto": 498.68,
-          "totalCosto": 143619.84,
-          "totalFac": 407041.7
+          "totalCosto": 173540.64,
+          "totalFac": 482651.4
         },
         {
           "rubro": "Pinceles",
           "articulo": "Pincel Clasico 20/1(PEC-1003)",
-          "cantidad": 324.0,
+          "cantidad": 384.0,
           "ultimoCosto": 576.47,
-          "totalCosto": 186776.28,
-          "totalFac": 504710.78
+          "totalCosto": 221364.48,
+          "totalFac": 592115.12
         },
         {
           "rubro": "Pinceles",
@@ -129,10 +137,10 @@
         {
           "rubro": "Pinceles",
           "articulo": "Pincel Clasico 25/1(PEC-1004)",
-          "cantidad": 216.0,
+          "cantidad": 276.0,
           "ultimoCosto": 771.64,
-          "totalCosto": 166674.24,
-          "totalFac": 422241.12
+          "totalCosto": 212972.64,
+          "totalFac": 539237.1
         },
         {
           "rubro": "Pinceles",
@@ -145,18 +153,34 @@
         {
           "rubro": "Pinceles",
           "articulo": "Pincel Clasico 30/1(PEC-1005)",
-          "cantidad": 162.0,
+          "cantidad": 192.0,
           "ultimoCosto": 1008.32,
-          "totalCosto": 163347.84,
-          "totalFac": 439562.88
+          "totalCosto": 193597.44,
+          "totalFac": 516003.6
+        },
+        {
+          "rubro": "Pinceles",
+          "articulo": "Pincel Clasico 30/2(PEC-1011)",
+          "cantidad": 360.0,
+          "ultimoCosto": 1184.3,
+          "totalCosto": 426348.0,
+          "totalFac": 755686.8
+        },
+        {
+          "rubro": "Pinceles",
+          "articulo": "Pincel Clasico 7/1(PEC-1000)",
+          "cantidad": 348.0,
+          "ultimoCosto": 339.14,
+          "totalCosto": 118020.72,
+          "totalFac": 212471.4
         },
         {
           "rubro": "Pinceles",
           "articulo": "Pincel Ecology 10/1(PEC-8000)",
-          "cantidad": 456.0,
+          "cantidad": 1500.0,
           "ultimoCosto": 308.52,
-          "totalCosto": 140685.12,
-          "totalFac": 364951.76
+          "totalCosto": 462780.0,
+          "totalFac": 872638.52
         },
         {
           "rubro": "Pinceles",
@@ -273,10 +297,10 @@
         {
           "rubro": "Pinceles",
           "articulo": "Pincel Profesional 15/1(PLT-2002)",
-          "cantidad": 768.0,
+          "cantidad": 798.0,
           "ultimoCosto": 717.29,
-          "totalCosto": 550878.72,
-          "totalFac": 860628.72
+          "totalCosto": 572397.42,
+          "totalFac": 915006.43
         },
         {
           "rubro": "Pinceles",
@@ -289,10 +313,10 @@
         {
           "rubro": "Pinceles",
           "articulo": "Pincel Profesional 20/1(PLT-2003)",
-          "cantidad": 768.0,
+          "cantidad": 798.0,
           "ultimoCosto": 857.64,
-          "totalCosto": 658667.52,
-          "totalFac": 1013054.26
+          "totalCosto": 684396.72,
+          "totalFac": 1078071.91
         },
         {
           "rubro": "Pinceles",
@@ -305,10 +329,10 @@
         {
           "rubro": "Pinceles",
           "articulo": "Pincel Profesional 25/1(PLT-2004)",
-          "cantidad": 1008.0,
+          "cantidad": 1038.0,
           "ultimoCosto": 1225.21,
-          "totalCosto": 1235011.68,
-          "totalFac": 1785980.18
+          "totalCosto": 1271767.98,
+          "totalFac": 1878863.29
         },
         {
           "rubro": "Pinceles",
@@ -336,11 +360,19 @@
         },
         {
           "rubro": "Pinceles",
+          "articulo": "Pinceleta Bacota 40/4(PLB-4005)",
+          "cantidad": 150.0,
+          "ultimoCosto": 4348.27,
+          "totalCosto": 652240.5,
+          "totalFac": 881986.5
+        },
+        {
+          "rubro": "Pinceles",
           "articulo": "Pinceleta Latex 40/2(PLP-6000)",
-          "cantidad": 44.0,
+          "cantidad": 119.0,
           "ultimoCosto": 3706.68,
-          "totalCosto": 163093.92,
-          "totalFac": 236115.94
+          "totalCosto": 441094.92,
+          "totalFac": 579756.94
         },
         {
           "rubro": "Pinceles",
@@ -377,8 +409,8 @@
       ]
     },
     "Accesorios": {
-      "unidades": 812.0,
-      "totalFac": 1608652.4699999997,
+      "unidades": 813.0,
+      "totalFac": 1669933.8499999996,
       "totalCosto": 1019813.5099999999,
       "articulos": [
         {
@@ -444,6 +476,14 @@
           "ultimoCosto": 7156.76,
           "totalCosto": 93037.82,
           "totalFac": 125600.99
+        },
+        {
+          "rubro": "Accesorios",
+          "articulo": "Interes 5%(INTERES)",
+          "cantidad": 1.0,
+          "ultimoCosto": 0.0,
+          "totalCosto": 0.0,
+          "totalFac": 61281.38
         },
         {
           "rubro": "Accesorios",
