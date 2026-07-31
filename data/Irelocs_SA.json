@@ -1,18 +1,18 @@
 {
   "empresa": "Irelocs S.A.",
-  "fechaActualizacion": "30/07/2026 17:12",
+  "fechaActualizacion": "31/07/2026 13:47",
   "mes": "07/2026",
   "anio": 2026,
   "nroMes": 7,
-  "totalFac": 16463273.209999999,
-  "totalCosto": 7550919.16,
-  "ganancia": 8912354.049999999,
-  "margen": 54.1,
+  "totalFac": 19264209.039999995,
+  "totalCosto": 9227487.129999999,
+  "ganancia": 10036721.909999996,
+  "margen": 52.1,
   "rubros": {
     "Pinceles": {
-      "unidades": 7037.0,
-      "totalFac": 13847589.219999999,
-      "totalCosto": 5909263.42,
+      "unidades": 7859.0,
+      "totalFac": 14947746.919999996,
+      "totalCosto": 6362724.58,
       "articulos": [
         {
           "rubro": "Pinceles",
@@ -145,10 +145,10 @@
         {
           "rubro": "Pinceles",
           "articulo": "Pincel Clasico 10/1(PEC-1001)",
-          "cantidad": 168.0,
+          "cantidad": 288.0,
           "ultimoCosto": 363.19,
-          "totalCosto": 61015.92,
-          "totalFac": 162754.41
+          "totalCosto": 104598.72,
+          "totalFac": 267091.48
         },
         {
           "rubro": "Pinceles",
@@ -161,10 +161,10 @@
         {
           "rubro": "Pinceles",
           "articulo": "Pincel Clasico 15/1(PEC-1002)",
-          "cantidad": 516.0,
+          "cantidad": 714.0,
           "ultimoCosto": 498.68,
-          "totalCosto": 257318.88,
-          "totalFac": 529406.88
+          "totalCosto": 356057.52,
+          "totalFac": 771585.32
         },
         {
           "rubro": "Pinceles",
@@ -177,10 +177,10 @@
         {
           "rubro": "Pinceles",
           "articulo": "Pincel Clasico 20/1(PEC-1003)",
-          "cantidad": 240.0,
+          "cantidad": 432.0,
           "ultimoCosto": 576.47,
-          "totalCosto": 138352.8,
-          "totalFac": 373606.89
+          "totalCosto": 249035.04,
+          "totalFac": 643048.85
         },
         {
           "rubro": "Pinceles",
@@ -193,10 +193,10 @@
         {
           "rubro": "Pinceles",
           "articulo": "Pincel Clasico 25/1(PEC-1004)",
-          "cantidad": 372.0,
+          "cantidad": 498.0,
           "ultimoCosto": 771.64,
-          "totalCosto": 287050.08,
-          "totalFac": 643257.28
+          "totalCosto": 384276.72,
+          "totalFac": 879008.57
         },
         {
           "rubro": "Pinceles",
@@ -209,10 +209,10 @@
         {
           "rubro": "Pinceles",
           "articulo": "Pincel Clasico 30/1(PEC-1005)",
-          "cantidad": 180.0,
+          "cantidad": 240.0,
           "ultimoCosto": 1008.32,
-          "totalCosto": 181497.6,
-          "totalFac": 475550.07
+          "totalCosto": 241996.8,
+          "totalFac": 620385.12
         },
         {
           "rubro": "Pinceles",
@@ -221,6 +221,14 @@
           "ultimoCosto": 1184.3,
           "totalCosto": 28423.2,
           "totalFac": 86406.53
+        },
+        {
+          "rubro": "Pinceles",
+          "articulo": "Pincel Clasico 7/1(PEC-1000)",
+          "cantidad": 126.0,
+          "ultimoCosto": 339.14,
+          "totalCosto": 42731.64,
+          "totalFac": 103613.89
         },
         {
           "rubro": "Pinceles",
@@ -425,17 +433,17 @@
       ]
     },
     "Accesorios": {
-      "unidades": 1133.0,
-      "totalFac": 2615683.9899999998,
-      "totalCosto": 1641655.74,
+      "unidades": 2198.0,
+      "totalFac": 4316462.12,
+      "totalCosto": 2864762.55,
       "articulos": [
         {
           "rubro": "Accesorios",
           "articulo": "Bandeja Con Escurridor(BCE)",
-          "cantidad": 12.0,
+          "cantidad": 27.0,
           "ultimoCosto": 921.57,
-          "totalCosto": 11058.84,
-          "totalFac": 16809.41
+          "totalCosto": 24882.39,
+          "totalFac": 37821.17
         },
         {
           "rubro": "Accesorios",
@@ -448,10 +456,10 @@
         {
           "rubro": "Accesorios",
           "articulo": "Cobertor Multiuso Eco Blanco 3x3(COB-3ECO)",
-          "cantidad": 24.0,
-          "ultimoCosto": 1623.78,
-          "totalCosto": 38970.72,
-          "totalFac": 47700.05
+          "cantidad": 46.0,
+          "ultimoCosto": 1641.43,
+          "totalCosto": 75505.77,
+          "totalFac": 103598.56
         },
         {
           "rubro": "Accesorios",
@@ -487,6 +495,30 @@
         },
         {
           "rubro": "Accesorios",
+          "articulo": "Rodillo C/f Nº 5(ROD-7003)",
+          "cantidad": 200.0,
+          "ultimoCosto": 506.26,
+          "totalCosto": 101252.0,
+          "totalFac": 126513.66
+        },
+        {
+          "rubro": "Accesorios",
+          "articulo": "Rodillo Mini Antigota Nº 5(ROD-7033)",
+          "cantidad": 150.0,
+          "ultimoCosto": 545.23,
+          "totalCosto": 81784.5,
+          "totalFac": 120222.9
+        },
+        {
+          "rubro": "Accesorios",
+          "articulo": "Rodillo Mini Antigota Nº 8(ROD-7034)",
+          "cantidad": 125.0,
+          "ultimoCosto": 658.4,
+          "totalCosto": 82300.0,
+          "totalFac": 120981.0
+        },
+        {
+          "rubro": "Accesorios",
           "articulo": "Rodillo Mini Epoxi Nº 5(ROD-7006)",
           "cantidad": 339.0,
           "ultimoCosto": 477.19,
@@ -511,27 +543,51 @@
         },
         {
           "rubro": "Accesorios",
+          "articulo": "Rodillos C/f Nº 11(ROD-7005)",
+          "cantidad": 199.0,
+          "ultimoCosto": 622.47,
+          "totalCosto": 123870.93,
+          "totalFac": 154646.21
+        },
+        {
+          "rubro": "Accesorios",
+          "articulo": "Rodillos C/f Nº 8(ROD-7004)",
+          "cantidad": 200.0,
+          "ultimoCosto": 573.63,
+          "totalCosto": 114726.0,
+          "totalFac": 143349.78
+        },
+        {
+          "rubro": "Accesorios",
           "articulo": "Rodillos Laba Blanca Nº 22(ROD-7018)",
-          "cantidad": 35.0,
-          "ultimoCosto": 4195.13,
-          "totalCosto": 146829.55,
-          "totalFac": 229421.06
+          "cantidad": 122.0,
+          "ultimoCosto": 4212.32,
+          "totalCosto": 513903.43,
+          "totalFac": 738735.82
+        },
+        {
+          "rubro": "Accesorios",
+          "articulo": "Rodillos Lana Blanca Nº 17(ROD-7017)",
+          "cantidad": 15.0,
+          "ultimoCosto": 4054.83,
+          "totalCosto": 60822.45,
+          "totalFac": 90473.35
         },
         {
           "rubro": "Accesorios",
           "articulo": "Rodillos Lana Dorada Nº 17(ROD-7021)",
-          "cantidad": 29.0,
+          "cantidad": 44.0,
           "ultimoCosto": 4435.78,
-          "totalCosto": 128637.62,
-          "totalFac": 219293.88
+          "totalCosto": 195174.32,
+          "totalFac": 318267.23
         },
         {
           "rubro": "Accesorios",
           "articulo": "Rodillos Lana Dorada Nº 22(ROD-7022)",
-          "cantidad": 29.0,
-          "ultimoCosto": 4650.18,
-          "totalCosto": 134855.22,
-          "totalFac": 229893.28
+          "cantidad": 66.0,
+          "ultimoCosto": 4685.41,
+          "totalCosto": 309236.97,
+          "totalFac": 489286.13
         },
         {
           "rubro": "Accesorios",
