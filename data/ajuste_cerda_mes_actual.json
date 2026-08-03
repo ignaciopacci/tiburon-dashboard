@@ -1,13 +1,19 @@
 {
   "mes": "08/2026",
-  "fechaCalculo": "03/08/2026 14:09",
-  "ahorroTotal": 21922.0,
+  "fechaCalculo": "03/08/2026 17:23",
+  "ahorroTotal": 235715.0,
   "detallePorLinea": {
-    "Ecology": {
-      "kg": 2.71,
+    "Clasica": {
+      "kg": 9.41,
       "precioColchon": 6.64,
       "precioReal": 3.47,
-      "ahorro": 21922.0
+      "ahorro": 76050.0
+    },
+    "Ecology": {
+      "kg": 19.75,
+      "precioColchon": 6.64,
+      "precioReal": 3.47,
+      "ahorro": 159665.0
     }
   },
   "dolarBilleteUsado": null
