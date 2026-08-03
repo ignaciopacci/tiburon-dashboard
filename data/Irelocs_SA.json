@@ -1,58 +1,90 @@
 {
   "empresa": "Irelocs S.A.",
-  "fechaActualizacion": "03/08/2026 14:09",
+  "fechaActualizacion": "03/08/2026 17:23",
   "mes": "08/2026",
   "anio": 2026,
   "nroMes": 8,
-  "totalFac": 200587.22,
-  "totalCosto": 65982.72,
-  "ganancia": 134604.5,
-  "margen": 67.1,
+  "totalFac": 4692967.59,
+  "totalCosto": 1379545.44,
+  "ganancia": 3313422.15,
+  "margen": 70.6,
   "rubros": {
     "Pinceles": {
-      "unidades": 132.0,
-      "totalFac": 200587.22,
-      "totalCosto": 65982.72,
+      "unidades": 2208.0,
+      "totalFac": 4692967.59,
+      "totalCosto": 1379545.44,
       "articulos": [
         {
           "rubro": "Pinceles",
+          "articulo": "Pincel Clasico 10/1(PEC-1001)",
+          "cantidad": 120.0,
+          "ultimoCosto": 363.19,
+          "totalCosto": 43582.8,
+          "totalFac": 149052.96
+        },
+        {
+          "rubro": "Pinceles",
+          "articulo": "Pincel Clasico 20/1(PEC-1003)",
+          "cantidad": 240.0,
+          "ultimoCosto": 576.47,
+          "totalCosto": 138352.8,
+          "totalFac": 473166.36
+        },
+        {
+          "rubro": "Pinceles",
+          "articulo": "Pincel Clasico 25/1(PEC-1004)",
+          "cantidad": 240.0,
+          "ultimoCosto": 771.64,
+          "totalCosto": 185193.6,
+          "totalFac": 633361.68
+        },
+        {
+          "rubro": "Pinceles",
+          "articulo": "Pincel Clasico 30/1(PEC-1005)",
+          "cantidad": 156.0,
+          "ultimoCosto": 1008.32,
+          "totalCosto": 157297.92,
+          "totalFac": 537958.75
+        },
+        {
+          "rubro": "Pinceles",
           "articulo": "Pincel Ecology 10/1(PEC-8000)",
-          "cantidad": 24.0,
+          "cantidad": 144.0,
           "ultimoCosto": 308.52,
-          "totalCosto": 7404.48,
-          "totalFac": 22509.6
+          "totalCosto": 44426.88,
+          "totalFac": 149126.1
         },
         {
           "rubro": "Pinceles",
           "articulo": "Pincel Ecology 15/1(PEC-8001)",
-          "cantidad": 30.0,
+          "cantidad": 150.0,
           "ultimoCosto": 416.92,
-          "totalCosto": 12507.6,
-          "totalFac": 38023.08
+          "totalCosto": 62538.0,
+          "totalFac": 209126.94
         },
         {
           "rubro": "Pinceles",
           "articulo": "Pincel Ecology 20/1(PEC-8002)",
-          "cantidad": 42.0,
+          "cantidad": 402.0,
           "ultimoCosto": 486.58,
-          "totalCosto": 20436.36,
-          "totalFac": 62126.4
+          "totalCosto": 195605.16,
+          "totalFac": 661202.4
         },
         {
           "rubro": "Pinceles",
           "articulo": "Pincel Ecology 25/1(PEC-8003)",
-          "cantidad": 24.0,
+          "cantidad": 384.0,
           "ultimoCosto": 672.54,
-          "totalCosto": 16140.96,
-          "totalFac": 49068.48
+          "totalCosto": 258255.36,
+          "totalFac": 877099.08
         },
         {
           "rubro": "Pinceles",
           "articulo": "Pincel Ecology 30/1(PEC-8004)",
-          "cantidad": 12.0,
+          "cantidad": 372.0,
           "ultimoCosto": 791.11,
-          "totalCosto": 9493.32,
-          "totalFac": 28859.66
+          "totalCosto": 294292.92,
+          "totalFac": 1002873.32
         }
       ]
     }
