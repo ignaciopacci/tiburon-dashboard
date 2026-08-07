@@ -1,18 +1,18 @@
 {
   "empresa": "Irelocs S.A.",
-  "fechaActualizacion": "05/08/2026 17:22",
+  "fechaActualizacion": "06/08/2026 21:38",
   "mes": "08/2026",
   "anio": 2026,
   "nroMes": 8,
-  "totalFac": 4692967.59,
-  "totalCosto": 1379545.44,
-  "ganancia": 3313422.15,
-  "margen": 70.6,
+  "totalFac": 5880319.2700000005,
+  "totalCosto": 1875515.64,
+  "ganancia": 4004803.630000001,
+  "margen": 68.1,
   "rubros": {
     "Pinceles": {
-      "unidades": 2208.0,
-      "totalFac": 4692967.59,
-      "totalCosto": 1379545.44,
+      "unidades": 2928.0,
+      "totalFac": 5880319.2700000005,
+      "totalCosto": 1875515.64,
       "articulos": [
         {
           "rubro": "Pinceles",
@@ -24,11 +24,35 @@
         },
         {
           "rubro": "Pinceles",
+          "articulo": "Pincel Clasico 10/2(PEC-1007)",
+          "cantidad": 60.0,
+          "ultimoCosto": 456.53,
+          "totalCosto": 27391.8,
+          "totalFac": 65575.82
+        },
+        {
+          "rubro": "Pinceles",
+          "articulo": "Pincel Clasico 15/2(PEC-1008)",
+          "cantidad": 60.0,
+          "ultimoCosto": 734.97,
+          "totalCosto": 44098.2,
+          "totalFac": 105571.05
+        },
+        {
+          "rubro": "Pinceles",
           "articulo": "Pincel Clasico 20/1(PEC-1003)",
           "cantidad": 240.0,
           "ultimoCosto": 576.47,
           "totalCosto": 138352.8,
           "totalFac": 473166.36
+        },
+        {
+          "rubro": "Pinceles",
+          "articulo": "Pincel Clasico 20/2(PEC-1009)",
+          "cantidad": 120.0,
+          "ultimoCosto": 850.47,
+          "totalCosto": 102056.4,
+          "totalFac": 244322.95
         },
         {
           "rubro": "Pinceles",
@@ -40,6 +64,14 @@
         },
         {
           "rubro": "Pinceles",
+          "articulo": "Pincel Clasico 25/2(PEC-1010)",
+          "cantidad": 60.0,
+          "ultimoCosto": 1027.18,
+          "totalCosto": 61630.8,
+          "totalFac": 147543.98
+        },
+        {
+          "rubro": "Pinceles",
           "articulo": "Pincel Clasico 30/1(PEC-1005)",
           "cantidad": 156.0,
           "ultimoCosto": 1008.32,
@@ -48,43 +80,51 @@
         },
         {
           "rubro": "Pinceles",
+          "articulo": "Pincel Clasico 30/2(PEC-1011)",
+          "cantidad": 60.0,
+          "ultimoCosto": 1184.3,
+          "totalCosto": 71058.0,
+          "totalFac": 170112.85
+        },
+        {
+          "rubro": "Pinceles",
           "articulo": "Pincel Ecology 10/1(PEC-8000)",
-          "cantidad": 144.0,
+          "cantidad": 204.0,
           "ultimoCosto": 308.52,
-          "totalCosto": 44426.88,
-          "totalFac": 149126.1
+          "totalCosto": 62938.08,
+          "totalFac": 193441.88
         },
         {
           "rubro": "Pinceles",
           "articulo": "Pincel Ecology 15/1(PEC-8001)",
-          "cantidad": 150.0,
+          "cantidad": 210.0,
           "ultimoCosto": 416.92,
-          "totalCosto": 62538.0,
-          "totalFac": 209126.94
+          "totalCosto": 87553.2,
+          "totalFac": 269013.29
         },
         {
           "rubro": "Pinceles",
           "articulo": "Pincel Ecology 20/1(PEC-8002)",
-          "cantidad": 402.0,
+          "cantidad": 522.0,
           "ultimoCosto": 486.58,
-          "totalCosto": 195605.16,
-          "totalFac": 661202.4
+          "totalCosto": 253994.76,
+          "totalFac": 800986.8
         },
         {
           "rubro": "Pinceles",
           "articulo": "Pincel Ecology 25/1(PEC-8003)",
-          "cantidad": 384.0,
+          "cantidad": 444.0,
           "ultimoCosto": 672.54,
-          "totalCosto": 258255.36,
-          "totalFac": 877099.08
+          "totalCosto": 298607.76,
+          "totalFac": 973702.65
         },
         {
           "rubro": "Pinceles",
           "articulo": "Pincel Ecology 30/1(PEC-8004)",
-          "cantidad": 372.0,
+          "cantidad": 432.0,
           "ultimoCosto": 791.11,
-          "totalCosto": 294292.92,
-          "totalFac": 1002873.32
+          "totalCosto": 341759.52,
+          "totalFac": 1116508.25
         }
       ]
     }
