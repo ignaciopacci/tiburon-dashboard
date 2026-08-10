@@ -1,18 +1,18 @@
 {
   "empresa": "XXXXXXX",
-  "fechaActualizacion": "07/08/2026 16:49",
+  "fechaActualizacion": "10/08/2026 13:01",
   "mes": "08/2026",
   "anio": 2026,
   "nroMes": 8,
-  "totalFac": 4109510.3400000003,
-  "totalCosto": 1792699.4800000004,
-  "ganancia": 2316810.86,
-  "margen": 56.4,
+  "totalFac": 4924907.31,
+  "totalCosto": 2075714.3800000004,
+  "ganancia": 2849192.9299999992,
+  "margen": 57.9,
   "rubros": {
     "Pinceles": {
-      "unidades": 2052.0,
-      "totalFac": 3735532.1100000003,
-      "totalCosto": 1512611.6400000004,
+      "unidades": 2292.0,
+      "totalFac": 4424664.4799999995,
+      "totalCosto": 1709732.0400000003,
       "articulos": [
         {
           "rubro": "Pinceles",
@@ -185,10 +185,10 @@
         {
           "rubro": "Pinceles",
           "articulo": "Pincel Ecology 15/2(PEC-8007)",
-          "cantidad": 24.0,
+          "cantidad": 96.0,
           "ultimoCosto": 650.23,
-          "totalCosto": 15605.52,
-          "totalFac": 47440.7
+          "totalCosto": 62422.08,
+          "totalFac": 211111.13
         },
         {
           "rubro": "Pinceles",
@@ -201,10 +201,10 @@
         {
           "rubro": "Pinceles",
           "articulo": "Pincel Ecology 20/2(PEC-8008)",
-          "cantidad": 36.0,
+          "cantidad": 108.0,
           "ultimoCosto": 757.12,
-          "totalCosto": 27256.32,
-          "totalFac": 82859.18
+          "totalCosto": 81768.96,
+          "totalFac": 273435.3
         },
         {
           "rubro": "Pinceles",
@@ -217,10 +217,10 @@
         {
           "rubro": "Pinceles",
           "articulo": "Pincel Ecology 25/2(PEC-8009)",
-          "cantidad": 24.0,
+          "cantidad": 72.0,
           "ultimoCosto": 924.42,
-          "totalCosto": 22186.08,
-          "totalFac": 67445.66
+          "totalCosto": 66558.24,
+          "totalFac": 222570.69
         },
         {
           "rubro": "Pinceles",
@@ -233,10 +233,10 @@
         {
           "rubro": "Pinceles",
           "articulo": "Pincel Ecology 30/2(PEC-8010)",
-          "cantidad": 24.0,
+          "cantidad": 72.0,
           "ultimoCosto": 1071.23,
-          "totalCosto": 25709.52,
-          "totalFac": 78156.86
+          "totalCosto": 77128.56,
+          "totalFac": 257917.65
         },
         {
           "rubro": "Pinceles",
@@ -265,9 +265,9 @@
       ]
     },
     "Accesorios": {
-      "unidades": 140.0,
-      "totalFac": 373978.23,
-      "totalCosto": 280087.83999999997,
+      "unidades": 290.0,
+      "totalFac": 500242.82999999996,
+      "totalCosto": 365982.34,
       "articulos": [
         {
           "rubro": "Accesorios",
@@ -312,10 +312,10 @@
         {
           "rubro": "Accesorios",
           "articulo": "Rodillo Mini Epoxi Nº 5(ROD-7006)",
-          "cantidad": 10.0,
+          "cantidad": 60.0,
           "ultimoCosto": 480.32,
-          "totalCosto": 4803.2,
-          "totalFac": 6354.62
+          "totalCosto": 28819.2,
+          "totalFac": 41658.07
         },
         {
           "rubro": "Accesorios",
@@ -336,18 +336,18 @@
         {
           "rubro": "Accesorios",
           "articulo": "Rodillos Mini Epoxi Nº 11(ROD-7008)",
-          "cantidad": 10.0,
+          "cantidad": 60.0,
           "ultimoCosto": 659.53,
-          "totalCosto": 6595.3,
-          "totalFac": 8725.56
+          "totalCosto": 39571.8,
+          "totalFac": 57200.91
         },
         {
           "rubro": "Accesorios",
           "articulo": "Rodillos Mini Epoxi Nº 8(ROD-7007)",
-          "cantidad": 10.0,
+          "cantidad": 60.0,
           "ultimoCosto": 578.04,
-          "totalCosto": 5780.4,
-          "totalFac": 7647.44
+          "totalCosto": 34682.4,
+          "totalFac": 50133.24
         },
         {
           "rubro": "Accesorios",
