@@ -1,13 +1,13 @@
 {
   "empresa": "Irelocs S.A.",
-  "fechaActualizacion": "10/08/2026 16:52",
+  "fechaActualizacion": "11/08/2026 11:51",
   "mes": "08/2026",
   "anio": 2026,
   "nroMes": 8,
-  "totalFac": 7463376.0,
-  "totalCosto": 2453785.8,
-  "ganancia": 5009590.2,
-  "margen": 67.1,
+  "totalFac": 7757030.11,
+  "totalCosto": 2593184.5999999996,
+  "ganancia": 5163845.510000001,
+  "margen": 66.6,
   "rubros": {
     "Pinceles": {
       "unidades": 4008.0,
@@ -149,6 +149,37 @@
           "ultimoCosto": 275.43,
           "totalCosto": 13220.64,
           "totalFac": 45214.42
+        }
+      ]
+    },
+    "Accesorios": {
+      "unidades": 101.0,
+      "totalFac": 293654.11,
+      "totalCosto": 139398.8,
+      "articulos": [
+        {
+          "rubro": "Accesorios",
+          "articulo": "Lijadora De Mano(FR-750M)",
+          "cantidad": 1.0,
+          "ultimoCosto": 87786.8,
+          "totalCosto": 87786.8,
+          "totalFac": 161527.71
+        },
+        {
+          "rubro": "Accesorios",
+          "articulo": "Lijas Para Fr-750m 180 Gr X Diam 180(LIJAFR-750M-180)",
+          "cantidad": 50.0,
+          "ultimoCosto": 516.12,
+          "totalCosto": 25806.0,
+          "totalFac": 66063.2
+        },
+        {
+          "rubro": "Accesorios",
+          "articulo": "Lijas Para Fr-750m 150 Gr X Diam 180(LIJAFR-750M-150)",
+          "cantidad": 50.0,
+          "ultimoCosto": 516.12,
+          "totalCosto": 25806.0,
+          "totalFac": 66063.2
         }
       ]
     }
