@@ -1,4 +1,3 @@
-
 import os
 import time
 import json
@@ -16,9 +15,9 @@ from googleapiclient.discovery import build
 from googleapiclient.http import MediaIoBaseDownload
 import io
 import openpyxl
- 
+
 ARG = timezone(timedelta(hours=-3))
- 
+
 USUARIO = os.environ['AMS_USUARIO']
 PASSWORD = os.environ['AMS_PASSWORD']
 EMPRESA_1 = os.environ['AMS_EMPRESA_1']
@@ -32,10 +31,10 @@ GOOGLE_CREDENTIALS = os.environ['GOOGLE_CREDENTIALS']
 GANANCIAS_FILE_ID = '1b2rxkDVO9ujMurm19gqOd9C1myfDt_b_'
 # Excel de costos de pinceles — hoja "PRECIO CERDA GRAMOS REAL" tiene los precios reales actualizados
 COSTOS_CERDA_FILE_ID = '1lHIOv2TvbY_6REjYnbzksVXqqucWo_eC'
- 
+
 URL_LOGIN = 'https://apps1.mahonsistemas.com.ar/WebCorporateTiburon/login.aspx'
 BASE = 'https://apps1.mahonsistemas.com.ar/WebCorporateTiburon/'
- 
+
 # ───────────────────────────────────────────────────────────
 # TABLA DE GRAMOS DE CERDA POR LÍNEA Y MEDIDA
 # Extraída de COSTO_DE_PINCELES_NUEVO_-_ANALISIS_2021.xlsx > PRECIO CERDA GRAMOS NUEVO
@@ -66,17 +65,17 @@ GRAMOS_CERDA = {
     ('Remox', '10/1'): 3.0, ('Remox', '15/1'): 4.0, ('Remox', '20/1'): 6.0,
     ('Remox', '25/1'): 10.0, ('Remox', '30/1'): 11.0,
 }
- 
+
 # Precio de cerda CON COLCHÓN (USD/kg) por línea — valores actuales del Excel de costos
 PRECIO_CERDA_COLCHON = {
     'Clasica': 6.64, 'Ecology': 6.64, 'Linea1200': 6.64,
     'Profesional': 8.65, 'Extra Profesional': 8.65, 'Bacota': 8.65,
     'Linea2400': 8.65, 'Remox': 8.65,
 }
- 
-DOLAR_COLCHON_EXCEL = 1500
+
+DOLAR_COLCHON_EXCEL = 1500  # valor por defecto, se sobreescribe leyendo celda I1 del Excel de costos
 FACTOR_GASTOS_IMPORT = 1.7  # +70% sobre el precio bruto de cerda
- 
+
 def extraer_codigo_tamano(articulo):
     art = articulo.upper()
     match_codigo = re.search(r'\(([A-Z]+)-', art)
@@ -84,7 +83,7 @@ def extraer_codigo_tamano(articulo):
     match_tam = re.search(r'(\d{1,2}/\d)', art)
     tamano = match_tam.group(1) if match_tam else None
     return codigo, tamano
- 
+
 def clasificar_linea_pincel(articulo, codigo):
     art = articulo.upper()
     if 'ECOLOGY' in art:
@@ -108,9 +107,9 @@ def clasificar_linea_pincel(articulo, codigo):
     if 'FLORENTINA' in art:
         return 'Florentina'
     return 'Otro'
- 
+
 # ───────────────────────────────────────────────────────────
- 
+
 def get_hora_arg():
     try:
         r = requests.get('https://worldtimeapi.org/api/timezone/America/Argentina/Buenos_Aires', timeout=5)
@@ -118,23 +117,23 @@ def get_hora_arg():
         return datetime.fromisoformat(dt_str)
     except:
         return datetime.now(ARG).replace(tzinfo=None)
- 
+
 def get_rango_mes():
     hoy = get_hora_arg()
     primer_dia = hoy.replace(day=1).strftime('%Y%m%d')
     ultimo = calendar.monthrange(hoy.year, hoy.month)[1]
     ultimo_dia = hoy.replace(day=ultimo).strftime('%Y%m%d')
     return primer_dia, ultimo_dia
- 
+
 def get_url_reporte_costo():
     primer_dia, ultimo_dia = get_rango_mes()
     return f'{BASE}alstinfcompcosto.aspx?{primer_dia},{ultimo_dia},PES,,A,SCR'
- 
+
 def get_url_reporte_ventas():
     primer_dia, ultimo_dia = get_rango_mes()
     # Rubro 001 = Pinceles, orden por Articulo
     return f'{BASE}alstinfestventas.aspx?{primer_dia},{ultimo_dia},PES,0,,0,,001,A,A,SCR'
- 
+
 def login(page, empresa, valor):
     print(f'Entrando como: [{empresa}] (value={valor})')
     page.goto(URL_LOGIN)
@@ -164,7 +163,7 @@ def login(page, empresa, valor):
     page.wait_for_load_state('networkidle')
     page.wait_for_timeout(2000)
     print(f'Login OK: [{empresa}]')
- 
+
 def descargar_reporte(page, context, url_reporte, referer_page='InfCompCosto.aspx'):
     print(f'Descargando: {url_reporte}')
     cookies = context.cookies()
@@ -178,7 +177,7 @@ def descargar_reporte(page, context, url_reporte, referer_page='InfCompCosto.asp
     response = session.get(url_reporte, allow_redirects=True)
     print(f'Reporte: {len(response.content)} bytes')
     return response.content
- 
+
 def parsear_pdf_costo(pdf_bytes):
     """Parsea el PDF de Comparativo de Costo (formato original, todos los rubros)."""
     datos = []
@@ -226,7 +225,7 @@ def parsear_pdf_costo(pdf_bytes):
                         continue
     print(f'Artículos parseados (costo): {len(datos)}')
     return datos
- 
+
 def parsear_pdf_ventas_pinceles(pdf_bytes):
     """
     Parsea el PDF de Estadística de Ventas filtrado a rubro Pinceles.
@@ -265,15 +264,16 @@ def parsear_pdf_ventas_pinceles(pdf_bytes):
         datos.append({'articulo': articulo, 'cantidad': cantidad})
     print(f'Artículos de venta parseados (pinceles): {len(datos)}')
     return datos
- 
-def calcular_ajuste_cerda(ventas_pinceles, precios_reales_cerda, dolar_real):
+
+def calcular_ajuste_cerda(ventas_pinceles, precios_reales_cerda, dolar_real, dolar_colchon=None):
     """
     ventas_pinceles: lista de {'articulo':, 'cantidad':}
     precios_reales_cerda: dict {linea: precio_usd_kg_real}
-    dolar_real: dólar billete actual a usar para valorizar el ahorro
-    Nota: Remox usa cerda nacional (cerda vaca) sin colchón aplicado — su costo
-    registrado ya es el real, por lo que no participa de este ajuste.
+    dolar_real: dólar billete actual
+    dolar_colchon: dólar usado en el Excel para el colchón (celda I1 de PRECIO CERDA GRAMOS NUEVO)
+    Nota: Remox usa cerda nacional sin colchón — no participa del ajuste.
     """
+    dc = dolar_colchon if dolar_colchon else DOLAR_COLCHON_EXCEL
     kg_por_linea = {}
     for item in ventas_pinceles:
         articulo = item['articulo']
@@ -284,9 +284,10 @@ def calcular_ajuste_cerda(ventas_pinceles, precios_reales_cerda, dolar_real):
         if gramos_unit > 0:
             kg = (cantidad * gramos_unit) / 1000
             kg_por_linea[linea] = kg_por_linea.get(linea, 0) + kg
- 
+
     ahorro_total = 0
     detalle = {}
+    print(f'  Debug kg por línea: {dict((k, round(v,1)) for k,v in kg_por_linea.items())}')
     for linea, kg in kg_por_linea.items():
         if linea == 'Remox':
             continue  # sin colchón, no aplica ajuste
@@ -294,7 +295,7 @@ def calcular_ajuste_cerda(ventas_pinceles, precios_reales_cerda, dolar_real):
         precio_real = precios_reales_cerda.get(linea) if precios_reales_cerda else None
         if precio_colchon and precio_real and kg > 0:
             diff = precio_colchon - precio_real
-            ahorro = kg * diff * FACTOR_GASTOS_IMPORT * DOLAR_COLCHON_EXCEL
+            ahorro = kg * diff * FACTOR_GASTOS_IMPORT * dc
             ahorro_total += ahorro
             detalle[linea] = {
                 'kg': round(kg, 2),
@@ -302,9 +303,9 @@ def calcular_ajuste_cerda(ventas_pinceles, precios_reales_cerda, dolar_real):
                 'precioReal': precio_real,
                 'ahorro': round(ahorro, 0)
             }
- 
+
     return round(ahorro_total, 0), detalle
- 
+
 def generar_json(datos, empresa_nombre):
     hoy = get_hora_arg()
     rubros = {}
@@ -330,7 +331,7 @@ def generar_json(datos, empresa_nombre):
         'margen': round((total_fac - total_costo) / total_fac * 100, 1) if total_fac else 0,
         'rubros': rubros
     }
- 
+
 def subir_github(contenido_str, path):
     url = f'https://api.github.com/repos/{GH_REPO}/contents/{path}'
     headers = {
@@ -351,25 +352,30 @@ def subir_github(contenido_str, path):
         print(f'✓ GitHub: {path}')
     else:
         raise Exception(f'Error GitHub {r.status_code}: {path}')
- 
+
 def get_dolar_mes(anio, mes):
     tipos = ['bolsa', 'blue'] if anio >= 2019 else ['blue']
-    fecha = f'{anio}/{mes:02d}/15'
+    # Intentar desde el día 15 hacia atrás hasta el día 1
+    hoy = get_hora_arg()
+    ultimo_dia = hoy.day if (anio == hoy.year and mes == hoy.month) else 28
+    dias_a_probar = list(range(min(15, ultimo_dia), 0, -1))
     for tipo in tipos:
-        try:
-            url = f'https://api.argentinadatos.com/v1/cotizaciones/dolares/{tipo}/{fecha}'
-            r = requests.get(url, timeout=10)
-            if r.status_code == 200:
-                data = r.json()
-                venta = data.get('venta') or data.get('compra')
-                if venta:
-                    print(f'  Dólar {tipo} {anio}/{mes:02d}: ${venta}')
-                    return {'tipo': tipo, 'valor': float(venta)}
-        except Exception as e:
-            print(f'  ✗ Error dólar {tipo} {anio}/{mes:02d}: {e}')
+        for dia in dias_a_probar:
+            fecha = f'{anio}/{mes:02d}/{dia:02d}'
+            try:
+                url = f'https://api.argentinadatos.com/v1/cotizaciones/dolares/{tipo}/{fecha}'
+                r = requests.get(url, timeout=10)
+                if r.status_code == 200:
+                    data = r.json()
+                    venta = data.get('venta') or data.get('compra')
+                    if venta:
+                        print(f'  Dólar {tipo} {anio}/{mes:02d}/{dia:02d}: ${venta}')
+                        return {'tipo': tipo, 'valor': float(venta)}
+            except Exception as e:
+                continue
     print(f'  ✗ Sin dólar para {anio}/{mes:02d}')
     return {'tipo': 'n/d', 'valor': None}
- 
+
 def get_inflacion_mensual():
     try:
         url = 'https://api.argentinadatos.com/v1/finanzas/indices/inflacion'
@@ -391,7 +397,7 @@ def get_inflacion_mensual():
     except Exception as e:
         print(f'  ✗ Error inflación: {e}')
     return {}
- 
+
 def safe_float(val):
     try:
         if val is None or val == '':
@@ -399,7 +405,7 @@ def safe_float(val):
         return float(str(val).replace('$', '').replace(' ', '').strip())
     except:
         return 0
- 
+
 def safe_int(val):
     try:
         if val is None or val == '':
@@ -407,7 +413,7 @@ def safe_int(val):
         return int(float(val))
     except:
         return 0
- 
+
 def descargar_excel_drive(file_id, scopes=None):
     creds_dict = json.loads(GOOGLE_CREDENTIALS)
     creds = service_account.Credentials.from_service_account_info(
@@ -423,7 +429,7 @@ def descargar_excel_drive(file_id, scopes=None):
         _, done = downloader.next_chunk()
     fh.seek(0)
     return openpyxl.load_workbook(fh, data_only=True)
- 
+
 def leer_precios_reales_cerda():
     """
     Lee la hoja 'PRECIO CERDA GRAMOS REAL' del Excel de costos de pinceles en Drive.
@@ -446,25 +452,36 @@ def leer_precios_reales_cerda():
         'LINEA 2400': ['Linea2400'],
         'LINEA REMOX': ['Remox'],
     }
- 
+
     try:
         wb = descargar_excel_drive(COSTOS_CERDA_FILE_ID)
         if 'PRECIO CERDA GRAMOS REAL' not in wb.sheetnames:
             print('  ⚠ Hoja PRECIO CERDA GRAMOS REAL no encontrada')
-            return None, None, None
+            return None, None, None, DOLAR_COLCHON_EXCEL
         ws = wb['PRECIO CERDA GRAMOS REAL']
- 
+
+        # Leer dólar del colchón desde PRECIO CERDA GRAMOS NUEVO celda I1
+        dolar_colchon = DOLAR_COLCHON_EXCEL  # fallback
+        if 'PRECIO CERDA GRAMOS NUEVO' in wb.sheetnames:
+            ws_nuevo = wb['PRECIO CERDA GRAMOS NUEVO']
+            val_i1 = ws_nuevo['I1'].value
+            if isinstance(val_i1, (int, float)) and val_i1 > 100:
+                dolar_colchon = float(val_i1)
+                print(f'  ✓ Dólar colchón leído del Excel (I1): ${dolar_colchon:,.0f}')
+            else:
+                print(f'  ⚠ Celda I1 inválida ({val_i1}), usando default ${DOLAR_COLCHON_EXCEL}')
+
         precios_reales = {}
         remox_precio_pesos = None
         seccion_actual = None
         primer_precio_de_seccion = None  # reset por cada nueva sección
- 
+
         for row in ws.iter_rows(values_only=True):
             if not any(v is not None for v in row):
                 continue
             primera_raw = row[0]
             primera = str(primera_raw).strip().upper() if primera_raw else ''
- 
+
             # ¿Es un header de sección? Coincidencia por substring, evaluando claves
             # más largas primero para que "LINEA 1200 Y 2400" no sea capturado por "LINEA 1200"
             seccion_detectada = None
@@ -477,12 +494,12 @@ def leer_precios_reales_cerda():
                 seccion_actual = seccion_detectada
                 primer_precio_de_seccion = None
                 continue
- 
+
             if not seccion_actual:
                 continue
- 
+
             nombres_linea = SECCIONES[seccion_actual]
- 
+
             # Caso Remox: filas con código numérico (52, 53...) y precio en PESOS (>1000) en columna C
             if seccion_actual == 'LINEA REMOX':
                 if isinstance(primera_raw, (int, float)) and remox_precio_pesos is None:
@@ -490,7 +507,7 @@ def leer_precios_reales_cerda():
                     if isinstance(precio_col, (int, float)) and precio_col > 1000:
                         remox_precio_pesos = round(float(precio_col), 0)
                 continue
- 
+
             # Caso general: fila con medida en mm (ej '51mm') y precio/kilo en USD en columna C
             if primera_raw and 'MM' in primera and primer_precio_de_seccion is None:
                 precio_kilo = row[2] if len(row) > 2 else None
@@ -499,29 +516,29 @@ def leer_precios_reales_cerda():
                     for nombre in nombres_linea:
                         if nombre not in precios_reales:
                             precios_reales[nombre] = primer_precio_de_seccion
- 
+
         if precios_reales:
             print(f'  ✓ Precios reales cerda (USD/kg): {precios_reales}')
         else:
             print('  ⚠ No se pudieron extraer precios reales de la hoja')
         if remox_precio_pesos:
             print(f'  ✓ Precio real Remox (ARS/kg, cerda nacional): ${remox_precio_pesos:,.0f}')
- 
+
         dolar_info = get_dolar_mes(get_hora_arg().year, get_hora_arg().month)
         dolar_billete = dolar_info['valor']
- 
-        return (precios_reales if precios_reales else None), dolar_billete, remox_precio_pesos
+
+        return (precios_reales if precios_reales else None), dolar_billete, remox_precio_pesos, dolar_colchon
     except Exception as e:
         print(f'  ✗ Error leyendo PRECIO CERDA GRAMOS REAL: {e}')
-        return None, None, None
- 
+        return None, None, None, DOLAR_COLCHON_EXCEL
+
 def leer_ganancias_drive():
     print('Leyendo Excel de ganancias desde Google Drive...')
     wb = descargar_excel_drive(GANANCIAS_FILE_ID)
     print(f'Hojas: {wb.sheetnames}')
- 
+
     resultado = {'anios': {}, 'mensual': [], 'meta': {}}
- 
+
     if 'VENTAS' in wb.sheetnames:
         ws = wb['VENTAS']
         meses_map = {
@@ -534,12 +551,12 @@ def leer_ganancias_drive():
             7: 'Jul', 8: 'Ago', 9: 'Sep', 10: 'Oct', 11: 'Nov', 12: 'Dic'
         }
         anio_actual = None
- 
+
         for row in ws.iter_rows(values_only=True):
             if not row[0]:
                 continue
             celda = str(row[0]).strip().upper()
- 
+
             if 'AÑO' in celda or 'ANO' in celda:
                 partes = celda.split()
                 for p in partes:
@@ -548,11 +565,11 @@ def leer_ganancias_drive():
                         anio_actual = int(p_clean)
                         break
                 continue
- 
+
             # Ignorar filas de total/subtotal — el resumen anual se calcula al final
             if celda in ('TOTAL', 'TOAL', 'SUBTOTAL'):
                 continue
- 
+
             if anio_actual and celda in meses_map:
                 nro_mes = meses_map[celda]
                 try:
@@ -574,7 +591,7 @@ def leer_ganancias_drive():
                         })
                 except:
                     continue
- 
+
     # Calcular resumen anual sumando todos los meses de cada año
     # (independientemente de si existe fila TOTAL en el Excel o no)
     anios_con_datos = set(m['anio'] for m in resultado['mensual'])
@@ -596,18 +613,18 @@ def leer_ganancias_drive():
                 'gananciaLimpia': tot_gl,
                 'rentaAnual': renta_anual,
             }
- 
+
     print(f'✓ Excel: {len(resultado["anios"])} años, {len(resultado["mensual"])} registros mensuales')
- 
+
     print('Obteniendo datos de inflación...')
     inflacion = get_inflacion_mensual()
- 
+
     hoy = get_hora_arg()
     mes_base = hoy.month
     anio_base = hoy.year
     meses_nb = {1:'Ene',2:'Feb',3:'Mar',4:'Abr',5:'May',6:'Jun',7:'Jul',8:'Ago',9:'Sep',10:'Oct',11:'Nov',12:'Dic'}
     resultado['meta']['mesBase'] = f'{meses_nb.get(mes_base,str(mes_base))} {anio_base}'
- 
+
     registros_ordenados = sorted(inflacion.keys())
     indice_por_mes = {}
     factor_acum = 1.0
@@ -615,7 +632,7 @@ def leer_ganancias_drive():
         factor_acum *= (1 + inflacion[(a, m)] / 100)
         indice_por_mes[(a, m)] = factor_acum
     factor_hoy = factor_acum
- 
+
     print('Obteniendo tipo de cambio histórico...')
     for item in resultado['mensual']:
         a = item['anio']
@@ -625,7 +642,7 @@ def leer_ganancias_drive():
         gb = item['gananciaBruta']
         gastos = item['gastos']
         gl = item['gananciaLimpia']
- 
+
         dolar_info = get_dolar_mes(a, m)
         item['dolarTipo'] = dolar_info['tipo']
         item['dolarValor'] = dolar_info['valor']
@@ -641,7 +658,7 @@ def leer_ganancias_drive():
             item['gananciaBrutaUsd'] = None
             item['gastosUsd'] = None
             item['gananciaLimpiaUsd'] = None
- 
+
         factor_origen = indice_por_mes.get((a, m))
         if factor_origen and factor_hoy:
             fa = factor_hoy / factor_origen
@@ -658,9 +675,9 @@ def leer_ganancias_drive():
             item['gananciaBrutaConstante'] = None
             item['gastosConstante'] = None
             item['gananciaLimpiaConstante'] = None
- 
+
         time.sleep(0.3)
- 
+
     for anio_key, item in resultado['anios'].items():
         a = int(anio_key) if not isinstance(anio_key, int) else anio_key
         ventas = item['ventas']
@@ -668,7 +685,7 @@ def leer_ganancias_drive():
         gb = item['gananciaBruta']
         gastos = item['gastos']
         gl = item['gananciaLimpia']
- 
+
         dolar_info = get_dolar_mes(a, 12)
         item['dolarTipo'] = dolar_info['tipo']
         item['dolarValor'] = dolar_info['valor']
@@ -684,7 +701,7 @@ def leer_ganancias_drive():
             item['gananciaBrutaUsd'] = None
             item['gastosUsd'] = None
             item['gananciaLimpiaUsd'] = None
- 
+
         factor_origen = indice_por_mes.get((a, 12))
         if factor_origen and factor_hoy and gb:
             fa = factor_hoy / factor_origen
@@ -701,25 +718,25 @@ def leer_ganancias_drive():
             item['gananciaBrutaConstante'] = None
             item['gastosConstante'] = None
             item['gananciaLimpiaConstante'] = None
- 
+
         time.sleep(0.3)
- 
+
     print(f'✓ Ganancias completas: {len(resultado["anios"])} años, {len(resultado["mensual"])} meses')
     return resultado
- 
+
 def main():
     hoy = get_hora_arg()
     mes_key = hoy.strftime('%Y-%m')
     print(f'Hora Argentina: {hoy.strftime("%d/%m/%Y %H:%M")}')
- 
+
     empresas = [
         (EMPRESA_1, '1'),
         (EMPRESA_2, '2'),
     ]
- 
+
     resultados = {}
     ventas_pinceles_todas = []  # acumula ventas de pinceles de ambas empresas
- 
+
     for empresa, valor in empresas:
         with sync_playwright() as p:
             browser = p.chromium.launch(headless=True)
@@ -727,7 +744,7 @@ def main():
             page = context.new_page()
             try:
                 login(page, empresa, valor)
- 
+
                 # Reporte de costo (como antes)
                 pdf_costo = descargar_reporte(page, context, get_url_reporte_costo(), 'InfCompCosto.aspx')
                 datos = parsear_pdf_costo(pdf_costo)
@@ -735,7 +752,7 @@ def main():
                 nombre = empresa.replace(' ', '_').replace('.', '')
                 resultados[nombre] = resultado
                 print(f'✓ {empresa} — {len(datos)} artículos (costo)')
- 
+
                 # Reporte de ventas de pinceles (para ajuste de cerda)
                 try:
                     pdf_ventas = descargar_reporte(page, context, get_url_reporte_ventas(), 'InfEstVentas.aspx')
@@ -744,7 +761,7 @@ def main():
                     print(f'✓ {empresa} — {len(ventas_pinc)} artículos (ventas pinceles)')
                 except Exception as e:
                     print(f'✗ Error reporte ventas pinceles {empresa}: {e}')
- 
+
             except Exception as e:
                 print(f'✗ Error: {e}')
                 raise
@@ -752,18 +769,18 @@ def main():
                 context.close()
                 browser.close()
         time.sleep(3)
- 
+
     for nombre, resultado in resultados.items():
         contenido = json.dumps(resultado, ensure_ascii=False, indent=2)
         subir_github(contenido, f'data/{nombre}.json')
         subir_github(contenido, f'data/historico/{mes_key}_{nombre}.json')
- 
+
     # Ajuste real de cerda
     try:
         print('Calculando ajuste real de cerda...')
-        precios_reales, dolar_billete, remox_precio_real_pesos = leer_precios_reales_cerda()
+        precios_reales, dolar_billete, remox_precio_real_pesos, dolar_colchon = leer_precios_reales_cerda()
         if precios_reales and ventas_pinceles_todas:
-            ahorro_total, detalle = calcular_ajuste_cerda(ventas_pinceles_todas, precios_reales, dolar_billete)
+            ahorro_total, detalle = calcular_ajuste_cerda(ventas_pinceles_todas, precios_reales, dolar_billete, dolar_colchon=dolar_colchon)
             ajuste_cerda = {
                 'mes': hoy.strftime('%m/%Y'),
                 'fechaCalculo': hoy.strftime('%d/%m/%Y %H:%M'),
@@ -780,7 +797,7 @@ def main():
             print('  ⚠ No se pudo calcular ajuste de cerda (faltan precios reales o ventas)')
     except Exception as e:
         print(f'✗ Error calculando ajuste de cerda: {e}')
- 
+
     # Ganancias históricas
     try:
         ganancias = leer_ganancias_drive()
@@ -790,47 +807,8 @@ def main():
         )
     except Exception as e:
         print(f'✗ Error leyendo ganancias Drive: {e}')
- 
+
     print('Completo:', hoy.strftime('%d/%m/%Y %H:%M'))
- 
+
 if __name__ == '__main__':
     main()
- 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
