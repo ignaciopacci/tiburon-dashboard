@@ -331,7 +331,7 @@ main{padding:16px;max-width:800px;margin:0 auto}
 </div>
 <script>
 const BASE='https://raw.githubusercontent.com/ignaciopacci/tiburon-dashboard/main/data/';
-const cfg={costosFijos:parseFloat(localStorage.getItem('cf')||'22000000'),diaActual:parseInt(localStorage.getItem('dia')||new Date().getDate()),diasMes:parseInt(localStorage.getItem('dm')||'31')};
+const cfg={costosFijos:parseFloat(localStorage.getItem('cf')||'22000000'),diaActual:new Date().getDate(),diasMes:parseInt(localStorage.getItem('dm')||new Date(new Date().getFullYear(),new Date().getMonth()+1,0).getDate())};
 const state={e1:null,e2:null,empActiva:{hoy:'ambas',mes:'ambas'},histData:null,histVista:'anual',histAnioFiltro:null,moneda:'ars'};
 const COL={Pinceles:'var(--pin)',Rodillos:'var(--rod)',Accesorios:'var(--orange)'};
 
@@ -747,7 +747,7 @@ function switchTab(id,btn){
   if(id==='historico')loadHistorico();
 }
 function setEmp(tab,emp,btn){btn.closest('.emp-tabs').querySelectorAll('.emp-btn').forEach(b=>b.classList.remove('active'));btn.classList.add('active');state.empActiva[tab]=emp;if(tab==='hoy')renderHoy();if(tab==='mes')renderMes();}
-function guardarConfig(){cfg.costosFijos=parseFloat(document.getElementById('cfg-costos').value)||22000000;cfg.diaActual=parseInt(document.getElementById('cfg-dia').value)||new Date().getDate();cfg.diasMes=parseInt(document.getElementById('cfg-diasmes').value)||31;localStorage.setItem('cf',cfg.costosFijos);localStorage.setItem('dia',cfg.diaActual);localStorage.setItem('dm',cfg.diasMes);document.getElementById('sys-cf').textContent=fmtARS(cfg.costosFijos)+'/mes';renderAll();}
+function guardarConfig(){cfg.costosFijos=parseFloat(document.getElementById('cfg-costos').value)||22000000;cfg.diaActual=new Date().getDate();cfg.diasMes=parseInt(document.getElementById('cfg-diasmes').value)||new Date(new Date().getFullYear(),new Date().getMonth()+1,0).getDate();localStorage.setItem('cf',cfg.costosFijos);localStorage.setItem('dm',cfg.diasMes);document.getElementById('sys-cf').textContent=fmtARS(cfg.costosFijos)+'/mes';renderAll();}
 
 document.getElementById('cfg-dia').value=new Date().getDate();
 init();
