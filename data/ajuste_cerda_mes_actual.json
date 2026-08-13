@@ -1,6 +1,6 @@
 {
   "mes": "08/2026",
-  "fechaCalculo": "13/08/2026 20:09",
+  "fechaCalculo": "13/08/2026 20:14",
   "ahorroTotal": 245213014.0,
   "detallePorLinea": {
     "Clasica": {
@@ -46,5 +46,5 @@
       "ahorro": 67804.0
     }
   },
-  "dolarBilleteUsado": 1529.2
+  "dolarBilleteUsado": 1526.4
 }
