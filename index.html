@@ -582,6 +582,12 @@ async function loadHistorico(){
   if(state.histData){renderHistorico();return;}
   try{
     state.histData=await fetchJSON('ganancias_historicas.json');
+    // Cargar histórico de ajustes de cerda (opcional, no bloquea si no existe)
+    try{
+      state.ajusteCerdaHistorico=await fetchJSON('ajuste_cerda_historico.json');
+    }catch(e){
+      state.ajusteCerdaHistorico={};
+    }
     renderHistorico();
   }catch(e){
     document.getElementById('hist-bars').innerHTML='<div style="font-family:DM Mono,monospace;font-size:11px;color:var(--muted)">Sin datos históricos todavía.</div>';
@@ -684,7 +690,25 @@ function renderHistMensual(){
     const mb=calcMargenBruto(m);
     const mn=calcMargenNeto(m);
     const dolarTag=m.dolarValor?` · ${m.dolarTipo==='blue'?'blue':m.dolarTipo==='bolsa'?'MEP':m.dolarTipo} $${Math.round(m.dolarValor)}`:'';
-    return`<div class="hist-year-card">
+
+    // Ajuste de cerda del mes
+    const mesKey=`${m.anio}-${String(m.mes).padStart(2,'0')}`;
+    const ajusteMes=(state.ajusteCerdaHistorico||{})[mesKey];
+    const ajusteCerda=ajusteMes?.ahorroTotal||0;
+    const glReal=gl!==null&&gl!==undefined ? gl+ajusteCerda : null;
+    const pctGLReal=glReal&&glReal>0?(glReal/maxV*100):0;
+
+    const ajusteHtml=ajusteCerda>0?`
+      <div class="hist-bar-row" style="border-top:1px solid rgba(232,245,66,0.2);margin-top:6px;padding-top:6px">
+        <div class="hist-bar-label" style="color:var(--acc)">Aj. cerda</div>
+        <div class="hist-bar-track"><div class="hist-bar-fill" style="width:${Math.min(ajusteCerda/maxV*100,100)}%;background:var(--acc);opacity:0.5"></div></div>
+        <div class="hist-bar-val" style="color:var(--acc)">+${fmtARS(ajusteCerda)}</div>
+      </div>
+      <div class="hist-bar-row">
+        <div class="hist-bar-label" style="color:var(--acc2);font-weight:600">Gan. REAL</div>
+        <div class="hist-bar-track"><div class="hist-bar-fill" style="width:${Math.min(pctGLReal,100)}%;background:${(glReal??0)>=0?'var(--acc2)':'var(--red)'}"></div></div>
+        <div class="hist-bar-val" style="color:${(glReal??0)>=0?'var(--acc2)':'var(--red)'};font-weight:600">${fmtARS(glReal)}</div>
+      </div>`:'';
       <div class="hist-year-header">
         <div>
           <div class="hist-year-label">${m.mesNombre}</div>
