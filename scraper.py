@@ -236,6 +236,13 @@ def parsear_pdf_ventas_pinceles(pdf_bytes):
     articulo_actual = None
     cantidad_acumulada = {}
     with pdfplumber.open(BytesIO(pdf_bytes)) as pdf:
+        # DEBUG: primeras 25 líneas de la primera página
+        if pdf.pages:
+            texto_debug = pdf.pages[0].extract_text() or ''
+            print('  --- DEBUG PDF VENTAS ---')
+            for i, l in enumerate(texto_debug.split('\n')[:25]):
+                print(f'    {i}: {repr(l)}')
+            print('  --- FIN DEBUG ---')
         for page in pdf.pages:
             texto = page.extract_text()
             if not texto:
