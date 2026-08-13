@@ -1,18 +1,18 @@
 {
   "empresa": "Irelocs S.A.",
-  "fechaActualizacion": "12/08/2026 16:59",
+  "fechaActualizacion": "13/08/2026 13:00",
   "mes": "08/2026",
   "anio": 2026,
   "nroMes": 8,
-  "totalFac": 13779451.95,
-  "totalCosto": 5553040.88,
-  "ganancia": 8226411.069999999,
-  "margen": 59.7,
+  "totalFac": 14106748.14,
+  "totalCosto": 5736306.039999999,
+  "ganancia": 8370442.1000000015,
+  "margen": 59.3,
   "rubros": {
     "Pinceles": {
-      "unidades": 7290.0,
-      "totalFac": 13094851.77,
-      "totalCosto": 5149697.64,
+      "unidades": 7362.0,
+      "totalFac": 13248523.0,
+      "totalCosto": 5200247.399999999,
       "articulos": [
         {
           "rubro": "Pinceles",
@@ -145,18 +145,18 @@
         {
           "rubro": "Pinceles",
           "articulo": "Pincel Ecology 20/1(PEC-8002)",
-          "cantidad": 1086.0,
-          "ultimoCosto": 498.62,
-          "totalCosto": 541503.0,
-          "totalFac": 1439925.6
+          "cantidad": 1110.0,
+          "ultimoCosto": 499.2,
+          "totalCosto": 554115.0,
+          "totalFac": 1478266.08
         },
         {
           "rubro": "Pinceles",
           "articulo": "Pincel Ecology 25/1(PEC-8003)",
-          "cantidad": 780.0,
-          "ultimoCosto": 684.13,
-          "totalCosto": 533619.6,
-          "totalFac": 1517036.85
+          "cantidad": 804.0,
+          "ultimoCosto": 685.39,
+          "totalCosto": 551051.76,
+          "totalFac": 1570030.58
         },
         {
           "rubro": "Pinceles",
@@ -169,10 +169,10 @@
         {
           "rubro": "Pinceles",
           "articulo": "Pincel Ecology 30/1(PEC-8004)",
-          "cantidad": 720.0,
-          "ultimoCosto": 801.66,
-          "totalCosto": 577194.0,
-          "totalFac": 1681018.0
+          "cantidad": 744.0,
+          "ultimoCosto": 803.36,
+          "totalCosto": 597699.6,
+          "totalFac": 1743355.02
         },
         {
           "rubro": "Pinceles",
@@ -305,9 +305,9 @@
       ]
     },
     "Accesorios": {
-      "unidades": 293.0,
-      "totalFac": 684600.1799999999,
-      "totalCosto": 403343.23999999993,
+      "unidades": 333.0,
+      "totalFac": 858225.1400000001,
+      "totalCosto": 536058.6399999999,
       "articulos": [
         {
           "rubro": "Accesorios",
@@ -328,10 +328,10 @@
         {
           "rubro": "Accesorios",
           "articulo": "Bandeja Sin Ecurridor(BSE)",
-          "cantidad": 60.0,
+          "cantidad": 80.0,
           "ultimoCosto": 781.12,
-          "totalCosto": 46867.2,
-          "totalFac": 71237.76
+          "totalCosto": 62489.6,
+          "totalFac": 94983.68
         },
         {
           "rubro": "Accesorios",
@@ -380,6 +380,22 @@
           "ultimoCosto": 659.53,
           "totalCosto": 23743.08,
           "totalFac": 34902.25
+        },
+        {
+          "rubro": "Accesorios",
+          "articulo": "Venda Sintetica Premium 1 Mt X 25 Mts(VPR1)",
+          "cantidad": 10.0,
+          "ultimoCosto": 9674.95,
+          "totalCosto": 96749.5,
+          "totalFac": 123839.36
+        },
+        {
+          "rubro": "Accesorios",
+          "articulo": "Venda Sintetica Premium 20 Cms X 25 Mts(VPR20)",
+          "cantidad": 10.0,
+          "ultimoCosto": 2034.35,
+          "totalCosto": 20343.5,
+          "totalFac": 26039.68
         }
       ]
     }
