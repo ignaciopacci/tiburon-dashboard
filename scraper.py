@@ -256,15 +256,22 @@ def parsear_pdf_ventas_pinceles(pdf_bytes):
                 if match_articulo:
                     articulo_actual = match_articulo.group(1).strip()
                     continue
-                # Detectar línea de venta: fecha, comprobante, cuenta, cantidad, unid, precio, total...
+                # Detectar línea de venta.
+                # Formato: fecha FAC (comp) Nombre (cuenta) CANTIDAD U precio total $ 1,00 total
+                # El número de cuenta puede pegarse con la cantidad cuando el nombre es largo:
+                # ej: "MANANTIALES DEL CENTRO S.A.S (17948,00 U" → cuenta=17948, cantidad=48
+                # Por eso buscamos el patrón: ) CANTIDAD U donde CANTIDAD es un número razonablemente pequeño
+                # (unidades vendidas rara vez superan 9999)
                 match_venta = re.search(
-                    r'([\d\.,]+)\s+U\s+([\d\.,]+)\s+([\d\.,]+)',
+                    r'\)\s*([\d]{1,4}(?:[.,]\d{1,2})?)\s+U\s+',
                     linea
                 )
                 if match_venta and articulo_actual:
                     try:
-                        cantidad = float(match_venta.group(1).replace('.', '').replace(',', '.'))
-                        cantidad_acumulada[articulo_actual] = cantidad_acumulada.get(articulo_actual, 0) + cantidad
+                        cantidad_str = match_venta.group(1).replace('.', '').replace(',', '.')
+                        cantidad = float(cantidad_str)
+                        if cantidad > 0:
+                            cantidad_acumulada[articulo_actual] = cantidad_acumulada.get(articulo_actual, 0) + cantidad
                     except:
                         continue
     for articulo, cantidad in cantidad_acumulada.items():
