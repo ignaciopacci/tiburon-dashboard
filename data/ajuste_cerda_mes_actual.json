@@ -1,25 +1,25 @@
 {
   "mes": "08/2026",
-  "fechaCalculo": "13/08/2026 13:00",
-  "ahorroTotal": 240320367.0,
+  "fechaCalculo": "13/08/2026 16:54",
+  "ahorroTotal": 240404915.0,
   "detallePorLinea": {
     "Clasica": {
-      "kg": 15293.62,
+      "kg": 15297.38,
       "precioColchon": 6.64,
       "precioReal": 3.47,
-      "ahorro": 123625977.0
+      "ahorro": 123656339.0
     },
     "Ecology": {
-      "kg": 12033.81,
+      "kg": 12035.98,
       "precioColchon": 6.64,
       "precioReal": 3.47,
-      "ahorro": 97275319.0
+      "ahorro": 97292877.0
     },
     "Bacota": {
-      "kg": 8.51,
+      "kg": 8.67,
       "precioColchon": 8.65,
       "precioReal": 4.52,
-      "ahorro": 89615.0
+      "ahorro": 91258.0
     },
     "Extra Profesional": {
       "kg": 1814.36,
@@ -33,11 +33,17 @@
       "precioReal": 4.52,
       "ahorro": 181125.0
     },
+    "Linea1200": {
+      "kg": 1.66,
+      "precioColchon": 6.64,
+      "precioReal": 4.52,
+      "ahorro": 8952.0
+    },
     "Linea2400": {
-      "kg": 3.84,
+      "kg": 6.31,
       "precioColchon": 8.65,
       "precioReal": 4.52,
-      "ahorro": 40441.0
+      "ahorro": 66475.0
     }
   },
   "dolarBilleteUsado": null
