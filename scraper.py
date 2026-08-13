@@ -125,6 +125,13 @@ def get_rango_mes():
     ultimo_dia = hoy.replace(day=ultimo).strftime('%Y%m%d')
     return primer_dia, ultimo_dia
 
+def get_rango_mes_anterior():
+    hoy = get_hora_arg()
+    primer_dia_mes_actual = hoy.replace(day=1)
+    ultimo_mes_ant = primer_dia_mes_actual - timedelta(days=1)
+    primer_mes_ant = ultimo_mes_ant.replace(day=1)
+    return primer_mes_ant.strftime('%Y%m%d'), ultimo_mes_ant.strftime('%Y%m%d'), ultimo_mes_ant
+
 def get_url_reporte_costo():
     primer_dia, ultimo_dia = get_rango_mes()
     return f'{BASE}alstinfcompcosto.aspx?{primer_dia},{ultimo_dia},PES,,A,SCR'
@@ -132,6 +139,10 @@ def get_url_reporte_costo():
 def get_url_reporte_ventas():
     primer_dia, ultimo_dia = get_rango_mes()
     # Rubro 001 = Pinceles, orden por Articulo
+    return f'{BASE}alstinfestventas.aspx?{primer_dia},{ultimo_dia},PES,0,,0,,001,A,A,SCR'
+
+def get_url_reporte_ventas_mes_anterior():
+    primer_dia, ultimo_dia, _ = get_rango_mes_anterior()
     return f'{BASE}alstinfestventas.aspx?{primer_dia},{ultimo_dia},PES,0,,0,,001,A,A,SCR'
 
 def login(page, empresa, valor):
@@ -749,7 +760,12 @@ def main():
     ]
 
     resultados = {}
-    ventas_pinceles_todas = []  # acumula ventas de pinceles de ambas empresas
+    ventas_pinceles_todas = []  # acumula ventas de pinceles de ambas empresas (mes actual)
+    ventas_pinceles_mes_ant = []  # acumula ventas del mes anterior (para histórico cerrado)
+
+    # Info del mes anterior
+    _, _, fecha_mes_ant = get_rango_mes_anterior()
+    mes_ant_key = fecha_mes_ant.strftime('%Y-%m')
 
     for empresa, valor in empresas:
         with sync_playwright() as p:
@@ -767,12 +783,23 @@ def main():
                 resultados[nombre] = resultado
                 print(f'✓ {empresa} — {len(datos)} artículos (costo)')
 
-                # Reporte de ventas de pinceles (para ajuste de cerda)
+                # Reporte de ventas de pinceles mes actual (para ajuste del mes en curso)
                 try:
                     pdf_ventas = descargar_reporte(page, context, get_url_reporte_ventas(), 'InfEstVentas.aspx')
                     ventas_pinc = parsear_pdf_ventas_pinceles(pdf_ventas)
                     ventas_pinceles_todas.extend(ventas_pinc)
-                    print(f'✓ {empresa} — {len(ventas_pinc)} artículos (ventas pinceles)')
+                    print(f'✓ {empresa} — {len(ventas_pinc)} artículos (ventas pinceles mes actual)')
+                except Exception as e:
+                    print(f'✗ Error reporte ventas pinceles {empresa}: {e}')
+
+                # Reporte de ventas de pinceles mes anterior (para histórico cerrado)
+                try:
+                    pdf_ventas_ant = descargar_reporte(page, context, get_url_reporte_ventas_mes_anterior(), 'InfEstVentas.aspx')
+                    ventas_pinc_ant = parsear_pdf_ventas_pinceles(pdf_ventas_ant)
+                    ventas_pinceles_mes_ant.extend(ventas_pinc_ant)
+                    print(f'✓ {empresa} — {len(ventas_pinc_ant)} artículos (ventas pinceles mes anterior {mes_ant_key})')
+                except Exception as e:
+                    print(f'✗ Error reporte ventas pinceles mes anterior {empresa}: {e}')
                 except Exception as e:
                     print(f'✗ Error reporte ventas pinceles {empresa}: {e}')
 
@@ -793,22 +820,51 @@ def main():
     try:
         print('Calculando ajuste real de cerda...')
         precios_reales, dolar_billete, remox_precio_real_pesos, dolar_colchon = leer_precios_reales_cerda()
+
+        # Cargar histórico existente
+        url_hist = f'https://api.github.com/repos/{GH_REPO}/contents/data/ajuste_cerda_historico.json'
+        headers_gh = {'Authorization': f'token {GH_TOKEN}', 'Accept': 'application/vnd.github.v3+json'}
+        r_hist = requests.get(url_hist, headers=headers_gh)
+        import base64 as b64
+        historico = json.loads(b64.b64decode(r_hist.json()['content']).decode('utf-8')) if r_hist.status_code == 200 else {}
+
         if precios_reales and ventas_pinceles_todas:
+            # Ajuste mes actual (parcial)
             ahorro_total, detalle = calcular_ajuste_cerda(ventas_pinceles_todas, precios_reales, dolar_billete, dolar_colchon=dolar_colchon)
+            mes_key_ajuste = hoy.strftime('%Y-%m')
             ajuste_cerda = {
                 'mes': hoy.strftime('%m/%Y'),
+                'mesKey': mes_key_ajuste,
                 'fechaCalculo': hoy.strftime('%d/%m/%Y %H:%M'),
                 'ahorroTotal': ahorro_total,
                 'detallePorLinea': detalle,
                 'dolarBilleteUsado': dolar_billete,
+                'dolarColchon': dolar_colchon,
+                'parcial': True,
             }
-            subir_github(
-                json.dumps(ajuste_cerda, ensure_ascii=False, indent=2),
-                'data/ajuste_cerda_mes_actual.json'
+            subir_github(json.dumps(ajuste_cerda, ensure_ascii=False, indent=2), 'data/ajuste_cerda_mes_actual.json')
+            print(f'✓ Ajuste cerda mes actual (parcial): ${ahorro_total:,.0f}')
+
+        if precios_reales and ventas_pinceles_mes_ant:
+            # Ajuste mes anterior (cerrado y definitivo)
+            dolar_mes_ant = get_dolar_mes(fecha_mes_ant.year, fecha_mes_ant.month)
+            ahorro_ant, detalle_ant = calcular_ajuste_cerda(
+                ventas_pinceles_mes_ant, precios_reales,
+                dolar_mes_ant['valor'], dolar_colchon=dolar_colchon
             )
-            print(f'✓ Ajuste cerda calculado: ${ahorro_total:,.0f}')
+            historico[mes_ant_key] = {
+                'mes': fecha_mes_ant.strftime('%m/%Y'),
+                'ahorroTotal': ahorro_ant,
+                'detallePorLinea': detalle_ant,
+                'dolarColchon': dolar_colchon,
+                'fechaCalculo': hoy.strftime('%d/%m/%Y %H:%M'),
+                'cerrado': True,
+            }
+            subir_github(json.dumps(historico, ensure_ascii=False, indent=2), 'data/ajuste_cerda_historico.json')
+            print(f'✓ Ajuste cerda mes anterior {mes_ant_key} (cerrado): ${ahorro_ant:,.0f}')
+            print(f'✓ Histórico ajuste cerda: {len(historico)} meses')
         else:
-            print('  ⚠ No se pudo calcular ajuste de cerda (faltan precios reales o ventas)')
+            print('  ⚠ No se pudo calcular ajuste de cerda mes anterior')
     except Exception as e:
         print(f'✗ Error calculando ajuste de cerda: {e}')
 
