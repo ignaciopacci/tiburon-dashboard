@@ -706,9 +706,10 @@ function renderHistMensual(){
       </div>
       <div class="hist-bar-row">
         <div class="hist-bar-label" style="color:var(--acc2);font-weight:600">Gan. REAL</div>
-        <div class="hist-bar-track"><div class="hist-bar-fill" style="width:${Math.min(pctGLReal,100)}%;background:${(glReal??0)>=0?'var(--acc2)':'var(--red)'}"></div></div>
-        <div class="hist-bar-val" style="color:${(glReal??0)>=0?'var(--acc2)':'var(--red)'};font-weight:600">${fmtARS(glReal)}</div>
+        <div class="hist-bar-track"><div class="hist-bar-fill" style="width:${Math.min(pctGLReal,100)}%;background:${(glReal??0)>=0?`var(--acc2)`:`var(--red)`}"></div></div>
+        <div class="hist-bar-val" style="color:${(glReal??0)>=0?`var(--acc2)`:`var(--red)`};font-weight:600">${fmtARS(glReal)}</div>
       </div>`:'';
+    return`<div class="hist-year-card">
       <div class="hist-year-header">
         <div>
           <div class="hist-year-label">${m.mesNombre}</div>
@@ -744,6 +745,7 @@ function renderHistMensual(){
         <div class="hist-bar-track"><div class="hist-bar-fill" style="width:${pctGL}%;background:${(gl??0)>=0?'var(--orange)':'var(--red)'}"></div></div>
         <div class="hist-bar-val" style="color:${(gl??0)>=0?'var(--orange)':'var(--red)'}">${fmtV(gl)}</div>
       </div>
+      ${ajusteHtml}
     </div>`;
   }).join('');
   document.getElementById('hist-mensual-cards').innerHTML=cards||'<div style="padding:16px;font-family:DM Mono,monospace;font-size:11px;color:var(--muted)">Sin datos.</div>';
