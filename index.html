@@ -272,7 +272,7 @@ main{padding:16px;max-width:800px;margin:0 auto}
         <div class="section-title">Resumen por año</div>
         <div class="card" style="padding:20px">
           <div style="font-family:'DM Mono',monospace;font-size:9px;color:var(--muted);margin-bottom:16px">
-            <span style="color:var(--acc)">■</span> Ventas &nbsp;
+            <span style="color:#60a5fa">■</span> Ventas &nbsp;
             <span style="color:var(--acc2)">■</span> Gan. bruta &nbsp;
             <span style="color:var(--orange)">■</span> Gan. limpia
           </div>
@@ -634,7 +634,7 @@ function renderHistAnual(){
     return`<div style="display:flex;flex-direction:column;align-items:center;gap:4px;flex:1;min-width:32px">
       <div style="font-family:'DM Mono',monospace;font-size:7px;color:var(--acc2);text-align:center">${fmtV(gb)}</div>
       <div style="width:100%;height:130px;display:flex;align-items:flex-end;gap:1px;justify-content:center">
-        <div style="width:9px;height:${pctV}%;background:var(--acc);border-radius:2px 2px 0 0;opacity:0.3"></div>
+        <div style="width:9px;height:${pctV}%;background:#60a5fa;border-radius:2px 2px 0 0"></div>
         <div style="width:9px;height:${pctG}%;background:var(--acc2);border-radius:2px 2px 0 0"></div>
         <div style="width:9px;height:${pctGL}%;background:${gl>=0?glColor:'var(--red)'};border-radius:2px 2px 0 0"></div>
       </div>
