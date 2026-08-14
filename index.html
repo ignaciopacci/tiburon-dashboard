@@ -281,7 +281,7 @@ main{padding:16px;max-width:800px;margin:0 auto}
         <div class="section-title">Detalle anual</div>
         <div class="card" style="padding:0;overflow-x:auto">
           <table class="data-table">
-            <thead><tr><th>Año</th><th>Ventas</th><th>Costo</th><th>Gan. Bruta</th><th>Gastos</th><th>Gan. Limpia</th><th style="white-space:nowrap">M. Bruto GB/V</th><th style="white-space:nowrap">M. Neto GL/V</th></tr></thead>
+            <thead><tr><th>Año</th><th>Ventas</th><th>Costo</th><th>Gan. Bruta</th><th>Gastos</th><th>Gan. Limpia</th><th style="white-space:nowrap">M. Bruto GB/V</th><th style="white-space:nowrap">M. Neto GL/V</th><th style="white-space:nowrap;color:var(--acc2)">Gan. REAL ✦</th></tr></thead>
             <tbody id="hist-anual-tabla"></tbody>
           </table>
         </div>
@@ -289,6 +289,7 @@ main{padding:16px;max-width:800px;margin:0 auto}
         <div style="font-family:'DM Mono',monospace;font-size:9px;color:var(--muted);margin-top:10px;padding:8px 12px;background:var(--s2);border-radius:8px;border:1px solid var(--border);line-height:1.8">
           <div>· <span style="color:var(--acc2)">M. Bruto % (GB/Ventas)</span> — eficiencia del negocio: cuánto queda de cada peso vendido después del costo de mercadería</div>
           <div>· <span style="color:var(--orange)">M. Neto % (GL/Ventas)</span> — rentabilidad real: cuánto queda realmente de cada peso vendido después de todos los gastos</div>
+          <div>· <span style="color:var(--acc2)">✦ Gan. REAL</span> — ganancia limpia ajustada por diferencia entre costo real de cerda y costo con colchón. Solo para meses con ajuste calculado.</div>
         </div>
       </div>
       <!-- Vista mensual -->
@@ -651,6 +652,15 @@ function renderHistAnual(){
     const mb=calcMargenBruto(a);
     const mn=calcMargenNeto(a);
     const dolarInfo=a.dolarValor?`<div style="font-size:8px;color:var(--muted)">@ ${a.dolarTipo==='blue'?'blue':a.dolarTipo==='bolsa'?'MEP':a.dolarTipo} $${Math.round(a.dolarValor)}</div>`:'';
+    // Sumar ajuste de cerda de todos los meses del año
+    const ajusteAnio=Object.entries(state.ajusteCerdaHistorico||{})
+      .filter(([k])=>k.startsWith(String(a.anio)))
+      .reduce((sum,[,v])=>sum+(v.ahorroTotal||0),0);
+    const glNominal=a.gananciaLimpia??null;
+    const glReal=glNominal!==null&&ajusteAnio>0?glNominal+ajusteAnio:null;
+    const glRealCell=glReal!==null
+      ?`<span style="color:${glReal>=0?'var(--acc2)':'var(--red)'};font-weight:600">${fmtARS(glReal)}</span>`
+      :'<span style="color:var(--muted)">—</span>';
     return`<tr>
       <td><strong>${a.anio}</strong>${dolarInfo}</td>
       <td class="r y">${fmtV(v)}</td>
@@ -660,6 +670,7 @@ function renderHistAnual(){
       <td class="r" style="color:${(gl??0)>=0?'var(--orange)':'var(--red)'}">${fmtV(gl)}</td>
       <td class="r">${mbadge(mb,'bruto')}</td>
       <td class="r">${mbadge(mn,'neto')}</td>
+      <td class="r">${glRealCell}</td>
     </tr>`;
   }).join('');
   document.getElementById('hist-anual-tabla').innerHTML=rows;
