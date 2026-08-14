@@ -1,13 +1,13 @@
 {
   "empresa": "Irelocs S.A.",
-  "fechaActualizacion": "14/08/2026 08:38",
+  "fechaActualizacion": "14/08/2026 12:53",
   "mes": "08/2026",
   "anio": 2026,
   "nroMes": 8,
-  "totalFac": 15619552.23,
-  "totalCosto": 6479409.57,
-  "ganancia": 9140142.66,
-  "margen": 58.5,
+  "totalFac": 15661922.649999999,
+  "totalCosto": 6508833.47,
+  "ganancia": 9153089.18,
+  "margen": 58.4,
   "rubros": {
     "Pinceles": {
       "unidades": 7602.0,
@@ -305,9 +305,9 @@
       ]
     },
     "Accesorios": {
-      "unidades": 525.0,
-      "totalFac": 1805499.71,
-      "totalCosto": 1109078.73,
+      "unidades": 537.0,
+      "totalFac": 1847870.13,
+      "totalCosto": 1138502.63,
       "articulos": [
         {
           "rubro": "Accesorios",
@@ -432,10 +432,18 @@
         {
           "rubro": "Accesorios",
           "articulo": "Venda Sintetica Premium 1 Mt X 25 Mts(VPR1)",
-          "cantidad": 10.0,
+          "cantidad": 12.0,
           "ultimoCosto": 9674.95,
-          "totalCosto": 96749.5,
-          "totalFac": 123839.36
+          "totalCosto": 116099.4,
+          "totalFac": 151703.22
+        },
+        {
+          "rubro": "Accesorios",
+          "articulo": "Venda Sintetica Premium 10 Cms X 25 Mts(VPR10)",
+          "cantidad": 10.0,
+          "ultimoCosto": 1007.4,
+          "totalCosto": 10074.0,
+          "totalFac": 14506.56
         },
         {
           "rubro": "Accesorios",
