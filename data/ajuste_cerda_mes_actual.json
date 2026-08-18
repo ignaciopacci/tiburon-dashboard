@@ -1,7 +1,7 @@
 {
   "mes": "08/2026",
   "mesKey": "2026-08",
-  "fechaCalculo": "18/08/2026 12:33",
+  "fechaCalculo": "18/08/2026 16:23",
   "ahorroTotal": 1369980.0,
   "detallePorLinea": {
     "Clasica": {
@@ -47,7 +47,7 @@
       "ahorro": 67804.0
     }
   },
-  "dolarBilleteUsado": null,
+  "dolarBilleteUsado": 1521.6,
   "dolarColchon": 1530.0,
   "parcial": true
 }
