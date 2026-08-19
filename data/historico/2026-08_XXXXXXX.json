@@ -1,18 +1,18 @@
 {
   "empresa": "XXXXXXX",
-  "fechaActualizacion": "18/08/2026 16:23",
+  "fechaActualizacion": "19/08/2026 12:33",
   "mes": "08/2026",
   "anio": 2026,
   "nroMes": 8,
-  "totalFac": 11754259.06,
-  "totalCosto": 5762373.12,
-  "ganancia": 5991885.94,
+  "totalFac": 11793380.5,
+  "totalCosto": 5777080.4399999995,
+  "ganancia": 6016300.0600000005,
   "margen": 51.0,
   "rubros": {
     "Pinceles": {
-      "unidades": 6618.0,
-      "totalFac": 10003060.850000001,
-      "totalCosto": 4538735.28,
+      "unidades": 6642.0,
+      "totalFac": 10042182.290000001,
+      "totalCosto": 4553442.6,
       "articulos": [
         {
           "rubro": "Pinceles",
@@ -153,10 +153,10 @@
         {
           "rubro": "Pinceles",
           "articulo": "Pincel Clasico 10/1(PEC-1001)",
-          "cantidad": 108.0,
-          "ultimoCosto": 372.87,
-          "totalCosto": 40270.32,
-          "totalFac": 110629.89
+          "cantidad": 120.0,
+          "ultimoCosto": 374.81,
+          "totalCosto": 44977.2,
+          "totalFac": 123150.17
         },
         {
           "rubro": "Pinceles",
@@ -201,10 +201,10 @@
         {
           "rubro": "Pinceles",
           "articulo": "Pincel Clasico 25/1(PEC-1004)",
-          "cantidad": 72.0,
-          "ultimoCosto": 792.22,
-          "totalCosto": 57039.6,
-          "totalFac": 164462.85
+          "cantidad": 84.0,
+          "ultimoCosto": 798.1,
+          "totalCosto": 67040.04,
+          "totalFac": 191064.01
         },
         {
           "rubro": "Pinceles",
