@@ -1,18 +1,18 @@
 {
   "empresa": "Irelocs S.A.",
-  "fechaActualizacion": "20/08/2026 16:27",
+  "fechaActualizacion": "21/08/2026 12:35",
   "mes": "08/2026",
   "anio": 2026,
   "nroMes": 8,
-  "totalFac": 20042280.87,
-  "totalCosto": 8203833.91,
-  "ganancia": 11838446.96,
-  "margen": 59.1,
+  "totalFac": 20880685.54,
+  "totalCosto": 8462725.39,
+  "ganancia": 12417960.149999999,
+  "margen": 59.5,
   "rubros": {
     "Pinceles": {
-      "unidades": 9018.0,
-      "totalFac": 17334865.59,
-      "totalCosto": 6479483.04,
+      "unidades": 9330.0,
+      "totalFac": 18085172.57,
+      "totalCosto": 6688032.960000001,
       "articulos": [
         {
           "rubro": "Pinceles",
@@ -129,10 +129,10 @@
         {
           "rubro": "Pinceles",
           "articulo": "Pincel Clasico 15/1(PEC-1002)",
-          "cantidad": 192.0,
-          "ultimoCosto": 528.6,
-          "totalCosto": 101490.72,
-          "totalFac": 309625.31
+          "cantidad": 216.0,
+          "ultimoCosto": 529.71,
+          "totalCosto": 114416.4,
+          "totalFac": 351375.24
         },
         {
           "rubro": "Pinceles",
@@ -145,10 +145,10 @@
         {
           "rubro": "Pinceles",
           "articulo": "Pincel Clasico 20/1(PEC-1003)",
-          "cantidad": 540.0,
-          "ultimoCosto": 595.94,
-          "totalCosto": 321809.16,
-          "totalFac": 1023229.1
+          "cantidad": 564.0,
+          "ultimoCosto": 597.08,
+          "totalCosto": 336751.32,
+          "totalFac": 1071492.24
         },
         {
           "rubro": "Pinceles",
@@ -161,10 +161,10 @@
         {
           "rubro": "Pinceles",
           "articulo": "Pincel Clasico 25/1(PEC-1004)",
-          "cantidad": 456.0,
-          "ultimoCosto": 791.13,
-          "totalCosto": 360756.96,
-          "totalFac": 1130833.03
+          "cantidad": 480.0,
+          "ultimoCosto": 793.25,
+          "totalCosto": 380757.84,
+          "totalFac": 1195435.85
         },
         {
           "rubro": "Pinceles",
@@ -177,10 +177,10 @@
         {
           "rubro": "Pinceles",
           "articulo": "Pincel Clasico 30/1(PEC-1005)",
-          "cantidad": 348.0,
-          "ultimoCosto": 1036.13,
-          "totalCosto": 360574.56,
-          "totalFac": 1089909.47
+          "cantidad": 372.0,
+          "ultimoCosto": 1039.54,
+          "totalCosto": 386710.08,
+          "totalFac": 1174327.12
         },
         {
           "rubro": "Pinceles",
@@ -225,10 +225,18 @@
         {
           "rubro": "Pinceles",
           "articulo": "Pincel Ecology 20/1(PEC-8002)",
-          "cantidad": 1164.0,
-          "ultimoCosto": 500.42,
-          "totalCosto": 582492.0,
-          "totalFac": 1572919.14
+          "cantidad": 1308.0,
+          "ultimoCosto": 503.18,
+          "totalCosto": 658164.0,
+          "totalFac": 1860472.74
+        },
+        {
+          "rubro": "Pinceles",
+          "articulo": "Pincel Ecology 20/2(PEC-8008)",
+          "cantidad": 72.0,
+          "ultimoCosto": 817.69,
+          "totalCosto": 58873.68,
+          "totalFac": 223719.84
         },
         {
           "rubro": "Pinceles",
@@ -393,9 +401,9 @@
       ]
     },
     "Accesorios": {
-      "unidades": 1146.0,
-      "totalFac": 2707415.2800000007,
-      "totalCosto": 1724350.87,
+      "unidades": 1158.0,
+      "totalFac": 2795512.9700000007,
+      "totalCosto": 1774692.43,
       "articulos": [
         {
           "rubro": "Accesorios",
@@ -560,10 +568,10 @@
         {
           "rubro": "Accesorios",
           "articulo": "Rodillos Laba Blanca Nº 22(ROD-7018)",
-          "cantidad": 30.0,
+          "cantidad": 42.0,
           "ultimoCosto": 4195.13,
-          "totalCosto": 125853.9,
-          "totalFac": 220244.22
+          "totalCosto": 176195.46,
+          "totalFac": 308341.91
         },
         {
           "rubro": "Accesorios",
