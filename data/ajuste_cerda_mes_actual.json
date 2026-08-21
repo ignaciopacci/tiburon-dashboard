@@ -1,20 +1,20 @@
 {
   "mes": "08/2026",
   "mesKey": "2026-08",
-  "fechaCalculo": "20/08/2026 16:26",
-  "ahorroTotal": 1561056.0,
+  "fechaCalculo": "21/08/2026 12:35",
+  "ahorroTotal": 1591925.0,
   "detallePorLinea": {
     "Clasica": {
-      "kg": 56.12,
+      "kg": 57.35,
       "precioColchon": 6.64,
       "precioReal": 3.47,
-      "ahorro": 462752.0
+      "ahorro": 472844.0
     },
     "Ecology": {
-      "kg": 82.37,
+      "kg": 84.89,
       "precioColchon": 6.64,
       "precioReal": 3.47,
-      "ahorro": 679138.0
+      "ahorro": 699916.0
     },
     "Linea1200": {
       "kg": 5.88,
