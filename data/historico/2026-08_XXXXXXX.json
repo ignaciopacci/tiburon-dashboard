@@ -1,18 +1,18 @@
 {
   "empresa": "XXXXXXX",
-  "fechaActualizacion": "24/08/2026 12:40",
+  "fechaActualizacion": "24/08/2026 16:24",
   "mes": "08/2026",
   "anio": 2026,
   "nroMes": 8,
-  "totalFac": 16444650.010000002,
-  "totalCosto": 7746848.789999999,
-  "ganancia": 8697801.220000003,
+  "totalFac": 16954653.48,
+  "totalCosto": 7990149.1499999985,
+  "ganancia": 8964504.330000002,
   "margen": 52.9,
   "rubros": {
     "Pinceles": {
-      "unidades": 8238.0,
-      "totalFac": 13536531.24,
-      "totalCosto": 5714122.919999999,
+      "unidades": 8562.0,
+      "totalFac": 13943387.91,
+      "totalCosto": 5875126.799999999,
       "articulos": [
         {
           "rubro": "Pinceles",
@@ -249,10 +249,10 @@
         {
           "rubro": "Pinceles",
           "articulo": "Pincel Ecology 10/1(PEC-8000)",
-          "cantidad": 882.0,
-          "ultimoCosto": 315.74,
-          "totalCosto": 278482.08,
-          "totalFac": 636622.83
+          "cantidad": 930.0,
+          "ultimoCosto": 316.64,
+          "totalCosto": 294475.68,
+          "totalFac": 677038.66
         },
         {
           "rubro": "Pinceles",
@@ -265,10 +265,10 @@
         {
           "rubro": "Pinceles",
           "articulo": "Pincel Ecology 15/1(PEC-8001)",
-          "cantidad": 1344.0,
-          "ultimoCosto": 423.62,
-          "totalCosto": 569344.98,
-          "totalFac": 1203671.28
+          "cantidad": 1416.0,
+          "ultimoCosto": 424.97,
+          "totalCosto": 601764.42,
+          "totalFac": 1285595.16
         },
         {
           "rubro": "Pinceles",
@@ -281,10 +281,10 @@
         {
           "rubro": "Pinceles",
           "articulo": "Pincel Ecology 20/1(PEC-8002)",
-          "cantidad": 600.0,
-          "ultimoCosto": 500.2,
-          "totalCosto": 300121.2,
-          "totalFac": 788775.3
+          "cantidad": 672.0,
+          "ultimoCosto": 502.91,
+          "totalCosto": 337957.2,
+          "totalFac": 884386.87
         },
         {
           "rubro": "Pinceles",
@@ -297,10 +297,10 @@
         {
           "rubro": "Pinceles",
           "articulo": "Pincel Ecology 25/1(PEC-8003)",
-          "cantidad": 384.0,
-          "ultimoCosto": 694.4,
-          "totalCosto": 266648.16,
-          "totalFac": 680538.23
+          "cantidad": 420.0,
+          "ultimoCosto": 697.13,
+          "totalCosto": 292796.4,
+          "totalFac": 746614.78
         },
         {
           "rubro": "Pinceles",
@@ -313,10 +313,10 @@
         {
           "rubro": "Pinceles",
           "articulo": "Pincel Ecology 30/1(PEC-8004)",
-          "cantidad": 336.0,
-          "ultimoCosto": 811.45,
-          "totalCosto": 272648.28,
-          "totalFac": 695939.82
+          "cantidad": 372.0,
+          "ultimoCosto": 815.61,
+          "totalCosto": 303406.68,
+          "totalFac": 773666.3
         },
         {
           "rubro": "Pinceles",
@@ -329,10 +329,10 @@
         {
           "rubro": "Pinceles",
           "articulo": "Pincel Ecology 7/1(PEC-8005)",
-          "cantidad": 666.0,
-          "ultimoCosto": 279.6,
-          "totalCosto": 186213.42,
-          "totalFac": 401710.04
+          "cantidad": 726.0,
+          "ultimoCosto": 281.08,
+          "totalCosto": 204061.62,
+          "totalFac": 446812.4
         },
         {
           "rubro": "Pinceles",
@@ -457,9 +457,9 @@
       ]
     },
     "Accesorios": {
-      "unidades": 1341.0,
-      "totalFac": 2908118.770000001,
-      "totalCosto": 2032725.8699999996,
+      "unidades": 1359.0,
+      "totalFac": 3011265.5700000008,
+      "totalCosto": 2115022.3499999996,
       "articulos": [
         {
           "rubro": "Accesorios",
@@ -512,10 +512,10 @@
         {
           "rubro": "Accesorios",
           "articulo": "Cobertor Multiuso Eco Banco 3 X 3(COB-3ECO)",
-          "cantidad": 10.0,
+          "cantidad": 22.0,
           "ultimoCosto": 1623.78,
-          "totalCosto": 16237.8,
-          "totalFac": 24843.78
+          "totalCosto": 35723.16,
+          "totalFac": 51675.07
         },
         {
           "rubro": "Accesorios",
@@ -588,6 +588,14 @@
           "ultimoCosto": 6891.69,
           "totalCosto": 192967.32,
           "totalFac": 251201.98
+        },
+        {
+          "rubro": "Accesorios",
+          "articulo": "Extensor Teles. Aluminio 2 X 1.5 Mts(EXTAL-2)",
+          "cantidad": 6.0,
+          "ultimoCosto": 10468.52,
+          "totalCosto": 62811.12,
+          "totalFac": 76315.51
         },
         {
           "rubro": "Accesorios",
