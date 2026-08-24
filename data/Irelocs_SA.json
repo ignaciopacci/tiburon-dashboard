@@ -1,18 +1,18 @@
 {
   "empresa": "Irelocs S.A.",
-  "fechaActualizacion": "24/08/2026 12:40",
+  "fechaActualizacion": "24/08/2026 16:24",
   "mes": "08/2026",
   "anio": 2026,
   "nroMes": 8,
-  "totalFac": 20880685.54,
-  "totalCosto": 8462725.39,
-  "ganancia": 12417960.149999999,
-  "margen": 59.5,
+  "totalFac": 24202574.49,
+  "totalCosto": 10202014.569999998,
+  "ganancia": 14000559.92,
+  "margen": 57.8,
   "rubros": {
     "Pinceles": {
-      "unidades": 9330.0,
-      "totalFac": 18085172.57,
-      "totalCosto": 6688032.960000001,
+      "unidades": 10530.0,
+      "totalFac": 20215731.349999998,
+      "totalCosto": 7513842.959999999,
       "articulos": [
         {
           "rubro": "Pinceles",
@@ -33,26 +33,26 @@
         {
           "rubro": "Pinceles",
           "articulo": "Pincel 1200 15/1(PIN-1202)",
-          "cantidad": 24.0,
+          "cantidad": 144.0,
           "ultimoCosto": 676.08,
-          "totalCosto": 16225.92,
-          "totalFac": 45432.58
+          "totalCosto": 97355.52,
+          "totalFac": 244200.52
         },
         {
           "rubro": "Pinceles",
           "articulo": "Pincel 1200 20/1(PIN-1203)",
-          "cantidad": 24.0,
+          "cantidad": 144.0,
           "ultimoCosto": 788.41,
-          "totalCosto": 18921.84,
-          "totalFac": 52981.15
+          "totalCosto": 113531.04,
+          "totalFac": 284774.53
         },
         {
           "rubro": "Pinceles",
           "articulo": "Pincel 1200 25/1(PIN-1204)",
-          "cantidad": 24.0,
+          "cantidad": 144.0,
           "ultimoCosto": 1158.64,
-          "totalCosto": 27807.36,
-          "totalFac": 77860.61
+          "totalCosto": 166844.16,
+          "totalFac": 418500.77
         },
         {
           "rubro": "Pinceles",
@@ -217,18 +217,18 @@
         {
           "rubro": "Pinceles",
           "articulo": "Pincel Ecology 15/1(PEC-8001)",
-          "cantidad": 708.0,
-          "ultimoCosto": 422.86,
-          "totalCosto": 299381.46,
-          "totalFac": 866962.7
+          "cantidad": 948.0,
+          "ultimoCosto": 429.8,
+          "totalCosto": 407446.26,
+          "totalFac": 1154416.58
         },
         {
           "rubro": "Pinceles",
           "articulo": "Pincel Ecology 20/1(PEC-8002)",
-          "cantidad": 1308.0,
-          "ultimoCosto": 503.18,
-          "totalCosto": 658164.0,
-          "totalFac": 1860472.74
+          "cantidad": 1548.0,
+          "ultimoCosto": 506.64,
+          "totalCosto": 784284.0,
+          "totalFac": 2195952.78
         },
         {
           "rubro": "Pinceles",
@@ -241,10 +241,10 @@
         {
           "rubro": "Pinceles",
           "articulo": "Pincel Ecology 25/1(PEC-8003)",
-          "cantidad": 840.0,
-          "ultimoCosto": 687.14,
-          "totalCosto": 577200.0,
-          "totalFac": 1657801.44
+          "cantidad": 1080.0,
+          "ultimoCosto": 695.85,
+          "totalCosto": 751521.6,
+          "totalFac": 2121499.08
         },
         {
           "rubro": "Pinceles",
@@ -257,10 +257,10 @@
         {
           "rubro": "Pinceles",
           "articulo": "Pincel Ecology 30/1(PEC-8004)",
-          "cantidad": 768.0,
-          "ultimoCosto": 804.95,
-          "totalCosto": 618205.2,
-          "totalFac": 1811536.14
+          "cantidad": 888.0,
+          "ultimoCosto": 811.64,
+          "totalCosto": 720733.2,
+          "totalFac": 2084261.88
         },
         {
           "rubro": "Pinceles",
@@ -401,9 +401,9 @@
       ]
     },
     "Accesorios": {
-      "unidades": 1158.0,
-      "totalFac": 2795512.9700000007,
-      "totalCosto": 1774692.43,
+      "unidades": 1354.0,
+      "totalFac": 3986843.1400000006,
+      "totalCosto": 2688171.6099999994,
       "articulos": [
         {
           "rubro": "Accesorios",
@@ -568,18 +568,34 @@
         {
           "rubro": "Accesorios",
           "articulo": "Rodillos Laba Blanca Nº 22(ROD-7018)",
-          "cantidad": 42.0,
+          "cantidad": 90.0,
           "ultimoCosto": 4195.13,
-          "totalCosto": 176195.46,
-          "totalFac": 308341.91
+          "totalCosto": 377561.7,
+          "totalFac": 572634.97
         },
         {
           "rubro": "Accesorios",
           "articulo": "Rodillos Lana Blanca Nº 17(ROD-7017)",
-          "cantidad": 30.0,
+          "cantidad": 60.0,
           "ultimoCosto": 4054.83,
-          "totalCosto": 121644.9,
-          "totalFac": 212878.47
+          "totalCosto": 243289.8,
+          "totalFac": 372537.32
+        },
+        {
+          "rubro": "Accesorios",
+          "articulo": "Rodillos Lana Dorada Nº 17(ROD-7021)",
+          "cantidad": 30.0,
+          "ultimoCosto": 4435.78,
+          "totalCosto": 133073.4,
+          "totalFac": 174658.84
+        },
+        {
+          "rubro": "Accesorios",
+          "articulo": "Rodillos Lana Dorada Nº 22(ROD-7022)",
+          "cantidad": 48.0,
+          "ultimoCosto": 4650.18,
+          "totalCosto": 223208.64,
+          "totalFac": 292961.34
         },
         {
           "rubro": "Accesorios",
@@ -664,18 +680,18 @@
         {
           "rubro": "Accesorios",
           "articulo": "Venda Sintetica Premium 1 Mt X 25 Mts(VPR1)",
-          "cantidad": 10.0,
+          "cantidad": 30.0,
           "ultimoCosto": 9674.95,
-          "totalCosto": 96749.5,
-          "totalFac": 123839.36
+          "totalCosto": 290248.5,
+          "totalFac": 371518.08
         },
         {
           "rubro": "Accesorios",
           "articulo": "Venda Sintetica Premium 20 Cms X 25 Mts(VPR20)",
-          "cantidad": 10.0,
+          "cantidad": 30.0,
           "ultimoCosto": 2034.35,
-          "totalCosto": 20343.5,
-          "totalFac": 26039.68
+          "totalCosto": 61030.5,
+          "totalFac": 78119.04
         }
       ]
     }
