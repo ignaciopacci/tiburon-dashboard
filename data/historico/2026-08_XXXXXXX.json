@@ -1,18 +1,18 @@
 {
   "empresa": "XXXXXXX",
-  "fechaActualizacion": "25/08/2026 16:27",
+  "fechaActualizacion": "26/08/2026 13:19",
   "mes": "08/2026",
   "anio": 2026,
   "nroMes": 8,
-  "totalFac": 16954653.48,
-  "totalCosto": 7990149.1499999985,
-  "ganancia": 8964504.330000002,
-  "margen": 52.9,
+  "totalFac": 17074031.520000003,
+  "totalCosto": 8021564.429999999,
+  "ganancia": 9052467.090000004,
+  "margen": 53.0,
   "rubros": {
     "Pinceles": {
-      "unidades": 8562.0,
-      "totalFac": 13943387.91,
-      "totalCosto": 5875126.799999999,
+      "unidades": 8634.0,
+      "totalFac": 14062765.950000001,
+      "totalCosto": 5906542.079999999,
       "articulos": [
         {
           "rubro": "Pinceles",
@@ -249,10 +249,10 @@
         {
           "rubro": "Pinceles",
           "articulo": "Pincel Ecology 10/1(PEC-8000)",
-          "cantidad": 930.0,
-          "ultimoCosto": 316.64,
-          "totalCosto": 294475.68,
-          "totalFac": 677038.66
+          "cantidad": 954.0,
+          "ultimoCosto": 317.06,
+          "totalCosto": 302472.48,
+          "totalFac": 707426.5
         },
         {
           "rubro": "Pinceles",
@@ -265,10 +265,10 @@
         {
           "rubro": "Pinceles",
           "articulo": "Pincel Ecology 15/1(PEC-8001)",
-          "cantidad": 1416.0,
-          "ultimoCosto": 424.97,
-          "totalCosto": 601764.42,
-          "totalFac": 1285595.16
+          "cantidad": 1440.0,
+          "ultimoCosto": 425.4,
+          "totalCosto": 612570.9,
+          "totalFac": 1326659.76
         },
         {
           "rubro": "Pinceles",
@@ -281,10 +281,10 @@
         {
           "rubro": "Pinceles",
           "articulo": "Pincel Ecology 20/1(PEC-8002)",
-          "cantidad": 672.0,
-          "ultimoCosto": 502.91,
-          "totalCosto": 337957.2,
-          "totalFac": 884386.87
+          "cantidad": 696.0,
+          "ultimoCosto": 503.69,
+          "totalCosto": 350569.2,
+          "totalFac": 932312.47
         },
         {
           "rubro": "Pinceles",
