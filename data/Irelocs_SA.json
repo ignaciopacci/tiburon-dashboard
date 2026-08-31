@@ -1,13 +1,13 @@
 {
   "empresa": "Irelocs S.A.",
-  "fechaActualizacion": "28/08/2026 22:58",
+  "fechaActualizacion": "31/08/2026 17:42",
   "mes": "08/2026",
   "anio": 2026,
   "nroMes": 8,
-  "totalFac": 36637889.77,
-  "totalCosto": 15442853.380000003,
-  "ganancia": 21195036.39,
-  "margen": 57.9,
+  "totalFac": 37528829.18,
+  "totalCosto": 16048183.360000003,
+  "ganancia": 21480645.819999997,
+  "margen": 57.2,
   "rubros": {
     "Pinceles": {
       "unidades": 14490.0,
@@ -433,17 +433,17 @@
       ]
     },
     "Accesorios": {
-      "unidades": 2119.0,
-      "totalFac": 6163308.82,
-      "totalCosto": 4318402.66,
+      "unidades": 2613.0,
+      "totalFac": 7054248.2299999995,
+      "totalCosto": 4923732.640000001,
       "articulos": [
         {
           "rubro": "Accesorios",
           "articulo": "Bandeja Con Escurridor(BCE)",
-          "cantidad": 27.0,
-          "ultimoCosto": 938.64,
-          "totalCosto": 25343.18,
-          "totalFac": 38521.56
+          "cantidad": 51.0,
+          "ultimoCosto": 930.61,
+          "totalCosto": 47460.86,
+          "totalFac": 72140.38
         },
         {
           "rubro": "Accesorios",
@@ -567,19 +567,35 @@
         },
         {
           "rubro": "Accesorios",
+          "articulo": "Rodillo S/f Nº 11(ROD-7002)",
+          "cantidad": 50.0,
+          "ultimoCosto": 549.6,
+          "totalCosto": 27480.0,
+          "totalFac": 40395.6
+        },
+        {
+          "rubro": "Accesorios",
+          "articulo": "Rodillo S/f Nº 8(ROD-7001)",
+          "cantidad": 250.0,
+          "ultimoCosto": 508.54,
+          "totalCosto": 127135.0,
+          "totalFac": 186887.75
+        },
+        {
+          "rubro": "Accesorios",
           "articulo": "Rodillos Antigota Nº 17(ROD-7031)",
-          "cantidad": 108.0,
+          "cantidad": 188.0,
           "ultimoCosto": 2447.44,
-          "totalCosto": 264323.52,
-          "totalFac": 388555.27
+          "totalCosto": 460118.72,
+          "totalFac": 676373.99
         },
         {
           "rubro": "Accesorios",
           "articulo": "Rodillos Antigota Nº 22(ROD-7032)",
-          "cantidad": 324.0,
+          "cantidad": 414.0,
           "ultimoCosto": 2586.69,
-          "totalCosto": 838087.56,
-          "totalFac": 1155938.11
+          "totalCosto": 1070889.66,
+          "totalFac": 1498156.63
         },
         {
           "rubro": "Accesorios",
