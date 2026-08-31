@@ -1,18 +1,18 @@
 {
   "empresa": "XXXXXXX",
-  "fechaActualizacion": "28/08/2026 22:58",
+  "fechaActualizacion": "31/08/2026 17:42",
   "mes": "08/2026",
   "anio": 2026,
   "nroMes": 8,
-  "totalFac": 23093899.38000001,
-  "totalCosto": 11646364.79,
-  "ganancia": 11447534.590000011,
-  "margen": 49.6,
+  "totalFac": 24183842.24000001,
+  "totalCosto": 12345317.450000001,
+  "ganancia": 11838524.790000008,
+  "margen": 49.0,
   "rubros": {
     "Pinceles": {
-      "unidades": 12090.0,
-      "totalFac": 19495645.87000001,
-      "totalCosto": 9112158.6,
+      "unidades": 12186.0,
+      "totalFac": 19771557.82000001,
+      "totalCosto": 9224775.720000003,
       "articulos": [
         {
           "rubro": "Pinceles",
@@ -81,18 +81,18 @@
         {
           "rubro": "Pinceles",
           "articulo": "Pincel 2400 15/2(PIN-2402)",
-          "cantidad": 36.0,
+          "cantidad": 84.0,
           "ultimoCosto": 986.86,
-          "totalCosto": 35526.96,
-          "totalFac": 78159.23
+          "totalCosto": 82896.24,
+          "totalFac": 194213.97
         },
         {
           "rubro": "Pinceles",
           "articulo": "Pincel 2400 20/2(PIN-2403)",
-          "cantidad": 36.0,
+          "cantidad": 84.0,
           "ultimoCosto": 1359.33,
-          "totalCosto": 48935.88,
-          "totalFac": 105296.03
+          "totalCosto": 114183.72,
+          "totalFac": 265153.24
         },
         {
           "rubro": "Pinceles",
@@ -465,9 +465,9 @@
       ]
     },
     "Accesorios": {
-      "unidades": 1540.0,
-      "totalFac": 3598253.5100000002,
-      "totalCosto": 2534206.1899999995,
+      "unidades": 2056.0,
+      "totalFac": 4412284.42,
+      "totalCosto": 3120541.729999999,
       "articulos": [
         {
           "rubro": "Accesorios",
@@ -487,19 +487,27 @@
         },
         {
           "rubro": "Accesorios",
+          "articulo": "Bandeja De Mano(BDM)",
+          "cantidad": 48.0,
+          "ultimoCosto": 250.52,
+          "totalCosto": 12024.96,
+          "totalFac": 18277.63
+        },
+        {
+          "rubro": "Accesorios",
           "articulo": "Bandeja Plana Grande(BPG)",
-          "cantidad": 10.0,
+          "cantidad": 70.0,
           "ultimoCosto": 758.27,
-          "totalCosto": 7582.7,
-          "totalFac": 11525.68
+          "totalCosto": 53078.9,
+          "totalFac": 80679.76
         },
         {
           "rubro": "Accesorios",
           "articulo": "Bandeja Sin Ecurridor(BSE)",
-          "cantidad": 200.0,
+          "cantidad": 236.0,
           "ultimoCosto": 781.12,
-          "totalCosto": 156224.0,
-          "totalFac": 213713.28
+          "totalCosto": 184344.32,
+          "totalFac": 256455.94
         },
         {
           "rubro": "Accesorios",
@@ -520,18 +528,18 @@
         {
           "rubro": "Accesorios",
           "articulo": "Cobertor Multiuso Eco Banco 3 X 3(COB-3ECO)",
-          "cantidad": 22.0,
+          "cantidad": 34.0,
           "ultimoCosto": 1623.78,
-          "totalCosto": 35723.16,
-          "totalFac": 51675.07
+          "totalCosto": 55208.52,
+          "totalFac": 81487.61
         },
         {
           "rubro": "Accesorios",
           "articulo": "Cobertor Multiuso Pro Azul 3x3(COB-3PRO)",
-          "cantidad": 9.0,
+          "cantidad": 33.0,
           "ultimoCosto": 2095.2,
-          "totalCosto": 18856.8,
-          "totalFac": 28850.91
+          "totalCosto": 69141.6,
+          "totalFac": 105786.65
         },
         {
           "rubro": "Accesorios",
@@ -584,26 +592,34 @@
         {
           "rubro": "Accesorios",
           "articulo": "Extensor Mult. Chapa 2 X 1(EXTCH-1)",
-          "cantidad": 22.0,
+          "cantidad": 34.0,
           "ultimoCosto": 5599.21,
-          "totalCosto": 123182.62,
-          "totalFac": 158737.51
+          "totalCosto": 190373.14,
+          "totalFac": 249444.66
+        },
+        {
+          "rubro": "Accesorios",
+          "articulo": "Extensor Teles. Aluminio 2 X 1 Mts(EXTAL-1)",
+          "cantidad": 6.0,
+          "ultimoCosto": 7738.83,
+          "totalCosto": 46432.98,
+          "totalFac": 62684.5
         },
         {
           "rubro": "Accesorios",
           "articulo": "Extensor Mult. Chapa 2 X 1.5(EXTCH-2)",
-          "cantidad": 28.0,
+          "cantidad": 40.0,
           "ultimoCosto": 6891.69,
-          "totalCosto": 192967.32,
-          "totalFac": 251201.98
+          "totalCosto": 275667.6,
+          "totalFac": 362847.3
         },
         {
           "rubro": "Accesorios",
           "articulo": "Extensor Teles. Aluminio 2 X 1.5 Mts(EXTAL-2)",
-          "cantidad": 6.0,
+          "cantidad": 12.0,
           "ultimoCosto": 10468.52,
-          "totalCosto": 62811.12,
-          "totalFac": 76315.51
+          "totalCosto": 125622.24,
+          "totalFac": 161110.52
         },
         {
           "rubro": "Accesorios",
@@ -640,10 +656,10 @@
         {
           "rubro": "Accesorios",
           "articulo": "Rodillo Mini Epoxi Nº 5(ROD-7006)",
-          "cantidad": 155.0,
+          "cantidad": 255.0,
           "ultimoCosto": 480.32,
-          "totalCosto": 74449.6,
-          "totalFac": 107322.49
+          "totalCosto": 122481.6,
+          "totalFac": 170868.7
         },
         {
           "rubro": "Accesorios",
@@ -728,18 +744,18 @@
         {
           "rubro": "Accesorios",
           "articulo": "Rodillos Mini Epoxi Nº 11(ROD-7008)",
-          "cantidad": 105.0,
+          "cantidad": 205.0,
           "ultimoCosto": 659.53,
-          "totalCosto": 69250.65,
-          "totalFac": 98889.72
+          "totalCosto": 135203.65,
+          "totalFac": 186145.35
         },
         {
           "rubro": "Accesorios",
           "articulo": "Rodillos Mini Epoxi Nº 8(ROD-7007)",
-          "cantidad": 119.0,
+          "cantidad": 219.0,
           "ultimoCosto": 578.04,
-          "totalCosto": 68786.76,
-          "totalFac": 99416.76
+          "totalCosto": 126590.76,
+          "totalFac": 175891.2
         },
         {
           "rubro": "Accesorios",
