@@ -355,5 +355,56 @@
     "dolarColchon": 1530.0,
     "fechaCalculo": "14/08/2026 11:14",
     "cerrado": true
+  },
+  "2026-08": {
+    "mes": "08/2026",
+    "ahorroTotal": 2762677.0,
+    "detallePorLinea": {
+      "Clasica": {
+        "kg": 89.33,
+        "precioColchon": 6.64,
+        "precioReal": 3.47,
+        "ahorro": 736525.0
+      },
+      "Ecology": {
+        "kg": 165.18,
+        "precioColchon": 6.64,
+        "precioReal": 3.47,
+        "ahorro": 1361937.0
+      },
+      "Linea1200": {
+        "kg": 26.88,
+        "precioColchon": 6.64,
+        "precioReal": 4.52,
+        "ahorro": 148220.0
+      },
+      "Linea2400": {
+        "kg": 9.84,
+        "precioColchon": 8.65,
+        "precioReal": 4.52,
+        "ahorro": 105703.0
+      },
+      "Bacota": {
+        "kg": 9.96,
+        "precioColchon": 8.65,
+        "precioReal": 4.52,
+        "ahorro": 107005.0
+      },
+      "Extra Profesional": {
+        "kg": 6.98,
+        "precioColchon": 8.65,
+        "precioReal": 4.52,
+        "ahorro": 75023.0
+      },
+      "Profesional": {
+        "kg": 21.25,
+        "precioColchon": 8.65,
+        "precioReal": 4.52,
+        "ahorro": 228266.0
+      }
+    },
+    "dolarColchon": 1530.0,
+    "fechaCalculo": "01/09/2026 15:14",
+    "cerrado": true
   }
 }
