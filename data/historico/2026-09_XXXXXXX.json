@@ -1,18 +1,18 @@
 {
   "empresa": "XXXXXXX",
-  "fechaActualizacion": "01/09/2026 18:32",
+  "fechaActualizacion": "02/09/2026 15:28",
   "mes": "09/2026",
   "anio": 2026,
   "nroMes": 9,
-  "totalFac": 440515.74000000005,
-  "totalCosto": 195860.53,
-  "ganancia": 244655.21000000005,
-  "margen": 55.5,
+  "totalFac": 825481.7100000002,
+  "totalCosto": 348201.73,
+  "ganancia": 477279.9800000002,
+  "margen": 57.8,
   "rubros": {
     "Pinceles": {
-      "unidades": 78.0,
-      "totalFac": 222182.67000000004,
-      "totalCosto": 58469.16,
+      "unidades": 288.0,
+      "totalFac": 607148.6400000001,
+      "totalCosto": 210810.36000000002,
       "articulos": [
         {
           "rubro": "Pinceles",
@@ -25,34 +25,34 @@
         {
           "rubro": "Pinceles",
           "articulo": "Pincel Clasico 15/1(PEC-1002)",
-          "cantidad": 12.0,
+          "cantidad": 72.0,
           "ultimoCosto": 538.57,
-          "totalCosto": 6462.84,
-          "totalFac": 24558.78
+          "totalCosto": 38777.04,
+          "totalFac": 106216.72
         },
         {
           "rubro": "Pinceles",
           "articulo": "Pincel Clasico 20/1(PEC-1003)",
-          "cantidad": 12.0,
+          "cantidad": 72.0,
           "ultimoCosto": 622.59,
-          "totalCosto": 7471.08,
-          "totalFac": 28390.08
+          "totalCosto": 44826.48,
+          "totalFac": 122787.1
         },
         {
           "rubro": "Pinceles",
           "articulo": "Pincel Clasico 25/1(PEC-1004)",
-          "cantidad": 12.0,
+          "cantidad": 72.0,
           "ultimoCosto": 833.37,
-          "totalCosto": 10000.44,
-          "totalFac": 38001.66
+          "totalCosto": 60002.64,
+          "totalFac": 164357.18
         },
         {
           "rubro": "Pinceles",
           "articulo": "Pincel Clasico 30/1(PEC-1005)",
-          "cantidad": 12.0,
+          "cantidad": 42.0,
           "ultimoCosto": 1088.98,
-          "totalCosto": 13067.76,
-          "totalFac": 49657.44
+          "totalCosto": 45737.16,
+          "totalFac": 132212.93
         },
         {
           "rubro": "Pinceles",
