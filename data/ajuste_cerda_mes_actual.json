@@ -1,14 +1,14 @@
 {
   "mes": "09/2026",
   "mesKey": "2026-09",
-  "fechaCalculo": "01/09/2026 18:32",
-  "ahorroTotal": 51469.0,
+  "fechaCalculo": "02/09/2026 15:28",
+  "ahorroTotal": 93025.0,
   "detallePorLinea": {
     "Clasica": {
-      "kg": 5.59,
+      "kg": 10.63,
       "precioColchon": 6.64,
       "precioReal": 3.47,
-      "ahorro": 46107.0
+      "ahorro": 87663.0
     },
     "Profesional": {
       "kg": 0.5,
@@ -17,7 +17,7 @@
       "ahorro": 5362.0
     }
   },
-  "dolarBilleteUsado": null,
+  "dolarBilleteUsado": 1533.9,
   "dolarColchon": 1530.0,
   "parcial": true
 }
