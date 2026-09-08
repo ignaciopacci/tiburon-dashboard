@@ -1,19 +1,43 @@
 {
   "empresa": "Irelocs S.A.",
-  "fechaActualizacion": "07/09/2026 18:52",
+  "fechaActualizacion": "08/09/2026 15:23",
   "mes": "09/2026",
   "anio": 2026,
   "nroMes": 9,
-  "totalFac": 12078171.16,
-  "totalCosto": 6924575.99,
-  "ganancia": 5153595.17,
-  "margen": 42.7,
+  "totalFac": 13257666.11,
+  "totalCosto": 7299018.83,
+  "ganancia": 5958647.279999999,
+  "margen": 44.9,
   "rubros": {
     "Pinceles": {
-      "unidades": 3684.0,
-      "totalFac": 6155427.29,
-      "totalCosto": 2695288.6200000006,
+      "unidades": 4056.0,
+      "totalFac": 7334922.239999999,
+      "totalCosto": 3069731.4600000004,
       "articulos": [
+        {
+          "rubro": "Pinceles",
+          "articulo": "Pincel Bacota 10/2(PLB-4000)",
+          "cantidad": 180.0,
+          "ultimoCosto": 692.19,
+          "totalCosto": 124594.2,
+          "totalFac": 392471.73
+        },
+        {
+          "rubro": "Pinceles",
+          "articulo": "Pincel Bacota 15/2(PLB-4001)",
+          "cantidad": 72.0,
+          "ultimoCosto": 1009.27,
+          "totalCosto": 72667.44,
+          "totalFac": 228902.44
+        },
+        {
+          "rubro": "Pinceles",
+          "articulo": "Pincel Bacota 20/2(PLB-4002)",
+          "cantidad": 120.0,
+          "ultimoCosto": 1476.51,
+          "totalCosto": 177181.2,
+          "totalFac": 558120.78
+        },
         {
           "rubro": "Pinceles",
           "articulo": "Pincel Clasico 10/1(PEC-1001)",
