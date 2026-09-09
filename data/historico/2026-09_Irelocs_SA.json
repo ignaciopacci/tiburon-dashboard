@@ -1,18 +1,18 @@
 {
   "empresa": "Irelocs S.A.",
-  "fechaActualizacion": "08/09/2026 18:32",
+  "fechaActualizacion": "09/09/2026 15:22",
   "mes": "09/2026",
   "anio": 2026,
   "nroMes": 9,
-  "totalFac": 13257666.11,
-  "totalCosto": 7299018.83,
-  "ganancia": 5958647.279999999,
-  "margen": 44.9,
+  "totalFac": 16282133.229999997,
+  "totalCosto": 9405214.11,
+  "ganancia": 6876919.119999997,
+  "margen": 42.2,
   "rubros": {
     "Pinceles": {
-      "unidades": 4056.0,
-      "totalFac": 7334922.239999999,
-      "totalCosto": 3069731.4600000004,
+      "unidades": 6288.0,
+      "totalFac": 9857480.879999999,
+      "totalCosto": 4844284.739999999,
       "articulos": [
         {
           "rubro": "Pinceles",
@@ -144,27 +144,59 @@
         },
         {
           "rubro": "Pinceles",
+          "articulo": "Pincel Ecology 15/2(PEC-8007)",
+          "cantidad": 336.0,
+          "ultimoCosto": 702.25,
+          "totalCosto": 235956.0,
+          "totalFac": 328362.72
+        },
+        {
+          "rubro": "Pinceles",
           "articulo": "Pincel Ecology 20/1(PEC-8002)",
-          "cantidad": 240.0,
+          "cantidad": 744.0,
           "ultimoCosto": 525.5,
-          "totalCosto": 126120.0,
-          "totalFac": 232920.0
+          "totalCosto": 390972.0,
+          "totalFac": 640580.4
+        },
+        {
+          "rubro": "Pinceles",
+          "articulo": "Pincel Ecology 20/2(PEC-8008)",
+          "cantidad": 504.0,
+          "ultimoCosto": 817.69,
+          "totalCosto": 412115.76,
+          "totalFac": 570548.16
         },
         {
           "rubro": "Pinceles",
           "articulo": "Pincel Ecology 25/1(PEC-8003)",
-          "cantidad": 240.0,
+          "cantidad": 408.0,
           "ultimoCosto": 726.34,
-          "totalCosto": 174321.6,
-          "totalFac": 311793.6
+          "totalCosto": 296346.72,
+          "totalFac": 493530.96
+        },
+        {
+          "rubro": "Pinceles",
+          "articulo": "Pincel Ecology 25/2(PEC-8009)",
+          "cantidad": 360.0,
+          "ultimoCosto": 998.37,
+          "totalCosto": 359413.2,
+          "totalFac": 499478.4
         },
         {
           "rubro": "Pinceles",
           "articulo": "Pincel Ecology 30/1(PEC-8004)",
-          "cantidad": 240.0,
+          "cantidad": 360.0,
           "ultimoCosto": 854.4,
-          "totalCosto": 205056.0,
-          "totalFac": 364238.4
+          "totalCosto": 307584.0,
+          "totalFac": 515919.6
+        },
+        {
+          "rubro": "Pinceles",
+          "articulo": "Pincel Ecology 30/2(PEC-8010)",
+          "cantidad": 240.0,
+          "ultimoCosto": 1156.93,
+          "totalCosto": 277663.2,
+          "totalFac": 383090.4
         },
         {
           "rubro": "Pinceles",
@@ -225,9 +257,9 @@
       ]
     },
     "Accesorios": {
-      "unidades": 2271.0,
-      "totalFac": 5922743.87,
-      "totalCosto": 4229287.37,
+      "unidades": 2721.0,
+      "totalFac": 6424652.349999999,
+      "totalCosto": 4560929.37,
       "articulos": [
         {
           "rubro": "Accesorios",
@@ -248,26 +280,26 @@
         {
           "rubro": "Accesorios",
           "articulo": "Bandeja De Mano(BDM)",
-          "cantidad": 100.0,
+          "cantidad": 150.0,
           "ultimoCosto": 250.52,
-          "totalCosto": 25052.0,
-          "totalFac": 38078.4
+          "totalCosto": 37578.0,
+          "totalFac": 57117.6
         },
         {
           "rubro": "Accesorios",
           "articulo": "Bandeja Plana Grande(BPG)",
-          "cantidad": 120.0,
+          "cantidad": 340.0,
           "ultimoCosto": 758.27,
-          "totalCosto": 90992.4,
-          "totalFac": 138308.16
+          "totalCosto": 257811.8,
+          "totalFac": 391873.12
         },
         {
           "rubro": "Accesorios",
           "articulo": "Bandeja Sin Ecurridor(BSE)",
-          "cantidad": 150.0,
+          "cantidad": 310.0,
           "ultimoCosto": 781.12,
-          "totalCosto": 117168.0,
-          "totalFac": 178094.4
+          "totalCosto": 242147.2,
+          "totalFac": 368061.76
         },
         {
           "rubro": "Accesorios",
@@ -316,6 +348,14 @@
           "ultimoCosto": 516.12,
           "totalCosto": 25806.0,
           "totalFac": 66063.2
+        },
+        {
+          "rubro": "Accesorios",
+          "articulo": "Llana Plastica Revest Pro(LLANAPRO)",
+          "cantidad": 20.0,
+          "ultimoCosto": 1365.87,
+          "totalCosto": 27317.4,
+          "totalFac": 39336.96
         },
         {
           "rubro": "Accesorios",
