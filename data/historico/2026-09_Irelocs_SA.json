@@ -1,18 +1,18 @@
 {
   "empresa": "Irelocs S.A.",
-  "fechaActualizacion": "09/09/2026 18:29",
+  "fechaActualizacion": "10/09/2026 15:12",
   "mes": "09/2026",
   "anio": 2026,
   "nroMes": 9,
-  "totalFac": 16282133.229999997,
-  "totalCosto": 9405214.11,
-  "ganancia": 6876919.119999997,
+  "totalFac": 21195901.11,
+  "totalCosto": 12261256.669999998,
+  "ganancia": 8934644.440000001,
   "margen": 42.2,
   "rubros": {
     "Pinceles": {
-      "unidades": 6288.0,
-      "totalFac": 9857480.879999999,
-      "totalCosto": 4844284.739999999,
+      "unidades": 7776.0,
+      "totalFac": 13743053.76,
+      "totalCosto": 7055001.299999999,
       "articulos": [
         {
           "rubro": "Pinceles",
@@ -200,6 +200,38 @@
         },
         {
           "rubro": "Pinceles",
+          "articulo": "Pincel Extra Profesional 15/2(PLE-3001)",
+          "cantidad": 504.0,
+          "ultimoCosto": 1135.18,
+          "totalCosto": 572130.72,
+          "totalFac": 1018473.12
+        },
+        {
+          "rubro": "Pinceles",
+          "articulo": "Pincel Extra Profesional 20/2(PLE-3002)",
+          "cantidad": 504.0,
+          "ultimoCosto": 1437.36,
+          "totalCosto": 724429.44,
+          "totalFac": 1292578.56
+        },
+        {
+          "rubro": "Pinceles",
+          "articulo": "Pincel Extra Profesional 25/2(PLE-3003)",
+          "cantidad": 360.0,
+          "ultimoCosto": 1813.09,
+          "totalCosto": 652712.4,
+          "totalFac": 1127638.8
+        },
+        {
+          "rubro": "Pinceles",
+          "articulo": "Pincel Extra Profesional 30/2(PLE-3004)",
+          "cantidad": 120.0,
+          "ultimoCosto": 2178.7,
+          "totalCosto": 261444.0,
+          "totalFac": 446882.4
+        },
+        {
+          "rubro": "Pinceles",
           "articulo": "Pincel Profesional 10/2(PLT-2007)",
           "cantidad": 30.0,
           "ultimoCosto": 607.95,
@@ -257,9 +289,9 @@
       ]
     },
     "Accesorios": {
-      "unidades": 2721.0,
-      "totalFac": 6424652.349999999,
-      "totalCosto": 4560929.37,
+      "unidades": 4121.0,
+      "totalFac": 7452847.349999999,
+      "totalCosto": 5206255.37,
       "articulos": [
         {
           "rubro": "Accesorios",
@@ -280,18 +312,18 @@
         {
           "rubro": "Accesorios",
           "articulo": "Bandeja De Mano(BDM)",
-          "cantidad": 150.0,
+          "cantidad": 850.0,
           "ultimoCosto": 250.52,
-          "totalCosto": 37578.0,
-          "totalFac": 57117.6
+          "totalCosto": 212942.0,
+          "totalFac": 439912.6
         },
         {
           "rubro": "Accesorios",
           "articulo": "Bandeja Plana Grande(BPG)",
-          "cantidad": 340.0,
+          "cantidad": 940.0,
           "ultimoCosto": 758.27,
-          "totalCosto": 257811.8,
-          "totalFac": 391873.12
+          "totalCosto": 712773.8,
+          "totalFac": 1005073.12
         },
         {
           "rubro": "Accesorios",
@@ -356,6 +388,14 @@
           "ultimoCosto": 1365.87,
           "totalCosto": 27317.4,
           "totalFac": 39336.96
+        },
+        {
+          "rubro": "Accesorios",
+          "articulo": "Manija Destapa Balde(DEST1)",
+          "cantidad": 100.0,
+          "ultimoCosto": 150.0,
+          "totalCosto": 15000.0,
+          "totalFac": 32200.0
         },
         {
           "rubro": "Accesorios",
