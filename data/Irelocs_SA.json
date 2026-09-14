@@ -1,18 +1,18 @@
 {
   "empresa": "Irelocs S.A.",
-  "fechaActualizacion": "11/09/2026 18:31",
+  "fechaActualizacion": "14/09/2026 16:45",
   "mes": "09/2026",
   "anio": 2026,
   "nroMes": 9,
-  "totalFac": 24591870.750000004,
-  "totalCosto": 13991636.869999997,
-  "ganancia": 10600233.880000006,
-  "margen": 43.1,
+  "totalFac": 24921992.850000005,
+  "totalCosto": 14151987.44,
+  "ganancia": 10770005.410000006,
+  "margen": 43.2,
   "rubros": {
     "Pinceles": {
-      "unidades": 10548.0,
-      "totalFac": 17139023.400000006,
-      "totalCosto": 8785381.499999998,
+      "unidades": 10704.0,
+      "totalFac": 17373745.440000005,
+      "totalCosto": 8873622.899999999,
       "articulos": [
         {
           "rubro": "Pinceles",
@@ -49,10 +49,10 @@
         {
           "rubro": "Pinceles",
           "articulo": "Pincel Clasico 10/2(PEC-1007)",
-          "cantidad": 492.0,
+          "cantidad": 498.0,
           "ultimoCosto": 493.05,
-          "totalCosto": 242580.6,
-          "totalFac": 474184.26
+          "totalCosto": 245538.9,
+          "totalFac": 482053.34
         },
         {
           "rubro": "Pinceles",
@@ -73,10 +73,10 @@
         {
           "rubro": "Pinceles",
           "articulo": "Pincel Clasico 20/1(PEC-1003)",
-          "cantidad": 570.0,
+          "cantidad": 588.0,
           "ultimoCosto": 622.59,
-          "totalCosto": 354876.3,
-          "totalFac": 924824.42
+          "totalCosto": 366082.92,
+          "totalFac": 954634.0
         },
         {
           "rubro": "Pinceles",
@@ -137,18 +137,18 @@
         {
           "rubro": "Pinceles",
           "articulo": "Pincel Ecology 10/1(PEC-8000)",
-          "cantidad": 240.0,
+          "cantidad": 258.0,
           "ultimoCosto": 333.2,
-          "totalCosto": 79968.0,
-          "totalFac": 151488.0
+          "totalCosto": 85965.6,
+          "totalFac": 167441.62
         },
         {
           "rubro": "Pinceles",
           "articulo": "Pincel Ecology 15/1(PEC-8001)",
-          "cantidad": 240.0,
+          "cantidad": 264.0,
           "ultimoCosto": 450.27,
-          "totalCosto": 108064.8,
-          "totalFac": 197328.0
+          "totalCosto": 118871.28,
+          "totalFac": 226073.22
         },
         {
           "rubro": "Pinceles",
@@ -161,10 +161,10 @@
         {
           "rubro": "Pinceles",
           "articulo": "Pincel Ecology 20/1(PEC-8002)",
-          "cantidad": 744.0,
+          "cantidad": 774.0,
           "ultimoCosto": 525.5,
-          "totalCosto": 390972.0,
-          "totalFac": 640580.4
+          "totalCosto": 406737.0,
+          "totalFac": 682515.3
         },
         {
           "rubro": "Pinceles",
@@ -177,10 +177,10 @@
         {
           "rubro": "Pinceles",
           "articulo": "Pincel Ecology 25/1(PEC-8003)",
-          "cantidad": 408.0,
+          "cantidad": 432.0,
           "ultimoCosto": 726.34,
-          "totalCosto": 296346.72,
-          "totalFac": 493530.96
+          "totalCosto": 313778.88,
+          "totalFac": 539900.47
         },
         {
           "rubro": "Pinceles",
@@ -193,10 +193,10 @@
         {
           "rubro": "Pinceles",
           "articulo": "Pincel Ecology 30/1(PEC-8004)",
-          "cantidad": 360.0,
+          "cantidad": 384.0,
           "ultimoCosto": 854.4,
-          "totalCosto": 307584.0,
-          "totalFac": 515919.6
+          "totalCosto": 328089.6,
+          "totalFac": 570464.5
         },
         {
           "rubro": "Pinceles",
@@ -205,6 +205,14 @@
           "ultimoCosto": 1156.93,
           "totalCosto": 277663.2,
           "totalFac": 383090.4
+        },
+        {
+          "rubro": "Pinceles",
+          "articulo": "Pincel Ecology 7/1(PEC-8005)",
+          "cantidad": 12.0,
+          "ultimoCosto": 297.47,
+          "totalCosto": 3569.64,
+          "totalFac": 9495.23
         },
         {
           "rubro": "Pinceles",
@@ -297,9 +305,9 @@
       ]
     },
     "Accesorios": {
-      "unidades": 4121.0,
-      "totalFac": 7452847.349999999,
-      "totalCosto": 5206255.37,
+      "unidades": 4243.0,
+      "totalFac": 7548247.41,
+      "totalCosto": 5278364.540000001,
       "articulos": [
         {
           "rubro": "Accesorios",
@@ -408,18 +416,18 @@
         {
           "rubro": "Accesorios",
           "articulo": "Rodillo C/f Nº 5(ROD-7003)",
-          "cantidad": 15.0,
+          "cantidad": 27.0,
           "ultimoCosto": 506.26,
-          "totalCosto": 7593.9,
-          "totalFac": 11162.97
+          "totalCosto": 13669.02,
+          "totalFac": 19200.31
         },
         {
           "rubro": "Accesorios",
           "articulo": "Rodillo Mini Epoxi Nº 5(ROD-7006)",
-          "cantidad": 315.0,
+          "cantidad": 333.0,
           "ultimoCosto": 480.32,
-          "totalCosto": 151300.8,
-          "totalFac": 201229.67
+          "totalCosto": 159946.56,
+          "totalFac": 212667.99
         },
         {
           "rubro": "Accesorios",
@@ -428,6 +436,22 @@
           "ultimoCosto": 2586.69,
           "totalCosto": 532858.14,
           "totalFac": 707251.61
+        },
+        {
+          "rubro": "Accesorios",
+          "articulo": "Rodillos C/f Nº 11(ROD-7005)",
+          "cantidad": 12.0,
+          "ultimoCosto": 622.29,
+          "totalCosto": 7467.48,
+          "totalFac": 9879.41
+        },
+        {
+          "rubro": "Accesorios",
+          "articulo": "Rodillos C/f Nº 8(ROD-7004)",
+          "cantidad": 18.0,
+          "ultimoCosto": 573.63,
+          "totalCosto": 10325.34,
+          "totalFac": 13660.39
         },
         {
           "rubro": "Accesorios",
@@ -472,10 +496,10 @@
         {
           "rubro": "Accesorios",
           "articulo": "Rodillos Mini Epoxi Nº 11(ROD-7008)",
-          "cantidad": 300.0,
+          "cantidad": 312.0,
           "ultimoCosto": 659.53,
-          "totalCosto": 197859.0,
-          "totalFac": 261766.89
+          "totalCosto": 205773.36,
+          "totalFac": 272237.56
         },
         {
           "rubro": "Accesorios",
@@ -484,6 +508,30 @@
           "ultimoCosto": 578.04,
           "totalCosto": 173412.0,
           "totalFac": 229423.32
+        },
+        {
+          "rubro": "Accesorios",
+          "articulo": "Rodillos Mini Thinner Nº 11(ROD-7025)",
+          "cantidad": 14.0,
+          "ultimoCosto": 715.2,
+          "totalCosto": 10012.83,
+          "totalFac": 13246.94
+        },
+        {
+          "rubro": "Accesorios",
+          "articulo": "Rodillos Mini Thinner Nº 5(ROD-7023)",
+          "cantidad": 12.0,
+          "ultimoCosto": 560.59,
+          "totalCosto": 6727.08,
+          "totalFac": 8899.86
+        },
+        {
+          "rubro": "Accesorios",
+          "articulo": "Rodillos Mini Thinner Nº 8(ROD-7024)",
+          "cantidad": 24.0,
+          "ultimoCosto": 622.55,
+          "totalCosto": 14941.2,
+          "totalFac": 19767.13
         },
         {
           "rubro": "Accesorios",
