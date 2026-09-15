@@ -1,18 +1,18 @@
 {
   "empresa": "Irelocs S.A.",
-  "fechaActualizacion": "14/09/2026 19:14",
+  "fechaActualizacion": "15/09/2026 15:45",
   "mes": "09/2026",
   "anio": 2026,
   "nroMes": 9,
-  "totalFac": 24921992.850000005,
-  "totalCosto": 14151987.44,
-  "ganancia": 10770005.410000006,
+  "totalFac": 25356523.610000003,
+  "totalCosto": 14397923.32,
+  "ganancia": 10958600.290000003,
   "margen": 43.2,
   "rubros": {
     "Pinceles": {
-      "unidades": 10704.0,
-      "totalFac": 17373745.440000005,
-      "totalCosto": 8873622.899999999,
+      "unidades": 10812.0,
+      "totalFac": 17531113.320000004,
+      "totalCosto": 8968926.78,
       "articulos": [
         {
           "rubro": "Pinceles",
@@ -248,11 +248,27 @@
         },
         {
           "rubro": "Pinceles",
+          "articulo": "Pincel Profesional 10/1(PLT-2001)",
+          "cantidad": 12.0,
+          "ultimoCosto": 438.16,
+          "totalCosto": 5257.92,
+          "totalFac": 10500.6
+        },
+        {
+          "rubro": "Pinceles",
           "articulo": "Pincel Profesional 10/2(PLT-2007)",
           "cantidad": 30.0,
           "ultimoCosto": 607.95,
           "totalCosto": 18238.5,
           "totalFac": 58217.29
+        },
+        {
+          "rubro": "Pinceles",
+          "articulo": "Pincel Profesional 15/1(PLT-2002)",
+          "cantidad": 24.0,
+          "ultimoCosto": 774.68,
+          "totalCosto": 18592.32,
+          "totalFac": 31216.32
         },
         {
           "rubro": "Pinceles",
@@ -264,11 +280,27 @@
         },
         {
           "rubro": "Pinceles",
+          "articulo": "Pincel Profesional 20/1(PLT-2003)",
+          "cantidad": 60.0,
+          "ultimoCosto": 926.25,
+          "totalCosto": 55575.0,
+          "totalFac": 91545.6
+        },
+        {
+          "rubro": "Pinceles",
           "articulo": "Pincel Profesional 20/2(PLT-2009)",
           "cantidad": 30.0,
           "ultimoCosto": 1225.32,
           "totalCosto": 36759.6,
           "totalFac": 117336.62
+        },
+        {
+          "rubro": "Pinceles",
+          "articulo": "Pincel Profesional 25/1(PLT-2004)",
+          "cantidad": 12.0,
+          "ultimoCosto": 1323.22,
+          "totalCosto": 15878.64,
+          "totalFac": 24105.36
         },
         {
           "rubro": "Pinceles",
@@ -305,9 +337,9 @@
       ]
     },
     "Accesorios": {
-      "unidades": 4243.0,
-      "totalFac": 7548247.41,
-      "totalCosto": 5278364.540000001,
+      "unidades": 4244.0,
+      "totalFac": 7825410.289999999,
+      "totalCosto": 5428996.540000001,
       "articulos": [
         {
           "rubro": "Accesorios",
@@ -384,10 +416,10 @@
         {
           "rubro": "Accesorios",
           "articulo": "Lijadoras Extensibles(FR-1750E)",
-          "cantidad": 1.0,
+          "cantidad": 2.0,
           "ultimoCosto": 150632.0,
-          "totalCosto": 150632.0,
-          "totalFac": 249446.59
+          "totalCosto": 301264.0,
+          "totalFac": 526609.47
         },
         {
           "rubro": "Accesorios",
