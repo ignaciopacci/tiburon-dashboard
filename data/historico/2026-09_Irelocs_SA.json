@@ -1,18 +1,18 @@
 {
   "empresa": "Irelocs S.A.",
-  "fechaActualizacion": "15/09/2026 18:54",
+  "fechaActualizacion": "16/09/2026 15:44",
   "mes": "09/2026",
   "anio": 2026,
   "nroMes": 9,
-  "totalFac": 25356523.610000003,
-  "totalCosto": 14397923.32,
-  "ganancia": 10958600.290000003,
-  "margen": 43.2,
+  "totalFac": 26651683.340000004,
+  "totalCosto": 15156880.84,
+  "ganancia": 11494802.500000004,
+  "margen": 43.1,
   "rubros": {
     "Pinceles": {
-      "unidades": 10812.0,
-      "totalFac": 17531113.320000004,
-      "totalCosto": 8968926.78,
+      "unidades": 10956.0,
+      "totalFac": 18013737.830000006,
+      "totalCosto": 9132358.54,
       "articulos": [
         {
           "rubro": "Pinceles",
@@ -137,18 +137,26 @@
         {
           "rubro": "Pinceles",
           "articulo": "Pincel Ecology 10/1(PEC-8000)",
-          "cantidad": 258.0,
+          "cantidad": 266.0,
           "ultimoCosto": 333.2,
-          "totalCosto": 85965.6,
-          "totalFac": 167441.62
+          "totalCosto": 88631.2,
+          "totalFac": 175545.04
+        },
+        {
+          "rubro": "Pinceles",
+          "articulo": "Pincel Ecology 10/2(PEC-8006)",
+          "cantidad": 4.0,
+          "ultimoCosto": 429.45,
+          "totalCosto": 1717.8,
+          "totalFac": 5222.11
         },
         {
           "rubro": "Pinceles",
           "articulo": "Pincel Ecology 15/1(PEC-8001)",
-          "cantidad": 264.0,
+          "cantidad": 272.0,
           "ultimoCosto": 450.27,
-          "totalCosto": 118871.28,
-          "totalFac": 226073.22
+          "totalCosto": 122473.44,
+          "totalFac": 237023.78
         },
         {
           "rubro": "Pinceles",
@@ -161,10 +169,10 @@
         {
           "rubro": "Pinceles",
           "articulo": "Pincel Ecology 20/1(PEC-8002)",
-          "cantidad": 774.0,
+          "cantidad": 782.0,
           "ultimoCosto": 525.5,
-          "totalCosto": 406737.0,
-          "totalFac": 682515.3
+          "totalCosto": 410941.0,
+          "totalFac": 695295.46
         },
         {
           "rubro": "Pinceles",
@@ -177,26 +185,26 @@
         {
           "rubro": "Pinceles",
           "articulo": "Pincel Ecology 25/1(PEC-8003)",
-          "cantidad": 432.0,
+          "cantidad": 440.0,
           "ultimoCosto": 726.34,
-          "totalCosto": 313778.88,
-          "totalFac": 539900.47
+          "totalCosto": 319589.6,
+          "totalFac": 557565.05
         },
         {
           "rubro": "Pinceles",
           "articulo": "Pincel Ecology 25/2(PEC-8009)",
-          "cantidad": 360.0,
+          "cantidad": 364.0,
           "ultimoCosto": 998.37,
-          "totalCosto": 359413.2,
-          "totalFac": 499478.4
+          "totalCosto": 363406.68,
+          "totalFac": 511618.58
         },
         {
           "rubro": "Pinceles",
           "articulo": "Pincel Ecology 30/1(PEC-8004)",
-          "cantidad": 384.0,
+          "cantidad": 392.0,
           "ultimoCosto": 854.4,
-          "totalCosto": 328089.6,
-          "totalFac": 570464.5
+          "totalCosto": 334924.8,
+          "totalFac": 591243.51
         },
         {
           "rubro": "Pinceles",
@@ -248,6 +256,14 @@
         },
         {
           "rubro": "Pinceles",
+          "articulo": "Pincel Profesiional 30/1(PLT-2005)",
+          "cantidad": 12.0,
+          "ultimoCosto": 1555.57,
+          "totalCosto": 18666.84,
+          "totalFac": 56747.18
+        },
+        {
+          "rubro": "Pinceles",
           "articulo": "Pincel Profesional 10/1(PLT-2001)",
           "cantidad": 12.0,
           "ultimoCosto": 438.16,
@@ -265,58 +281,66 @@
         {
           "rubro": "Pinceles",
           "articulo": "Pincel Profesional 15/1(PLT-2002)",
-          "cantidad": 24.0,
+          "cantidad": 36.0,
           "ultimoCosto": 774.68,
-          "totalCosto": 18592.32,
-          "totalFac": 31216.32
+          "totalCosto": 27888.48,
+          "totalFac": 59476.61
         },
         {
           "rubro": "Pinceles",
           "articulo": "Pincel Profesional 15/2(PLT-2008)",
-          "cantidad": 30.0,
+          "cantidad": 42.0,
           "ultimoCosto": 960.09,
-          "totalCosto": 28802.7,
-          "totalFac": 91938.17
+          "totalCosto": 40323.78,
+          "totalFac": 126962.23
         },
         {
           "rubro": "Pinceles",
           "articulo": "Pincel Profesional 20/1(PLT-2003)",
-          "cantidad": 60.0,
+          "cantidad": 72.0,
           "ultimoCosto": 926.25,
-          "totalCosto": 55575.0,
-          "totalFac": 91545.6
+          "totalCosto": 66690.0,
+          "totalFac": 125335.2
         },
         {
           "rubro": "Pinceles",
           "articulo": "Pincel Profesional 20/2(PLT-2009)",
-          "cantidad": 30.0,
+          "cantidad": 42.0,
           "ultimoCosto": 1225.32,
-          "totalCosto": 36759.6,
-          "totalFac": 117336.62
+          "totalCosto": 51463.44,
+          "totalFac": 162036.28
         },
         {
           "rubro": "Pinceles",
           "articulo": "Pincel Profesional 25/1(PLT-2004)",
-          "cantidad": 12.0,
+          "cantidad": 24.0,
           "ultimoCosto": 1323.22,
-          "totalCosto": 15878.64,
-          "totalFac": 24105.36
+          "totalCosto": 31757.28,
+          "totalFac": 72376.42
         },
         {
           "rubro": "Pinceles",
           "articulo": "Pincel Profesional 25/2(PLT-2010)",
-          "cantidad": 24.0,
+          "cantidad": 36.0,
           "ultimoCosto": 1432.9,
-          "totalCosto": 34389.6,
-          "totalFac": 104544.38
+          "totalCosto": 51584.4,
+          "totalFac": 156816.57
         },
         {
           "rubro": "Pinceles",
           "articulo": "Pincel Profesional 30/2(PLT-2011)",
-          "cantidad": 24.0,
+          "cantidad": 32.0,
           "ultimoCosto": 1753.32,
-          "totalCosto": 42079.68,
-          "totalFac": 127922.21
+          "totalCosto": 56106.24,
+          "totalFac": 170562.95
+        },
+        {
+          "rubro": "Pinceles",
+          "articulo": "Pinceleta Latex 40/4 C 95(PLP-6002)",
+          "cantidad": 4.0,
+          "ultimoCosto": 5549.97,
+          "totalCosto": 22199.88,
+          "totalFac": 53279.71
         },
         {
           "rubro": "Pinceles",
@@ -337,9 +361,9 @@
       ]
     },
     "Accesorios": {
-      "unidades": 4244.0,
-      "totalFac": 7825410.289999999,
-      "totalCosto": 5428996.540000001,
+      "unidades": 4326.0,
+      "totalFac": 8637945.509999996,
+      "totalCosto": 6024522.3,
       "articulos": [
         {
           "rubro": "Accesorios",
@@ -352,10 +376,10 @@
         {
           "rubro": "Accesorios",
           "articulo": "Bandeja Con Escurridor(BCE)",
-          "cantidad": 82.0,
+          "cantidad": 94.0,
           "ultimoCosto": 921.57,
-          "totalCosto": 75568.74,
-          "totalFac": 114864.29
+          "totalCosto": 86627.58,
+          "totalFac": 131673.7
         },
         {
           "rubro": "Accesorios",
@@ -384,34 +408,42 @@
         {
           "rubro": "Accesorios",
           "articulo": "Extensor Mult. Chapa 2 X 1(EXTCH-1)",
-          "cantidad": 1.0,
+          "cantidad": 11.0,
           "ultimoCosto": 5599.21,
-          "totalCosto": 5599.21,
-          "totalFac": 7558.93
+          "totalCosto": 61591.31,
+          "totalFac": 83148.22
         },
         {
           "rubro": "Accesorios",
           "articulo": "Extensor Teles. Aluminio 2 X 1 Mts(EXTAL-1)",
-          "cantidad": 11.0,
+          "cantidad": 21.0,
           "ultimoCosto": 7738.83,
-          "totalCosto": 85127.13,
-          "totalFac": 114921.58
+          "totalCosto": 162515.43,
+          "totalFac": 219395.74
         },
         {
           "rubro": "Accesorios",
           "articulo": "Extensor Mult. Chapa 2 X 1.5(EXTCH-2)",
-          "cantidad": 1.0,
+          "cantidad": 13.0,
           "ultimoCosto": 6891.69,
-          "totalCosto": 6891.69,
-          "totalFac": 9303.78
+          "totalCosto": 89591.97,
+          "totalFac": 120949.1
+        },
+        {
+          "rubro": "Accesorios",
+          "articulo": "Extensor Teles. Aluminio 2 X 1.5 Mts(EXTAL-2)",
+          "cantidad": 10.0,
+          "ultimoCosto": 10468.52,
+          "totalCosto": 104685.2,
+          "totalFac": 141325.02
         },
         {
           "rubro": "Accesorios",
           "articulo": "Extensor Teles. Aluminio 3 X 1.5(EXTAL-3)",
-          "cantidad": 8.0,
+          "cantidad": 20.0,
           "ultimoCosto": 17342.0,
-          "totalCosto": 138736.0,
-          "totalFac": 187293.6
+          "totalCosto": 346840.0,
+          "totalFac": 468234.0
         },
         {
           "rubro": "Accesorios",
@@ -512,10 +544,10 @@
         {
           "rubro": "Accesorios",
           "articulo": "Rodillos Lana Dorada Nº 22(ROD-7022)",
-          "cantidad": 22.0,
-          "ultimoCosto": 4650.18,
-          "totalCosto": 102303.96,
-          "totalFac": 179031.93
+          "cantidad": 30.0,
+          "ultimoCosto": 4720.27,
+          "totalCosto": 141608.2,
+          "totalFac": 237496.96
         },
         {
           "rubro": "Accesorios",
@@ -564,6 +596,14 @@
           "ultimoCosto": 622.55,
           "totalCosto": 14941.2,
           "totalFac": 19767.13
+        },
+        {
+          "rubro": "Accesorios",
+          "articulo": "Rodillos Simil Lana Nº 10(ROD-7014)",
+          "cantidad": 8.0,
+          "ultimoCosto": 2036.6,
+          "totalCosto": 16292.8,
+          "totalFac": 23286.59
         },
         {
           "rubro": "Accesorios",
