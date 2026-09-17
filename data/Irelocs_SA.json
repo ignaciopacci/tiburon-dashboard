@@ -1,12 +1,12 @@
 {
   "empresa": "Irelocs S.A.",
-  "fechaActualizacion": "16/09/2026 18:51",
+  "fechaActualizacion": "17/09/2026 15:51",
   "mes": "09/2026",
   "anio": 2026,
   "nroMes": 9,
-  "totalFac": 26651683.340000004,
-  "totalCosto": 15156880.84,
-  "ganancia": 11494802.500000004,
+  "totalFac": 26662781.96,
+  "totalCosto": 15161216.239999998,
+  "ganancia": 11501565.720000003,
   "margen": 43.1,
   "rubros": {
     "Pinceles": {
@@ -361,9 +361,9 @@
       ]
     },
     "Accesorios": {
-      "unidades": 4326.0,
-      "totalFac": 8637945.509999996,
-      "totalCosto": 6024522.3,
+      "unidades": 4330.0,
+      "totalFac": 8649044.129999997,
+      "totalCosto": 6028857.699999999,
       "articulos": [
         {
           "rubro": "Accesorios",
@@ -404,6 +404,14 @@
           "ultimoCosto": 781.12,
           "totalCosto": 242147.2,
           "totalFac": 368061.76
+        },
+        {
+          "rubro": "Accesorios",
+          "articulo": "Carbon Para Fr-1750e(CARBON-FR1750E)",
+          "cantidad": 4.0,
+          "ultimoCosto": 1083.85,
+          "totalCosto": 4335.4,
+          "totalFac": 11098.62
         },
         {
           "rubro": "Accesorios",
