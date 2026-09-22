@@ -1,18 +1,18 @@
 {
   "empresa": "XXXXXXX",
-  "fechaActualizacion": "21/09/2026 19:24",
+  "fechaActualizacion": "22/09/2026 15:35",
   "mes": "09/2026",
   "anio": 2026,
   "nroMes": 9,
-  "totalFac": 20907892.740000002,
-  "totalCosto": 11308409.13,
-  "ganancia": 9599483.610000001,
-  "margen": 45.9,
+  "totalFac": 21812879.380000003,
+  "totalCosto": 11627314.71,
+  "ganancia": 10185564.670000002,
+  "margen": 46.7,
   "rubros": {
     "Pinceles": {
-      "unidades": 11424.0,
-      "totalFac": 19330507.28,
-      "totalCosto": 10286420.06,
+      "unidades": 11862.0,
+      "totalFac": 20141363.770000003,
+      "totalCosto": 10541291.48,
       "articulos": [
         {
           "rubro": "Pinceles",
@@ -105,10 +105,10 @@
         {
           "rubro": "Pinceles",
           "articulo": "Pincel Clasico 20/1(PEC-1003)",
-          "cantidad": 468.0,
+          "cantidad": 528.0,
           "ultimoCosto": 622.59,
-          "totalCosto": 291372.12,
-          "totalFac": 724301.92
+          "totalCosto": 328727.52,
+          "totalFac": 837862.24
         },
         {
           "rubro": "Pinceles",
@@ -121,10 +121,10 @@
         {
           "rubro": "Pinceles",
           "articulo": "Pincel Clasico 25/1(PEC-1004)",
-          "cantidad": 318.0,
+          "cantidad": 348.0,
           "ultimoCosto": 833.37,
-          "totalCosto": 265011.66,
-          "totalFac": 642703.08
+          "totalCosto": 290012.76,
+          "totalFac": 718706.4
         },
         {
           "rubro": "Pinceles",
@@ -153,10 +153,10 @@
         {
           "rubro": "Pinceles",
           "articulo": "Pincel Ecology 10/1(PEC-8000)",
-          "cantidad": 202.0,
+          "cantidad": 238.0,
           "ultimoCosto": 333.2,
-          "totalCosto": 67306.4,
-          "totalFac": 212968.11
+          "totalCosto": 79301.6,
+          "totalFac": 249433.52
         },
         {
           "rubro": "Pinceles",
@@ -169,10 +169,10 @@
         {
           "rubro": "Pinceles",
           "articulo": "Pincel Ecology 15/1(PEC-8001)",
-          "cantidad": 1360.0,
+          "cantidad": 1456.0,
           "ultimoCosto": 450.27,
-          "totalCosto": 612367.2,
-          "totalFac": 1109591.02
+          "totalCosto": 655593.12,
+          "totalFac": 1253317.12
         },
         {
           "rubro": "Pinceles",
@@ -185,10 +185,10 @@
         {
           "rubro": "Pinceles",
           "articulo": "Pincel Ecology 20/1(PEC-8002)",
-          "cantidad": 334.0,
+          "cantidad": 466.0,
           "ultimoCosto": 525.5,
-          "totalCosto": 175517.0,
-          "totalFac": 472466.54
+          "totalCosto": 244883.0,
+          "totalFac": 697716.86
         },
         {
           "rubro": "Pinceles",
@@ -201,10 +201,10 @@
         {
           "rubro": "Pinceles",
           "articulo": "Pincel Ecology 25/1(PEC-8003)",
-          "cantidad": 256.0,
+          "cantidad": 286.0,
           "ultimoCosto": 726.34,
-          "totalCosto": 185943.04,
-          "totalFac": 482463.72
+          "totalCosto": 207733.24,
+          "totalFac": 548705.88
         },
         {
           "rubro": "Pinceles",
@@ -217,10 +217,10 @@
         {
           "rubro": "Pinceles",
           "articulo": "Pincel Ecology 30/1(PEC-8004)",
-          "cantidad": 220.0,
+          "cantidad": 274.0,
           "ultimoCosto": 854.4,
-          "totalCosto": 187968.0,
-          "totalFac": 462332.93
+          "totalCosto": 234105.6,
+          "totalFac": 611941.79
         },
         {
           "rubro": "Pinceles",
@@ -337,9 +337,9 @@
       ]
     },
     "Accesorios": {
-      "unidades": 553.0,
-      "totalFac": 1577385.4599999997,
-      "totalCosto": 1021989.0699999998,
+      "unidades": 577.0,
+      "totalFac": 1671515.6099999996,
+      "totalCosto": 1086023.2299999997,
       "articulos": [
         {
           "rubro": "Accesorios",
@@ -407,11 +407,19 @@
         },
         {
           "rubro": "Accesorios",
+          "articulo": "Rodillos Antigota Nº 17(ROD-7031)",
+          "cantidad": 12.0,
+          "ultimoCosto": 2594.28,
+          "totalCosto": 31131.36,
+          "totalFac": 45763.03
+        },
+        {
+          "rubro": "Accesorios",
           "articulo": "Rodillos Antigota Nº 22(ROD-7032)",
-          "cantidad": 66.0,
-          "ultimoCosto": 2727.79,
-          "totalCosto": 180034.14,
-          "totalFac": 264650.15
+          "cantidad": 78.0,
+          "ultimoCosto": 2729.96,
+          "totalCosto": 212936.94,
+          "totalFac": 313017.27
         },
         {
           "rubro": "Accesorios",
