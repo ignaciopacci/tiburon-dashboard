@@ -1,18 +1,18 @@
 {
   "empresa": "Irelocs S.A.",
-  "fechaActualizacion": "24/09/2026 18:55",
+  "fechaActualizacion": "25/09/2026 16:10",
   "mes": "09/2026",
   "anio": 2026,
   "nroMes": 9,
-  "totalFac": 30571216.020000003,
-  "totalCosto": 16746152.480000004,
-  "ganancia": 13825063.54,
-  "margen": 45.2,
+  "totalFac": 31110506.830000006,
+  "totalCosto": 17011221.920000006,
+  "ganancia": 14099284.91,
+  "margen": 45.3,
   "rubros": {
     "Pinceles": {
-      "unidades": 12858.0,
-      "totalFac": 21952583.080000002,
-      "totalCosto": 10794060.760000005,
+      "unidades": 12966.0,
+      "totalFac": 22255486.460000005,
+      "totalCosto": 10893968.080000006,
       "articulos": [
         {
           "rubro": "Pinceles",
@@ -81,10 +81,10 @@
         {
           "rubro": "Pinceles",
           "articulo": "Pincel Bacota 15/2(PLB-4001)",
-          "cantidad": 96.0,
+          "cantidad": 108.0,
           "ultimoCosto": 1009.27,
-          "totalCosto": 96889.92,
-          "totalFac": 270644.2
+          "totalCosto": 109001.16,
+          "totalFac": 306675.14
         },
         {
           "rubro": "Pinceles",
@@ -209,18 +209,18 @@
         {
           "rubro": "Pinceles",
           "articulo": "Pincel Ecology 10/1(PEC-8000)",
-          "cantidad": 362.0,
+          "cantidad": 374.0,
           "ultimoCosto": 333.2,
-          "totalCosto": 120618.4,
-          "totalFac": 267005.39
+          "totalCosto": 124616.8,
+          "totalFac": 279920.22
         },
         {
           "rubro": "Pinceles",
           "articulo": "Pincel Ecology 10/2(PEC-8006)",
-          "cantidad": 4.0,
+          "cantidad": 16.0,
           "ultimoCosto": 429.45,
-          "totalCosto": 1717.8,
-          "totalFac": 5222.11
+          "totalCosto": 6871.2,
+          "totalFac": 21867.59
         },
         {
           "rubro": "Pinceles",
@@ -257,42 +257,42 @@
         {
           "rubro": "Pinceles",
           "articulo": "Pincel Ecology 25/1(PEC-8003)",
-          "cantidad": 566.0,
+          "cantidad": 578.0,
           "ultimoCosto": 726.34,
-          "totalCosto": 411108.44,
-          "totalFac": 813967.75
+          "totalCosto": 419824.52,
+          "totalFac": 842120.67
         },
         {
           "rubro": "Pinceles",
           "articulo": "Pincel Ecology 25/2(PEC-8009)",
-          "cantidad": 364.0,
+          "cantidad": 376.0,
           "ultimoCosto": 998.37,
-          "totalCosto": 363406.68,
-          "totalFac": 511618.58
+          "totalCosto": 375387.12,
+          "totalFac": 550315.39
         },
         {
           "rubro": "Pinceles",
           "articulo": "Pincel Ecology 30/1(PEC-8004)",
-          "cantidad": 518.0,
+          "cantidad": 530.0,
           "ultimoCosto": 854.4,
-          "totalCosto": 442579.2,
-          "totalFac": 901950.26
+          "totalCosto": 452832.0,
+          "totalFac": 935066.8
         },
         {
           "rubro": "Pinceles",
           "articulo": "Pincel Ecology 30/2(PEC-8010)",
-          "cantidad": 240.0,
+          "cantidad": 252.0,
           "ultimoCosto": 1156.93,
-          "totalCosto": 277663.2,
-          "totalFac": 383090.4
+          "totalCosto": 291546.36,
+          "totalFac": 427932.97
         },
         {
           "rubro": "Pinceles",
           "articulo": "Pincel Ecology 7/1(PEC-8005)",
-          "cantidad": 24.0,
+          "cantidad": 36.0,
           "ultimoCosto": 297.47,
-          "totalCosto": 7139.28,
-          "totalFac": 16416.11
+          "totalCosto": 10708.92,
+          "totalFac": 27946.04
         },
         {
           "rubro": "Pinceles",
@@ -441,10 +441,10 @@
         {
           "rubro": "Pinceles",
           "articulo": "Pinceleta Nacional Gris 40/4(PLP-5000)",
-          "cantidad": 12.0,
+          "cantidad": 24.0,
           "ultimoCosto": 2520.18,
-          "totalCosto": 30242.16,
-          "totalFac": 95262.78
+          "totalCosto": 60484.32,
+          "totalFac": 176236.14
         },
         {
           "rubro": "Pinceles",
@@ -465,9 +465,9 @@
       ]
     },
     "Accesorios": {
-      "unidades": 4414.0,
-      "totalFac": 8618632.94,
-      "totalCosto": 5952091.719999999,
+      "unidades": 4564.0,
+      "totalFac": 8855020.37,
+      "totalCosto": 6117253.839999999,
       "articulos": [
         {
           "rubro": "Accesorios",
@@ -488,10 +488,10 @@
         {
           "rubro": "Accesorios",
           "articulo": "Bandeja De Mano(BDM)",
-          "cantidad": 850.0,
+          "cantidad": 874.0,
           "ultimoCosto": 250.52,
-          "totalCosto": 212942.0,
-          "totalFac": 439912.6
+          "totalCosto": 218954.48,
+          "totalFac": 449051.42
         },
         {
           "rubro": "Accesorios",
@@ -504,10 +504,10 @@
         {
           "rubro": "Accesorios",
           "articulo": "Bandeja Sin Ecurridor(BSE)",
-          "cantidad": 310.0,
+          "cantidad": 334.0,
           "ultimoCosto": 781.12,
-          "totalCosto": 242147.2,
-          "totalFac": 368061.76
+          "totalCosto": 260894.08,
+          "totalFac": 396556.86
         },
         {
           "rubro": "Accesorios",
@@ -519,11 +519,35 @@
         },
         {
           "rubro": "Accesorios",
+          "articulo": "Cepillo Acero Mango Plastico 4 X 19(CEPAC4X19)",
+          "cantidad": 6.0,
+          "ultimoCosto": 2111.0,
+          "totalCosto": 12666.0,
+          "totalFac": 18239.04
+        },
+        {
+          "rubro": "Accesorios",
+          "articulo": "Cobertor Multiuso Pro Azul 3x3(COB-3PRO)",
+          "cantidad": 12.0,
+          "ultimoCosto": 2095.2,
+          "totalCosto": 25142.4,
+          "totalFac": 38467.87
+        },
+        {
+          "rubro": "Accesorios",
+          "articulo": "Espatula Plast Con Mango Grande(ESPCM04)",
+          "cantidad": 12.0,
+          "ultimoCosto": 284.16,
+          "totalCosto": 3409.92,
+          "totalFac": 4910.21
+        },
+        {
+          "rubro": "Accesorios",
           "articulo": "Extensor Mult. Chapa 2 X 1(EXTCH-1)",
-          "cantidad": 11.0,
+          "cantidad": 17.0,
           "ultimoCosto": 5599.21,
-          "totalCosto": 61591.31,
-          "totalFac": 83148.22
+          "totalCosto": 95186.57,
+          "totalFac": 128501.79
         },
         {
           "rubro": "Accesorios",
@@ -536,10 +560,10 @@
         {
           "rubro": "Accesorios",
           "articulo": "Extensor Mult. Chapa 2 X 1.5(EXTCH-2)",
-          "cantidad": 13.0,
+          "cantidad": 19.0,
           "ultimoCosto": 6891.69,
-          "totalCosto": 89591.97,
-          "totalFac": 120949.1
+          "totalCosto": 130942.11,
+          "totalFac": 176771.76
         },
         {
           "rubro": "Accesorios",
@@ -572,6 +596,14 @@
           "ultimoCosto": 516.12,
           "totalCosto": 25806.0,
           "totalFac": 66063.2
+        },
+        {
+          "rubro": "Accesorios",
+          "articulo": "Llana Plastica Revest Eco(LLANAECO)",
+          "cantidad": 12.0,
+          "ultimoCosto": 1134.22,
+          "totalCosto": 13610.64,
+          "totalFac": 19599.26
         },
         {
           "rubro": "Accesorios",
@@ -660,6 +692,22 @@
           "ultimoCosto": 191.48,
           "totalCosto": 2297.76,
           "totalFac": 6924.29
+        },
+        {
+          "rubro": "Accesorios",
+          "articulo": "Removedor Para Pintura 320 Mm(REM-320)",
+          "cantidad": 24.0,
+          "ultimoCosto": 275.0,
+          "totalCosto": 6600.0,
+          "totalFac": 10560.0
+        },
+        {
+          "rubro": "Accesorios",
+          "articulo": "Removedor Para Pintura 270 Mm(REM-270)",
+          "cantidad": 24.0,
+          "ultimoCosto": 167.85,
+          "totalCosto": 4028.4,
+          "totalFac": 5800.9
         },
         {
           "rubro": "Accesorios",
